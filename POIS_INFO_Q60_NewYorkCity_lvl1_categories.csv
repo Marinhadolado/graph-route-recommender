@@ -1,0 +1,1462 @@
+fsq_id,latitude,longitude,category,price,rating,total_ratings,total_tips,Weekday_EarlyMorning,Weekday_Morning,Weekday_Afternoon,Weekday_Night,Weekend_EarlyMorning,Weekend_Morning,Weekend_Afternoon,Weekend_Night,category_lvlFs
+3fd66200f964a52005e71ee3,40.728357,-74.00514,Night Club-Brazilian Restaurant-Caribbean Restaurant,2,8.4,544,83,0,0,1,0,0,1,1,0,"Dining and Drinking, Arts and Entertainment"
+3fd66200f964a52006e61ee3,40.726175,-74.002085,French Restaurant,3,9.0,596,166,0,0,1,1,1,0,1,1,Dining and Drinking
+3fd66200f964a52010e61ee3,40.726771,-74.001978,Bakery-Café-American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52021ea1ee3,40.719674,-74.007066,Bar-Diner-American Restaurant,2,8.2,429,112,0,0,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52023e61ee3,40.727159,-74.0016,Italian Restaurant,1,8.3,529,141,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a5202ae31ee3,40.72342,-74.008175,Caterer,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Business and Professional Services
+3fd66200f964a5202be61ee3,40.725097,-74.002043,Steakhouse,4,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+3fd66200f964a5202ce71ee3,40.728383,-74.004181,Indie Movie Theater,-1,9.2,570,84,0,0,1,1,0,0,1,1,Arts and Entertainment
+3fd66200f964a52033eb1ee3,40.715386,-73.998167,Ice Cream Parlor-Chinese Restaurant,1,8.6,1605,450,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52034eb1ee3,40.719475,-73.996539,Vietnamese Restaurant,1,8.2,636,172,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52036e71ee3,40.730594,-74.004225,Dive Bar,2,6.1,383,55,1,1,1,1,0,0,1,0,Dining and Drinking
+3fd66200f964a52037e31ee3,40.714285,-73.998997,Cantonese Restaurant-Chinese Restaurant,2,7.8,792,263,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a5203eea1ee3,40.703432,-74.011354,Beer Bar-American Restaurant,3,8.2,194,82,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a5203fe61ee3,40.721575,-73.996665,Retail,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Retail
+3fd66200f964a52044e91ee3,40.722035,-74.00358,Cocktail Bar-American Restaurant-French Restaurant,2,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+3fd66200f964a52050e61ee3,40.726127,-74.001865,Italian Restaurant,2,8.1,412,118,0,0,1,1,0,0,1,1,Dining and Drinking
+3fd66200f964a52053eb1ee3,40.722011,-74.004453,Hotel,-1,8.4,859,188,1,1,1,1,1,1,1,1,Travel and Transportation
+3fd66200f964a52067e61ee3,40.714533,-73.997784,Cantonese Restaurant-Shanghai Restaurant-Seafood Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a5206be61ee3,40.714337,-73.999042,Chinese Restaurant,2,7.6,352,136,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a5206ce91ee3,40.714457,-73.998611,Cantonese Restaurant-Dim Sum Restaurant-Seafood Restaurant,2,7.8,386,82,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a5206fe61ee3,40.723682,-74.004475,Cocktail Bar,3,8.0,166,31,1,0,1,1,1,0,1,1,Dining and Drinking
+3fd66200f964a52070e91ee3,40.722673,-73.998199,French Restaurant,3,9.0,4289,1059,0,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a52071e61ee3,40.725865,-74.009495,Pub-American Restaurant,2,8.7,678,150,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a52073e31ee3,40.735399,-74.008039,Austrian Restaurant-German Restaurant-Modern European Restaurant,3,8.6,214,52,0,0,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a5207fe61ee3,40.716258,-74.009725,Pub-Burger Joint-American Restaurant,1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a52081e61ee3,40.720649,-74.004966,Dive Bar-Pub,2,7.9,377,100,0,1,1,0,0,1,1,0,Dining and Drinking
+3fd66200f964a52083e61ee3,40.716902,-74.007873,American Restaurant-French Restaurant-Italian Restaurant,2,8.8,1047,219,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52091e61ee3,40.719594,-74.010032,Wine Bar-Pizzeria-New American Restaurant,3,8.0,405,94,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52093ea1ee3,40.719035,-73.996871,Chinese Restaurant-Malay Restaurant,2,8.1,931,289,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a52094e61ee3,40.723076,-74.002967,Beer Bar-Burger Joint-American Restaurant,2,7.4,379,89,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a52095e61ee3,40.719052,-74.006169,Painter,2,6.2,339,83,0,1,1,0,0,1,1,0,Business and Professional Services
+3fd66200f964a5209fe61ee3,40.715843,-73.997225,Cantonese Restaurant-Dim Sum Restaurant-Seafood Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a5209fea1ee3,40.72534,-74.003811,Seafood Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520a0e61ee3,40.71462,-73.998573,Cantonese Restaurant-Peking Duck Restaurant-Seafood Restaurant,2,7.9,480,94,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520aae61ee3,40.717261,-74.010506,Pizzeria-Italian Restaurant,3,8.0,171,44,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520b1ea1ee3,40.715036,-73.997149,Cantonese Restaurant,1,8.1,924,288,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520b2ea1ee3,40.715736,-73.999185,Chinese Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520b9e81ee3,40.707311,-74.001602,Pub,2,8.0,247,48,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520b9ea1ee3,40.722966,-74.00305,Dining and Drinking-Bar-Café,3,-1.0,-1,-1,0,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520bbe61ee3,40.719305,-74.004782,Hotel,-1,8.5,668,130,0,1,0,0,0,0,0,0,Travel and Transportation
+3fd66200f964a520bce61ee3,40.717378,-73.998289,Bakery-Café-Italian Restaurant,1,9.0,265,94,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520bce81ee3,40.707728,-74.002142,Dive Bar-Beer Garden,1,7.5,331,70,0,0,1,1,0,0,1,1,Dining and Drinking
+3fd66200f964a520c1e81ee3,40.707743,-74.00751,Pub-Burger Joint-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520c3e81ee3,40.709922,-74.008688,Pub,2,6.4,305,67,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520c5e91ee3,-1.0,-1.0,Korean Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+3fd66200f964a520c7e61ee3,40.719825,-74.005501,Lounge,2,8.0,227,61,1,0,1,1,1,0,1,1,Dining and Drinking
+3fd66200f964a520d1e41ee3,40.705411,-74.011372,Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520d4e61ee3,40.725613,-74.006865,History Museum,-1,6.4,89,22,0,1,1,0,0,1,1,0,Arts and Entertainment
+3fd66200f964a520d5e31ee3,40.715898,-73.997183,Cantonese Restaurant-Dim Sum Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520d5e91ee3,40.72155,-74.001553,Bakery-Café,2,7.5,526,113,0,1,1,0,0,1,1,0,Dining and Drinking
+3fd66200f964a520d7e31ee3,40.716025,-73.998454,Cantonese Restaurant-Dim Sum Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520d7e41ee3,40.70422,-74.010163,Pub-Comfort Food Restaurant-New American Restaurant,2,7.0,456,106,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520d7e61ee3,40.722624,-74.003735,French Restaurant,3,8.0,432,97,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520d8e41ee3,40.704107,-74.010333,Sports Bar-Brewery,2,5.9,250,70,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520d8f11ee3,40.712668,-74.006876,Park,-1,8.9,1324,143,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+3fd66200f964a520d9f11ee3,40.704067,-74.013779,Park,-1,7.9,490,71,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+3fd66200f964a520daf11ee3,40.706842,-74.00298,Harbor or Marina,-1,8.9,1171,225,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+3fd66200f964a520dbe61ee3,40.718919,-73.995164,Event Space-Bar,4,7.8,312,35,0,0,0,1,0,0,0,1,"Dining and Drinking, Business and Professional Services"
+3fd66200f964a520dde41ee3,40.705179,-74.008587,Pub-American Restaurant,2,6.4,206,40,1,1,1,1,1,1,1,1,Dining and Drinking
+3fd66200f964a520dde81ee3,40.71041,-74.016519,Pizzeria,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520e6e81ee3,40.705026,-74.010239,American Restaurant-Steakhouse,3,8.8,560,135,0,0,1,1,0,0,1,1,Dining and Drinking
+3fd66200f964a520e7e51ee3,40.72306423866412,-74.00273042683462,Deli-American Restaurant,-1,7.1,276,70,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520ece31ee3,40.713633,-73.997181,Cantonese Restaurant-Dim Sum Restaurant,2,8.3,1208,228,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520ede41ee3,40.716243,-73.998376,Cantonese Restaurant,1,7.7,653,185,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520ede61ee3,40.731126,-74.006473,Gay Bar-American Restaurant,2,7.5,130,15,1,0,1,1,1,0,1,1,Dining and Drinking
+3fd66200f964a520fbe31ee3,40.71324,-73.997733,Dim Sum Restaurant-Seafood Restaurant,2,7.7,517,137,0,1,1,1,0,1,1,1,Dining and Drinking
+3fd66200f964a520fee31ee3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+40b52f80f964a5205a001fe3,40.720115,-73.996826,Dive Bar-BBQ Joint-Pizzeria,2,7.1,125,44,1,1,1,1,1,1,1,1,Dining and Drinking
+40f1d480f964a5205b0a1fe3,40.719799,-74.008425,Bakery-American Restaurant-Sandwich Spot,2,8.9,2110,528,1,1,1,1,1,1,1,1,Dining and Drinking
+40f47780f964a5209b0a1fe3,40.720378,-73.997055,Italian Restaurant,2,6.2,327,118,0,0,1,1,0,0,1,1,Dining and Drinking
+40f5c900f964a520a30a1fe3,40.72367,-74.002947,Italian Restaurant,3,8.7,459,112,0,0,1,1,0,0,1,1,Dining and Drinking
+40fb0f00f964a520db0a1fe3,40.718027,-73.998228,Italian Restaurant,2,7.4,176,59,0,0,1,1,0,0,1,1,Dining and Drinking
+40fc6080f964a520130b1fe3,40.72983,-74.004544,Sports Bar-Gastropub-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+41083e00f964a520980b1fe3,40.71913,-74.003291,Night Club-Lounge,2,5.3,444,68,1,0,1,1,1,0,0,1,"Dining and Drinking, Arts and Entertainment"
+4116be80f964a520fc0b1fe3,40.704332,-74.009993,Pub-Burger Joint,2,7.8,1098,226,1,1,1,1,0,0,1,0,Dining and Drinking
+4137b400f964a520d11a1fe3,40.730436,-74.004088,Burger Joint-Hot Dog Joint-American Restaurant,3,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4144e300f964a520a51c1fe3,40.718427,-73.997414,Pizzeria-Italian Restaurant-Seafood Restaurant,2,5.9,132,47,1,1,1,1,1,1,1,1,Dining and Drinking
+4165d880f964a5207e1d1fe3,40.700904,-74.013086,Travel and Transportation,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+41ddd100f964a520c21e1fe3,40.716914,-73.999493,Italian Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+41e46880f964a520d41e1fe3,40.733456,-74.006085,Cocktail Bar-Speakeasy-New American Restaurant,3,8.9,2201,513,1,0,0,1,1,0,0,1,Dining and Drinking
+42055e00f964a520671f1fe3,40.7316,-74.006884,Pub-Dive Bar,1,6.9,96,25,1,1,1,1,1,1,1,1,Dining and Drinking
+42055e00f964a5206e1f1fe3,40.730623,-74.007108,Diner-Brasserie-Sushi Restaurant,3,8.7,905,263,0,0,1,1,0,1,1,1,Dining and Drinking
+422b9980f964a520d31f1fe3,40.721944,-74.00493,Karaoke Bar-Restaurant,2,5.6,120,21,0,0,1,1,1,0,1,1,Dining and Drinking
+42474900f964a52080201fe3,40.714948,-74.00832,Dive Bar-American Restaurant-Mexican Restaurant,1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+426d8480f964a52064211fe3,40.714787,-73.998362,Burger Joint-Dim Sum Restaurant,1,6.2,253,63,0,1,1,1,0,1,1,1,Dining and Drinking
+4276bf00f964a52086211fe3,40.705469,-74.017216,Hotel,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4276bf00f964a52091211fe3,40.718438,-74.004922,Lounge-Pub-American Restaurant,2,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+42893400f964a52054231fe3,40.689247,-74.0445,National Park,-1,9.3,5002,702,0,1,1,0,0,1,1,0,Landmarks and Outdoors
+42daf100f964a52035261fe3,40.703465,-74.016846,Picnic Area-Playground,-1,9.2,4564,302,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+42e82000f964a52083261fe3,40.719995,-74.007167,Cocktail Bar-Whisky Bar-American Restaurant,2,9.0,777,170,1,0,1,1,1,0,1,1,Dining and Drinking
+431e2d80f964a52079271fe3,40.721387,-73.997662,Mexican Restaurant,3,8.6,2795,723,0,0,1,1,1,1,1,1,Dining and Drinking
+431f7f00f964a52085271fe3,40.706867,-74.0113,Financial Planner,-1,7.8,977,115,0,1,1,0,0,0,0,0,Business and Professional Services
+43276800f964a520b8271fe3,40.734966,-74.008109,Wine Bar-Lounge,2,8.5,425,79,1,0,1,1,1,0,1,1,Dining and Drinking
+43334580f964a52013281fe3,40.734489,-74.00975,Asian Restaurant-French Restaurant-New American Restaurant,3,8.5,478,115,0,0,1,1,0,1,1,1,Dining and Drinking
+436aa480f964a5209e291fe3,40.716751,-74.009439,Sushi Restaurant-Theme Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+43a69d3ef964a5205d2c1fe3,40.725591,-74.003721,Non-Profit Organization,-1,9.3,52,10,0,1,1,0,0,1,1,0,
+43c2d364f964a5204b2d1fe3,40.729454,-74.011471,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+43db9775f964a520922e1fe3,40.730084,-74.005121,Cocktail Bar-Speakeasy-Restaurant,2,9.0,1470,335,1,0,0,1,1,0,0,1,Dining and Drinking
+444e0033f964a52090321fe3,40.720149,-73.999534,Dosa Place-Salad Restaurant-Sandwich Spot,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+44a052c2f964a520c9341fe3,40.701723,-74.014689,Beer Garden,1,6.1,92,25,1,1,1,1,0,1,1,0,Dining and Drinking
+44a14d7df964a520d0341fe3,40.729221,-74.003759,Burger Joint-New American Restaurant-Seafood Restaurant,3,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+44acde31f964a52013351fe3,40.724874,-74.002296,Pizzeria,1,6.3,266,87,1,1,1,1,1,1,1,1,Dining and Drinking
+44f4bc8af964a52037381fe3,40.707448,-74.002523,Wine Bar-American Restaurant-Italian Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+453b6411f964a520fa3b1fe3,40.722732,-73.997759,Furniture and Home Store-Kitchen Supply Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4555bea7f964a520253d1fe3,40.723477,-73.998137,Clothing Store,2,8.7,1860,253,0,1,1,1,0,1,1,1,Retail
+45697387f964a520e53d1fe3,40.721114,-73.997782,Tapas Restaurant,2,9.1,1190,288,0,1,1,1,0,1,1,1,Dining and Drinking
+45719c4bf964a520693e1fe3,40.70405,-74.01374,History Museum,-1,7.5,598,108,0,1,1,1,0,1,1,0,Arts and Entertainment
+457be73df964a520f73e1fe3,40.722195,-74.00363,Mexican Restaurant,2,6.9,396,127,0,0,1,1,0,0,1,1,Dining and Drinking
+457d9859f964a520293f1fe3,40.718535,-74.007327,Diner-American Restaurant,2,7.8,191,56,0,1,1,1,0,1,1,0,Dining and Drinking
+45a38e32f964a520ee401fe3,40.707948,-74.001976,Sushi Restaurant,3,7.9,207,57,0,0,1,1,0,0,1,1,Dining and Drinking
+45ac12d6f964a5205d411fe3,40.726058,-74.00243,Sushi Restaurant,3,9.2,1114,294,1,0,1,1,1,0,1,1,Dining and Drinking
+45ae08b6f964a52079411fe3,40.720568,-74.009896,American Restaurant-Fast Food Restaurant-Sandwich Spot,2,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+45be8decf964a5201a421fe3,40.720323,-73.997096,Night Club-Cocktail Bar-Lounge,3,-1.0,-1,-1,1,0,0,1,1,0,0,1,"Dining and Drinking, Arts and Entertainment"
+45e3ee77f964a5203a431fe3,40.72936,-74.003958,French Restaurant-New American Restaurant-Seafood Restaurant,4,-1.0,-1,-1,0,0,0,1,0,0,0,1,Dining and Drinking
+45e5c256f964a52046431fe3,40.715147,-74.008938,Sports Bar-BBQ Joint-American Restaurant,2,7.8,457,135,1,1,1,1,1,0,1,1,Dining and Drinking
+45e98bacf964a52080431fe3,40.723201,-74.002361,Ice Cream Parlor-Restaurant,2,8.9,318,101,0,1,1,1,0,1,1,1,Dining and Drinking
+4612961ff964a52037451fe3,40.725438,-74.00341,Cocktail Bar-Sports Bar-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+464451e5f964a52076461fe3,40.72361,-74.003163,Italian Restaurant,2,8.2,314,89,0,0,1,1,0,1,1,1,Dining and Drinking
+4654400ef964a520f6461fe3,40.708771,-74.009384,Coffee Shop,1,6.5,154,27,0,1,1,0,0,0,0,0,Dining and Drinking
+46712cd5f964a520c8471fe3,40.715842,-74.003205,Coffee Shop,1,7.0,230,29,0,1,1,0,0,1,1,0,Dining and Drinking
+46936ee3f964a520d0481fe3,40.717249,-73.997106,Café-Dim Sum Restaurant-Shanghai Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+46e53f29f964a520b74a1fe3,40.729365,-74.003783,Bakery-Diner-American Restaurant,3,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+47111950f964a5209e4b1fe3,40.718551,-74.004752,Cocktail Bar-Lounge-Japanese Restaurant,2,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+4785ef6ff964a520354d1fe3,40.714957,-73.998063,Dim Sum Restaurant-Vegan and Vegetarian Restaurant,1,6.8,221,87,0,1,1,1,0,1,1,1,Dining and Drinking
+47f39422f964a5209b4e1fe3,40.735191,-74.009734,Dive Bar-BBQ Joint-Seafood Restaurant,2,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+480f463ef964a5202a4f1fe3,40.719511,-73.995231,Pool Hall-American Restaurant-Japanese Restaurant,1,-1.0,-1,-1,1,0,1,1,1,0,1,1,"Dining and Drinking, Arts and Entertainment"
+482c4142f964a520d14f1fe3,40.716736,-73.998089,Bakery-Restaurant,1,8.1,217,59,0,1,1,1,0,1,1,1,Dining and Drinking
+48636f02f964a520e3501fe3,40.718762,-73.998955,American Restaurant-Cantonese Restaurant-Dim Sum Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+48b831dcf964a520c2511fe3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+48c9042af964a520e3511fe3,40.720553,-73.996581,Pizzeria-Italian Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+48c91543f964a520e4511fe3,40.714308,-73.998125,Cocktail Bar-Restaurant,3,8.5,1798,434,1,0,0,1,1,0,0,1,Dining and Drinking
+48d395f7f964a520f7511fe3,40.713149,-74.016934,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+49b15042f964a520d4521fe3,40.727481,-74.007594,Coffee Shop-American Restaurant,1,-1.0,-1,-1,1,1,1,0,0,0,0,0,Dining and Drinking
+49b7aefcf964a5202d531fe3,40.70608,-74.00919,Italian Restaurant,4,8.1,290,63,0,0,1,1,0,0,0,0,Dining and Drinking
+49b87b8cf964a52044531fe3,40.726231,-74.005973,Wine Bar-American Restaurant-Mediterranean Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+49bc236af964a5201b541fe3,40.721748,-73.997829,Café-American Restaurant-Swiss Restaurant,2,8.4,1081,262,0,1,1,1,1,1,1,1,Dining and Drinking
+49bc3b0af964a52020541fe3,40.715564,-74.011443,Grocery Store,3,9.1,1783,252,0,1,1,1,0,1,1,1,Retail
+49bd4d49f964a52065541fe3,40.71931,-73.996663,Bakery-Sandwich Spot-Vietnamese Restaurant,1,8.8,671,197,0,1,1,0,0,1,1,0,Dining and Drinking
+49c02175f964a5204b551fe3,40.707742,-74.013489,Burger Joint-Diner-American Restaurant,2,7.4,232,66,0,1,1,1,0,1,1,1,Dining and Drinking
+49c65aa8f964a52038571fe3,40.716476,-73.999738,Whisky Bar-Burger Joint-American Restaurant,2,8.0,753,178,1,1,1,1,1,1,1,1,Dining and Drinking
+49c65f17f964a5203c571fe3,40.719838,-73.999085,Karaoke Bar-Lounge-Burger Joint,2,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+49c68407f964a52052571fe3,40.713873,-73.998282,Cantonese Restaurant-Dim Sum Restaurant-Seafood Restaurant,2,7.0,80,16,0,1,1,1,0,1,1,1,Dining and Drinking
+49c69954f964a52063571fe3,40.722432,-74.002854,Art Museum,-1,9.1,147,12,0,0,1,1,0,0,1,0,Arts and Entertainment
+49c7e0b7f964a520cc571fe3,40.707447,-74.01243,Coffee Shop-Restaurant,1,6.7,213,58,0,1,1,1,0,1,1,0,Dining and Drinking
+49ccd495f964a52091591fe3,40.7152,-74.010948,Café-Coffee Shop-American Restaurant,1,8.6,1619,318,0,1,1,1,0,1,1,1,Dining and Drinking
+49cebdeaf964a520815a1fe3,40.719599,-74.003877,Lounge-Chinese Restaurant,3,9.0,1013,229,1,0,1,1,1,0,1,1,Dining and Drinking
+49cf9efbf964a520b05a1fe3,40.722088,-73.997646,American Restaurant-Seafood Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+49d14433f964a5206c5b1fe3,40.720129,-73.996303,Sushi Restaurant,2,8.1,67,21,0,1,1,1,0,1,1,1,Dining and Drinking
+49d2b43ef964a520cb5b1fe3,40.719815,-74.003886,Café-Coffee Shop-Restaurant,1,8.8,1085,246,0,1,1,1,0,1,1,1,Dining and Drinking
+49d55b3bf964a5208d5c1fe3,40.715606,-73.998001,Bakery-Chinese Restaurant,1,8.2,460,154,0,1,1,1,0,1,1,1,Dining and Drinking
+49d7aaf5f964a5204a5d1fe3,40.721323,-74.000016,Clothing Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+49da4a35f964a5206f5e1fe3,40.709319,-74.007093,Coffee Shop-Sushi Restaurant-Korean Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+49dad010f964a520b15e1fe3,40.71926,-73.99653,Butcher-Cheese Store-Grocery Store,-1,9.0,244,74,0,1,1,1,0,1,1,1,Retail
+49dad10bf964a520b55e1fe3,40.714381,-73.999437,Chinese Restaurant,1,6.9,157,62,0,1,1,1,0,1,1,1,Dining and Drinking
+49dcd4b4f964a520ad5f1fe3,40.722888,-73.997983,Retail,-1,9.3,708,77,0,1,1,1,0,1,1,1,Retail
+49de7429f964a52053601fe3,40.722415,-74.003465,Tea Room-New American Restaurant-Soup Spot,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+49df5807f964a520c0601fe3,40.706621,-74.013051,Dining and Drinking-Café,1,5.2,61,27,0,1,1,0,0,1,1,0,Dining and Drinking
+49e24ccbf964a52007621fe3,40.71957,-74.000995,Clothing Store-Fashion Accessories Store-Men's Store,-1,8.1,414,59,0,1,1,1,0,1,1,1,Retail
+49e559cff964a520c7631fe3,40.713435,-74.008434,Dive Bar-Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+49e63a7ff964a52025641fe3,40.724673,-73.9998,Bookstore,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+49e644c6f964a5202f641fe3,40.72249,-73.997893,Coffee Shop,2,6.1,830,148,1,1,1,1,0,1,1,1,Dining and Drinking
+49e74532f964a52081641fe3,40.720894,-74.009821,Sports Bar-American Restaurant,2,6.3,140,38,1,1,1,1,1,1,1,1,Dining and Drinking
+49e7ce15f964a5201d651fe3,40.715026,-74.01535,Movie Theater,-1,8.8,1705,232,0,1,1,1,0,1,1,1,Arts and Entertainment
+49eb223ff964a520a6661fe3,40.716736,-73.998089,Bakery-Chinese Restaurant,1,8.2,351,89,0,1,1,1,0,1,1,1,Dining and Drinking
+49ee25b6f964a5202b681fe3,40.721564,-73.997101,Bakery-Ice Cream Parlor-American Restaurant,1,9.0,948,253,0,1,1,1,0,1,1,1,Dining and Drinking
+49ef8a3df964a520c9681fe3,40.716488,-73.999302,Cantonese Restaurant-Dim Sum Restaurant,1,7.8,225,84,0,1,1,1,0,1,1,1,Dining and Drinking
+49f125dcf964a52091691fe3,40.70949,-74.012685,Pub-Gastropub,1,8.6,471,98,1,1,1,1,1,1,1,1,Dining and Drinking
+49f201def964a520cc691fe3,40.707078,-74.010146,Gym and Studio,-1,6.2,220,57,1,1,1,1,0,1,1,0,Sports and Recreation
+49f20602f964a520d4691fe3,40.714189,-73.998556,Chinese Restaurant-Ramen Restaurant-Noodle Restaurant,2,6.1,83,25,0,1,1,1,0,1,1,1,Dining and Drinking
+49f220a3f964a520ee691fe3,40.714467,-73.998262,Dim Sum Restaurant,1,8.1,1812,376,0,1,1,1,0,1,1,1,Dining and Drinking
+49f39795f964a520bd6a1fe3,40.716519,-73.998168,Bubble Tea Shop-Coffee Shop-Tea Room,1,7.4,399,98,0,1,1,1,0,1,1,1,Dining and Drinking
+49f50c47f964a520896b1fe3,40.717382,-73.996151,Chinese Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+49f61fe9f964a520046c1fe3,40.714258,-73.997992,Taiwanese Restaurant,1,8.4,352,90,0,1,1,1,0,1,1,1,Dining and Drinking
+49f7456af964a5207b6c1fe3,40.717487,-74.01213,Jazz and Blues Venue-Theater,-1,8.8,270,17,0,1,1,0,0,0,0,0,Arts and Entertainment
+49f75667f964a5208b6c1fe3,40.722096,-73.999349,Department Store,-1,7.5,1269,126,0,1,1,1,0,1,1,1,Retail
+49fe2f8af964a5207b6f1fe3,40.729049,-74.005473,Gym and Studio,-1,6.2,173,44,0,1,1,1,0,1,1,1,Sports and Recreation
+49ff4e3df964a52004701fe3,40.713915,-74.014564,Café-Restaurant,1,5.6,28,17,0,1,1,0,0,1,1,0,Dining and Drinking
+49ff62f9f964a52013701fe3,40.710464,-74.010586,Department Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4a00def5f964a520b9701fe3,40.714187,-73.998644,Chinese Restaurant,2,7.6,78,18,0,1,1,1,0,1,1,1,Dining and Drinking
+4a00df67f964a520ba701fe3,40.715805,-73.99862,Chinese Restaurant-Vietnamese Restaurant,1,7.7,238,76,0,1,1,1,0,1,1,1,Dining and Drinking
+4a01ee7bf964a52010711fe3,40.711032,-74.015453,Burger Joint,2,7.5,698,120,0,1,1,1,0,1,1,1,Dining and Drinking
+4a04ba93f964a52023721fe3,40.715562,-74.01153,Bookstore,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4a05ea5cf964a5209b721fe3,40.7215,-74.00142,American Restaurant-Mediterranean Restaurant,3,8.3,547,123,0,0,1,1,0,1,1,1,Dining and Drinking
+4a0b5a0df964a520ed741fe3,40.713392,-74.011968,Monument,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+4a0c627df964a52028751fe3,40.704315,-74.010603,Pub-American Restaurant,2,5.9,267,69,1,1,1,1,1,1,1,1,Dining and Drinking
+4a0d7695f964a5207c751fe3,40.717379,-74.000254,Vietnamese Restaurant,1,7.0,191,73,0,1,1,1,0,1,1,1,Dining and Drinking
+4a1013b6f964a5208d761fe3,40.715054,-74.010375,Sports Bar-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4a118d01f964a52023771fe3,40.717903,-73.998834,Bakery-Coffee Shop-Chinese Restaurant,1,8.3,216,79,0,1,1,1,0,1,1,1,Dining and Drinking
+4a149749f964a52055781fe3,40.719919,-74.009957,Italian Restaurant,3,9.1,1955,508,0,1,1,1,0,1,1,1,Dining and Drinking
+4a15a2e8f964a520a9781fe3,40.704162,-74.010292,Mexican Restaurant,2,7.7,683,177,1,1,1,1,1,1,1,1,Dining and Drinking
+4a1d6741f964a520727b1fe3,40.707246,-74.001992,Seafood Restaurant-Bar,1,8.6,274,73,1,1,1,1,1,1,1,1,Dining and Drinking
+4a1dd407f964a5209c7b1fe3,40.720508,-73.998238,Animal Shelter,-1,8.8,33,7,0,0,1,1,0,0,1,1,Community and Government
+4a24510af964a520107e1fe3,40.723934,-74.003175,Hotel,-1,7.8,200,53,1,1,1,1,1,1,1,1,Travel and Transportation
+4a2bec19f964a520f1961fe3,40.715058,-73.998329,Cantonese Restaurant-Dim Sum Restaurant,1,5.2,65,25,0,1,1,1,0,1,1,1,Dining and Drinking
+4a2c0e75f964a52014971fe3,40.720693,-74.001345,Housewares Store,-1,8.5,318,24,0,1,1,1,0,1,1,1,Retail
+4a2d2073f964a52083971fe3,40.716324,-73.995411,Bus Station,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Travel and Transportation
+4a2f14def964a520a6981fe3,40.724707,-74.002508,Bistro-French Restaurant-Sandwich Spot,2,7.9,156,62,0,1,1,1,1,1,1,1,Dining and Drinking
+4a2f3322f964a520b6981fe3,40.707545,-74.010819,Gym and Studio,-1,8.7,371,47,1,1,1,1,0,1,1,0,Sports and Recreation
+4a372daef964a5203a9e1fe3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4a397f7ef964a520839f1fe3,40.7151,-74.016575,Monument,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Landmarks and Outdoors
+4a3c088df964a5200ba11fe3,40.718934,-74.004549,Wine Bar-Pizzeria-Italian Restaurant,3,7.8,111,36,0,1,1,1,0,1,1,1,Dining and Drinking
+4a3d3941f964a520f9a11fe3,40.731993,-74.006332,Deli-Diner-American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4a4115a8f964a520c0a41fe3,40.720806,-74.001175,Miscellaneous Store,-1,9.2,546,62,0,1,1,1,0,1,1,1,Retail
+4a411ea5f964a520cba41fe3,40.715745,-74.008744,Cocktail Bar-Lounge-BBQ Joint,3,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+4a436c34f964a52085a61fe3,40.708281,-74.00164,American Restaurant-Italian Restaurant-Seafood Restaurant,2,-1.0,-1,-1,0,0,1,1,0,1,1,1,Dining and Drinking
+4a44cd95f964a5208fa71fe3,40.699101,-74.039543,History Museum,1,8.7,1570,167,0,1,1,1,0,1,1,1,Arts and Entertainment
+4a455daff964a52014a81fe3,40.704275,-74.010122,Pizzeria-Italian Restaurant,2,8.2,883,230,0,1,1,1,0,1,1,1,Dining and Drinking
+4a4560a7f964a5201aa81fe3,40.707379,-74.007016,Italian Restaurant-Pizzeria,3,7.9,511,139,0,1,1,1,0,1,1,1,Dining and Drinking
+4a47e9f5f964a52048aa1fe3,40.721971,-74.005935,Park,-1,6.7,41,14,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4a4a9f62f964a52003ac1fe3,40.703887,-74.012463,Pub-Irish Pub,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4a4aaed7f964a52018ac1fe3,40.730367,-74.006617,Lounge-Wine Bar-Burger Joint,2,8.8,373,87,0,0,1,1,1,0,1,1,Dining and Drinking
+4a4baaf8f964a52091ac1fe3,40.715662,-74.009832,Bagel Shop-Seafood Restaurant-Deli,1,8.5,581,128,0,1,1,0,0,1,1,0,Dining and Drinking
+4a4c5d60f964a52031ad1fe3,40.727545,-74.005239,Hair Salon,-1,8.9,200,97,0,1,1,1,0,1,1,0,Business and Professional Services
+4a4eb977f964a520f8ae1fe3,40.729825,-74.004718,Pizzeria-Italian Restaurant,2,8.2,298,95,0,1,1,1,0,0,1,1,Dining and Drinking
+4a4f8656f964a52063af1fe3,40.729591,-74.005408,Recreation Center,-1,7.0,59,14,0,1,1,1,0,1,1,0,Sports and Recreation
+4a4fd823f964a520c5af1fe3,40.732973,-74.007987,Diner-American Restaurant,1,6.9,53,21,0,1,1,0,0,1,1,0,Dining and Drinking
+4a50f27ef964a5204bb01fe3,40.726208,-74.000864,Boutique-Clothing Store-Bar,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,"Dining and Drinking, Retail"
+4a50f472f964a52051b01fe3,40.72412,-74.000302,Clothing Store-Men's Store-Shoe Store,-1,6.1,59,8,0,1,1,1,0,1,1,1,Retail
+4a510034f964a52066b01fe3,40.724792,-73.999368,Fashion Retail,-1,7.7,107,24,0,1,1,1,0,1,1,1,Retail
+4a523834f964a52068b11fe3,40.703782,-74.012371,Pub-American Restaurant,1,7.9,283,69,1,1,1,1,1,1,1,1,Dining and Drinking
+4a524983f964a5207fb11fe3,40.707689,-74.013443,Latin American Restaurant-Tex-Mex Restaurant-Salad Restaurant,2,7.4,151,53,0,1,1,1,0,0,1,1,Dining and Drinking
+4a528be8f964a520b0b11fe3,40.717264,-73.994531,Cantonese Restaurant-Dumpling Restaurant-Seafood Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4a537663f964a5204cb21fe3,40.720126,-74.003651,Pizzeria-Italian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4a53aa8ef964a52097b21fe3,40.709613,-74.008152,Burger Joint-American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+4a561d04f964a52077b41fe3,40.704102,-74.010508,Burger Joint-Hot Dog Joint-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4a57b809f964a520a9b61fe3,40.722137,-73.99983,Clothing Store,-1,6.2,163,29,0,1,1,1,0,1,1,1,Retail
+4a58f59ef964a5204eb81fe3,40.732269,-74.010055,Park,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4a594f97f964a52035b91fe3,40.719883,-73.997428,Italian Restaurant,3,6.4,96,41,0,0,1,1,0,0,1,1,Dining and Drinking
+4a59f31df964a52095b91fe3,40.704988,-74.00967,Bagel Shop-Deli,1,8.1,663,174,0,1,1,0,0,1,1,0,Dining and Drinking
+4a5a1de7f964a520bcb91fe3,40.723682,-74.004475,Mexican Restaurant,2,8.1,490,118,0,1,1,1,0,1,1,1,Dining and Drinking
+4a5b5143f964a520fdba1fe3,40.730124,-74.003639,American Restaurant-Brazilian Restaurant,2,8.8,444,139,0,1,1,1,0,1,1,1,Dining and Drinking
+4a5bbb14f964a520b3bb1fe3,40.708096,-74.000498,BBQ Joint-Tex-Mex Restaurant-Southern Food Restaurant,2,8.2,576,162,1,1,1,1,1,1,1,1,Dining and Drinking
+4a5d19b7f964a52032bd1fe3,40.708932,-74.011398,Pub-American Restaurant,2,7.4,258,51,0,1,1,1,0,0,0,0,Dining and Drinking
+4a5e6955f964a52085be1fe3,40.706683,-74.008821,Vacation Rental,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4a5f5a54f964a52071bf1fe3,40.707985,-74.00656,Gym and Studio,-1,-1.0,-1,-1,1,1,1,1,0,1,1,1,Sports and Recreation
+4a607307f964a520c7c01fe3,40.714962,-74.017704,Pier,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4a60ff5bf964a520a4c11fe3,40.717764,-73.997999,Italian Restaurant,3,7.4,59,18,0,1,1,1,0,1,1,1,Dining and Drinking
+4a623aa1f964a5206fc31fe3,40.717835,-73.997347,Italian Restaurant,2,6.7,97,40,1,1,1,1,1,1,1,1,Dining and Drinking
+4a623abff964a52071c31fe3,40.711258,-74.009133,Church,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4a663a8ef964a5203ec81fe3,40.707291,-74.010241,National Park,-1,8.0,211,42,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+4a663f7cf964a52046c81fe3,40.709315,-74.011195,Park,-1,7.2,277,60,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4a667506f964a52093c81fe3,40.720038,-74.003632,Coffee Shop-Fast Food Restaurant-Latin American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4a67204ef964a520f0c81fe3,40.70626,-74.01247,"Ear, Nose and Throat Doctor",-1,-1.0,-1,-1,0,1,1,1,0,0,0,0,Health and Medicine
+4a675deef964a52045c91fe3,40.705592,-74.013229,Outdoor Sculpture,-1,8.4,2016,216,1,1,1,1,1,1,1,1,Arts and Entertainment
+4a676321f964a52051c91fe3,40.712746,-74.00599,Monument,-1,7.4,307,87,0,0,1,0,0,0,0,0,Landmarks and Outdoors
+4a6b17bff964a520fdcd1fe3,40.721222,-74.00966,American Restaurant-Steakhouse,4,8.9,329,72,0,0,1,1,0,0,1,1,Dining and Drinking
+4a6dea38f964a52052d31fe3,40.718826,-74.002581,Coffee Shop,1,6.2,338,56,0,1,1,1,0,1,1,1,Dining and Drinking
+4a6e331af964a52031d41fe3,40.714091,-74.010075,Yoga Studio,-1,8.8,297,21,1,1,1,1,0,1,1,0,Sports and Recreation
+4a6eff92f964a5202cd51fe3,40.716155,-74.01151,Elementary School,-1,6.8,20,7,0,1,1,0,0,0,0,0,Community and Government
+4a6fa0abf964a520a4d61fe3,40.713141,-74.015312,Shopping Mall,-1,9.0,1767,116,0,1,1,1,0,1,1,1,Retail
+4a708e84f964a520d1d71fe3,40.731342,-74.006481,Deli-Sandwich Spot,1,6.4,31,16,0,1,1,1,0,1,1,1,Dining and Drinking
+4a70e5d0f964a520b8d81fe3,40.728124,-74.001813,Wine Bar,2,7.7,244,51,1,0,1,1,1,0,1,1,Dining and Drinking
+4a718a5af964a52041d91fe3,40.715528,-74.008823,Coffee Shop,2,6.0,293,53,1,1,1,1,0,1,1,1,Dining and Drinking
+4a734456f964a520f8db1fe3,40.703248,-74.014139,Coffee Shop,1,7.3,383,50,0,1,1,1,0,1,1,1,Dining and Drinking
+4a73515ef964a5201edc1fe3,40.71582,-74.011933,Furniture and Home Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4a747319f964a52033de1fe3,40.728743,-74.00485,Deli-Fast Food Restaurant-Sandwich Spot,1,5.0,37,19,1,1,1,1,1,1,1,1,Dining and Drinking
+4a75e7aef964a52098e11fe3,40.717067,-74.005785,Veterinarian,-1,7.9,14,6,0,1,1,1,0,1,1,0,Health and Medicine
+4a75edcff964a520b3e11fe3,40.720613,-73.996365,Chinese Restaurant-Kosher Restaurant-Vegan and Vegetarian Restaurant,2,8.8,265,82,0,1,1,1,0,1,1,1,Dining and Drinking
+4a7655b0f964a520dce21fe3,40.714208,-73.997859,Noodle Restaurant,1,8.3,606,170,0,1,1,1,0,1,1,1,Dining and Drinking
+4a79bc41f964a5207de71fe3,40.705739,-74.017729,History Museum,-1,6.1,69,16,0,0,1,0,0,0,1,0,Arts and Entertainment
+4a7a06f2f964a52039e81fe3,40.722211,-74.001056,Textiles Store,-1,-1.0,-1,-1,0,0,1,1,0,0,1,0,Retail
+4a7a7c4ef964a5205ee91fe3,40.717587,-74.010432,BBQ Joint-Fast Food Restaurant,2,-1.0,-1,-1,0,1,1,1,0,0,1,1,Dining and Drinking
+4a7adaf1f964a5208de91fe3,40.705231,-74.014611,Government Department,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4a7ca51ff964a52012ed1fe3,40.725845,-74.004299,Gym and Studio,-1,9.0,236,43,0,1,1,1,0,1,1,0,Sports and Recreation
+4a7e3d0cf964a52088f11fe3,40.718131,-73.994391,Vietnamese Restaurant,1,8.1,292,62,0,1,1,1,0,1,1,1,Dining and Drinking
+4a7f56ecf964a520baf31fe3,40.719954,-73.996776,Italian Restaurant,3,7.2,120,39,0,1,1,1,0,1,1,1,Dining and Drinking
+4a807ab1f964a52067f51fe3,40.704529,-74.012663,Fast Food Restaurant-Mexican Restaurant,2,7.5,333,71,0,1,1,1,0,1,1,1,Dining and Drinking
+4a81c3c6f964a52080f71fe3,40.712726,-74.010676,Post Office,-1,6.6,148,26,0,1,1,1,0,1,1,0,Community and Government
+4a82eea3f964a52090f91fe3,40.7096,-74.014566,Hotel,-1,7.9,242,51,1,1,1,1,1,1,1,1,Travel and Transportation
+4a82f013f964a52096f91fe3,40.705503,-74.012527,Cuban Restaurant-Latin American Restaurant-Sandwich Spot,2,8.0,183,57,0,1,1,0,0,0,0,0,Dining and Drinking
+4a831922f964a5201afa1fe3,40.72813,-74.005568,Post Office,-1,5.2,75,26,0,1,1,0,0,1,1,0,Community and Government
+4a83505ef964a520bffa1fe3,40.715134,-73.997503,Bubble Tea Shop-Tea Room-Fast Food Restaurant,1,7.6,299,77,0,1,1,1,0,1,1,1,Dining and Drinking
+4a84eb0af964a520e1fd1fe3,40.711598,-74.006572,Coffee Shop,1,6.9,480,66,1,1,1,1,1,1,1,1,Dining and Drinking
+4a86e69ff964a5208a0120e3,40.71711,-74.031801,Hotel,-1,8.4,253,49,1,1,1,1,1,1,1,1,Travel and Transportation
+4a871eb2f964a520b20220e3,40.718082,-73.998186,Pizzeria-Italian Restaurant-Mexican Restaurant,2,5.9,146,63,0,0,1,1,1,0,1,1,Dining and Drinking
+4a87502bf964a520d30320e3,40.731265,-74.005343,Music Venue-Theater,-1,8.4,193,37,0,0,1,0,0,0,0,0,Arts and Entertainment
+4a875b51f964a520110420e3,40.708166,-74.013767,Pizzeria,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4a8951caf964a520df0720e3,40.714321,-74.001617,Courthouse,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4a8977f0f964a520130820e3,40.714867,-73.999412,Dim Sum Restaurant-Dumpling Restaurant-Fast Food Restaurant,1,7.5,324,101,0,1,1,1,0,1,1,1,Dining and Drinking
+4a8b0693f964a520350b20e3,40.726442,-74.004384,Music Venue-Theater,-1,8.6,109,14,0,0,1,1,0,0,1,1,Arts and Entertainment
+4a8d57e7f964a5207c0f20e3,40.706439,-74.009859,Travel and Transportation,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4a8ec238f964a520961220e3,40.70987,-74.008642,Deli-Sandwich Spot,1,7.4,46,9,0,1,1,0,0,1,1,0,Dining and Drinking
+4a8ec960f964a520a51220e3,40.716734,-74.008085,Bar,-1,8.2,74,10,0,1,1,1,0,1,1,1,Dining and Drinking
+4a9320d2f964a520e31e20e3,40.725977,-74.005395,Coffee Shop,1,6.0,412,88,1,1,1,1,0,1,1,1,Dining and Drinking
+4a93fc49f964a520192020e3,40.704471,-74.012791,Coffee Shop,1,7.7,280,24,1,1,1,1,0,1,1,1,Dining and Drinking
+4a942a25f964a520972020e3,40.724345,-74.001926,Coffee Shop-American Restaurant-Sandwich Spot,1,8.6,2263,507,0,1,1,1,0,1,1,1,Dining and Drinking
+4a9442e3f964a520f92020e3,40.714974,-74.005396,National Park,-1,8.7,113,22,0,1,1,0,0,1,1,0,Landmarks and Outdoors
+4a954328f964a520cf2220e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4a96f137f964a520a02720e3,40.706458,-74.009161,History Museum,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Arts and Entertainment
+4a97f535f964a520f92920e3,40.706872,-74.009788,Monument,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4a995dbdf964a520fb2d20e3,40.717067,-73.999805,Cantonese Restaurant-Seafood Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4a9ae597f964a520763320e3,40.726114,-74.000337,Art Gallery,-1,7.2,21,3,0,1,1,1,0,1,1,1,Arts and Entertainment
+4a9ae833f964a520873320e3,40.724417,-74.001274,Shoe Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4a9aff11f964a520ef3320e3,40.708168,-74.01368,Café-Deli-Pizzeria,1,5.6,84,23,0,1,1,0,0,1,1,0,Dining and Drinking
+4a9bcc2ff964a5203b3520e3,40.717132,-74.011287,Playground,-1,9.3,99,15,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4a9bd43ef964a5204c3520e3,40.7084,-74.00869,Bank,-1,7.1,146,38,0,1,1,0,0,1,1,0,Business and Professional Services
+4a9e9f29f964a520a33a20e3,40.72012,-73.998616,Coffee Shop-American Restaurant-Sandwich Spot,1,7.2,200,55,0,1,1,0,0,1,1,0,Dining and Drinking
+4a9eb0e7f964a520e43a20e3,40.720748,-73.999339,Coffee Shop,1,9.1,1282,255,0,1,1,1,0,1,1,1,Dining and Drinking
+4a9ff5d9f964a520ba3d20e3,40.705273,-74.011078,Coffee Shop,1,7.4,519,76,1,1,1,1,0,1,1,1,Dining and Drinking
+4aa44464f964a520234620e3,40.718357,-73.997979,Pizzeria-Italian Restaurant,3,6.8,400,127,1,1,1,1,1,1,1,1,Dining and Drinking
+4aa57787f964a5207c4820e3,40.726688,-74.003066,Park,-1,7.2,42,18,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+4aa659fbf964a520c24920e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4aa6e56af964a5205d4b20e3,40.717298,-74.001254,Arts and Entertainment-Event Space-Office Building,-1,8.0,27,2,0,1,1,0,0,1,1,0,"Business and Professional Services, Arts and Entertainment"
+4aa7cc25f964a520434d20e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4aa82d21f964a520d94f20e3,40.711699,-74.008802,Gym and Studio,-1,-1.0,-1,-1,1,1,1,1,0,1,1,0,Sports and Recreation
+4aaa4e0ef964a520ad5520e3,40.712445,-74.005165,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4aaa98dcf964a520855620e3,40.705043,-74.009629,Sushi Restaurant,1,6.6,59,19,0,1,1,1,0,0,1,1,Dining and Drinking
+4aabc152f964a520f15920e3,40.713794,-74.009103,Coffee Shop,1,6.8,292,32,1,1,1,1,1,1,1,1,Dining and Drinking
+4aac0035f964a520825b20e3,40.72157,-73.999905,Clothing Store-Shoe Store,-1,7.2,163,22,0,1,1,0,0,1,1,0,Retail
+4aad466df964a5206f5f20e3,40.716421,-74.033345,Rail Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4aad744bf964a520606020e3,40.7224,-74.009968,Sushi Restaurant,3,8.8,206,78,0,0,1,1,0,0,1,1,Dining and Drinking
+4ab04d91f964a520f86620e3,40.704935,-74.009624,Deli-Sandwich Spot,1,6.4,32,18,0,1,1,0,0,1,1,0,Dining and Drinking
+4ab27744f964a520486b20e3,40.704555,-74.00974,American Restaurant-Steakhouse,3,8.7,427,122,0,1,1,1,0,1,1,1,Dining and Drinking
+4ab7a271f964a520477a20e3,40.708023,-74.01221,Church,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4abb7c09f964a520d18320e3,40.715943,-74.00347,Park,-1,8.1,235,15,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+4abcf921f964a520e68720e3,40.72385,-74.004263,Deli-American Restaurant-Sandwich Spot,1,5.7,30,15,0,1,1,1,0,1,1,1,Dining and Drinking
+4abd1344f964a520508820e3,40.72478,-73.999804,Clothing Store-Men's Store,-1,8.1,38,9,0,1,1,1,0,1,1,1,Retail
+4abe5120f964a520a08c20e3,40.718767,-73.996816,Bakery-Chinese Restaurant,1,7.6,181,71,0,1,1,1,0,1,1,1,Dining and Drinking
+4abe7f9ef964a520068e20e3,40.71149,-74.01321,Monument,-1,9.3,3545,315,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+4abfd214f964a520739220e3,40.724115,-74.000476,Clothing Store,-1,7.2,47,9,0,1,1,1,0,1,1,1,Retail
+4ac20140f964a520c29720e3,40.713006,-74.03395,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4ac252f2f964a520ba9820e3,40.709063,-74.008566,Candy Store-Chocolate Store,-1,-1.0,-1,-1,0,1,1,1,0,0,0,0,Retail
+4ac2d629f964a520d79a20e3,40.723822,-74.00531,Hotel,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4ac35065f964a520239b20e3,40.720936,-74.004323,Pizzeria-Bagel Shop-Deli,1,5.9,107,24,1,1,1,1,1,1,1,1,Dining and Drinking
+4ac3f3a5f964a520989d20e3,40.720168,-74.008745,Chinese Restaurant,4,7.2,282,75,0,0,0,1,0,0,0,1,Dining and Drinking
+4aca45d0f964a52028c120e3,40.72163,-74.004568,Arts and Crafts Store,-1,6.8,8,4,0,1,1,1,0,1,1,1,Retail
+4acd4277f964a52099cb20e3,40.702908,-74.012773,Gym and Studio,-1,7.6,196,18,1,1,1,1,0,1,1,0,Sports and Recreation
+4ace467ef964a5208dcf20e3,40.715025,-74.009457,Café-Bakery-Dining and Drinking,2,6.7,284,54,0,1,1,0,0,1,1,0,Dining and Drinking
+4acf2596f964a52087d220e3,40.734051,-74.008029,Egyptian Restaurant-Mediterranean Restaurant,3,7.6,207,69,1,0,1,1,1,0,1,1,Dining and Drinking
+4ad0ec5df964a52023db20e3,40.703501,-74.016851,National Park,-1,7.9,232,33,0,1,1,0,0,1,1,0,Landmarks and Outdoors
+4ad29877f964a52054e220e3,40.72407,-74.002133,Art Gallery,-1,8.0,54,13,0,0,1,0,0,0,1,0,Arts and Entertainment
+4ad35d08f964a520fae320e3,40.703302,-74.006243,Port,-1,-1.0,-1,-1,1,1,1,1,0,1,1,1,Travel and Transportation
+4ad46a75f964a520cde720e3,40.726904,-74.007004,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4ad603f1f964a520790421e3,40.705218,-74.011119,Fast Food Restaurant-Sandwich Spot-Soup Spot,2,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+4ad68c35f964a520c20721e3,40.720814,-74.004842,Italian Restaurant,3,8.4,290,117,0,0,1,1,0,0,1,1,Dining and Drinking
+4ad76597f964a5200e0a21e3,40.712312,-74.008084,Coffee Shop,1,7.0,407,47,0,1,1,1,0,1,1,1,Dining and Drinking
+4ad78220f964a520960b21e3,40.71071,-74.009461,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4adb46d8f964a5207c2521e3,40.703377,-74.011395,History Museum,-1,7.8,66,29,0,0,1,0,0,1,1,0,Arts and Entertainment
+4adc900ef964a520422d21e3,40.727534,-74.00764,Office,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+4adce358f964a520416221e3,40.720786,-73.997944,Gym and Studio,-1,8.1,11,3,0,1,1,1,0,1,1,0,Sports and Recreation
+4adcf23cf964a520cc6221e3,40.715712,-74.009965,Liquor Store-Wine Store,-1,8.9,122,30,0,1,1,1,0,1,1,1,Retail
+4ade00b1f964a5203f6721e3,40.723405,-74.006734,Dining and Drinking,2,6.1,49,16,0,1,1,0,0,0,0,0,Dining and Drinking
+4ade34e7f964a520eb7321e3,40.718405,-74.006143,Art School,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Community and Government
+4ae0f28af964a520f08321e3,40.718182,-74.002468,Spa,-1,7.8,68,24,0,1,1,1,0,1,1,1,Business and Professional Services
+4ae2eb64f964a520b28f21e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ae4bf7ef964a520bf9d21e3,40.717653,-73.996118,Grocery Store,-1,8.2,538,74,0,1,1,1,0,1,1,1,Retail
+4ae5afa0f964a52076a121e3,40.719006,-73.995953,Chinese Restaurant-Vietnamese Restaurant,1,-1.0,-1,-1,0,1,1,1,1,1,1,1,Dining and Drinking
+4ae8906ef964a52071b021e3,40.712636,-74.012025,Public Transportation,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Travel and Transportation
+4ae8fd76f964a520e1b321e3,40.725591,-74.003721,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4ae9c4eaf964a52039b621e3,40.709398,-74.010107,Fast Food Restaurant,1,5.7,269,65,1,1,1,1,1,1,1,1,Dining and Drinking
+4aea2b78f964a520edb921e3,40.70778,-74.012094,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4aea76b3f964a520abbb21e3,40.714957,-74.006007,Coffee Shop,2,6.5,269,42,0,1,1,1,0,1,1,0,Dining and Drinking
+4aeb5fe4f964a52080c121e3,40.725397,-74.002928,French Restaurant-Sushi Restaurant-New American Restaurant,3,9.0,522,152,1,0,1,1,1,0,1,1,Dining and Drinking
+4aec28cdf964a5206bc521e3,40.707639,-74.01331,Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4aedf3c0f964a52096d021e3,40.712819,-73.989424,Latin American Restaurant-Mexican Restaurant,1,7.6,19,9,0,1,1,1,0,1,1,1,Dining and Drinking
+4af08639f964a520e8dc21e3,40.719762,-74.00384,Dermatologist,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Health and Medicine
+4af180a2f964a52027e121e3,40.715226,-74.008025,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4af216e7f964a520d0e521e3,40.714898,-74.008187,Italian Restaurant-Pizzeria,1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4af5fb3af964a520c4ff21e3,40.719098,-74.00844,Clothing Store-Fashion Accessories Store-Men's Store,-1,9.1,23,7,0,1,1,1,0,1,1,1,Retail
+4af82bc2f964a520370b22e3,40.708932,-74.011398,Coffee Shop,1,6.2,224,37,0,1,1,1,0,1,1,1,Dining and Drinking
+4af85709f964a5205f0c22e3,40.714931,-73.999022,Candy Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4af8d13cf964a520201022e3,40.730037,-74.008831,"Shipping, Freight, and Material Transportation Service",-1,5.0,45,10,0,1,1,1,0,1,1,0,Business and Professional Services
+4af8f40cf964a520ab1022e3,40.732655,-74.009764,Gay Bar-BBQ Joint,1,7.8,208,36,1,0,1,1,1,0,1,1,Dining and Drinking
+4afa0494f964a5200f1622e3,40.723232,-74.005156,Bus Stop,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4afc3ba3f964a520bb2022e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4afd9156f964a520a82822e3,40.709691,-74.011844,Burger Joint-Fast Food Restaurant,1,4.8,192,50,0,1,1,1,0,1,1,1,Dining and Drinking
+4afdaf80f964a520d12922e3,40.713834,-74.007621,Physician,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Health and Medicine
+4b0017f7f964a520bb3a22e3,40.708991,-74.009218,Hotel,-1,6.0,46,15,1,1,1,1,1,1,1,1,Travel and Transportation
+4b01eb60f964a5208d4622e3,40.720598,-74.002869,Clothing Store-Men's Store-Women's Store,-1,9.2,76,17,0,1,1,1,0,1,1,1,Retail
+4b02c41cf964a520c14922e3,40.712159,-74.001793,Police Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4b03020cf964a520d74b22e3,40.725052,-74.0037,Physician,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Health and Medicine
+4b032755f964a5200f4d22e3,40.72011,-74.004945,Concert Hall-Music Venue-Theater,-1,8.1,86,11,0,1,1,0,0,0,0,0,Arts and Entertainment
+4b0800f9f964a5202a0223e3,40.706336,-74.00968,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4b08b795f964a5204b1123e3,40.709614,-74.012079,Pizzeria,1,6.2,69,21,1,1,1,1,1,1,1,1,Dining and Drinking
+4b0c37f8f964a5201c3923e3,40.719699,-74.000214,Furniture and Home Store,-1,8.5,24,6,0,1,1,0,0,0,1,0,Retail
+4b0c402af964a520c33923e3,40.712051,-74.009732,Deli-Sandwich Spot,1,7.7,102,43,1,1,1,1,1,1,1,1,Dining and Drinking
+4b0c5736f964a5207a3b23e3,40.723203,-74.002273,Spa,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+4b0d784cf964a520fb4823e3,40.720512,-74.004044,Post Office,-1,4.5,107,43,0,1,1,0,0,1,1,0,Community and Government
+4b0d8b6bf964a520b14a23e3,40.727119,-74.003083,Fast Food Restaurant-Sushi Restaurant-Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4b1161f8f964a520557b23e3,40.707673,-74.002183,Café-Coffee Shop-Sandwich Spot,2,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+4b11a5e0f964a5205c8123e3,40.704483,-74.010392,Wine Bar-American Restaurant,3,-1.0,-1,-1,1,1,1,1,1,0,1,1,Dining and Drinking
+4b12cb6ff964a5204a8e23e3,40.70949,-74.012685,Indian Restaurant-Vegan and Vegetarian Restaurant,2,6.6,157,45,0,1,1,1,0,1,1,1,Dining and Drinking
+4b1319b4f964a520189423e3,40.729725,-74.006417,Playground,-1,6.3,45,13,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4b16bee8f964a520dcbc23e3,40.712768,-74.013121,Publisher-Print Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Business and Professional Services, Retail"
+4b181dddf964a52033cd23e3,40.70983,-74.014052,Hotel,-1,7.1,133,42,1,1,1,1,1,1,1,1,Travel and Transportation
+4b1848eff964a52036d023e3,40.721189,-74.000972,Spa,-1,8.2,17,7,0,1,1,1,0,1,1,1,Business and Professional Services
+4b19b79af964a520a9e223e3,40.704775,-74.007611,Property Management Office-Real Estate Agency-Residential Building,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,"Business and Professional Services, Community and Government"
+4b19debcf964a5207ce523e3,40.708193,-74.004866,Burger Joint-Coffee Shop-Fast Food Restaurant,1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4b1b13ddf964a520bbf723e3,40.705196,-74.007976,Hotel,-1,7.9,282,80,1,1,1,1,1,1,1,1,Travel and Transportation
+4b1c1e9bf964a520830224e3,40.722318,-73.999095,Clothing Store-Shoe Store-Women's Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4b1c3950f964a520970424e3,40.719626,-73.996938,Pizzeria-Italian Restaurant,2,7.4,199,61,0,0,1,1,0,0,1,1,Dining and Drinking
+4b1c5a2ff964a520720624e3,40.710181,-74.007127,Yoga Studio,-1,8.3,30,7,0,1,1,1,0,1,1,0,Sports and Recreation
+4b1d21b3f964a520230c24e3,40.721753,-73.998069,Housewares Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Retail
+4b1d6c55f964a520551024e3,40.70471,-74.006037,Real Estate Agency,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4b214c87f964a520c73924e3,40.713696,-74.000807,Courthouse,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Community and Government
+4b218b72f964a5209c3d24e3,40.718524,-74.003747,Library,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4b22833df964a520174824e3,40.712913,-74.007802,Drugstore,-1,5.9,108,9,0,1,1,1,0,1,1,1,Retail
+4b23f44ff964a520b75d24e3,40.718479,-73.99746,Italian Restaurant,2,7.4,315,92,0,1,1,1,1,1,1,1,Dining and Drinking
+4b240a1ff964a520b25f24e3,40.7342,-74.010481,Park,-1,9.6,1274,121,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+4b252930f964a520266d24e3,40.715508,-74.005592,Drugstore,-1,6.6,69,2,0,1,1,1,0,1,1,1,Retail
+4b27f94df964a5201f8d24e3,40.702949,-74.013255,Bakery-Café-Fast Food Restaurant,1,-1.0,-1,-1,1,1,1,1,0,1,1,1,Dining and Drinking
+4b2ac07af964a520ecae24e3,40.718128,-74.000458,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4b2b9539f964a520e0b724e3,40.729325,-74.007231,Bagel Shop-Coffee Shop-Restaurant,1,5.6,84,22,0,1,1,1,0,1,1,1,Dining and Drinking
+4b2d54b0f964a52057d424e3,40.732575,-74.006748,Church,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4b313629f964a520bf0225e3,40.716342,-74.010601,Burger Joint-Fast Food Restaurant,1,5.4,112,24,1,1,1,1,1,1,1,1,Dining and Drinking
+4b32abb5f964a520701125e3,40.707566,-74.006107,Bar-Gastropub-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4b342e93f964a520dd2525e3,40.71606,-73.995182,Fried Chicken Joint-Fast Food Restaurant,1,5.8,42,10,0,1,1,1,0,1,1,1,Dining and Drinking
+4b37a3c9f964a5207e4325e3,40.71476,-73.993429,History Museum,-1,8.4,116,36,0,1,1,0,0,1,1,0,Arts and Entertainment
+4b38c437f964a520245025e3,40.713988,-73.998025,Cantonese Restaurant-Dim Sum Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4b3a4c91f964a5200d6425e3,40.721852,-74.002351,Clothing Store-Men's Store-Women's Store,-1,8.7,219,19,0,1,1,1,0,1,1,1,Retail
+4b3a50c6f964a520796425e3,40.702123,-74.011913,Office Building,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4b3abe48f964a520b96d25e3,40.728197,-74.00509,Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4b3b7483f964a5201c7425e3,40.725831,-74.004822,Health and Beauty Service-Cosmetics Store,-1,7.5,88,33,-1,-1,-1,-1,-1,-1,-1,-1,"Business and Professional Services, Retail"
+4b3b9824f964a520a87625e3,40.725784,-74.000586,Clothing Store-Fashion Accessories Store,-1,8.2,23,6,0,1,1,1,0,1,1,1,Retail
+4b3b9f27f964a5203a7725e3,40.723917,-74.003786,Hardware Store,-1,6.9,8,3,0,1,1,1,0,1,1,0,Retail
+4b3bde92f964a520137d25e3,40.717503,-73.997683,Acupuncture Clinic,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Health and Medicine
+4b3d4ee9f964a520189225e3,40.71462,-74.008481,Coffee Shop-Pizzeria-Fast Food Restaurant,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+4b40cf3df964a5206bbb25e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4b41442ef964a5205bc425e3,40.718257,-73.997713,Italian Restaurant,2,6.6,248,98,0,1,1,1,0,1,1,1,Dining and Drinking
+4b421ff5f964a52030cd25e3,40.709374,-74.009015,Deli-Fast Food Restaurant-Sandwich Spot,1,5.4,28,7,0,1,1,1,0,1,1,1,Dining and Drinking
+4b4277fbf964a52086d425e3,40.713628,-74.007263,ATM-Bank,-1,6.7,14,5,0,1,1,0,0,1,1,0,Business and Professional Services
+4b435e5ef964a52009df25e3,40.701718,-74.0129,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4b43c3dff964a5200ce925e3,40.71958,-74.010042,Indie Movie Theater,-1,7.5,19,1,0,1,1,0,0,0,0,0,Arts and Entertainment
+4b44a049f964a5201cf825e3,40.704517,-74.013099,Computer Repair Service-Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"Travel and Transportation, Business and Professional Services"
+4b44a1cbf964a52033f825e3,40.703926,-74.013032,Drugstore,-1,5.2,70,9,0,1,1,1,0,1,1,1,Retail
+4b44c958f964a52026fc25e3,40.704807,-74.012368,Italian Restaurant-Pizzeria,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4b466b09f964a520452026e3,40.701771,-74.012946,Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4b481551f964a520d74726e3,40.727159,-74.0016,Butcher-Meat and Seafood Store,-1,7.7,39,7,0,1,1,1,0,1,1,1,Retail
+4b4a5eb9f964a5209a8526e3,40.710279,-74.00748,Drugstore,-1,5.7,134,13,1,1,1,1,1,1,1,1,Retail
+4b4cc07ef964a5204abd26e3,40.710564,-74.010852,Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4b4e031df964a52016de26e3,40.712969,-74.003746,Monument,-1,7.6,178,13,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4b4fdfc8f964a520801827e3,40.708901,-74.004588,Restaurant-Irish Pub,2,7.5,53,11,0,1,1,1,0,1,1,1,Dining and Drinking
+4b520135f964a520aa6027e3,40.715564,-74.011443,Gym and Studio,-1,9.0,466,79,0,1,1,1,0,1,1,0,Sports and Recreation
+4b5211e9f964a520736527e3,40.722915,-73.999102,Shoe Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4b52a06df964a5204e8427e3,40.717067,-74.005785,Bank,-1,6.5,3,1,0,1,1,0,0,0,0,0,Business and Professional Services
+4b538edff964a52032a227e3,40.719133,-73.997224,"Cafe, Coffee, and Tea House-Dessert Shop-Fast Food Restaurant",1,7.5,37,2,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+4b55cd09f964a520acf027e3,40.716754,-73.999443,Thai Restaurant-Vietnamese Restaurant,1,7.6,513,131,0,1,1,1,0,1,1,1,Dining and Drinking
+4b576d3df964a520173728e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4b57b0dff964a520293c28e3,40.713468,-74.007213,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4b59e21df964a520209e28e3,40.707726,-74.006157,Fried Chicken Joint-Korean Restaurant-Wings Joint,2,-1.0,-1,-1,0,1,1,1,0,0,1,1,Dining and Drinking
+4b5b6ddcf964a5205ffd28e3,40.718077,-73.996396,Grocery Store,-1,7.4,196,52,0,1,1,1,0,1,1,1,Retail
+4b5b993ff964a520ee0929e3,40.714529,-73.997959,Chinese Restaurant-Indonesian Restaurant-Malay Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4b5d9155f964a520d06129e3,40.715491,-74.004238,Construction,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4b5e61a3f964a520418c29e3,40.705094,-74.011725,Public and Social Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4b60c708f964a520d0f829e3,40.710866,-74.009685,Japanese Restaurant,4,8.8,396,90,0,0,1,1,0,0,1,1,Dining and Drinking
+4b636db6f964a52019792ae3,40.720503,-73.998413,Massage Clinic,-1,7.2,14,7,0,1,1,1,0,1,1,1,Business and Professional Services
+4b648edcf964a52084bd2ae3,40.707535,-74.00724,Hardware Store,-1,7.0,26,6,0,1,1,1,0,1,1,0,Retail
+4b66042ef964a520950e2be3,40.720869,-73.996856,Barbershop,-1,7.6,74,23,0,1,1,1,0,1,1,1,Business and Professional Services
+4b678d76f964a520ff542be3,40.714869,-73.999325,Asian Restaurant-Karaoke Bar,3,6.2,72,20,1,0,1,1,1,0,1,1,Dining and Drinking
+4b68f12cf964a5201f942be3,40.722256,-73.997434,Metro Station,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4b6ad328f964a5201ee22be3,40.708227,-74.009537,Mexican Restaurant,1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+4b6b51b7f964a520a1002ce3,40.710811,-74.009727,Business and Professional Services,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4b6b5abff964a520fb022ce3,40.711431,-74.012675,Memorial Site,-1,9.3,8329,870,0,1,1,1,0,1,1,1,Landmarks and Outdoors
+4b6c221df964a52070252ce3,40.70872,-74.005323,Bagel Shop-Coffee Shop-Fast Food Restaurant,1,5.3,27,15,0,1,1,1,0,1,1,1,Dining and Drinking
+4b6c7ce0f964a520193e2ce3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4b6d9298f964a520607d2ce3,40.708193,-74.004866,Dive Bar-Burger Joint-Mexican Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4b6ece0bf964a52051cb2ce3,40.718433,-73.995188,Hotel,-1,5.8,79,27,1,1,1,1,1,1,1,1,Travel and Transportation
+4b76d3f4f964a52041622ee3,40.714813,-73.997403,Hair Salon,-1,7.7,47,24,0,1,1,1,0,1,1,1,Business and Professional Services
+4b78360df964a520a7bc2ee3,40.715506,-74.009607,Travel and Transportation,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4b7bfd18f964a52045772fe3,40.716061,-74.00509,Coffee Shop-Ice Cream Parlor,1,5.9,54,12,1,1,1,0,0,1,1,0,Dining and Drinking
+4b7d5105f964a520dbb72fe3,40.71291,-74.00789,Donut Shop,1,5.9,12,4,1,1,1,0,0,1,1,0,Dining and Drinking
+4b7de017f964a52049d82fe3,40.710863,-74.009772,Coffee Shop,1,7.1,463,52,1,1,1,1,0,1,1,0,Dining and Drinking
+4b8177d3f964a52026a830e3,40.723694,-74.004039,Pet Grooming Service-Pet Sitting and Boarding Service-Pet Supplies Store,-1,8.2,12,1,0,1,1,1,0,1,1,1,"Business and Professional Services, Retail"
+4b829e60f964a52007db30e3,40.7324,-74.005257,Arts and Entertainment,-1,8.8,347,49,-1,-1,-1,-1,-1,-1,-1,-1,Arts and Entertainment
+4b831a73f964a520d7f730e3,40.707689,-74.013443,Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4b856573f964a520205b31e3,40.703957,-74.017789,Monument,-1,6.1,8,3,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4b89e8e5f964a5208f5532e3,40.7067,-74.008211,Social Club,-1,7.8,43,3,0,1,1,1,0,0,0,0,Community and Government
+4b8bd401f964a5205cad32e3,40.706445,-74.017539,Elementary School,-1,7.4,19,4,0,1,1,0,0,0,0,0,Community and Government
+4b8c5081f964a52015ca32e3,40.717559,-74.00157,Church,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4b8d4e62f964a52056f332e3,40.719594,-74.010032,Movie Theater-Restaurant,-1,8.7,71,4,0,1,1,1,1,1,1,0,"Dining and Drinking, Arts and Entertainment"
+4b9146f5f964a52058af33e3,40.706257,-74.008629,Organization-Monument-Plaza,-1,6.0,40,14,-1,-1,-1,-1,-1,-1,-1,-1,"Landmarks and Outdoors, Community and Government"
+4b929790f964a5209a0734e3,40.71776,-74.015939,Park,-1,9.5,444,40,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4b930784f964a520fd2f34e3,40.712425,-73.999971,Construction,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4b957a85f964a520b7a434e3,40.709239,-74.003895,Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4b9580c5f964a52034a634e3,40.717034,-73.999061,Butcher-Fish Market-Grocery Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Retail
+4b9580fff964a52045a634e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4b96bd72f964a5207ce134e3,40.718532,-73.997506,Italian Restaurant,2,6.6,103,38,0,0,1,1,0,0,1,1,Dining and Drinking
+4b996536f964a520467835e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4b9a6aaaf964a5207fb335e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4b9c4d34f964a520765d36e3,40.718499,-74.006671,Park,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4b9d4c67f964a5206ca136e3,40.719179,-73.997531,History Museum,-1,-1.0,-1,-1,0,0,1,0,0,0,1,0,Arts and Entertainment
+4b9ea289f964a520a1f536e3,40.710868,-74.009598,Advertising Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4b9fc725f964a520cd3d37e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ba047e3f964a520006637e3,40.72012,-73.998616,Business and Professional Services,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4ba0e4e3f964a520498537e3,40.746643,-73.99333,Park,-1,9.4,520,44,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+4ba0e528f964a5205c8537e3,40.721079,-74.012928,Park,-1,9.3,259,19,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4ba0e817f964a520248637e3,40.704672,-74.011359,Technology Business-Furniture and Home Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"Business and Professional Services, Retail"
+4ba25f2ef964a52051f237e3,40.725344,-74.002882,Playground,-1,7.6,8,1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4ba2671af964a5205af537e3,40.703,-74.017315,Harbor or Marina-Bar-Harbor or Marina,-1,7.1,54,15,-1,-1,-1,-1,-1,-1,-1,-1,"Landmarks and Outdoors, Dining and Drinking"
+4ba29b87f964a520c20838e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ba3a8dbf964a5202c5138e3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ba4215ff964a5208f8438e3,40.717356,-73.995146,Arts and Entertainment-Karaoke Bar-Lounge,2,5.5,139,22,1,0,1,1,1,0,1,1,"Dining and Drinking, Arts and Entertainment"
+4ba4fa44f964a5204dcb38e3,40.70833,-74.035333,Memorial Site,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4ba7cbcaf964a5200fb439e3,40.722728,-74.007842,Import and Export Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4baa2eb5f964a5202e513ae3,40.707866,-74.008955,Law Office,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4baa5aaef964a52038623ae3,40.723405,-74.006734,Advertising Agency,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4baa833df964a52065703ae3,40.718885,-74.0004,Flea Market,-1,6.4,77,11,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+4baae71df964a520118d3ae3,40.706335,-74.003789,Seafood Restaurant,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4bab56aff964a5209ea13ae3,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bac00a1f964a52025dd3ae3,40.719404,-73.999155,History Museum,-1,8.6,200,32,0,1,1,1,0,1,1,0,Arts and Entertainment
+4bacf202f964a520a81c3be3,40.703878,-74.012811,Candy Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Retail
+4bacf76df964a5201e1f3be3,40.720062,-74.004725,Radio Station,-1,7.7,16,13,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4bb3596714cfd13a98e415ab,40.724875,-74.006225,Office Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4bb4accd613fb713640494e6,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bb555daef159c7425aa74f7,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bb617b2f562ef3b379a2f97,40.710281,-74.007393,Public and Social Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4bb67651f562ef3bde333097,40.702875,-74.013993,Bar-American Restaurant,4,6.4,174,34,0,1,1,1,0,1,1,1,Dining and Drinking
+4bb76b8146d4a593de6ec7c0,40.73263,-74.006707,Garden,-1,9.4,128,26,0,1,1,0,0,1,1,0,Landmarks and Outdoors
+4bb92a9453649c74dacb47fb,40.715749,-73.996698,Chinese Restaurant-Malay Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4bbb9dbded7776b0e1ad3e51,40.719136,-74.009009,Asian Restaurant-South Indian Restaurant,3,9.0,806,158,0,1,1,1,0,1,1,1,Dining and Drinking
+4bc10965abf49521296bc093,40.731397,-74.00644,BBQ Joint-Japanese Restaurant-Korean Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+4bc1e64b4cdfc9b6892b9521,40.719323,-74.010064,American Restaurant-Fast Food Restaurant-Italian Restaurant,2,6.2,118,40,1,1,1,1,1,1,1,1,Dining and Drinking
+4bc21f2bb492d13af4ffa660,40.713288,-73.997953,Landmarks and Outdoors,-1,5.6,19,2,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4bc24023461576b056237d32,40.708022,-74.011143,Community and Government,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Community and Government
+4bc51cf40a30d13aafad599c,40.718945,-74.010093,Wine Bar-Burger Joint-American Restaurant,2,9.0,542,136,1,0,1,1,1,0,1,1,Dining and Drinking
+4bc72ae7af07a593909c7e2d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bc743d68b7c9c74df1536cf,40.721323,-74.000016,Clothing Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4bc7ab4c14d79521c6e367e9,40.709136,-74.013806,Hotel,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4bc86f7a2f94d13a418d137f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bc8e039fb84c9b6e6ef193e,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bcc5dcd3740b713d5d86365,40.73373,-74.009894,Pier,-1,9.0,85,12,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4bcc638d68f976b06d7a6283,40.714499,-74.012928,Office Building-Organization,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Business and Professional Services, Community and Government"
+4bcdb0448920b7137312a0dc,40.709688,-74.01134,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4bcdcfb6511f95211130b5c7,40.71233,-74.01533,Financial Planner,-1,-1.0,-1,-1,0,1,1,1,0,0,0,0,Business and Professional Services
+4bcf38f6aeedef3b2a6dc598,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bcf4cfe9854d13a18caf54d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bcf9774a8b3a5939497625f,40.714337,-73.999042,Shanghai Restaurant,2,8.4,1041,269,0,1,1,1,0,1,1,1,Dining and Drinking
+4bd1af599854d13a3ff3f94d,40.707257,-74.035115,Cruise,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Travel and Transportation
+4bd2612a77b29c74b7c08e82,40.702145,-74.015055,Park,-1,8.0,177,27,0,1,1,1,0,1,1,1,Landmarks and Outdoors
+4bd63fe7cfa7b7136b6227da,40.724573,-74.001498,Dance Studio,3,-1.0,-1,-1,0,1,1,1,0,1,1,0,Sports and Recreation
+4bd716bd6798ef3b382c668d,40.709872,-74.006591,Fast Food Restaurant-Mexican Restaurant,1,7.0,370,57,0,1,1,1,0,1,1,1,Dining and Drinking
+4bd763f30b779c74411005a0,40.716487,-73.997338,Hair Salon,-1,8.6,95,24,0,1,1,1,0,1,1,1,Business and Professional Services
+4bd8feaae914a593356d55fa,40.696395,-74.01631,Boat or Ferry,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4bd9259267b49c7480832214,40.73259,-74.00819,Parade,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Event
+4bd99fa60115c9b6c6ec7780,40.712089,-73.99843,Nail Salon,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4bd9b7ec0115c9b6f6587880,40.704529,-74.012663,Public Transportation,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Travel and Transportation
+4bd9d7af3f01c9b63c5b53a5,40.705183,-74.018318,Park,-1,8.8,216,34,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+4bdaebaac79cc928863d80e9,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bdb4c1563c5c9b694402768,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bddccbe6198c9b67bb911ff,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4bdef6f3ffdec928cc3feaa1,40.714047,-74.003788,ATM-Credit Union,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4be167a4c1732d7f00e15b9a,40.714014,-74.008937,Bagel Shop-Coffee Shop-Fast Food Restaurant,1,6.1,80,20,1,1,1,1,1,1,1,1,Dining and Drinking
+4be19fed1a44a593113a9287,40.725104,-73.999817,Art Gallery,-1,8.6,36,10,0,1,1,1,0,1,1,1,Arts and Entertainment
+4be1aea140c0ef3b4f55bed6,40.722011,-74.004453,Hotel Bar-American Restaurant,3,6.6,169,58,0,0,1,1,0,0,1,1,Dining and Drinking
+4be30badf07b0f47b6eff643,40.69977,-74.013172,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4be32919660ec9287c4fcb3b,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4be36e20660ec928a833cc3b,40.703551,-74.008958,Insurance Agency,-1,6.9,8,4,0,1,1,0,0,0,0,0,Business and Professional Services
+4be7f1a4947820a1c23fb4db,40.721186,-74.010968,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4be9579f947820a1aedbb5db,40.728658,-74.009955,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4be99814a9900f479a811540,40.712367,-74.008043,Monument,-1,7.6,162,28,0,1,1,1,1,1,1,1,Landmarks and Outdoors
+4beb0c83246fb713dff8abdf,40.709173,-74.039993,American Restaurant,3,8.6,352,240,0,0,1,1,0,1,1,1,Dining and Drinking
+4bedbb23e24d20a116e77114,40.716261,-74.01553,Dog Park,-1,8.8,39,8,0,1,1,1,0,1,1,1,Landmarks and Outdoors
+4bf1ae60324cc9b6b652cc92,40.716294,-73.992529,Chinese Restaurant-Hotpot Restaurant,2,7.2,249,54,0,1,1,1,0,1,1,1,Dining and Drinking
+4bf30b89706e20a196c7a798,40.712417,-74.010139,Travel and Transportation,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4bf684b4004ed13a4d8c42a0,40.716812,-74.015115,Drugstore,-1,5.7,17,2,0,1,1,1,0,1,1,1,Retail
+4bf6984e94b2a5934eb5adee,40.720488,-74.002952,Hardware Store,-1,7.1,9,8,0,1,1,0,0,1,1,0,Retail
+4bf8343f4a67c9285ffb24cf,40.712379,-74.009571,Church,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4bf8405f8d30d13ab8660018,40.725344,-74.004846,Motorcycle Dealership,-1,7.7,63,10,0,1,1,0,0,1,1,0,Retail
+4bf844095ec320a1147588d3,40.727541,-74.005639,Hotel,-1,6.3,63,23,1,1,1,1,1,1,1,1,Travel and Transportation
+4bfacc665ec320a1932a8cd3,40.707138,-74.011894,Office,-1,-1.0,-1,-1,0,1,1,1,0,0,1,1,Business and Professional Services
+4bfb0ac865fbc9b660e8906c,40.734437,-74.009704,Park,-1,8.8,97,13,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4bfb149cbbb7c9282cb20743,40.713807,-74.036524,Thai Restaurant,2,7.7,162,53,0,1,1,1,0,0,1,1,Dining and Drinking
+4bfdcd3ae529c928a589bb8c,40.71901,-73.995778,BBQ Joint-Chinese Restaurant,2,6.9,45,16,0,1,1,1,0,1,1,1,Dining and Drinking
+4bfe7ed8e529c9289567bc8c,40.709614,-74.012079,Deli-American Restaurant-Sandwich Spot,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4bff2f9b369476b0ba8a8d1f,40.729091,-74.011849,Soccer Field,-1,8.4,98,23,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+4bffd231369476b01d568e1f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c000585daf9c9b64220fbef,40.723289,-74.001098,Hair Salon,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Business and Professional Services
+4c07e45e6071a5936660db32,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c0a69f1a1b32d7fb43899f0,40.72224,-74.000009,Gym and Studio,-1,7.2,36,7,1,1,1,1,0,1,1,0,Sports and Recreation
+4c0e5e03adcd9c745cb302f6,40.720057,-74.004899,Radio Station,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4c0fa28f98102d7f5f82e506,40.717862,-74.000316,Cantonese Restaurant,-1,7.6,20,10,0,1,1,0,0,1,1,0,Dining and Drinking
+4c1125b56b7e2d7fc6c72835,40.715596,-74.00433,Government Department,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4c1164576e5dc9b69506b02d,40.711399,-74.017824,Park,-1,9.4,472,52,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4c128a4b1b5cef3b75c5edc4,40.701497,-74.009139,Tour Provider,-1,7.5,31,11,0,1,1,1,0,1,1,1,Travel and Transportation
+4c13afaaa9c220a19222569d,40.721188,-73.999007,Hair Salon,-1,8.4,103,37,0,1,1,1,0,1,1,0,Business and Professional Services
+4c154c9a77cea593c401d260,40.71387,-74.008277,Bakery-Fast Food Restaurant-Japanese Restaurant,1,9.0,879,203,0,1,1,1,0,1,1,1,Dining and Drinking
+4c17aac8f256a593dceaec3e,40.723702,-73.997797,Shoe Store,-1,5.8,24,6,0,1,1,1,0,1,1,1,Retail
+4c194e6b4ff90f4738be0f49,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c1a94bcb4e62d7f0c08d893,40.699707,-74.013475,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4c23c9aca852c9283c11e26c,40.722703,-74.004786,Hotel,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+4c2404a0c11dc9b64ade2424,40.726114,-74.000337,Nail Salon,-1,5.7,28,8,0,1,1,1,0,1,1,1,Business and Professional Services
+4c28c07b9fb5d13a79059a57,40.705677,-74.006163,Construction,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Business and Professional Services
+4c2a2a6ab1ddc9b674a452fb,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c2b3de98abca59321ceff1f,40.707433,-74.010989,Coffee Shop,1,6.2,63,10,1,1,1,1,0,1,1,0,Dining and Drinking
+4c2ba1f857a9c9b67138f667,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c2caafb8ef52d7f823a33ba,40.720864,-74.004231,Hotel,-1,7.0,354,85,1,1,1,1,1,1,1,1,Travel and Transportation
+4c35de72452620a1ba5d270f,40.702947,-74.017269,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4c36228418e72d7f004f14f5,40.702255,-74.016936,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4c3665a93849c928b900bcb1,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c374bf80a71c9b6f2893ec9,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c37d0f493db0f47db922092,40.709832,-74.013965,Hotel Bar-Dining and Drinking,3,6.3,53,13,0,1,1,1,0,1,1,1,Dining and Drinking
+4c42383fff711b8dbe381305,40.707253,-74.035289,History Museum,-1,8.8,104,8,-1,-1,-1,-1,-1,-1,-1,-1,Arts and Entertainment
+4c49e55a1b430f4722e129c4,40.706533,-74.01235,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4c51b323991c20a174bd4088,40.721815,-73.997766,Office Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4c51cd3cbfc6ef3b6def3e9c,40.718903,-73.997738,Pizzeria-Italian Restaurant,2,6.9,114,45,0,1,1,1,0,1,1,1,Dining and Drinking
+4c545b1b479fc9280e360293,40.722052,-73.99699,Drugstore,-1,5.3,192,25,0,1,1,1,0,1,1,1,Retail
+4c548f2da724e21e801999f6,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c5d7ac6d25320a175ffc57a,40.723792,-74.002428,Clothing Store,-1,7.5,33,7,0,1,1,1,0,1,1,1,Retail
+4c6832a6f984a593653e49f4,40.70604,-74.012636,Financial Service-Legal Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4c68988cfff7c9b6148647ef,40.724472,-74.003197,French Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4c6c32b0e13db60c0265d5b1,40.715305,-74.00836,Sushi Restaurant,2,5.6,36,12,0,1,1,1,0,1,1,1,Dining and Drinking
+4c70029f9c6d6dcbd424d17a,40.705554,-74.002754,Pier,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4c757abb3adda1432e7707af,40.718058,-74.007002,Community and Government,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Community and Government
+4c77e85ad3296dcb095d5366,40.715177,-74.005841,Supplement Store,-1,6.6,4,3,0,1,1,1,0,1,1,1,Retail
+4c7be9be2d3ba143136795d0,40.710155,-74.01005,Dining and Drinking-Sandwich Spot-Coffee Shop,1,7.9,341,47,0,1,1,1,0,1,1,0,Dining and Drinking
+4c7c5699aa3ba0938c9eaa74,40.717989,-74.014049,Gym and Studio,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+4c7d4f1b8da18cfa1afc9ece,40.721925,-73.997683,Italian Restaurant,3,-1.0,-1,-1,0,0,1,1,0,1,1,1,Dining and Drinking
+4c899f201eafb1f79c847335,40.722066,-74.004411,Cocktail Bar-Lounge-American Restaurant,3,8.3,194,37,1,0,0,1,0,0,0,1,Dining and Drinking
+4c90ef9757e5b60c584b5c1c,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4c93d860f7cfa1cd5331ae15,40.707114,-74.010802,Metro Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4c97adba58d4b60c55484529,40.715488,-74.004325,Government Department,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4c98d854d799a1cd97b6b552,40.716746,-74.033271,Scenic Lookout-Waterfront-Sporting Goods Retail,-1,9.2,316,37,0,1,1,1,0,0,1,1,"Landmarks and Outdoors, Retail"
+4c9d04d68afca0937fbdf215,40.70444,-74.00339,Park,-1,7.9,26,4,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4c9d482e46978cfa8247967f,40.715231,-73.991963,Gastropub-English Restaurant-New American Restaurant,2,-1.0,-1,-1,0,0,1,1,0,1,1,1,Dining and Drinking
+4c9d89017ada199cf0a493bc,40.705237,-74.008458,Sushi Restaurant,2,-1.0,-1,-1,0,1,1,1,0,0,1,1,Dining and Drinking
+4ca9ff3214c33704814ae33b,40.706134,-74.007184,Salad Restaurant,2,7.8,188,38,0,1,1,1,0,0,0,0,Dining and Drinking
+4cb0889739458cfa1d8103a0,40.7121,-73.994066,Plaza-Park,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4cb9953bbac93704db37e57c,40.717029,-74.00718,Clothing Store-Men's Store-Women's Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Retail
+4cc0aa4522ce4688e6c63847,40.711686,-74.00531,College Gym,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4cc1bf0001fb236a32789aba,40.707382,-74.006928,ATM-Bank,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4cc3738cb2beb1f742db164c,40.716373,-73.993579,Middle School,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4cc60b7a82388cfad0727935,40.722593,-74.004869,Cocktail Bar-Lounge-American Restaurant,3,8.6,944,158,1,0,1,1,1,0,1,1,Dining and Drinking
+4cccb964c9b8468815d4bec3,40.72875,-74.004588,Bar-Gastropub-American Restaurant,2,6.9,596,152,1,1,1,1,1,1,1,1,Dining and Drinking
+4cd1ae08bcab95217f073a15,40.721447,-73.99941,Tea Room-Restaurant,1,8.9,743,154,0,1,1,1,0,1,1,1,Dining and Drinking
+4cd1ddda01eaf04da7bcc05d,40.713954,-73.999245,Travel and Transportation,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4cd37295baf2f04dfc22afa3,40.71531,-73.998993,Cantonese Restaurant,1,-1.0,-1,-1,0,1,1,1,1,1,1,1,Dining and Drinking
+4cd465d567adf04d0f0d2791,40.724144,-74.001394,Shoe Store,-1,8.6,102,18,0,1,1,1,0,1,1,1,Retail
+4cd84a313ec4b1f763cdbd3f,40.710316,-74.012064,Monument,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+4cd85773da85224b3d0a4cca,40.713851,-73.999067,Bus Station,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4cd89eeb6e8b5941660c64d2,40.716935,-74.008617,Cocktail Bar-American Restaurant,3,8.9,500,82,1,0,1,1,1,0,1,1,Dining and Drinking
+4cdac798d6656a315f36fc3e,40.70872,-74.005323,Bookstore-Comic Book Store,-1,8.3,191,35,0,1,1,1,0,1,1,1,Retail
+4ce147cadf986ea84ebfeb16,40.715576,-74.001099,Courthouse,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4ce41f161594236ac316fb49,40.714207,-74.01571,Coffee Shop,1,8.3,138,27,1,1,1,1,0,1,1,1,Dining and Drinking
+4ce56fbd5bf68cfa65f23c17,40.704746,-74.01062,American Restaurant-Cantonese Restaurant-Fast Food Restaurant,1,6.5,59,14,0,1,1,1,0,0,1,1,Dining and Drinking
+4ce6fa8ff1c6236a46a356f0,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ce70085e888f04dd660396b,40.713605,-74.008135,Sports Bar-American Restaurant,2,6.5,185,33,1,1,1,1,1,1,1,1,Dining and Drinking
+4ce94baab5c35941b8a4698f,40.718493,-74.004881,Pizzeria-Italian Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+4cf021c094feb1f703420fba,40.703892,-74.012288,Hotel,-1,6.0,237,79,1,1,1,1,1,1,1,1,Travel and Transportation
+4cf9b6072d80a1439bf13fd8,40.707464,-74.001913,Bar-Dining and Drinking,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4cfbe34afeec6dcb5f344936,40.72525,-74.00039,Children's Clothing Store-Clothing Store-Men's Store,-1,7.7,62,12,0,1,1,1,0,1,1,1,Retail
+4cfe786a47699eb0fcb71715,40.705045,-74.009541,Financial Service-Legal Service,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Business and Professional Services
+4d01634c527e236ac073c285,40.731114,-74.006909,New American Restaurant-Vegan and Vegetarian Restaurant,2,9.1,1051,198,1,1,1,1,1,1,1,1,Dining and Drinking
+4d03ae3437036dcbfba10bfb,40.719032,-73.996958,Bakery-French Restaurant-Italian Restaurant,2,8.3,1170,248,0,1,1,1,1,1,1,1,Dining and Drinking
+4d0400598620224be873a640,40.722594,-73.998888,Clothing Store-Women's Store,-1,7.5,97,17,0,1,1,1,0,1,1,1,Retail
+4d0a945ef2c1236a74ccfc56,40.729919,-74.007211,Yoga Studio,-1,8.5,350,54,1,1,1,1,0,1,1,1,Sports and Recreation
+4d0ba09d46bab60cbbca2890,40.707545,-74.010819,Architecture Firm,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4d23c75ffdfb236ae3af7367,40.720217,-74.00102,Clothing Store-Fashion Accessories Store-Women's Store,-1,6.1,48,8,0,1,1,1,0,1,1,1,Retail
+4d25497a903c8cfadc33cd25,40.719011,-73.997743,Lounge-Fast Food Restaurant-Italian Restaurant,2,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+4d2a2787b818a35d5a08a58a,40.71442,-74.015806,Technology Business,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4d34caa4c75a6ea84a9522ae,40.711298,-74.017558,BBQ Joint-Bistro-New American Restaurant,2,6.5,250,98,0,0,1,1,0,1,1,1,Dining and Drinking
+4d35bd8998336dcb4d8344f0,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4d3a0ea9325ff04d4a491845,40.689642,-74.046229,Pier,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4d3f624e90f9224bef9ffc1d,40.722701,-74.004873,Beer Garden-Dessert Shop-American Restaurant,3,-1.0,-1,-1,1,0,1,1,1,1,1,1,Dining and Drinking
+4d421b1fc95b721e988d662b,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4d4b4adfb1493704d4a02792,40.717028,-74.005216,Hair Salon,-1,7.4,20,10,0,1,1,1,0,1,1,1,Business and Professional Services
+4d5848cfde8f6dcb3e240a91,40.723305,-74.006468,Publisher-Print Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Business and Professional Services, Retail"
+4d617fdfb6b9a1cd8d098851,40.710922,-74.005629,Commercial Real Estate Developer-Real Estate Agency-Residential Building,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,"Business and Professional Services, Community and Government"
+4d63b18c1a83f04d4009762b,40.702269,-74.010522,Advertising Agency,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4d6ab0f79f4b6dcbf9d16628,40.70808,-74.005036,Mosque,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Community and Government
+4d6d3bce125eb60c985e324e,40.720012,-74.004592,Advertising Agency,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4d70421f766da143df754bad,40.707085,-74.00792,Fast Food Restaurant-Greek Restaurant-Mediterranean Restaurant,1,7.9,155,49,0,1,1,1,0,0,1,1,Dining and Drinking
+4d77976f6af42d43120282f7,40.708738,-74.012568,Financial Service-Legal Service-Office,-1,7.5,22,4,0,1,1,0,0,0,0,0,Business and Professional Services
+4d7e17308700370485256a99,40.707574,-74.033426,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4d7e74cde7e1721ef8cfe00b,40.708078,-74.005123,Pub,2,6.9,167,54,1,1,1,1,1,1,1,1,Dining and Drinking
+4d9235c97b5ea1430fbdacb8,40.716658,-74.008911,Sushi Restaurant,4,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+4d950c78647d8cfa5a2a973d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4d95125a2bd6f04dc2e51650,40.727522,-74.008076,Art Museum,-1,8.4,121,28,0,0,1,0,0,1,1,0,Arts and Entertainment
+4d9669ed744f37045d15ba57,40.720356,-74.001855,Clothing Store-Fashion Accessories Store-Men's Store,-1,7.1,15,3,0,1,1,1,0,1,1,1,Retail
+4d99fc29daec224bca036c3e,40.724458,-74.00372,Falafel Restaurant-Mediterranean Restaurant-Middle Eastern Restaurant,2,8.7,258,67,0,1,1,1,0,1,1,1,Dining and Drinking
+4d9b730b913a236a30a49f08,40.725492,-74.009349,Public and Social Service,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Community and Government
+4d9db7087f9e4eb9436ea1fc,40.726498,-74.002098,New American Restaurant,3,8.6,2059,457,0,0,1,0,0,1,1,1,Dining and Drinking
+4d9f36cb47ad3704baec4be5,40.707775,-74.035921,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4d9fad057ec88cfa681c8a5a,40.717116,-74.013862,Middle School,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4dadcb124df0522cc5622202,40.716734,-74.008085,Bar-American Restaurant,2,8.6,738,146,0,1,1,1,0,1,1,1,Dining and Drinking
+4db12e95a86e63d21166092b,40.726432,-74.00454,Travel and Transportation,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4db1b5305da32cf2df627064,40.720961,-74.001399,Telecommunication Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4db3374590a0843f295fb69b,40.716974,-73.993298,Cantonese Restaurant,1,8.8,718,184,0,1,1,1,0,1,1,1,Dining and Drinking
+4db5b2bb81543d71da5dd719,40.708048,-74.012148,Cemetery,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4db5fbfe43a1369cb5dc2a1f,40.714782,-74.00648,Bar-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4db739d841592dd82ee2b3dd,40.704634,-74.010791,American Restaurant-Sandwich Spot-Seafood Restaurant,2,9.1,577,143,0,1,1,1,0,0,1,1,Dining and Drinking
+4db9bb280cb6ddfae43b4d59,40.719946,-74.001053,Business and Professional Services,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4dc58fcafa76d685cde41fc1,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4dc5d928b0fb5556ccfc69a1,40.725329,-73.999476,Dance Studio,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+4dd1251b1f6eb12270badf68,40.692803,-74.019342,Monument,-1,7.6,56,9,0,1,1,0,0,1,1,1,Landmarks and Outdoors
+4dd91850c65bee535ada5fdf,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4dd969f1d22d38ef4318cc65,40.719951,-74.012752,Mini Golf Course,-1,8.4,192,35,0,0,1,0,0,0,1,0,Arts and Entertainment
+4dda977ad22d38ef4332c419,40.715256,-74.014835,Burger Joint-American Restaurant-Fast Food Restaurant,2,8.8,1984,332,0,1,1,1,0,1,1,1,Dining and Drinking
+4ddd27fe22713339cd2601e9,40.71118,-74.012011,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4ddef29818388714bb5ce52d,40.713933,-74.007974,Art Gallery,-1,7.5,14,3,0,1,1,0,0,0,1,0,Arts and Entertainment
+4de3e3957d8b2547eb264fec,40.708117,-74.007656,Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4de7987e1fc7fcfe04ac252b,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4df167c8d22d8c5470d5058c,40.722106,-74.000964,Men's Store,-1,8.9,271,35,0,1,1,1,0,1,1,1,Retail
+4df8c50252b1e8ca02cfa35a,40.702666,-74.013723,History Museum,-1,8.8,139,13,0,1,1,1,0,1,1,1,Arts and Entertainment
+4df9ef0d8877b30c398631f9,40.706881,-74.007476,Grocery Store,-1,4.7,38,12,0,1,0,0,0,1,0,0,Retail
+4dfaacb9d4c01451df566572,40.714467,-73.998262,Mexican Restaurant,3,7.7,543,156,1,0,0,1,1,0,0,1,Dining and Drinking
+4e01da4f22717718d3a196d1,40.707056,-74.007003,American Restaurant-Fast Food Restaurant-Sandwich Spot,1,7.3,131,50,0,1,1,1,0,1,1,0,Dining and Drinking
+4e023e49483bd352f723f7e3,40.702738,-74.011108,Publisher,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4e07969fd4c03ae0b9cb19ea,40.719133,-73.997224,Gift Store,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Retail
+4e0cb1c918509581f763fea2,40.710109,-74.007778,Bakery-Coffee Shop-Sandwich Spot,2,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+4e0e6318ae603a50b542b4ca,40.714591,-74.008423,Furniture and Home Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4e0f2be5c65ba20da2275120,40.729622,-74.007369,Swimming Pool,-1,9.0,48,9,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+4e11f28ed1647a0fff851926,40.704712,-74.00595,Dog Park,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Landmarks and Outdoors
+4e13a7e818508ba9dc0fa5ee,40.729919,-74.007211,Print Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+4e1487251f6e33e7180b619d,40.717642,-73.998518,Italian Restaurant,3,6.8,54,15,0,1,1,1,0,1,1,1,Dining and Drinking
+4e19d9b91f6eb9559887594f,40.717712,-73.999918,Jewelry Store,-1,8.6,77,11,0,1,1,0,0,1,1,0,Retail
+4e1afc327d8bb17ec6399698,40.711974,-74.008594,Office,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4e1b1806d4c0993513eb478f,40.729325,-74.007231,College and University,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4e1bc07fa809bd1305bff584,40.704855,-74.004646,Landmarks and Outdoors,-1,8.4,152,20,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4e2b03a07d8b7deda6cbdc62,40.726882,-74.005824,Arts and Entertainment-Bar,-1,-1.0,-1,-1,0,0,0,1,0,0,0,1,"Dining and Drinking, Arts and Entertainment"
+4e307390c65bcc8d7754de9d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4e345b98d22d86185a608ab8,40.731445,-74.008625,Bank,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4e347175d1649e45e3c6e7a5,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4e3a642ba809ec55443af9d6,40.70987,-74.01257,Monument,-1,7.9,71,9,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4e3c89c8aeb73139a16d84ee,40.717726,-74.000058,Bubble Tea Shop,1,7.5,424,98,0,1,1,1,0,1,1,1,Dining and Drinking
+4e4190fafa762ad6d846f883,40.718241,-74.010196,American Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4e4dd62dbd4101d0d79c5e6c,40.706906,-74.008568,Donut Shop,1,7.6,44,5,1,1,1,1,1,1,1,1,Dining and Drinking
+4e4e4c83bd4101d0d7a725d5,40.715762,-73.998226,Cantonese Restaurant,2,6.9,191,37,1,1,1,1,1,1,1,1,Dining and Drinking
+4e57cc89b0fb4c4d61f5cd69,40.713284,-74.009999,Fast Food Restaurant-Sandwich Spot,2,6.3,195,25,0,1,1,1,0,0,0,0,Dining and Drinking
+4e5a735bb993732579f6ce0c,40.702114,-74.016188,Monument,-1,8.5,37,7,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4e5ecc4a52b1425a3776f4db,40.717111,-73.994542,Bubble Tea Shop,1,7.4,236,58,0,1,1,1,0,1,1,1,Dining and Drinking
+4e5fbb62d164df36c401d705,40.715179,-74.001825,Courthouse,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4e67acf2bd41e96a148c2a7c,40.709788,-74.008662,Mobile Company-Telecommunication Service-Mobile Phone Store,-1,-1.0,-1,-1,0,1,1,0,0,0,1,0,"Business and Professional Services, Retail"
+4e6a4045b993d5439f253b45,40.708974,-74.007864,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4e6b7aabb61cc3728e0b96af,40.721373,-74.002114,Men's Store-Shoe Store,-1,8.5,145,14,0,1,1,1,0,1,1,1,Retail
+4e70a36d922e8e01baadf45c,40.711487,-74.012634,History Museum,-1,8.2,428,47,0,1,1,0,0,1,1,0,Arts and Entertainment
+4e74dadec65bb91db41824b4,40.704428,-74.010433,Cocktail Bar-American Restaurant-Fast Food Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4e7a3d3f775b9ed4d3854ca6,40.718154,-74.007443,Coffee Shop,1,7.4,250,31,1,1,1,1,0,1,1,1,Dining and Drinking
+4e7a6b82e4cdb52fab16711f,40.726208,-74.000864,Cosmetics Store,-1,8.3,109,23,0,1,1,1,0,1,1,1,Retail
+4e8afe84b63423c020f0e7f7,40.705704,-74.011095,Private School,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4e91b8cf550342b5a4b1ad78,40.692608,-74.040328,Harbor or Marina,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4e95b4a34fc6e92e3c5a6ba7,40.704784,-74.007262,Coffee Shop,2,7.2,196,19,0,1,1,1,0,1,1,0,Dining and Drinking
+4e9da335cc2132d67d558120,40.703396,-74.010698,Thai Restaurant-Vietnamese Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4ea0afbf9adf1e334e4cc0e6,40.717216,-74.010199,Café-Coffee Shop-Restaurant,1,8.9,643,133,0,1,1,1,0,1,1,1,Dining and Drinking
+4ea82375722e38f634dafc04,40.714854,-74.0177,Hotel,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4ea89e6702d5b8174e85e65e,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ead9998e5fad025f83226a7,40.71916,-74.010102,Sports Bar-Gastropub-New American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4eb01d60722e4efd61c49664,40.709869,-74.006678,Fast Food Restaurant-Sandwich Spot-Soup Spot,2,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+4eb0244ff7900d57e4ac27a3,40.714778,-74.006654,Pizzeria-Italian Restaurant,2,6.1,50,14,0,1,1,1,0,1,1,1,Dining and Drinking
+4eb13d68e5e8c0f5bd2fd983,40.725236,-74.002878,Bakery-French Restaurant,1,8.8,3352,745,0,1,1,1,0,1,1,1,Dining and Drinking
+4eb67666f5b94bd85c3eb8e2,40.7179192637405,-74.01125013828278,Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+4eb90d85722e09311d356915,40.711522,-74.011326,Monument,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+4ebdba4e29c25ce5a107be6c,40.715532,-73.996776,Cantonese Restaurant-Fast Food Restaurant-Seafood Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4ec01a1ef5b93923c1a62c6d,40.711144,-74.013319,Monument,-1,8.2,99,17,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+4ec125556da15b4ddf98cbd7,40.710866,-74.009685,Event Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+4ec4407382313b672fccf581,40.720742,-74.005494,Sports Bar-Pizzeria-New American Restaurant,2,5.3,298,75,1,1,1,1,1,1,1,1,Dining and Drinking
+4edd43af7bebc29455367992,40.713282,-74.010087,Café-Coffee Shop-Sandwich Spot,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4edec6e40e01ed773a8ddf4e,40.723823,-74.003258,Mediterranean Restaurant,3,7.4,487,93,0,0,1,1,0,1,1,1,Dining and Drinking
+4ee3cf579a52c1dad9af95b5,40.709191,-74.013765,Cocktail Bar-Hotel Bar,4,7.0,80,16,1,0,1,1,1,0,1,1,Dining and Drinking
+4eef77e96da153687cf5fc46,40.718218,-74.003124,Pizzeria,1,7.0,83,21,0,1,1,1,0,1,1,1,Dining and Drinking
+4eef9dfe6c25c7f9d47c80b4,40.704623,-74.003285,Pier,-1,8.8,283,43,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+4eefd4506d86d722df8fd52e,40.7288,-74.004721,Beer Garden,2,7.6,1913,228,1,0,1,1,1,0,1,1,Dining and Drinking
+4ef2573d0aaf88e561e58f26,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4efd1635f790570bcf88cbfd,40.714648,-74.015378,BBQ Joint-American Restaurant,2,8.2,586,120,0,1,1,1,0,1,1,1,Dining and Drinking
+4f0cddf6e4b0dd892fd87c03,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4f0f47650cd695a0e54cb438,40.722143,-73.997604,Mediterranean Restaurant,2,8.8,2462,522,0,1,1,1,0,1,1,1,Dining and Drinking
+4f19bd72e4b0808f629111d1,40.717354,-73.997197,Cantonese Restaurant-Dim Sum Restaurant-Shanghai Restaurant,2,7.0,160,42,0,1,1,1,0,1,1,1,Dining and Drinking
+4f22ca77e4b0ed3396a83a05,40.715014,-74.015786,Hotel,-1,8.8,393,77,1,1,1,1,1,1,1,1,Travel and Transportation
+4f22cc3fe4b0e1207fe7c676,40.719591,-74.00021,Bakery-New American Restaurant-Sandwich Spot,2,8.5,599,140,0,1,1,0,0,1,1,0,Dining and Drinking
+4f32c89319836c91c7fa2f84,40.722322,-74.002937,Concert Hall-Music Venue,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Arts and Entertainment
+4f3573ab754abbd0219cb7b5,40.718175,-74.014602,Residential Building,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+4f36418ee4b017ad79b8e8a2,40.723873,-73.999462,Bakery-Cupcake Shop-American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4f392567be770642eaf79a85,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4f53d65de4b0b589399898a1,40.718929,-74.002759,Arts and Entertainment-Technology Business,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Business and Professional Services, Arts and Entertainment"
+4f5f423fe4b0949d4183d34a,40.713342,-74.011835,Landmarks and Outdoors,-1,7.8,40,7,0,1,1,0,0,0,0,0,Landmarks and Outdoors
+4f6a28d5e4b085e9a4b3c5e1,40.720844,-74.009688,Coffee Shop-American Restaurant-Sandwich Spot,2,8.3,589,116,0,1,1,1,0,1,1,1,Dining and Drinking
+4f7502e4e4b001b08c0c882f,40.721701,-74.001173,Furniture and Home Store-Mattress Store,-1,7.1,14,3,0,1,1,1,0,1,1,1,Retail
+4f7f47b1754a7bf483d742d0,40.718488,-74.001127,Burger Joint-Fast Food Restaurant,1,5.0,174,25,0,1,1,1,0,1,1,1,Dining and Drinking
+4f8860a7e4b0cec3aa3eed76,40.731181,-74.004466,Czech Restaurant-Eastern European Restaurant-German Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+4f917cdde4b02081d14944d5,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4f9c2a6be4b0e1cbfeebd9b0,40.706535,-74.012263,College and University,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+4fabfa87e4b0be1a3d9c955b,40.721297,-74.004905,Burger Joint-Fast Food Restaurant,1,6.6,150,38,1,1,1,1,1,1,1,1,Dining and Drinking
+4fadc40de4b0efef5e702b95,40.715071,-74.015657,Cocktail Bar-Lounge-Tapas Restaurant,3,6.5,385,83,0,0,1,1,0,0,1,1,Dining and Drinking
+4fb3fc99e4b000a6da54687f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4fb7ef4b7b0cd3a686313d43,40.713286,-74.007948,Lounge-Sports Bar-American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+4fbbd9ede4b0756c0d4c2364,40.718228,-74.004739,Spa-Hotel,3,9.5,693,131,0,1,1,1,0,1,1,1,"Travel and Transportation, Business and Professional Services"
+4fd130ffe4b06145df2472b9,40.722938,-73.998116,Gift Store-Stationery Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+4fd244dce4b03e7cee3dd4b1,40.707463,-74.005928,Post Office,-1,5.0,30,8,0,1,1,0,0,1,1,0,Community and Government
+4fd38a04e4b065401a9aaf88,40.714594,-73.991589,New American Restaurant-Dive Bar,2,9.0,655,98,1,0,1,1,1,0,1,1,Dining and Drinking
+4fd94414e4b0a048957c686f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4fda7413e4b040870382d8fe,40.719493,-73.999857,Coworking Space,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+4fdfe21ee4b0784e5ca85159,40.733159,-74.007077,Sushi Restaurant,2,7.4,113,31,0,1,1,1,0,0,1,1,Dining and Drinking
+4fe6fbe8e4b0ed119ccc032d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4fef2438e4b0f5b9d81b65c9,40.721419,-74.004386,Café-Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+4ff701aae4b0b8fda9f6b38f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+4ff8eb10e4b01ead02ed30c2,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+50002274e4b0deb8db4eea3b,40.725767,-74.001196,Snack Place-Dining and Drinking-Gourmet Store,1,8.9,1286,219,-1,-1,-1,-1,-1,-1,-1,-1,"Dining and Drinking, Retail"
+50098a81e4b090cb2559381d,40.729941,-73.990533,Financial Planner,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+500d3cede4b0f6804faa90a8,40.708014,-74.007477,Café-Coffee Shop-Restaurant,2,8.5,426,111,0,1,1,0,0,1,1,0,Dining and Drinking
+50129be3e4b0f164329daa1a,40.723405,-74.006734,Advertising Agency,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+5012af2fe4b07c3cf2288456,40.71562,-74.005422,Convenience Store,-1,5.5,25,2,1,1,1,1,1,1,1,1,Retail
+501841ede4b09f5054d7bfd1,40.70519,-74.014129,Education,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Community and Government
+5018507fe4b03a729d0b40f9,40.721663,-74.001383,Italian Restaurant,2,7.8,714,142,0,1,1,1,0,1,1,1,Dining and Drinking
+501d3c31e4b0c3028609cc2b,40.701258,-74.011745,Pier,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+5021648ae4b0b9f6b6d566b2,40.712969,-74.003746,Plaza,-1,7.3,16,1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+502e88ecf31c492b2744df60,40.72434,-74.000136,Jewelry Store,-1,7.8,88,12,0,1,1,1,0,1,1,1,Retail
+50353357e4b002981d16a900,40.729015,-74.002765,Mexican Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+503fffabe4b05e5c0eace385,40.715082,-73.991477,Cocktail Bar-Restaurant,3,9.0,606,116,1,0,1,1,1,0,1,1,Dining and Drinking
+504228c7e4b0af4f730be306,40.701438,-74.013282,Pier,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+50474d91e4b0ea030c26e87b,40.715827,-74.033365,Coffee Shop,1,7.1,259,32,1,1,1,1,0,1,1,1,Dining and Drinking
+504e3873e4b054854305eff0,40.726428,-74.000698,Camera Store,-1,7.5,48,6,0,1,1,0,0,1,1,1,Retail
+505085a9e4b0694f641fc735,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+50524857e4b0bdd5e90ea0ee,40.721334,-74.005561,Gym and Studio,-1,8.6,333,39,1,1,1,1,0,1,1,1,Sports and Recreation
+505325e1e4b07f9d620f7b22,40.732081,-74.00507,Speakeasy-American Restaurant-Fast Food Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+5053d510e4b0719d67706d96,40.713921,-73.998502,Arcade,-1,7.4,178,35,0,1,1,1,1,1,1,1,Arts and Entertainment
+5058f3f3e4b0e7b3d5579161,40.719777,-73.997336,Italian Restaurant,2,7.1,212,56,0,1,1,1,0,1,1,1,Dining and Drinking
+506ce45b45b0b18fd2dc0081,40.705355,-74.012041,Gym and Studio,-1,8.1,17,2,1,1,1,1,0,1,1,0,Sports and Recreation
+506fee82582f92ce91c67a12,40.707743,-74.005546,General Surgeon,-1,-1.0,-1,-1,0,1,1,1,0,0,0,0,Health and Medicine
+50708c91e4b0d7b67f10bcaf,40.711387,-74.016296,Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+507453f7e4b0cfa6347259bb,40.725842,-74.004386,Optometrist-Eyecare Store,-1,8.7,113,14,0,1,1,0,0,1,1,0,"Retail, Health and Medicine"
+5074abbc5262942a6abb84ae,40.719526,-74.00658,Public and Social Service,-1,7.9,135,19,0,1,1,0,0,1,1,0,Community and Government
+5078413372da7d9d2e0d54ca,40.707839,-74.007062,Italian Restaurant-Mediterranean Restaurant,4,7.5,233,51,0,1,1,1,0,1,1,1,Dining and Drinking
+507e0b2e011ca7f458d10d2f,40.727156,-74.007669,Comfort Food Restaurant-New American Restaurant,2,9.0,1221,205,0,1,1,1,0,1,1,1,Dining and Drinking
+507f06e9e4b0d2368fcbada4,40.703377,-74.011395,Whisky Bar-Gastropub,2,8.7,1140,195,1,1,1,1,1,1,1,1,Dining and Drinking
+50899082e4b0645d657eb40f,40.725645,-74.001715,French Restaurant,2,-1.0,-1,-1,0,0,1,1,0,1,1,1,Dining and Drinking
+509d636e5d2463e87154805d,40.7065,-74.012897,New American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+509dc336e4b05e06b48870c0,40.715237,-73.997681,Chinese Restaurant-Japanese Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+509fd01de4b070da0a9d3c24,40.711573,-74.011459,Shopping Mall,-1,8.6,551,44,0,1,1,1,0,1,1,1,Retail
+50b014a4e4b0d4508b5aa2b1,40.718826,-74.004545,Sporting Goods Retail,-1,8.6,97,8,0,0,1,1,0,1,1,1,Retail
+50b516ebe4b0e6a87400cafd,40.709541,-74.006839,Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+50ba9119e4b071a4bae6dc10,40.715669,-74.007606,Fast Food Restaurant-Mediterranean Restaurant-Vegan and Vegetarian Restaurant,1,8.9,563,124,0,1,1,1,0,1,1,1,Dining and Drinking
+50bcb93ae4b0efcb4c84d434,40.703334,-74.011001,Cocktail Bar-Gastropub,3,9.3,2651,488,1,1,1,1,1,1,1,1,Dining and Drinking
+50c0b119e4b0c4d42f979cd1,40.714328,-74.009299,Health and Medicine,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Health and Medicine
+50c28307e4b0c5b6f33ec0e1,40.718886,-74.006293,Gastropub-French Restaurant-New American Restaurant,2,7.6,614,147,1,0,1,1,1,1,1,1,Dining and Drinking
+50ca02c7245f2d4aa8c2cc9b,40.711225,-74.010354,Hotel Bar-French Restaurant-New American Restaurant,3,6.5,14,9,0,1,1,0,0,1,1,0,Dining and Drinking
+50ca875ce4b03ff32d7dc696,40.726397,-74.001832,Event Space-Bar,-1,6.5,24,1,0,1,1,0,0,1,1,0,"Dining and Drinking, Business and Professional Services"
+50cfb5cfe4b0d08f2142fbbf,40.723454,-74.006882,Gym and Studio,-1,7.3,16,-1,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+50d860c3e4b09e2e672abce3,40.714648,-74.003506,Office Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+50e6eae5e4b06de013260a31,40.726355,-74.003402,Italian Restaurant,2,8.6,211,45,0,1,1,1,0,0,1,1,Dining and Drinking
+50e7557719a987828f27bd89,40.718019,-74.004469,Gym and Studio,-1,7.9,118,28,0,1,1,0,0,0,0,0,Sports and Recreation
+50f5ed71e4b0e957439f7fb9,40.721441,-74.005565,Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+50fb43f5e4b020b55da8a766,40.708407,-74.001466,American Restaurant-Steakhouse,3,8.3,137,24,0,1,1,1,0,0,1,1,Dining and Drinking
+510ad6e2e4b0a2ecec03b322,40.711166,-74.010421,Hotel,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+51278a09e4b0b624edbc914c,40.727827,-74.002806,Italian Restaurant,4,8.8,1019,187,0,0,1,1,0,1,1,1,Dining and Drinking
+512a6086e4b023dd9c27e82d,40.709858,-74.009078,Japanese Curry Restaurant,1,7.9,254,39,0,1,1,1,0,0,1,1,Dining and Drinking
+5132b65ae4b02e8709f981dd,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5138e26de4b0288547418d4d,40.725818,-74.001329,Dining and Drinking,2,8.2,146,17,0,1,1,1,0,1,1,1,Dining and Drinking
+513f6223e4b0ddc812b16c87,40.705724,-74.012361,Mexican Restaurant,2,6.2,64,25,0,1,1,1,0,1,1,1,Dining and Drinking
+51436b78e4b0abca5f213e79,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5148a373e4b06af4b8cb2a80,40.71049,-74.007663,Health and Medicine-Drugstore,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Retail, Health and Medicine"
+514de197e4b0c471f020c47e,40.70673,-74.007077,Fast Food Restaurant-Sandwich Spot-Vegan and Vegetarian Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+515074c5e4b022f355fc43a7,40.70489,-74.011281,Business and Professional Services,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Business and Professional Services
+5154d79a19a9a639dd70f381,40.730623,-74.007108,Education,-1,7.2,8,1,0,1,1,0,0,0,0,0,Community and Government
+5159c4d3e4b03f6bce970619,40.721164,-73.997915,Property Management Office-Real Estate Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+515abd65e4b08eda86b30e6e,40.712928,-74.013171,Scenic Lookout,-1,8.9,1727,205,0,1,1,1,0,1,1,1,Landmarks and Outdoors
+515f81d0e4b05d6decaaed19,40.726805,-74.002721,French Restaurant,2,8.5,568,106,1,1,1,1,1,1,1,1,Dining and Drinking
+516dfc13498e616e4c78b107,40.727716,-74.006905,American Restaurant-Fast Food Restaurant-Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+51700d54e4b0acce0b30e37c,40.7022,-74.015014,Arts and Entertainment,-1,8.8,269,31,0,0,0,0,0,1,1,1,Arts and Entertainment
+5171b5cc011cef9833bbb787,40.715003,-74.010242,New American Restaurant-Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+518455a0498e0b8ab38ed574,40.703442,-74.011005,Sports Bar-American Restaurant-Sandwich Spot,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5185522b498e5a4904ae23a3,40.717839,-74.011097,Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+5186eeb0498e1d856d27ba04,40.715077,-73.997631,Cantonese Restaurant,1,6.5,77,28,0,1,1,1,0,1,1,1,Dining and Drinking
+519391a5498e6060a4d82ced,40.705133,-74.016221,College and University,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Community and Government
+519393ce498edf62feac9c12,40.704414,-74.003014,Cocktail Bar-New American Restaurant,2,6.3,278,52,0,0,1,1,0,0,1,1,Dining and Drinking
+5197cbc1498ec577cfeb6fc2,40.726074,-74.001819,Cosmetics Store,-1,8.4,68,18,0,1,1,1,0,1,1,0,Retail
+5198dfb02fc6fc86d451ef2e,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+51abad1c7dd28f673d21bbf4,40.705942,-74.00434,American Restaurant,2,-1.0,-1,-1,1,1,1,1,1,0,1,1,Dining and Drinking
+51b07bbb498ef4badd279fe8,40.708938,-74.009172,Café-Restaurant,1,6.2,53,4,0,1,1,1,0,1,1,0,Dining and Drinking
+51b1bfad498e29a54a7fb5ef,40.720003,-74.000925,Shoe Store,-1,6.2,37,2,0,1,1,1,0,1,1,1,Retail
+51b3c734498e2c9c744309e6,40.723645,-74.0098,Cocktail Bar-Greek Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+51b77ea1454a57610205b352,40.708025,-74.014984,Beer Garden-German Restaurant,2,7.6,735,110,1,1,1,1,1,1,1,1,Dining and Drinking
+51bb9282498e56a7521f9983,40.730063,-74.007871,Gym and Studio,3,9.3,442,41,0,1,1,1,0,1,1,0,Sports and Recreation
+51c4cc34498e6bf2ab80ae5b,40.704552,-74.009827,Night Club-Cocktail Bar-Indian Restaurant,-1,7.5,15,1,0,0,1,1,0,0,0,0,"Dining and Drinking, Arts and Entertainment"
+51c9efcf498e1832e3fc52ac,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+51cde558011c221bf79219a0,40.709497,-74.014388,Burger Joint-Food and Beverage Retail,2,7.4,528,84,0,1,1,1,0,1,1,1,"Dining and Drinking, Retail"
+51d15504498e864b9acbbb52,40.720823,-73.996548,Sports and Recreation,-1,8.4,34,6,0,1,1,1,0,1,1,1,Sports and Recreation
+51df85c9498edb5ea3ad2e2a,40.716828,-74.008612,Thai Restaurant-Vietnamese Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+51e40903498efd152818710f,40.709843,-74.005673,Doctor's Office,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Health and Medicine
+51e7f1c4498e520f7778458f,40.719124,-74.009445,Fashion Retail,-1,8.7,146,25,0,1,1,1,0,1,1,1,Retail
+51f0ff3a498ead51c8860c75,40.721796,-73.998464,Cycle Studio,3,8.8,352,32,0,1,1,1,0,1,1,0,Sports and Recreation
+51f6c4eaccda96d8750bbdfa,40.727739,-74.002103,Barbershop,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Business and Professional Services
+51fab1fb498eceabcac64d0a,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+51fd65922fc6e0f97bffb0b7,40.71379,-74.011241,Café-Coffee Shop-Restaurant,1,5.5,8,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+5200025d498e26189aa3d546,40.721131,-74.011009,Dog Park,-1,8.2,51,2,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+5201a363498ed3d5217949ba,40.730009,-74.003896,American Restaurant,2,8.9,636,108,0,1,1,1,0,1,1,1,Dining and Drinking
+5202a6b2498eff2667698c71,40.717273,-74.01007,Bridal Store,-1,7.4,73,10,0,1,1,1,0,1,1,1,Retail
+5213c4ac498ef92164c454c9,40.707297,-74.002125,Italian Restaurant,2,7.2,168,34,0,1,1,1,0,1,1,1,Dining and Drinking
+5217e0dd11d2b33a2d55a11c,40.729748,-74.00358,Beer Bar-Restaurant,-1,9.1,134,27,0,1,1,1,0,1,1,1,Dining and Drinking
+521b898a8bbdce5bf8e95c58,40.704526,-74.008823,Gym and Studio,-1,8.2,101,6,1,1,1,1,0,1,1,1,Sports and Recreation
+521cad4011d2a9c6e2c198ae,40.721099,-74.00625,Concert Hall-Restaurant,-1,9.0,259,17,0,1,1,1,0,1,1,1,"Dining and Drinking, Arts and Entertainment"
+521fba5511d2065bc4051370,40.705756,-74.007213,Nail Salon,-1,6.0,22,1,0,1,1,1,0,1,1,1,Business and Professional Services
+522664d311d2cee66613afbc,40.727348,-74.002568,Pizzeria-American Restaurant-Sandwich Spot,2,8.5,450,115,1,1,1,1,1,0,1,1,Dining and Drinking
+5227e38d11d20c833c575320,40.719303,-74.004869,Cocktail Bar-Wine Bar,3,8.3,130,9,1,1,1,1,1,1,1,1,Dining and Drinking
+522bbabb11d23cc6c6a5d12c,40.704102,-74.010508,Pizzeria,1,6.1,60,13,1,1,1,1,1,1,1,1,Dining and Drinking
+522d1cad11d2add48247005a,40.718755,-73.997252,Gift Store,-1,6.9,98,11,0,1,1,1,0,1,1,1,Retail
+522dfe8b7e4826517408a264,40.714972,-73.99156,New American Restaurant-Salad Restaurant-Sandwich Spot,2,8.5,873,179,0,1,1,1,0,1,1,1,Dining and Drinking
+52371fef11d2fa11b58c6057,40.71916,-74.010102,New American Restaurant-Steakhouse,4,8.5,385,97,0,0,1,1,0,0,1,1,Dining and Drinking
+5237264111d27e8e90c10357,40.723964,-74.009987,Cantonese Restaurant-Dim Sum Restaurant-Shanghai Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+52375dee11d23f06740c8f3e,40.718841,-74.005986,Wine Bar-Italian Restaurant,2,7.6,126,21,0,0,1,1,0,0,1,1,Dining and Drinking
+52474974498ed4486b4e1f68,40.713906,-73.997061,Hair Salon,-1,8.0,10,2,0,1,1,1,0,1,1,1,Business and Professional Services
+524aeb0111d2ae4d1b1eea62,40.706229,-74.011639,Café-Coffee Shop-Fast Food Restaurant,2,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+524c5b8111d22181bdd20690,40.723462,-74.002677,Event Space,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+524f650e11d2b2e01dc964f8,40.719255,-74.006613,Wine Bar-Italian Restaurant,2,8.4,371,69,0,1,1,1,0,1,1,1,Dining and Drinking
+5260016311d2841d5c2d7cb7,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5267e06c11d27abd07c21c48,40.705087,-74.011987,Donut Shop,1,7.0,87,11,1,1,1,1,1,1,1,1,Dining and Drinking
+52681085498e16a8ac061157,40.705786,-74.014022,Commercial Real Estate Developer,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+52698f5911d23c1c66d64564,40.720076,-73.996257,Italian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+526ac1b611d206c487db6d17,40.70416,-74.010379,BBQ Joint-Burger Joint-American Restaurant,2,6.0,276,68,0,1,1,1,0,1,1,1,Dining and Drinking
+526aef8511d266ae291b3ad8,40.722346,-74.004029,Men's Store,-1,8.0,10,1,0,1,1,1,0,1,1,1,Retail
+52716bc711d23edce606567d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5282c37711d218b68cd519ab,40.716113,-73.995228,Hotel,-1,7.1,25,3,1,1,1,1,1,1,1,1,Travel and Transportation
+528bf16711d2b7722da6b51c,40.710487,-74.00775,Bakery-Coffee Shop-Sandwich Spot,2,8.7,437,106,0,1,1,1,0,1,1,0,Dining and Drinking
+528cce5611d26bb32c1a2e7a,40.723388,-74.00538,Website Designer,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+528d0c85498e4ce54c3d7c2c,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+528d3763498e3be0efe0d555,40.716588,-73.999568,Burger Joint-Fast Food Restaurant-Taco Restaurant,1,8.1,302,86,0,1,1,1,0,1,1,1,Dining and Drinking
+52a5f60811d2996ed917d0c4,40.72053,-74.001382,Music Venue,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Arts and Entertainment
+52ac8847498e1390ec3ab77e,40.720115,-73.99879,Café-Coffee Shop,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+52ad100d498eb6c1fda53c28,40.704426,-74.01052,Bavarian Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+52b0a990498eb3a992b89573,40.720754,-73.997113,Café-Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+52c5c3fd11d20b57f8ba9ef3,40.710228,-74.007347,Fast Food Restaurant-Sandwich Spot,1,6.7,76,11,0,1,1,1,0,1,1,0,Dining and Drinking
+52c5e4dd498e975917e6221f,40.714036,-73.992265,Travel Agency,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Travel and Transportation
+52ce0173498e800c8e2dcc50,40.720883,-73.996332,Ramen Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+52d1fc0b498ede513bb71ede,40.711399,-74.005953,Burger Joint-Diner-New American Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+52d36856498e9256064e3fe3,40.707419,-74.013476,Bar-American Restaurant-Wings Joint,2,7.7,215,44,1,1,1,1,1,1,1,1,Dining and Drinking
+52dca77f498eea2fb384f124,40.704481,-74.010479,Cocktail Bar-Burger Joint-Hot Dog Joint,2,-1.0,-1,-1,1,1,1,1,0,1,1,1,Dining and Drinking
+52e2f72a498e1de9bce745b0,40.714698,-74.015511,Latin American Restaurant-Burrito Restaurant-Taco Restaurant,3,8.1,788,157,0,1,1,1,0,1,1,1,Dining and Drinking
+52eddc12498e40bb655e0d7a,40.724331,-74.002449,Wine Bar-Tea Room-French Restaurant,3,8.7,1322,221,0,1,1,1,0,1,1,1,Dining and Drinking
+53051e8b498e331dc90d6eb4,40.70604,-74.012636,Coffee Shop-Restaurant,2,7.4,225,38,0,1,1,0,0,1,1,0,Dining and Drinking
+530603cd498e8a2b85eb8e50,40.70655,-74.003797,Fashion Accessories Store-Women's Store,-1,7.4,12,3,0,1,1,1,0,1,1,1,Retail
+530cfc59498e616734984498,40.723359,-74.004462,Advertising Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5314b420e4b0d805d374ad76,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+531f0d16498e82abb6732379,40.715951,-74.005173,Fast Food Restaurant-Sandwich Spot,1,7.2,96,10,0,1,1,1,0,1,1,0,Dining and Drinking
+53206275498eaacdaca9b857,40.705227,-74.006843,Coffee Shop-Restaurant,2,7.0,166,28,0,1,1,0,0,1,1,0,Dining and Drinking
+53251a06498e490f58a865dc,40.723745,-74.004172,Cocktail Bar-Lounge-American Restaurant,3,-1.0,-1,-1,1,0,1,1,0,0,1,1,Dining and Drinking
+5327321d498e3b494482e5f5,40.72637,-74.008773,Hotel,-1,8.0,208,27,1,1,1,1,1,1,1,1,Travel and Transportation
+53306dcf11d2599de5a2442f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5332cf73498e629c35c73d15,40.710411,-74.01054,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5335d89c498e08aa36a628ac,40.704527,-74.01275,Government Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+53399f0f498e0f3923a03a4a,40.719277,-73.997884,Sandwich Spot-Bagel Shop-Diner,2,8.1,339,85,0,1,1,0,0,1,1,0,Dining and Drinking
+533d9866498ebb34ff92d1ed,40.716751,-73.99953,Noodle Restaurant-Sandwich Spot-Vietnamese Restaurant,2,7.1,76,20,0,1,1,1,0,1,1,1,Dining and Drinking
+5346f0eb498e55d223a6bad3,40.723584,-74.002158,Coworking Space,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+534812c9498ea391fbd552eb,40.720029,-73.999965,Nail Salon,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+534c9d7b498e1bdd443a40e1,40.714591,-74.007563,French Restaurant,3,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+53506fd9498ebca706a7c170,40.720508,-73.998238,Wine Bar-American Restaurant-French Restaurant,2,9.3,594,88,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+5355a5ca498e506aae75edb7,40.707987,-74.006472,Bar-Dining and Drinking,2,7.1,331,54,0,1,1,1,1,1,1,1,Dining and Drinking
+535c0d45498e824febce3f2b,40.719868,-73.995987,Hair Salon,-1,8.9,72,11,0,1,1,1,0,1,1,0,Business and Professional Services
+53611b4b498e99f52a28cb32,40.728179,-74.009718,Event Space-Bar,-1,7.8,108,2,1,1,1,1,1,1,1,1,"Dining and Drinking, Business and Professional Services"
+5362a2ae498e3b18c22334be,40.712691,-74.015911,Food Court,2,8.9,1072,145,0,1,1,1,0,1,1,1,Dining and Drinking
+536a6d07498e75a5077ea194,40.72569,-74.008003,Bar-New American Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5370d71f498e0a21ab202751,40.718402,-74.002302,Organization-Office Supply Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Community and Government, Retail"
+53737e92498e33fbc10950b8,40.707545,-74.010819,Accounting and Bookkeeping Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+53756391498ef3c8e7f43ecb,40.719495,-74.00575,French Restaurant-Modern European Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+5375bbc2498ef21992293384,40.703083,-74.0123,Hotel,-1,6.0,33,5,1,1,1,1,1,1,1,1,Travel and Transportation
+5377d929498e0cd133758783,40.704989,-74.003692,Harbor or Marina,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Landmarks and Outdoors
+537ae03e498eddb91b359eb8,40.754082,-73.991569,Escape Room,-1,8.6,104,14,0,1,1,1,0,1,1,1,Arts and Entertainment
+537b5258498e262a54b47216,40.716937,-74.006565,Bakery-Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+537d3c23498e08214a884752,40.716168,-74.005094,Fast Food Restaurant,1,5.5,10,3,0,1,1,0,0,0,0,0,Dining and Drinking
+5385a684498e2379f61a25a1,40.719839,-74.004978,Coffee Shop,1,6.7,171,17,0,1,1,0,0,1,1,0,Dining and Drinking
+53861e0d498ec1985aa8b0a2,40.718103,-73.997401,Bubble Tea Shop,1,7.6,71,7,0,1,1,1,0,1,1,1,Dining and Drinking
+53876b0e498efde3e415732b,40.709764,-74.00855,Fast Food Restaurant-Polish Restaurant-Sandwich Spot,1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+5387d2e2498ee7f0fb1c5b41,40.719826,-73.999521,Cocktail Bar-American Restaurant,3,-1.0,-1,-1,1,0,1,1,1,0,0,1,Dining and Drinking
+53897edd498ef93b52f5194f,40.723767,-74.009281,Clothing Store-Fashion Accessories Store-Women's Store,-1,7.4,24,4,0,1,1,1,0,1,1,1,Retail
+538a25cb498e3f763f518ab2,40.712433,-74.015508,BBQ Joint,2,8.2,195,43,0,1,1,1,0,1,1,1,Dining and Drinking
+538a29c0498e379b2c889910,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+538c7c1d498ef911b52f886c,40.712368,-74.015899,French Restaurant-Sandwich Spot,2,6.1,114,15,0,1,1,1,0,1,1,1,Dining and Drinking
+538e0830498ef7fef432f005,40.712799,-74.015916,Salad Restaurant,1,7.1,108,11,0,1,1,1,0,1,1,1,Dining and Drinking
+538f006c498e248f6fce912f,40.71233,-74.01533,Sandwich Spot-Bagel Shop-Seafood Restaurant,1,5.7,133,27,0,1,1,1,0,1,1,1,Dining and Drinking
+53910122498ebdced55ff0ee,40.711686,-74.015217,Burger Joint-New American Restaurant,2,6.6,206,47,0,1,1,0,0,1,1,0,Dining and Drinking
+539cb56e498eb12d43c89ff7,40.725339,-74.001092,Cosmetics Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+539f180f498e718f89bb5369,40.718929,-74.002759,Advertising Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+53a1b4e1498e54415d5ac68f,40.706914,-74.004292,American Restaurant-Salad Restaurant-Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+53a5f4f0498e1d1f0be9ad8e,40.720835,-74.002092,Sporting Goods Retail,-1,-1.0,-1,-1,0,0,1,0,0,0,1,0,Retail
+53a7307a498e56d9917d8f32,40.709872,-74.006591,Fast Food Restaurant-Sandwich Spot,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+53aa0ef4498eb1bef72a3812,40.720874,-74.004626,Night Club-Cocktail Bar-Lounge,3,-1.0,-1,-1,1,0,0,1,1,0,0,1,"Dining and Drinking, Arts and Entertainment"
+53ab0af5498e13bffddb8d96,40.723608,-74.00325,Bakery-Fast Food Restaurant-Greek Restaurant,2,9.0,359,65,0,1,1,1,0,1,1,1,Dining and Drinking
+53aee20d498e6744c341c483,40.71754,-73.994324,Vietnamese Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+53b042cf498e396ed84d1344,40.7196,-73.995933,Café-Coffee Shop-Australian Restaurant,2,8.4,1379,315,0,1,1,0,0,1,1,0,Dining and Drinking
+53b2aa81498e6744c355ec9f,40.720399,-74.016088,Cocktail Bar-Seafood Restaurant,3,9.0,809,144,1,1,1,1,1,1,1,1,Dining and Drinking
+53b45f66498e07c53b0e01fc,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+53b6a861498ecca743378803,40.718938,-74.000446,Pizzeria,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+53c5393c498eaaf9ec4b2caf,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+53c6bdaf498e69023fc5ff4f,40.722661,-73.99841,Bakery,1,8.3,190,24,0,1,1,1,0,1,1,1,Dining and Drinking
+53d3f607498edfb90a15baf5,40.712485,-74.015554,Sushi Restaurant,2,7.2,172,35,0,1,1,1,0,0,1,0,Dining and Drinking
+53d6e988498e6bfb2355d2ac,40.707518,-74.005887,Gym and Studio,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+53e929d5498e60742357fb87,40.704282,-74.011824,American Restaurant-Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+53eba911498e9b26cc64bdff,40.703676,-74.010316,Bakery-Dessert Shop,1,8.0,82,13,1,1,1,1,1,0,1,1,Dining and Drinking
+53ebf84d498eb8e5758e17d7,40.715132,-73.99161,Fashion Accessories Store-Men's Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+53ecfe56498e8ee1b1cabc2a,40.718232,-73.994657,Bakery,1,8.2,35,6,0,1,1,0,0,1,1,0,Dining and Drinking
+53ecff6c498e4189764e35ec,40.719267,-74.004213,Mexican Restaurant-Tapas Restaurant,4,7.7,260,54,0,1,1,1,0,1,1,1,Dining and Drinking
+53f10ba4498e0ebf36960bbd,40.715553,-73.995991,Hiking Trail,-1,6.8,15,1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+53f8bf14498e7dfcd2d9df48,40.709748,-74.009161,Bubble Tea Shop-Coffee Shop-Restaurant,-1,7.7,109,14,0,1,1,1,0,1,1,1,Dining and Drinking
+5400dc65498e3831aab00327,40.713373,-74.008737,Bar-Gastropub-American Restaurant,2,5.8,254,36,1,1,1,1,1,1,1,1,Dining and Drinking
+5405f7ca498ed19801430044,40.709836,-74.007899,Chinese Restaurant-Ramen Restaurant-Noodle Restaurant,2,5.4,32,7,1,1,1,1,1,1,1,1,Dining and Drinking
+540d97b5498e05abd30fd5ca,40.710454,-74.00897,Shopping Plaza,-1,7.7,1070,57,0,1,1,0,0,0,0,0,Retail
+540dad2e498ee75cf362403a,40.703798,-74.007834,Engineer,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+540e547e498e51456fa10db9,40.71387,-73.996405,Cantonese Restaurant-Dim Sum Restaurant-Shanghai Restaurant,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5418490f498e4d3bb75c7bcc,40.734122,-74.007377,Café-Coffee Shop-Restaurant,2,8.9,711,118,0,1,1,1,0,1,1,1,Dining and Drinking
+5419c024498e81544e23eee9,40.709929,-74.006223,Burger Joint-American Restaurant,1,7.1,303,54,0,1,1,1,0,0,1,1,Dining and Drinking
+541a2341498e51ce1037963a,40.71233,-74.01533,Gym and Studio,-1,9.1,203,15,1,1,1,1,0,1,1,1,Sports and Recreation
+541c3ff4498e78ca085f308d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+541c6624498e9ab32651d2ec,40.720067,-73.99857,Thai Restaurant,1,8.1,214,41,0,1,1,1,0,1,1,1,Dining and Drinking
+542074d8498e537b40b198ac,40.720936,-73.996378,BBQ Joint-Japanese Restaurant,2,7.5,69,22,0,0,1,1,0,0,1,1,Dining and Drinking
+54242f3a498e53a21ee14b81,40.716384,-74.007067,Diner-New American Restaurant,3,7.1,151,24,0,1,1,0,0,1,1,0,Dining and Drinking
+54295f79498e5383362811c5,40.726688,-74.006995,Café-Coffee Shop-Restaurant,1,9.1,626,77,0,1,1,0,0,1,1,0,Dining and Drinking
+542b4e59498e6ff85d98370b,40.705841,-74.01398,Italian Restaurant,-1,7.5,61,6,0,0,1,1,0,0,0,0,Dining and Drinking
+5431872b498eec43384fd39d,40.720257,-73.998376,Café-Coffee Shop-American Restaurant,2,8.9,1358,302,0,1,1,0,0,1,1,0,Dining and Drinking
+54346275498e3d6955212743,40.718606,-74.004711,Bakery-Café,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+543f4360498e97a8ddd4b878,40.726425,-74.008731,Cocktail Bar-Lounge,3,7.8,414,37,1,0,1,1,1,0,1,1,Dining and Drinking
+5447e0b2498e49ee7c7b1dc0,40.710765,-74.007455,Italian Restaurant,2,7.9,164,32,0,1,1,1,0,0,1,1,Dining and Drinking
+5453da03498eb158b5bbb37d,40.70519,-74.014129,Bubble Tea Shop,2,6.0,25,4,0,1,1,1,0,1,1,1,Dining and Drinking
+5459292b498e72e209527504,40.707056,-74.007003,Gym and Studio,-1,8.5,107,13,0,1,1,1,0,1,0,0,Sports and Recreation
+545c0436498e798e22ce4b2a,40.71525,-74.009117,New American Restaurant-Vegan and Vegetarian Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+545d602b498e50ade1906a6e,40.705839,-74.004162,Burrito Restaurant,2,8.0,407,68,0,1,1,1,0,1,1,1,Dining and Drinking
+5464f27c498e2e01c60151af,40.714488,-74.007385,Sushi Restaurant,2,6.7,28,10,0,1,1,1,0,1,1,1,Dining and Drinking
+54655d1c498e343fe4e77239,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5467ceec498e1b95c0575e73,40.704384,-74.017981,Bar-Gastropub-American Restaurant,3,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+547113b8498ec02dd22ab440,40.720577,-73.995709,Retail,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+547495e7498e5a7d3d740f2d,40.727658,-74.007034,Café-Coffee Shop-Restaurant,2,7.1,138,16,0,1,1,1,0,1,1,0,Dining and Drinking
+5474aaee498e92bfb294f15c,40.703741,-74.01189,Salad Restaurant-Sandwich Spot-Vegan and Vegetarian Restaurant,1,8.6,75,7,0,1,1,0,0,0,0,0,Dining and Drinking
+547dc381498ec37f84f01439,40.710313,-74.006768,Hotel,-1,7.6,102,10,1,1,1,1,1,1,1,1,Travel and Transportation
+547f53de498eafbdc7d34960,40.714474,-74.007908,Dance Studio,-1,6.9,32,4,0,1,1,1,0,1,0,0,Sports and Recreation
+5484890c498e985cf4e3c076,40.721075,-73.997213,Salad Restaurant-Vegan and Vegetarian Restaurant,2,9.1,1143,136,0,1,1,1,0,1,1,1,Dining and Drinking
+548bafcf498e0c4238d87fe8,40.730757,-74.004188,Mexican Restaurant,1,6.9,221,34,0,0,1,1,0,0,1,1,Dining and Drinking
+549430f6498edcbb09ab35c0,40.729751,-74.003493,Mediterranean Restaurant,3,8.7,1080,178,0,1,1,1,0,1,1,1,Dining and Drinking
+549481f3498e855d5f51cb66,40.720177,-73.996523,Café-Ice Cream Parlor-Greek Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+549dabec498eb47afce47921,40.723248,-74.000616,Clothing Store-Outdoor Supply Store,-1,8.7,189,10,0,1,1,1,0,1,1,1,Retail
+54ab15df498ee7d7723bca15,40.725637,-74.007958,Lounge-Pizzeria-Italian Restaurant,2,7.8,163,22,1,0,1,1,1,0,1,1,Dining and Drinking
+54ad49af498e3a16f0ec29f8,40.722651,-73.998759,Jewelry Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+54aed577498ee5fc196739f7,40.709568,-74.009808,Hotel,-1,7.5,78,11,1,1,1,1,1,1,1,1,Travel and Transportation
+54b9346d498ef55d203d8696,40.721466,-73.998713,Yoga Studio,-1,8.3,197,25,1,1,1,1,0,1,1,1,Sports and Recreation
+54c265fd498e342726a93932,40.719063,-74.001804,Café,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+54cad0b2498ea68d80401cbd,40.708875,-74.005547,Cuban Restaurant,2,8.2,117,10,0,1,1,1,0,1,1,1,Dining and Drinking
+54d29f57498eeabebcc63817,40.725836,-74.008577,Cocktail Bar-American Restaurant,3,6.5,158,19,1,1,1,1,1,0,0,1,Dining and Drinking
+54d8f562498e06a504cb5c47,40.7097,-74.008941,Ramen Restaurant,-1,6.7,230,37,0,1,1,1,0,0,1,1,Dining and Drinking
+54e21d97498e7cf9d3f29b3c,40.705905,-74.005046,Hotel,-1,7.8,61,11,1,1,1,1,1,1,1,1,Travel and Transportation
+54e2ad46498ec569ea3cb416,40.719595,-74.004051,Music Venue-Cocktail Bar-American Restaurant,3,-1.0,-1,-1,0,0,1,1,0,0,1,1,"Dining and Drinking, Arts and Entertainment"
+54e4c205498e81ce0129b6d1,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+54e771c8498e750b0dee9579,40.716433,-73.999343,Dim Sum Restaurant-Vegan and Vegetarian Restaurant,1,7.5,126,22,0,1,1,1,0,1,1,1,Dining and Drinking
+54ee1680498ef860b6ed47fc,40.704033,-74.011072,Event Space-Coworking Space-Real Estate Service-Computers and Electronics Retail,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,"Business and Professional Services, Retail"
+54f27deb498e47a670f5e399,40.719614,-73.997374,Pizzeria-Italian Restaurant,3,8.6,442,80,0,0,1,1,0,1,1,1,Dining and Drinking
+54f9d808498eaa73550d399c,40.723879,-74.004134,Bar-Burger Joint-American Restaurant,2,8.6,914,223,0,1,1,1,0,1,1,1,Dining and Drinking
+55103583498eed2d409b549a,40.718734,-74.000002,Cosmetics Store,-1,8.3,252,19,0,0,1,1,0,1,1,1,Retail
+55148c66498e987ed9d8e394,40.712485,-74.015554,French Restaurant,-1,8.0,945,125,0,1,1,1,0,1,1,1,Dining and Drinking
+551c38fb498e667476a42e53,40.715137,-73.999379,Chinese Restaurant-Malay Restaurant,1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+551c8be7498e3ebc8f1d0075,40.711633,-74.015171,French Restaurant,4,6.4,262,36,0,0,1,1,0,1,1,1,Dining and Drinking
+5521c2ff498ebe2368634187,40.714589,-73.991763,Greek Restaurant-Mediterranean Restaurant-Middle Eastern Restaurant,2,9.2,1115,213,0,0,1,1,0,0,1,1,Dining and Drinking
+55242cee498ef7f875331242,40.713954,-73.997281,Bubble Tea Shop-Restaurant,-1,7.1,67,9,0,1,1,1,0,1,1,1,Dining and Drinking
+5527eb8c498e928645ec3e61,40.722402,-74.007917,Bicycle Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Retail
+552ea13c498e72c92c269721,40.702226,-74.012091,Fast Food Restaurant-Mexican Restaurant,1,6.3,15,3,0,1,1,0,0,0,0,0,Dining and Drinking
+553527eb498e43895e4c1805,40.716494,-73.995112,Yoga Studio,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Sports and Recreation
+55387c1b498e4eca6482f4f5,40.705212,-74.005402,Pizzeria-Italian Restaurant-New American Restaurant,2,7.6,578,76,0,1,1,1,0,1,1,1,Dining and Drinking
+553fe924498e6d51a2613e09,40.702226,-74.012091,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+55416d48498e3ede2bd8118d,40.72885,-74.004854,Cocktail Bar-Mediterranean Restaurant-South American Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+554194a9498e08a6e9a7fde5,40.718777,-74.000396,Hotel,-1,6.4,14,2,1,1,1,1,1,1,1,1,Travel and Transportation
+55475382498e6e7dfc721036,40.717521,-74.00493,Arts and Entertainment-Gaming Cafe,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Arts and Entertainment
+5547ffe8498ec8a2c668a412,40.719864,-74.00009,Hotel,-1,8.2,437,39,1,1,1,1,1,1,1,1,Travel and Transportation
+554a4688498eca79568879dd,40.709371,-74.007138,Burger Joint-Coffee Shop-Mediterranean Restaurant,1,7.1,239,18,0,1,1,1,0,1,1,1,Dining and Drinking
+55552421498e3fa10a74e4e6,40.707445,-74.002611,Cocktail Bar-Italian Restaurant-Mediterranean Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+555b7016498ef57fbcc739d2,40.71468,-74.010229,Karaoke Bar-BBQ Joint-Korean Restaurant,2,7.9,170,31,0,1,1,1,0,1,1,1,Dining and Drinking
+555ba8d9498eae864d326936,40.709637,-74.009244,Whisky Bar,3,7.6,387,54,1,1,1,1,1,1,1,1,Dining and Drinking
+5568b788498e7fe0873d2bf0,40.723936,-74.003088,Italian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5568b82e498e0aec0de3eac5,40.723934,-74.003175,Cocktail Bar-French Restaurant,3,7.8,39,1,1,0,1,1,1,0,1,1,Dining and Drinking
+5568fe03498e03f701851783,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+556a0923498eb674bc49512c,40.714639,-73.997876,Taiwanese Restaurant,2,7.2,131,18,0,1,1,1,0,1,1,1,Dining and Drinking
+556cb8c6498e751e51fbcf41,40.714418,-74.015893,Italian Restaurant-Sandwich Spot,2,8.1,357,69,0,1,1,1,0,1,1,1,Dining and Drinking
+556f7cd9498e61f524645bcf,40.723272,-74.001709,Leather Supplier,-1,7.9,36,7,0,1,1,1,0,1,1,1,Business and Professional Services
+5579bd46498e582e6b9df6c0,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+557b7c4d498e8dd0400168e8,40.725705,-74.009445,Burger Joint-American Restaurant-Steakhouse,2,8.0,160,25,0,1,1,1,0,0,0,1,Dining and Drinking
+557c335b498ec492c5d567dd,40.715715,-73.99399,Bicycle Store,-1,8.3,30,4,0,1,1,1,0,1,1,1,Retail
+55877ae9498ee57015ef8d23,40.713921,-73.998502,Ice Cream Parlor-Fast Food Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+558a03b5498eaa58d8dc5014,40.71898,-73.996912,Pizzeria-Italian Restaurant,1,7.7,51,11,0,1,1,1,0,1,1,1,Dining and Drinking
+558ad9dd498e61efd5b0db6b,40.71247,-74.008221,Salad Restaurant-Vegan and Vegetarian Restaurant,1,6.0,48,6,0,1,1,0,0,0,0,0,Dining and Drinking
+558b389a498eb10250dfb5c1,40.722842,-74.003656,Event Service-Event Space,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+558b5f4a498e19b85459deb7,40.70918,-74.010186,Event Space-Organization,-1,8.0,76,4,1,1,1,1,1,1,1,1,"Business and Professional Services, Community and Government"
+55907c16498e6019fd1c14c1,40.707237,-74.002341,Bar-New American Restaurant-Seafood Restaurant,2,7.1,140,20,1,1,1,1,1,1,1,1,Dining and Drinking
+5591c747498e45ec0b8171f1,40.720759,-73.996939,American Restaurant-Seafood Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5591ef05498e888b3bbd3ce1,40.712418,-73.994253,Cocktail Bar,2,8.8,479,55,1,0,1,1,1,0,1,1,Dining and Drinking
+55959609498ebeaf9aaf0d07,40.71703,-73.99522,Cocktail Bar-Lounge,3,6.5,89,16,0,0,1,1,1,0,1,1,Dining and Drinking
+559ecd00498e965ccd39ea9f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+55a19208498ee495c38658a5,40.712167,-74.015367,Culinary School,-1,8.8,33,3,0,1,1,1,0,1,1,0,Community and Government
+55b2b14a498e09f9933e6bfd,40.721475,-74.004344,Liquor Store-Wine Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+55b7dd92498e88a1ea18d3f8,40.72628,-74.000212,Bakery-American Restaurant-Sandwich Spot,3,9.0,1018,191,0,1,1,0,0,1,1,0,Dining and Drinking
+55cb3cc3498e6c04b99f3539,40.707056,-74.007003,Dining and Drinking,1,8.1,122,22,0,1,1,1,0,1,1,0,Dining and Drinking
+55e1c16f498e3be4f7108cab,40.719864,-74.00009,Mediterranean Restaurant-New American Restaurant,3,6.8,139,32,0,1,1,1,0,1,1,1,Dining and Drinking
+55e26372498ed6652e70e26c,40.727087,-74.002252,Wine Bar,2,7.4,75,6,1,0,1,1,1,0,1,1,Dining and Drinking
+55ea9f4d498ed46db0383483,40.721564,-73.997101,Pizzeria,1,9.0,509,129,0,1,1,1,0,1,1,1,Dining and Drinking
+55f0b6b0498e1b4c64e412aa,40.703842,-74.014119,Public Transportation,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+55fc18b1498e2c019ea4e3b3,40.717356,-74.00309,Butcher-Gourmet Store-Grocery Store,-1,8.2,152,9,0,1,1,1,0,1,1,1,Retail
+5602e4df498ec4005a607535,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+56037e8b498ee4d3ed6d1280,40.719133,-73.997224,Cocktail Bar,2,-1.0,-1,-1,1,0,0,1,1,0,0,1,Dining and Drinking
+5606c755498ec78f89449528,40.717672,-73.99542,BBQ Joint-Hotpot Restaurant,-1,5.8,42,5,1,1,1,1,1,1,1,1,Dining and Drinking
+560d1028498eee2df9f982f0,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+560d4a8e498e4a741d8a2c89,40.704916,-74.006394,Business and Professional Services,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+56165c9c498ea2274c5e519c,40.726204,-74.004968,Technology Business,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+561a8cd8498ed81f4384d0aa,40.705562,-74.008384,Coffee Shop-Restaurant,1,8.8,354,54,0,1,1,0,0,1,1,0,Dining and Drinking
+561b24e5498ec9037e2ed048,40.719975,-74.001971,Shoe Store,-1,7.1,100,9,0,0,1,1,0,0,1,1,Retail
+561efe55498ef9d8b978c917,40.719303,-74.004869,Lounge-Bistro-American Restaurant,3,8.7,151,20,0,0,0,1,0,0,0,1,Dining and Drinking
+56253720498eafa9acbe4f14,40.722088,-73.997646,Vietnamese Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+562953bc498e2571787c9586,40.71412,-74.009029,Mexican Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+56340350498e3714da69b1a4,40.72141,-73.99679,Clothing Store-Men's Store,-1,7.8,30,5,0,1,1,1,0,1,1,1,Retail
+56377427498ef690cfe35b1a,40.712327,-74.015417,Publisher,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+5640d0efcd10fc89308b5869,40.705267,-74.005361,Art Gallery,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Arts and Entertainment
+564145c5498eaae7ad4028da,40.724824,-74.000198,Eyecare Store,-1,7.9,80,13,0,1,1,1,0,1,1,1,Retail
+56439a7538fa2ce64d09447e,40.711004,-74.008556,Clothing Store,-1,7.8,211,12,0,1,1,1,0,1,1,1,Retail
+564a86c8498ea245a802f0d1,40.719413,-73.996842,BBQ Joint-Chinese Restaurant-Hotpot Restaurant,2,8.4,415,56,1,0,1,1,1,0,1,1,Dining and Drinking
+564cb0ca498ead34d3419c48,40.731553,-74.008629,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+564cb952498e133963c04186,40.709455,-74.008014,Kosher Restaurant-Middle Eastern Restaurant-Vegan and Vegetarian Restaurant,1,8.4,225,45,0,1,1,1,0,1,1,1,Dining and Drinking
+564d067f38fafdd033f84d26,40.703978,-74.011114,Bakery-Café,1,7.5,91,11,0,1,1,0,0,1,1,0,Dining and Drinking
+564f3c88498ec41abeceef06,40.713261,-74.014799,Clothing Store,-1,7.6,16,1,0,1,1,1,0,1,1,1,Retail
+56560a58498ea43ab5ffb24d,40.722323,-73.998921,Children's Clothing Store-Clothing Store-Fashion Accessories Store,-1,8.2,34,8,0,1,1,1,0,1,1,1,Retail
+56623878498e5dafb6904636,40.722182,-73.998173,Clothing Store,-1,7.7,24,3,0,1,1,1,0,1,1,1,Retail
+56636f30498e1a6142bb79f2,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+566a0e2e498e3f66212c5d9f,40.7177,-74.010262,Art School,-1,8.2,23,2,0,0,1,1,0,1,1,1,Community and Government
+566c9c87498ef09a2940e605,40.718942,-74.006252,Café-Bakery,2,8.5,400,73,0,1,1,0,0,1,1,0,Dining and Drinking
+566ccc9e498e30e477702118,40.725344,-74.004846,Italian Restaurant,2,8.5,332,55,0,0,1,1,0,0,1,1,Dining and Drinking
+5675c52c498e2f30a978b6fb,40.713813,-73.998498,Dessert Shop-Restaurant,-1,7.0,49,9,0,1,1,1,0,1,1,1,Dining and Drinking
+568dd8f0498e49b9d660021b,40.706839,-74.012973,Gym and Studio,-1,8.7,60,9,1,1,1,1,0,1,0,0,Sports and Recreation
+5696a83d498e36e88b989783,40.719071,-73.997527,Wine Bar-Italian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5697b7de498ea72f44225d37,40.710452,-74.009058,Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+569b21af498e3013c904d8b5,40.71956,-74.001344,Coworking Space,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+56ad8486498e66c8883eaf32,40.720989,-73.996424,Ice Cream Parlor-Restaurant,1,7.5,59,16,0,0,1,1,0,0,1,1,Dining and Drinking
+56b536df498e79d32247a3d1,40.715516,-73.999351,Ice Cream Parlor-Asian Restaurant,1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+56b8e1c2498ecd75c8e1dbda,40.708523,-74.014524,Art Gallery,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Arts and Entertainment
+56bbc58e498eed7b2c402556,40.721087,-73.996777,Pizzeria-Italian Restaurant,3,8.8,518,108,0,0,1,1,0,0,1,1,Dining and Drinking
+56c3c626cd106998d2b196d0,40.71574,-73.991637,Pizzeria,1,9.1,405,78,0,0,1,1,0,0,1,1,Dining and Drinking
+56c4a2bdcd10152bd6e1f17f,40.708734,-74.006764,Telecommunication Service,-1,-1.0,-1,-1,0,1,1,0,0,1,0,0,Business and Professional Services
+56c4b5facd10824dac9e062e,40.72119,-73.996956,Dining and Drinking,-1,7.1,199,20,0,1,1,1,1,1,1,1,Dining and Drinking
+56c4fa3bcd10a5d646e306a9,40.702333,-74.012096,Business Center,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+56c662a3cd1016b386a94236,40.707396,-74.006405,Sports Bar-Burger Joint-American Restaurant,2,5.9,47,4,1,1,1,1,1,1,1,1,Dining and Drinking
+56c7640ccd104ef5361e0728,40.717738,-74.010831,Butcher-Fruit and Vegetable Store-Organic Grocery,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+56d1c7e2cd105fe2c5c705b6,40.717723,-74.005461,Bar-Café-Australian Restaurant,2,8.7,599,118,0,1,1,1,0,1,1,1,Dining and Drinking
+56d8c0f8498edb854f926e6a,40.711102,-74.006945,Hotel-Resort,-1,9.1,266,32,1,1,1,1,1,1,1,1,Travel and Transportation
+56dcacb9498e12e3c47eb759,40.733114,-74.00677,Gastropub-American Restaurant,2,7.2,95,15,1,0,1,1,1,1,1,1,Dining and Drinking
+56ddc1f8cd1028ec415bf35a,40.720613,-73.996365,Chinese Restaurant-Dumpling Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+56e1ae32498e22dda72791fe,40.725645,-74.001715,Burger Joint-Hot Dog Joint-Fast Food Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+56e451e8498efdd0a73250b4,40.71478,-73.998623,Coffee Shop-Ice Cream Parlor-Fast Food Restaurant,1,7.2,66,14,0,1,1,1,0,1,1,1,Dining and Drinking
+56e46150498ec3afc0d567a8,40.718068,-73.998709,Arts and Entertainment,-1,8.0,19,1,0,1,1,1,0,1,1,1,Arts and Entertainment
+56e4a599498e0feda5f2f6e0,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+56e4e262498e64591cecae0c,40.71916,-74.000193,Cocktail Bar-Lounge-Restaurant,-1,7.7,195,22,0,0,1,1,0,0,1,1,Dining and Drinking
+56e7f585498ed6598b4030cd,40.710915,-74.00589,Coffee Shop,2,8.3,230,36,0,1,1,1,0,1,1,1,Dining and Drinking
+56e87081498e9d491a35cba6,40.707874,-74.004679,Health Food Store,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Retail
+56eb3953498e9efb793f206b,40.708602,-74.01361,Bar-Gastropub-American Restaurant,2,6.9,38,8,1,1,1,1,1,1,1,1,Dining and Drinking
+56ec6ff3498e35328568ff59,40.728992,-74.005602,Technology Business,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+56f1c2a6498e96c5d9e9a31e,40.720339,-74.002466,Home Improvement Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+56f1dac5498ee078791a2051,40.71916,-74.000193,Hotel-Vacation Rental,-1,8.5,162,25,1,1,1,1,1,1,1,1,Travel and Transportation
+56f58275498eefdb60642bc9,40.709491,-74.00867,Shoe Repair Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+56f73e71498efedad2c1e41c,40.71719,-73.993306,Sake Bar-Japanese Restaurant,2,8.3,60,14,0,0,1,1,0,0,1,1,Dining and Drinking
+56fd4c5e498e389de05f8b85,40.715487,-73.998433,Chinese Restaurant,1,6.6,36,7,1,1,1,1,1,1,1,1,Dining and Drinking
+57020175498e7e5af0bff7aa,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5703eda0498eeba8f55d5bb8,40.719671,-74.001261,Coworking Space,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+570ba761498e3b4e81fcfcd3,40.713337,-74.012009,Advertising Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+570bffa8cd10a48a0f5d0cf3,40.728348,-74.007454,Bakery-Café,1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+570f9d9f498e2930e33ef486,40.703976,-74.011201,Media Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+570fbfc9498ea5237477d63d,40.71576,-74.010185,Mexican Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5717e052498ea14d53b097f0,40.723837,-74.000771,Ice Cream Parlor,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5717e72a498e6db184adce6b,40.724431,-74.00075,Children's Clothing Store-Fashion Accessories Store-Women's Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+571a6c25498e64cbcc8b3b6c,40.726088,-74.001296,Coffee Shop-Juice Bar-Sandwich Spot,1,7.8,89,12,0,1,1,1,0,1,1,0,Dining and Drinking
+571abec5498e9a18b35e43d4,40.71703,-73.99522,Beer Garden-Sports Bar-American Restaurant,1,5.3,76,9,1,1,1,1,1,1,1,1,Dining and Drinking
+571d2ced498e590d68ee74ae,40.717205,-73.994747,Ice Cream Parlor-Restaurant,1,6.6,33,9,0,1,1,1,0,1,1,1,Dining and Drinking
+571fc242498ead274d034e90,40.715762,-73.998226,Bubble Tea Shop-American Restaurant,-1,7.4,50,5,0,1,1,1,0,1,1,1,Dining and Drinking
+57218ba5498eb662eaa1e121,40.706674,-74.003191,Movie Theater,-1,8.3,355,43,0,0,1,1,0,1,1,1,Arts and Entertainment
+57224166498e768a5d14d00e,40.705436,-74.013004,Language School,-1,-1.0,-1,-1,0,1,1,1,0,0,0,0,Community and Government
+572926cecd10b412d636855d,40.719784,-74.003055,Art Gallery,-1,-1.0,-1,-1,0,0,1,0,0,0,1,0,Arts and Entertainment
+572a6dbe498e942a150da631,40.705436,-74.013004,Café,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+572b805fcd10f33f0b8796d0,40.708623,-74.014789,College and University-College Academic Building-College Administrative Building,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Community and Government
+572f6261498e9106df36da54,40.725866,-74.003514,Property Management Office-Residential Building,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"Business and Professional Services, Community and Government"
+5732631f498e7f716eb79f11,40.717886,-73.999444,Hawaiian Restaurant-Japanese Restaurant,3,8.3,293,54,0,1,1,1,0,1,1,1,Dining and Drinking
+573498df498e6df2eb8b36a7,40.725767,-74.001196,Coffee Shop,1,9.0,253,27,0,1,1,1,0,1,1,1,Dining and Drinking
+573e236f498ebf4b4d4391b6,40.720888,-74.006067,Lounge-American Restaurant,-1,-1.0,-1,-1,0,1,1,1,0,0,1,1,Dining and Drinking
+57435923498e13904f902552,40.708539,-74.013913,Austrian Restaurant-Bar-German Restaurant,-1,7.7,110,20,0,0,1,1,0,0,1,1,Dining and Drinking
+57439584498e13105a96ff50,40.710902,-74.008377,Coffee Shop,1,5.7,19,4,1,1,1,1,0,1,1,0,Dining and Drinking
+574456e5498e39c73d234da1,40.706441,-74.007808,Café-Coffee Shop-Sandwich Spot,1,9.3,624,117,0,1,1,0,0,1,1,0,Dining and Drinking
+57470da2498ed71d9912da41,40.720076,-73.996257,Coffee Shop-Tea Room-Vegan and Vegetarian Restaurant,2,8.1,681,132,0,1,1,1,0,1,1,1,Dining and Drinking
+57479cca38fad4925dcb8298,40.724642,-74.000933,Children's Clothing Store-Clothing Store-Men's Store,-1,6.4,40,5,0,1,1,1,0,1,1,1,Retail
+57489345498e5d2282f54eac,40.719267,-74.004213,Nail Salon,-1,8.4,35,4,0,1,1,1,0,1,1,1,Business and Professional Services
+5748d802498eccc4228c7fd1,40.721302,-74.012675,Wine Bar-Dining and Drinking-Winery,2,8.3,512,71,0,0,1,1,0,1,1,1,Dining and Drinking
+5748ddc7498eccc42296396b,40.715889,-74.00744,Indian Restaurant-Persian Restaurant-Seafood Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+574f584a498ef745feb6d25a,40.727012,-74.007008,Event Space,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Business and Professional Services
+575034ba498e362147f173e2,40.716078,-74.008408,Sports and Recreation,-1,7.2,15,2,0,1,1,1,0,1,1,0,Sports and Recreation
+5755aeda498e848fd0ae617b,40.722595,-74.004781,Deli,1,7.2,14,0,1,1,1,1,1,1,1,1,Dining and Drinking
+57583641498e90001a32e13e,40.719105,-74.000234,French Restaurant,3,9.1,527,92,0,1,1,1,0,1,1,1,Dining and Drinking
+575b2829498e77357d734a04,40.721739,-73.998592,Boxing Gym,-1,8.5,25,2,-1,-1,-1,-1,-1,-1,-1,-1,Sports and Recreation
+575dea4c498e2739e43a27e2,40.713226,-74.008164,Indian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+57616cc9498ecbe794431164,40.726484,-74.002621,Spa,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+5761c709498e111b3b231d10,40.711701,-74.008714,Mobile Company-Telecommunication Service-Mobile Phone Store,-1,6.3,7,1,0,1,1,1,0,1,1,1,"Business and Professional Services, Retail"
+576c10c1498e346f21b0e751,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+576c2212498e72c8c38f1ddd,40.710428,-74.013857,Park,-1,9.2,200,11,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+576eab51cd10ae8e59db0250,40.720457,-73.996141,Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5771337f498e8ede582877bc,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5771fda2498e387fcf93d765,40.714644,-73.991722,Tattoo Parlor,-1,8.1,11,3,0,0,1,1,0,0,1,1,Business and Professional Services
+5772e0d5cd10a42d05ed11a5,40.72456,-73.99997,Electronics Store,-1,9.0,92,9,0,1,1,1,0,1,1,1,Retail
+57745985498ea83e7485bed1,40.726018,-74.007842,Café,-1,-1.0,-1,-1,0,1,1,0,1,1,1,1,Dining and Drinking
+57755749498ea36b4bc9a775,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+577a8f47498ebddf91b56bbd,40.708763,-74.005718,Café-Sandwich Spot-Tapas Restaurant,3,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+577c4a4a498e2c214c8f57e1,40.705507,-74.008425,Salad Restaurant-Vegan and Vegetarian Restaurant,2,8.9,323,46,0,1,1,1,0,1,1,1,Dining and Drinking
+578692f4498e1054905dbde7,40.715846,-73.996474,Hotel,-1,8.8,113,14,1,1,1,1,1,1,1,1,Travel and Transportation
+5787b68e498efcabbebba4f8,40.710509,-74.008929,Burger Joint-American Restaurant-Fast Food Restaurant,2,8.2,653,80,0,1,1,1,0,1,1,1,Dining and Drinking
+57928c69498e1dae12e71019,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+579607a3498e62c81b38aa75,40.717903,-73.998834,Ice Cream Parlor-Japanese Restaurant,1,8.4,529,91,0,0,1,1,0,1,1,1,Dining and Drinking
+5797bfdd498ef80c3149949d,40.725339,-74.003056,Indian Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+579c12cd498e6e815b3acf50,40.71021,-74.011972,Italian Restaurant-Grocery Store,-1,9.0,1476,142,0,1,1,1,0,1,1,1,"Dining and Drinking, Retail"
+579ce65c498e7375adeff1e8,40.710452,-74.009058,Business and Professional Services,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+579e5513498e9ffc61b6ad8e,40.72628,-74.002177,Italian Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+57a240f1cd10ed172db51626,40.711573,-74.011459,Electronics Store,-1,8.6,460,34,0,1,1,1,0,1,1,1,Retail
+57a4a79c498e4a512547ef7e,40.714493,-74.009174,Café-Coffee Shop-Dessert Shop,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+57ab90ca498e7d61e13a6985,40.704451,-74.017503,Cocktail Bar-Restaurant,3,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+57acc558498e036ce8f2b0b4,40.710308,-74.012325,Italian Restaurant-Pizzeria,1,8.5,290,49,0,1,1,1,0,1,1,1,Dining and Drinking
+57acd43438fa6c46b588b82c,40.71021,-74.011972,Pizzeria,1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+57ae0be1cd100274743d07df,40.703463,-74.012184,Deli-American Restaurant-Fast Food Restaurant,2,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+57ae102d498e12fa1c146652,40.709944,-74.011831,Coffee Shop,1,7.1,44,5,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+57b08c2c498ef31f02f8fcb4,40.718578,-73.999777,Jewelry Store,-1,7.8,12,1,0,1,1,0,0,1,1,0,Retail
+57b21912498e3b59e354e235,40.718048,-74.003423,Real Estate Service,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+57b3342d498ed18a1ffc11ad,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+57b49df2498e4991755e961f,40.723751,-73.999981,Sporting Goods Retail,-1,8.1,118,6,0,1,1,1,0,1,1,1,Retail
+57b4d7d7498e0b675b71f653,40.71005,-74.011922,Italian Restaurant,2,7.2,65,3,0,1,1,1,0,1,1,1,Dining and Drinking
+57b61f2a498ed8856425737c,40.704177,-74.011732,Cocktail Bar-Sports Bar-American Restaurant,2,7.2,168,19,1,1,1,1,1,1,1,1,Dining and Drinking
+57b64641498e30ab69639892,40.71021,-74.011972,Clothing Store,-1,7.2,22,1,0,1,1,1,0,1,1,1,Retail
+57b77dd8498e2dc8c17f94c2,40.718703,-73.999171,Animal Shelter,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+57b87e21498edaf1049be9f5,40.711683,-74.011376,Candy Store,-1,7.5,21,3,0,1,1,1,0,1,1,1,Retail
+57b9dda3498e876beb013404,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+57bc4e34498ebd714e7b8c95,40.712928,-74.013171,Juice Bar,1,7.2,118,20,0,1,1,1,0,1,1,1,Dining and Drinking
+57c06f2e498e1de2b349c99e,40.712882,-74.008936,Hotel,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+57c43c98498e2696b402a527,40.723346,-73.999005,Clothing Store-Shoe Store,-1,8.7,562,41,0,1,1,1,0,1,1,1,Retail
+57c640ad498e74977f98372f,40.712556,-74.00901,Spa-Hotel,-1,9.0,86,5,1,1,1,1,1,1,1,1,"Travel and Transportation, Business and Professional Services"
+57c848e6498e1f0d11d9d3f1,40.72754,-74.003449,American Restaurant-French Restaurant-Italian Restaurant,2,8.5,188,21,1,0,1,1,1,0,1,1,Dining and Drinking
+57c86b6a498e43a03acd849f,40.713739,-74.009144,Burger Joint-American Restaurant-Sandwich Spot,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+57c871ca498ecc3fd7379718,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+57c98c00498ede2ae6ad9755,40.72445,-74.007998,Hotel,-1,8.9,279,24,1,1,1,1,1,1,1,1,Travel and Transportation
+57d6f856498ee8aed7cd29a0,40.712921,-74.013433,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+57d9e582498e1a4d9f13ede7,40.713386,-73.996342,Music Venue,-1,8.4,30,2,-1,-1,-1,-1,-1,-1,-1,-1,Arts and Entertainment
+57dedc27498e3c1378cdfaf8,40.711563,-74.011808,Wine Store,-1,8.5,17,3,0,0,1,1,0,0,1,1,Retail
+57e086e5498e63392523069f,40.715868,-74.033847,Hotel,-1,8.2,24,6,1,1,1,1,1,1,1,1,Travel and Transportation
+57e4150d498efb6fccc24a4e,40.721641,-74.010113,Liquor Store-Wine Store,-1,8.7,22,3,0,0,1,1,0,0,1,1,Retail
+57e46dce498e1a900d0908f5,40.725027,-74.000643,Clothing Store-Fashion Accessories Store-Men's Store,-1,8.4,22,1,0,1,1,1,0,1,1,1,Retail
+57e56690498e6a859d0fb62d,40.724733,-74.001548,Fashion Accessories Store-Leather Goods Store-Miscellaneous Store-Outlet Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+57e5755838faf76930372ec4,40.732056,-74.007994,Grocery Store,-1,8.6,111,9,0,1,1,1,0,1,1,1,Retail
+57ea9dab498e634b49d5663f,40.710479,-74.01399,Church,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Community and Government
+57ed4a0f498e6b40f7339eb8,40.711573,-74.011459,Retail,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+57f0689d498e7d49d9189369,40.711102,-74.006945,Hotel Bar,3,9.2,269,30,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+57f268ea498e643107ff195f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+57f4fb59498efaaab7345b34,40.714709,-74.011147,Big Box Store,-1,7.5,396,26,0,1,1,1,0,1,1,1,Retail
+57f57f1b498e00421b141830,40.706789,-74.01284,Event Space,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Business and Professional Services
+57f81d3c498e4e964cfff584,40.71314,-74.013181,Technology Business,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+57fd5f92498eb881a4a65753,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+57fd74cb498ecd4ccc2510ee,40.706569,-74.0031,New American Restaurant-Tapas Restaurant,3,7.3,76,17,0,0,1,1,0,0,1,1,Dining and Drinking
+57fe5fb9498e0dfb586bfe58,40.718856,-73.999483,Cocktail Bar-Coffee Shop-American Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5806bab9d67c859f8d11140c,40.705747,-74.007562,Arts and Entertainment,-1,7.7,11,2,0,0,1,1,0,1,1,1,Arts and Entertainment
+58079ddb38fafedacedb1a24,40.719267,-73.996269,Bubble Tea Shop-Tea Room-Japanese Restaurant,-1,7.7,106,10,0,1,1,1,0,1,1,1,Dining and Drinking
+5807e7fc38faea987943ac54,40.718053,-73.997268,Hawaiian Restaurant-Japanese Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+580820a638fae571fa62c326,40.730179,-74.003597,BBQ Joint-American Restaurant-Vegan and Vegetarian Restaurant,3,8.2,99,26,0,1,1,1,0,1,1,1,Dining and Drinking
+580a863238fa69ffeefb49cf,40.710617,-74.008933,Donut Shop,1,6.8,14,3,1,1,1,1,1,1,1,1,Dining and Drinking
+580f8f7438fa03649d3c2e64,40.7245,-74.008131,Coffee Shop,1,5.3,9,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+581605b838faae96e66a8903,40.711573,-74.011459,Bakery,1,6.2,136,21,0,1,1,1,0,1,1,1,Dining and Drinking
+58167e4c38fa462c38c36daf,40.720192,-74.009837,Cocktail Bar-French Restaurant-New American Restaurant,4,7.6,114,17,0,1,1,1,0,1,1,1,Dining and Drinking
+58191674ded8f8626ed70af0,40.711212,-74.006862,Bistro-Brasserie-Seafood Restaurant,4,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+581d5bab77259217e0539e59,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5822759cc0633a2cd29b6d32,40.724445,-74.008172,Cocktail Bar-Restaurant,3,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+58234901b613dc63f75977fd,40.732913,-74.006238,Soup Spot,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5823d69af2c98b32f07ac65a,40.705172,-74.008848,Wine Bar-Greek Restaurant-Seafood Restaurant,4,5.7,42,5,0,1,1,1,0,0,1,1,Dining and Drinking
+582472d6ef085e607efc254e,40.710328,-74.011628,Clothing Store,-1,7.2,29,2,0,1,1,1,0,1,1,1,Retail
+5824f9a470fc420660d82754,40.707991,-74.014241,Cocktail Bar-Pizzeria-Italian Restaurant,1,7.1,102,15,0,1,1,1,0,0,1,1,Dining and Drinking
+582543c1b39f9613c18d8e2f,40.714308,-73.998125,Chinese Restaurant,1,7.8,259,47,0,0,1,1,0,0,1,1,Dining and Drinking
+582ce83e7ff1e423c65a482b,40.722978,-74.004578,Bakery-Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Dining and Drinking
+582dbaabd21e031c1a35423d,40.71827,-74.00317,Yoga Studio,-1,9.0,71,9,0,1,1,1,0,1,1,1,Sports and Recreation
+582e6365debdf603fff720ab,40.725273,-74.007463,Cocktail Bar-Wine Bar-Tapas Restaurant,2,7.2,56,3,0,0,1,1,1,0,1,1,Dining and Drinking
+5830afc58d8e99259a67e720,40.724026,-73.999774,Pop-Up Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,
+58389efb8f0be46bca889667,40.713586,-73.992946,Chinese Restaurant-Ramen Restaurant-Noodle Restaurant,1,7.2,24,5,0,1,1,1,0,1,1,1,Dining and Drinking
+583af456ce593d41644bd7a6,40.718665,-74.000566,Coffee Shop-Restaurant,1,7.9,98,16,0,1,1,0,0,1,1,0,Dining and Drinking
+584067e6b50d521817d726a1,40.719036,-74.000799,Food Court,-1,8.2,443,37,0,1,1,1,0,1,1,1,Dining and Drinking
+5843e11b2980db2ff897ba51,40.726112,-74.008369,Cocktail Bar-Lounge,3,8.3,72,5,1,0,0,1,1,0,0,1,Dining and Drinking
+58447d1ba19e9066cdc9d8a2,40.711573,-74.011459,Cosmetics Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+585488d35804ea5d622e2bec,40.714308,-73.998125,Coffee Shop-Asian Restaurant-Vegan and Vegetarian Restaurant,2,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+585c15782b04f80cdd0e9711,40.703516,-74.010266,Hawaiian Restaurant-Japanese Restaurant-Salad Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+587012d1fad9dc2b0158b276,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5878d46d52a05106f220729c,40.712903,-73.998244,Bakery-Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+587ffcc3ea29b80cdce3468d,40.711046,-74.012966,Memorial Site,-1,9.3,273,13,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+58801864cc5b6a14dedce689,40.711095,-74.013098,Memorial Site,-1,9.3,406,23,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+588251d3ac13691c90477561,40.709429,-74.008973,Fried Chicken Joint-American Restaurant-Fast Food Restaurant,2,7.9,81,13,0,1,1,1,0,0,1,1,Dining and Drinking
+5882565d89151d6db39f50d7,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5893aa7e1e1de501d95e372e,40.703846,-74.011981,Coffee Shop-Restaurant,1,8.5,144,20,0,1,1,1,0,1,1,0,Dining and Drinking
+5894c9a15e56b417cf79e553,40.715084,-73.99737,Chinese Restaurant,1,8.9,164,33,0,1,1,1,0,1,1,1,Dining and Drinking
+5898b973fc73d40bed68acb6,40.708004,-74.007826,Cocktail Bar-American Restaurant,2,7.4,84,12,0,1,1,1,0,1,1,1,Dining and Drinking
+58a0b6621470b07f6535790f,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+58a253c830ecc66c9e5b40a0,40.712783,-74.008583,Yoga Studio,-1,8.7,23,2,0,1,1,1,0,1,1,0,Sports and Recreation
+58a4ad2a5e56b4730c8fcfe8,40.729681,-74.004058,Tea Room-Chinese Restaurant-Japanese Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+58a4fb9d30ecc618cdd5c3e2,40.726397,-74.001832,Cocktail Bar-Wine Bar-Chinese Restaurant,1,7.6,282,47,0,0,1,1,0,0,1,1,Dining and Drinking
+58a9fca84ca49b71b4b821da,40.702991,-74.005794,Harbor or Marina,-1,-1.0,-1,-1,0,1,1,1,1,1,1,1,Landmarks and Outdoors
+58ab3a6a53f5bb4b6b267ad1,40.706388,-74.007762,Grocery Store,-1,8.1,129,17,0,1,1,1,0,1,1,1,Retail
+58ac61da9c954845fab234b4,40.711197,-74.015328,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+58ac81c5f16bb56972131ba2,40.700804,-74.01282,Hot Dog Joint-American Restaurant-Fast Food Restaurant,1,5.7,6,3,0,1,1,1,0,1,1,1,Dining and Drinking
+58ae412372714f32e282e2d7,40.71225,-74.008387,Dining and Drinking,-1,7.4,107,14,1,1,1,1,1,0,1,1,Dining and Drinking
+58b096c25804ea3ce7671d47,40.716972,-73.993385,Vietnamese Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,0,Dining and Drinking
+58b2ede819b1ad549368bb0d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+58bb32417220e6425c43d0f4,40.730158,-74.004382,Pet Grooming Service-Pet Sitting and Boarding Service-Pet Supplies Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,"Business and Professional Services, Retail"
+58c15cad4287c9455ad33fc8,40.706892,-74.011055,Monument,-1,8.9,104,9,1,1,1,1,1,1,1,1,Landmarks and Outdoors
+58c1e8590e0a1e57d87192ba,40.713102,-73.998863,Music School,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Community and Government
+58c1f3e97a8f044c6ea8934b,40.711894,-73.993709,French Restaurant-Italian Restaurant-New American Restaurant,3,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+58c2e736bf1a6d6b31fa57fa,40.709541,-74.006839,Poke Restaurant-Sushi Restaurant,-1,7.2,102,9,0,1,1,1,0,1,1,1,Dining and Drinking
+58c342a5260327384a7db521,40.72464,-74.002985,Italian Restaurant,2,7.9,110,20,0,1,1,1,0,1,1,1,Dining and Drinking
+58c9b84a0319b81f32a8bd37,40.711686,-74.015217,Beer Bar-Gastropub-French Restaurant,3,7.5,11,3,0,1,1,1,0,1,1,1,Dining and Drinking
+58d160a5e309e1483f78f385,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+58d2a850debdf60c50251727,40.720164,-74.000975,Business and Professional Services,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Business and Professional Services
+58d2d521fb549a39850b04f6,40.717574,-73.997031,Coffee Shop-Ice Cream Parlor-Restaurant,1,7.5,144,22,0,1,1,1,0,1,1,1,Dining and Drinking
+58dadb65af5c14752548e96e,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+58dba0e0fef5fa1e44b46f89,40.722256,-73.997434,Dining and Drinking-Fast Food Restaurant-Coffee Shop,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+58e298e1528930451a13c08d,40.710471,-74.012288,Coffee Shop,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+58ed1f759435a97c1d8010e7,40.721779,-73.99711,Fast Food Restaurant-Poke Restaurant-Japanese Restaurant,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+58ed71a915fb43399eff3fcb,40.729715,-74.004801,Mexican Restaurant,1,5.5,9,1,0,0,1,1,0,0,1,1,Dining and Drinking
+58efb4281f74401c28a2d75d,40.710487,-74.00775,Italian Restaurant-Pizzeria,1,4.9,11,2,0,1,1,1,0,1,1,1,Dining and Drinking
+58f54555e2ead178a41de832,40.709167,-74.00473,Pizzeria-Italian Restaurant,1,8.7,129,22,0,1,1,1,0,1,1,1,Dining and Drinking
+58f9ec44eb645b5ea0ecdb64,40.713337,-74.012009,Coffee Shop,1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+58fa33cea9fe1259485f3c9d,40.73064,-74.006497,Sandwich Spot,1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+58fd2804f79faa1c9cb04e81,40.716118,-74.004961,Bubble Tea Shop,-1,6.9,18,2,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+58fdf5ec6cf01a4f54c7792b,40.708387,-74.005659,Coffee Shop-American Restaurant,1,9.0,474,112,0,1,1,0,0,1,1,0,Dining and Drinking
+58fe4e1d6bd36b2d9d5c44ce,40.718566,-74.010122,Children's Clothing Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+5904e291286fda74dee6d5f9,40.72327,-74.00376,Brasserie,3,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+59063229061b51746e22e8d1,40.716097,-73.997802,Dessert Shop-Dim Sum Restaurant-Soup Spot,2,6.4,38,6,0,1,1,1,0,1,1,1,Dining and Drinking
+590a00e74febd55af43a8267,40.719585,-73.996456,Ice Cream Parlor-American Restaurant,1,8.3,237,42,0,0,1,1,0,0,1,1,Dining and Drinking
+590b631df62e092facdf7b2a,40.719089,-74.000845,Chinese Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+590bbf91b3d8e268790ce641,40.714013,-73.995101,Noodle Restaurant,1,6.5,23,5,0,1,1,1,0,1,1,1,Dining and Drinking
+590cdab82079555d29bdcac3,40.726286,-74.007896,Furniture and Home Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Retail
+5912316a8c35dc34cc66ad53,40.719977,-74.001884,Board Store,-1,7.5,13,2,0,1,1,1,0,1,1,1,Retail
+5914cd7595a722751f906aeb,40.7103,-74.016602,Beer Garden-American Restaurant,1,7.3,122,18,1,0,1,1,1,1,1,1,Dining and Drinking
+5915ebe68a6f17705d4d1e10,40.711573,-74.011459,Sushi Restaurant-Soup Spot,2,6.8,36,3,0,1,1,1,0,1,1,1,Dining and Drinking
+59174f98ba4a647db918bfb5,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+591a10bb0313205133bb1bc6,40.718979,-74.000928,Bubble Tea Shop-Restaurant,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+591e2db56fa81f3c8c6c8954,40.718532,-73.995541,Health and Beauty Service,-1,8.0,15,1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5921a6cd5d0fea5ae1a284dd,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5925bd2d4c954c35f9757608,40.728609,-74.00777,Café-Coffee Shop-Tea Room,1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Dining and Drinking
+59287470ee71203352bd1df8,40.722903,-74.001389,Juice Bar,1,7.7,117,15,0,1,1,1,0,1,1,1,Dining and Drinking
+59287ec99cadd905284e4052,40.715965,-73.996706,Beer Bar-Cocktail Bar-Restaurant,-1,7.9,166,22,1,0,1,1,1,0,1,1,Dining and Drinking
+5930b23fa0215b58b023f230,40.704021,-74.009544,Mexican Restaurant,1,-1.0,-1,-1,0,1,1,1,0,0,0,0,Dining and Drinking
+59318ce1c5b11c6c16c15d29,40.715504,-73.991843,Deli-Italian Restaurant-Sandwich Spot,1,8.6,49,10,0,1,1,1,0,1,1,1,Dining and Drinking
+593332f9123a1963f539daa0,40.729415,-74.003916,Burger Joint-Pizzeria-American Restaurant,1,9.1,740,147,0,0,1,1,0,0,1,1,Dining and Drinking
+59346c72603d2a55fc344b20,40.725101,-73.999904,Skin Care Clinic,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+5939da3ff427de5f7ffab579,40.706861,-74.004246,Cultural Center,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Community and Government
+593a877b6fd6265aed8d8ac9,40.702983,-74.015961,Dog Park,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+593ff60bdd12f81d39923b41,40.707893,-74.013888,History Museum,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Arts and Entertainment
+5940340af0b490474fee35c7,40.721295,-74.004992,Asian Restaurant-Fast Food Restaurant-Poke Restaurant,-1,8.3,74,5,0,1,1,1,1,1,1,1,Dining and Drinking
+5941c0abf193c012d47fc4e8,40.711487,-74.012634,Auditorium,-1,8.6,43,3,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+594301c89411f241f5b6a2ee,40.714063,-74.01505,American Restaurant-Food and Beverage Retail,4,7.5,100,6,0,1,1,1,0,0,1,1,"Dining and Drinking, Retail"
+5945575cf62e090a3b220883,40.723359,-74.004462,Flea Market,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+59480a78f62e090a3b4d6eb7,40.714924,-73.99134,Mediterranean Restaurant-Spanish Restaurant,2,8.7,187,28,0,0,1,1,0,0,1,1,Dining and Drinking
+5949c4e7464d653372336860,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5953e0555c683860ffa4e0cd,40.719133,-73.997224,Italian Restaurant,2,-1.0,-1,-1,1,0,1,1,1,0,1,1,Dining and Drinking
+5953e5314382ab0b3b808dc6,40.709436,-74.006748,Bagel Shop-Café-Restaurant,1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+59558c9b75cb8c11482ea9b6,40.730467,-74.004918,Cocktail Bar-Fish and Chips Shop-Seafood Restaurant,1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+59562939a4ba7c5751c7bca6,40.710509,-74.008929,Bagel Shop-Restaurant,1,4.8,14,2,0,1,1,1,0,1,1,1,Dining and Drinking
+595805658173cb5b6fa964d9,40.719213,-74.000239,Spa,-1,8.0,15,1,0,1,1,1,0,1,1,1,Business and Professional Services
+59614fc15c68383973e85d14,40.706388,-74.007762,Pizzeria,1,6.3,16,2,0,1,1,1,0,1,1,1,Dining and Drinking
+5969763a5455b223c7a8371d,40.70716,-74.003167,Speakeasy,3,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+596e8fbd6f706a4c51646b72,40.71558,-74.008868,Pizzeria-Italian Restaurant,4,6.7,77,8,0,0,1,1,0,0,1,1,Dining and Drinking
+596fd1c94c9be6633dca5248,40.726027,-74.003564,Gym and Studio,-1,8.6,52,7,1,1,1,1,0,1,1,1,Sports and Recreation
+5970df4d4a7aae59a88d4d63,40.720804,-73.997246,Café-Coffee Shop-Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+59713cc87564f739c83beee8,40.72141,-73.99679,Bubble Tea Shop-Tea Room-Chinese Restaurant,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+59775b88b2958f58e4c74a17,40.72336,-74.006427,Café-Restaurant,1,7.7,12,1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+59777632a0215b656ce48629,40.71772,-73.99564,BBQ Joint-Korean Restaurant,2,7.9,36,6,0,1,1,1,0,1,1,1,Dining and Drinking
+59792b2403369334be043a56,40.71005,-74.011922,Italian Restaurant,2,6.7,41,8,0,1,1,1,0,1,1,1,Dining and Drinking
+597a11ccb2958f056b27c60d,40.716308,-74.009857,Coffee Shop-Restaurant,1,7.6,24,2,0,1,1,0,0,1,1,0,Dining and Drinking
+597a8e3675a6ea23e92b1414,40.721988,-73.999344,Shoe Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+597fd9ab1fa7630c4194e9d3,40.707743,-74.00751,Cocktail Bar-South American Restaurant-Tapas Restaurant,2,7.1,20,3,0,1,1,1,0,0,0,0,Dining and Drinking
+59822ae4e97dfb6a1519825b,40.715965,-73.996706,Dining and Drinking,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+59838f1f64c8e127502fe3ef,40.721936,-74.001263,Clothing Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+5984eeb39be522744003dee5,40.711623,-74.011592,Landmarks and Outdoors,-1,9.0,510,34,-1,-1,-1,-1,-1,-1,-1,-1,Landmarks and Outdoors
+5985db5e4420d80bedd5e6ef,40.707943,-74.01402,Café-Coffee Shop-Australian Restaurant,1,7.8,99,25,0,1,1,0,0,1,1,0,Dining and Drinking
+598c7e633b83073f81f4a4e6,40.709319,-74.007093,Ramen Restaurant,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5991933ec0f1632f70b55347,40.721787,-74.000777,Club House-Restaurant,-1,9.2,57,2,0,1,1,1,0,1,1,0,"Dining and Drinking, Community and Government"
+59985efc6e465076273512cb,40.72289,-74.005841,Food Truck,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+59987406603d2a70195e62e1,40.716951,-73.996134,Massage Clinic,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Business and Professional Services
+5998d44bca18ea189f40f002,40.707412,-74.001867,Gastropub-American Restaurant-Cuban Restaurant,3,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+5998e49dc666662a7e02525e,40.704805,-74.006477,"Shipping, Freight, and Material Transportation Service",3,-1.0,-1,-1,0,0,1,1,1,0,0,1,Business and Professional Services
+599c3906b37e2b0be12565f0,40.708932,-74.011398,Coworking Space,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+59a6087fe96d0c47fbbbda67,40.718723,-73.994458,Chinese Restaurant-Hotpot Restaurant,-1,6.8,64,6,0,0,1,1,0,0,1,1,Dining and Drinking
+59aa17cf25fb7b4543364736,40.717349,-74.005316,BBQ Joint-Fast Food Restaurant-Sushi Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+59ac4e16625a664f68391f55,40.707615,-74.002312,Ice Cream Parlor-Restaurant,1,8.5,93,11,0,1,1,1,1,1,1,1,Dining and Drinking
+59ad9de7d3cce86105d77b45,40.716463,-73.99821,Bubble Tea Shop-Restaurant,-1,7.3,23,3,0,1,1,1,0,1,1,1,Dining and Drinking
+59b1a2c26f706a0386a30602,40.713169,-74.008293,Comfort Food Restaurant-Sandwich Spot,1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Dining and Drinking
+59b3113a06fb6043c3fa17d4,40.715236,-73.993753,Chinese Restaurant,1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Dining and Drinking
+59b4898de1f0aa6d9ec6d507,40.727073,-74.002776,American Restaurant-Mediterranean Restaurant-Middle Eastern Restaurant,2,9.2,508,66,0,0,1,1,0,1,1,1,Dining and Drinking
+59b70eb2fd16bb50bdeccf29,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+59b8c291a795bd49fe94b6b3,40.702975,-74.012296,Hotel,-1,7.9,28,5,1,1,1,1,1,1,1,1,Travel and Transportation
+59b94fdb2ebb346f98fabd4a,40.710936,-74.001178,Coffee Shop,1,6.7,9,4,0,1,1,0,0,1,1,0,Dining and Drinking
+59bbdbda26659b702aa26472,40.723683,-74.008404,Coworking Space,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+59bca892bcbf7a6bb65b3c63,40.714828,-73.9909,American Restaurant-Brazilian Restaurant-French Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+59bd506ce2d4aa3d68b99a88,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+59bdbf214c9be611fb5eae24,40.715355,-73.991357,Bar-American Restaurant-Dim Sum Restaurant,2,-1.0,-1,-1,0,0,1,1,1,0,1,1,Dining and Drinking
+59c6af0635f98307199fbc40,40.714337,-73.999042,Bakery-Dessert Shop,1,-1.0,-1,-1,0,0,1,0,0,0,1,1,Dining and Drinking
+59cede02b23dfa246fee7545,40.714738,-74.010101,Wine Bar-French Restaurant,2,7.9,30,6,1,0,1,1,1,0,1,1,Dining and Drinking
+59d1414eaa6c9536b0a5d33d,40.721019,-74.00127,Pop-Up Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+59d2188d7247503e69259f80,40.703976,-74.011201,Gym and Studio,-1,8.2,19,1,0,1,1,1,0,1,1,0,Sports and Recreation
+59d2c4ec1f8ed658b1f4fb03,40.719466,-73.996888,Wine Bar-Greek Restaurant-Tapas Restaurant,2,8.7,162,24,0,0,1,1,0,0,1,1,Dining and Drinking
+59d51784396de03135fa2a9e,40.718419,-73.995711,Liquor Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+59d55307d48ec12ba0df430e,40.726598,-74.000399,Pop-Up Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,
+59d69082a423620b88f91b63,40.726959,-74.006962,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+59d6a14cb6eedb4d1b393fb4,40.721241,-74.001017,Boutique,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+59d7799486f4cc7f7d35d325,40.722256,-73.997434,"Cafe, Coffee, and Tea House-Bagel Shop-Restaurant",1,5.5,26,5,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+59d7c14a1cf2e14bac231fac,40.71924,-74.001244,"Bakery-Cafe, Coffee, and Tea House-Sandwich Spot",1,7.0,20,2,0,1,1,1,0,1,1,1,Dining and Drinking
+59d828f0916bc1155fde2c04,40.713719,-73.996006,Szechuan Restaurant,1,8.1,143,25,0,0,1,1,0,0,1,1,Dining and Drinking
+59dfe90ed69ed038f9316118,40.720348,-74.000153,Wine Bar-Vegan and Vegetarian Restaurant,2,9.1,144,20,0,1,1,1,0,1,1,1,Dining and Drinking
+59e13fc9e4c459524ae462a9,40.720076,-73.996257,Café,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+59e391c3e1f22816d1b09cf5,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+59e7bfa8356b4970aea1be3f,40.715637,-73.996868,Chinese Restaurant-Japanese Restaurant-Noodle Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+59edf3538264443e0dc7490d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+59ee2c6162420b39d0974c61,40.722746,-74.003216,Coffee Shop-American Restaurant,1,5.5,67,9,0,1,1,1,0,1,1,1,Dining and Drinking
+59f38be7175562651c451266,40.708188,-74.01455,Exhibit,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Arts and Entertainment
+5a02358350a6f00537bba695,40.722414,-73.999536,Gift Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Retail
+5a04f7ee065ef54fbd6ea4da,40.72361,-74.001198,Clothing Store-Fashion Accessories Store-Women's Store,-1,8.7,53,1,0,1,1,1,0,1,1,1,Retail
+5a0bcbfd67af3a0e3222df3d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a0e16d5e4c4590cfe273e38,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a0f6c9fb04056129d570bce,40.721224,-73.997699,Bar,2,5.2,22,4,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+5a106285fdb9a71c48953176,40.719972,-74.000094,Pop-Up Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a189f73dab4b138e5cf44c6,40.723442,-74.00141,Pop-Up Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,
+5a1e0dddb2958f1efac02a71,40.717032,-73.995133,Cocktail Bar-Ramen Restaurant-Noodle Restaurant,2,6.6,28,4,0,0,1,1,0,0,1,1,Dining and Drinking
+5a20c25f178a2a17a813e933,40.715583,-73.998873,Bakery-Restaurant,1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5a216eb632b61d1112506754,40.708329,-74.01373,Hotel,-1,6.1,16,5,1,1,1,1,1,1,1,1,Travel and Transportation
+5a218e10396de039ddcae0a5,40.711057,-74.008602,Mediterranean Restaurant-Seafood Restaurant,2,5.5,30,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5a25d4e6e65d0c0638925679,40.715865,-74.033934,Cocktail Bar-Coffee Shop-American Restaurant,2,7.6,80,6,0,0,1,1,1,0,1,1,Dining and Drinking
+5a26e786b23dfa653082badd,40.710544,-74.015564,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5a27f9bcf193c025540fafb9,40.727364,-74.005974,Bakery-Coffee Shop-Restaurant,1,7.6,68,11,0,1,1,0,0,1,1,0,Dining and Drinking
+5a2864cd772fbc56e9d467fd,40.715543,-74.004284,Business and Strategy Consulting Office,-1,-1.0,-1,-1,0,1,1,0,0,0,0,0,Business and Professional Services
+5a2d92784420d862a9ecc32d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a2daf4d58aa7f43dd48d059,40.714127,-73.990916,Ice Cream Parlor-Restaurant,1,8.0,67,7,0,0,1,1,0,0,1,1,Dining and Drinking
+5a3464f8838e597257915d3b,40.717813,-73.994204,Bubble Tea Shop-Tea Room-Restaurant,-1,7.4,25,4,0,1,1,1,0,1,1,1,Dining and Drinking
+5a35edc9c0f16360b91621fe,40.71591,-73.996747,Night Club-Steakhouse,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"Dining and Drinking, Arts and Entertainment"
+5a382327dee7707dd4842ab8,40.720131,-74.002196,French Restaurant,3,8.5,271,39,0,1,1,1,0,1,1,1,Dining and Drinking
+5a387ba8838e597257b20ed7,40.720131,-74.002196,Furniture and Home Store,-1,8.8,49,5,0,1,1,1,0,1,1,1,Retail
+5a3c046dc0af574d0548b9bb,40.717556,-73.999693,Bubble Tea Shop,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+5a3edca30a08ab7b812b8d5c,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a442062a9fe12411afbc20c,40.718328,-74.005005,Spa,-1,-1.0,-1,-1,0,1,1,1,0,1,1,0,Business and Professional Services
+5a53ecb9d69ed05523198af9,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a5a4767c9a51738665829cf,40.711686,-74.015217,Fried Chicken Joint-American Restaurant-Comfort Food Restaurant,2,-1.0,-1,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5a5e03e9b3d8e2301f68ff83,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a600bfb1acf117e45e9231d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a705f36c62b49492c99942f,40.706011,-74.011718,Coffee Shop-Juice Bar-Sandwich Spot,1,7.5,21,2,0,1,1,0,0,1,1,0,Dining and Drinking
+5a71f5dafdb9a7499731c928,40.725383,-74.005416,Hotel,-1,8.5,55,9,1,1,1,1,1,1,1,1,Travel and Transportation
+5a7865572f97ec520747ea43,40.711741,-74.015175,Business and Strategy Consulting Office,-1,-1.0,-1,-1,0,1,1,0,0,1,1,0,Business and Professional Services
+5a8c09675ba046336755ead4,40.709824,-74.006371,Sports and Recreation,-1,7.3,8,1,1,1,1,1,0,1,1,0,Sports and Recreation
+5a8cc103c0cacb230546293d,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5a9069c3c62b493a334d5a12,40.703396,-74.010698,Bar-American Restaurant,2,7.6,37,3,1,1,1,1,1,1,1,1,Dining and Drinking
+5a932a1448b04e6e4c1ee74d,40.725339,-74.003056,Indian Restaurant,2,-1.0,-1,-1,0,0,1,1,0,0,1,1,Dining and Drinking
+5aa85a8f3af9886c61cf2e8f,40.710078,-74.006948,Sports Bar-New American Restaurant,1,-1.0,-1,-1,1,1,1,1,1,0,0,0,Dining and Drinking
+5ab51b6aa4b51b3dc096ed68,40.710411,-74.008576,Fried Chicken Joint-American Restaurant-Fast Food Restaurant,1,8.3,89,13,0,1,1,1,0,1,1,1,Dining and Drinking
+5ab9171f6bd36b0874dc4061,40.722201,-73.997476,Filipino Restaurant,2,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+5abc33ccad17896edaca3d61,40.719605,-74.005667,Brasserie,3,8.8,299,39,0,0,1,1,0,1,1,1,Dining and Drinking
+5abd9cd7a35dce29f4a36347,40.705478,-74.017413,Hotel,-1,7.5,19,2,1,1,1,1,1,1,1,1,Travel and Transportation
+5accb33d2c7eb96824340d53,40.714061,-74.015137,Seafood Restaurant,3,6.9,110,12,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+5acfe184c0cacb295c29d99b,40.72163,-73.996624,Pop-Up Store,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5ad76d5425ecca1d544a8cfc,40.729207,-74.005611,Burger Joint-American Restaurant-Fast Food Restaurant,1,8.4,97,15,0,1,1,1,0,1,1,1,Dining and Drinking
+5ad935682f97ec3e4b21e927,40.721722,-73.999203,Shoe Store,-1,-1.0,-1,-1,0,0,1,1,0,0,1,1,Retail
+5ada32224f0e584592628c1f,40.707874,-74.008963,New American Restaurant,3,9.3,319,48,0,1,1,1,0,1,1,1,Dining and Drinking
+5adcec1f1cf2e1716b89f51d,40.720936,-74.006287,Arts and Entertainment,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Arts and Entertainment
+5ae107ba4c9be6002c090b33,40.715291,-73.993711,Hostel-Hotel,-1,-1.0,-1,-1,1,1,1,1,1,1,1,1,Travel and Transportation
+5ae28a7b15173e002cef3271,40.715475,-74.008777,Cocktail Bar-Italian Restaurant,3,8.0,63,4,1,0,1,1,1,0,1,1,Dining and Drinking
+5ae90bde9de23b002c8af3fc,40.732544,-74.007882,Sporting Goods Retail-Cycle Studio,-1,8.4,22,3,-1,-1,-1,-1,-1,-1,-1,-1,"Sports and Recreation, Retail"
+5aeca6ff5d891b002c5b46ca,40.723522,-74.002461,Retail,-1,7.2,18,2,0,1,1,1,0,1,1,0,Retail
+5afe1a97c62b49002c806600,40.725823,-74.005084,Grocery Store,-1,9.3,187,10,0,1,1,1,0,1,1,1,Retail
+5b05dae2ee628b002d09c160,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5b09e1d459c423002c07fe5a,40.718672,-74.010213,Mexican Restaurant,1,7.0,16,-1,0,1,1,1,0,1,1,1,Dining and Drinking
+5b14956ce7a237002cc1c10c,40.71531,-73.998993,Beer Bar-Cocktail Bar-Wine Bar,2,7.2,66,4,1,0,1,1,0,0,1,1,Dining and Drinking
+5b15aeda916bc10039b21f08,40.705238,-74.00248,Office,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5b1e8ff161f070002ca87046,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+5b2819b1c876c8002cabbadc,40.705707,-74.001102,Beer Bar,-1,8.3,109,13,-1,-1,-1,-1,-1,-1,-1,-1,Dining and Drinking
+5b2d49ad6f706a002c52d50b,40.722993,-74.006019,Mexican Restaurant,1,6.6,140,23,0,0,1,1,0,0,1,1,Dining and Drinking
+5b4169604a1cc0002c9bdb7c,40.717485,-73.994365,BBQ Joint-Buffet-Korean Restaurant,2,7.6,16,4,0,0,1,1,0,1,1,1,Dining and Drinking
+5b4fc2b467af3a002c9ab00f,40.706442,-74.003793,Music Venue,-1,9.1,203,31,-1,-1,-1,-1,-1,-1,-1,-1,Arts and Entertainment
+5b5ca54722d490002c8d4de5,40.725819,-74.005258,Art Museum,-1,8.0,82,13,0,1,1,1,0,1,1,1,Arts and Entertainment
+5b6d04e4446ea6002c788c6c,40.725547,-74.001362,Health and Beauty Service,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5b84007ba2c00b002c54b592,40.710964,-74.012002,Advertising Agency,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,Business and Professional Services
+5b9400f7b6b04b002c0c38f2,40.711726,-74.011771,Metro Station,-1,7.2,16,4,-1,-1,-1,-1,-1,-1,-1,-1,Travel and Transportation
+5b945ef0f62e09002c90fcc0,40.706936,-74.003507,Gastropub-New American Restaurant,3,5.6,47,7,0,1,1,1,0,1,1,1,Dining and Drinking
+5bac05134b78c5002c40ac63,40.722404,-73.99792,Department Store,-1,-1.0,-1,-1,0,1,1,1,0,1,1,1,Retail
+5bc5214dda5ede002c74b6bf,-1.0,-1.0,-1,-1,-1.0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
