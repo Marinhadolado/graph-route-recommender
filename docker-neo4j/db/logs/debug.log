@@ -7865,3 +7865,6 @@
 2025-10-07 13:05:01.481+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] id: 3CC76C5CB7CC65EB141B35CD00C1895ABA2800A6BA2239457DFBF660E04C0926
 2025-10-07 13:05:01.481+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] name: system
 2025-10-07 13:05:01.482+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] creationDate: 2025-10-06T08:08:26.353Z
+2025-10-07 14:05:04.279+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=400, gcTime=0, gcCount=0}
+2025-10-07 14:26:27.282+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=427, gcTime=0, gcCount=0}
+2025-10-07 14:31:33.233+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=297, gcTime=0, gcCount=0}
