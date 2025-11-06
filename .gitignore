@@ -1,0 +1,4 @@
+/docker-neo4j/db/
+
+# Archivos de log
+*.log

@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   neo4j:
     image: neo4j:5.25.1-community
+    container_name: docker-neo4j-neo4j-1
     ports: 
       - 7888:7474
       - 7999:7687
@@ -15,3 +14,19 @@ services:
       - ./db/logs:/logs
       - ./db/plugins:/plugins
       - ./import:/import
+      - ./scripts:/scripts
+
+  neo4j-init:
+    image: neo4j:5.25.1-community
+    depends_on:
+      - neo4j
+    entrypoint: ["/bin/bash", "-c"]
+    command: |
+      echo "Ejecutando scripts de inicialización..." && \
+      bash /scripts/populate_nyc/nodes.sh && \
+      bash /scripts/populate_nyc/edges.sh && \
+      echo "Scripts ejecutados correctamente."
+    volumes:
+      - ./scripts:/scripts
+      - ./import:/import
+    restart: "no"
