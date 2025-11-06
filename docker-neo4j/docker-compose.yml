@@ -15,18 +15,24 @@ services:
       - ./db/plugins:/plugins
       - ./import:/import
       - ./scripts:/scripts
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p password 'RETURN 1' || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
 
-  neo4j-init:
-    image: neo4j:5.25.1-community
+  backend:
+    build: ./backend
+    container_name: docker-neo4j-backend
+    ports:
+      - 8000:8000
+    restart: unless-stopped
     depends_on:
-      - neo4j
-    entrypoint: ["/bin/bash", "-c"]
-    command: |
-      echo "Ejecutando scripts de inicialización..." && \
-      bash /scripts/populate_nyc/nodes.sh && \
-      bash /scripts/populate_nyc/edges.sh && \
-      echo "Scripts ejecutados correctamente."
+      neo4j:
+        condition: service_healthy
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
     volumes:
-      - ./scripts:/scripts
-      - ./import:/import
-    restart: "no"
+      - ./backend:/backend
