@@ -13,5 +13,5 @@ RUN pip install -r requirements.txt
 # Copia el contenido del directorio actual al directorio de trabajo en el contenedor
 COPY . .
 
-# para ejecutar el main creado donde se usan todos los archivos del modelo
+# para ejecutar el main creado donde se usan todos los archivos del src
 CMD ["python3", "src/main.py"]

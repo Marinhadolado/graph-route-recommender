@@ -31,7 +31,7 @@ def test():
     finally:
         if generador:
             generador.cerrar_conexion()
-            print("\n--- Conexión a Neo4j cerrada. Programa terminado. ---")
+            print("\n Al finalizar, cerrando conexión del generador de rutas...")
 
 if __name__ == "__main__":
     test()

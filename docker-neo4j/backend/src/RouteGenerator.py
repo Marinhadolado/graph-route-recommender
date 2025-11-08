@@ -1,12 +1,11 @@
 import os
 from neo4j import GraphDatabase
-import networkx as nx
 from TreeRoute import TreeRoute
 
 class RouteGenerator:
 
     def __init__(self):
-        #va a cargar todos los datos de la base de datos neo4j y los va a guardar en un grafo de networkx
+        # Configuración de la conexión a Neo4j para el generador de rutas
         uri = os.getenv("NEO4J_URI", "bolt://localhost:7999")
         user= os.getenv("NEO4J_USER", "neo4j")
         password = os.getenv("NEO4J_PASSWORD", "password")
@@ -19,26 +18,7 @@ class RouteGenerator:
             print(f"Error al conectar a la base de datos Neo4j: {e}")
             raise
 
-        self.nx_graph = nx.Graph()
-        self.cargar_datos()
-
         self.treeRoutes_cache = {}
-
-    def cargar_datos(self):
-        #cargamos los datos desde neo4j a networkx
-
-        with self.driver.session() as session:
-            result = session.run("MATCH (p1:POI)-[r:VISITED]->(p2:POI) RETURN p1, p2, r")
-            for record in result:
-                poi1 = record["p1"]
-                poi2 = record["p2"]
-                relationship = record["r"]
-
-                self.nx_graph.add_node(poi1["fsq_id"], **poi1)
-                self.nx_graph.add_node(poi2["fsq_id"], **poi2)
-                self.nx_graph.add_edge(poi1["fsq_id"], poi2["fsq_id"], **relationship)
-
-        print(f"Grafo cargado en NetworkX: {self.nx_graph.number_of_nodes()} nodos, {self.nx_graph.number_of_edges()} aristas.")
 
     def cerrar_conexion(self):
         self.driver.close()
