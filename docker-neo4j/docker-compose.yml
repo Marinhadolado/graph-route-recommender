@@ -38,7 +38,6 @@ services:
     container_name: docker-neo4j-backend
     ports:
       - 8000:8000
-    restart: unless-stopped
     depends_on:
       neo4j-populate:
         condition: service_completed_successfully
@@ -48,3 +47,4 @@ services:
       - NEO4J_PASSWORD=password
     volumes:
       - ./backend:/backend
+    restart: "no"

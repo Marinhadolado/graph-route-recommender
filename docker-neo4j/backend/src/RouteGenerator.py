@@ -95,10 +95,6 @@ class RouteGenerator:
                         datos_relacion=rel_data
                     )
 
-        # devolvemos el ÁRBOL COMPLETO, lleno de rutas
-        print(f"\n--- Árbol de Búsqueda Generado para ({lat}, {lon}) ---")
-        print(treeRoute) 
-
         if treeRoute:
             self.treeRoutes_cache[cache_key] = treeRoute
 
