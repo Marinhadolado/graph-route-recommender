@@ -46,5 +46,5 @@ services:
       - NEO4J_USER=neo4j
       - NEO4J_PASSWORD=password
     volumes:
-      - ./backend:/backend
+      - ./backend:/app
     restart: "no"

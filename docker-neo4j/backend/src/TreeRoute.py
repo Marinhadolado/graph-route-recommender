@@ -3,7 +3,8 @@ from treelib import Tree
 class TreeRoute:
     
     def __init__(self, poi_inicial):
-        # creamos el arbol vacío y ponemos el POI inicial como raíz en nuestro caso el POI con id fsq_id= 4abe7f9ef964a520068e20e3
+        # creamos el arbol vacío y ponemos el POI inicial como raíz en nuestro caso el POI
+        # con id fsq_id= 4abe7f9ef964a520068e20e3
         
         # primero establecemos los argumentos de treeroute siendo estos el propio árbol
         self.tree = Tree()
@@ -53,4 +54,22 @@ class TreeRoute:
             )
         
         return True
-
+    
+    def get_all_paths(self):
+        # devuelve todas las rutas desde la raíz hasta las hojas
+        rutas = []
+        # 'leaves()' nos da todos los nodos que son finales de un camino
+        for hoja in self.tree.leaves():
+            # Ignora si el árbol solo tiene la raíz
+            if hoja.is_root():
+                continue
+                
+            # 'rsearch(hoja.identifier)' nos da la lista de IDs desde la hoja hasta la raíz
+            ids_en_ruta = list(self.tree.rsearch(hoja.identifier))
+            ids_en_ruta.reverse() # Le damos la vuelta para tener [inicio, p1, p2, final]
+            
+            # Obtenemos los objetos Nodo completos
+            nodos_en_ruta = [self.tree.get_node(nid) for nid in ids_en_ruta]
+            rutas.append(nodos_en_ruta)
+            
+        return rutas
