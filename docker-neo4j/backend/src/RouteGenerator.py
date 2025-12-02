@@ -13,9 +13,9 @@ class RouteGenerator:
         try:
             self.driver = GraphDatabase.driver(uri, auth=(user, password))
             self.driver.verify_connectivity()
-            print("Conexión exitosa a la base de datos Neo4j")
+            print("[ROUTE GENERATOR] Conexión exitosa a la base de datos Neo4j")
         except Exception as e:
-            print(f"Error al conectar a la base de datos Neo4j: {e}")
+            print(f"[ROUTE GENERATOR]Error al conectar a la base de datos Neo4j: {e}")
             raise
 
         self.treeRoutes_cache = {}
@@ -30,7 +30,7 @@ class RouteGenerator:
 
         cache_key = (lat, lon, steps)
 
-        print(f"Ejecutando consulta Cypher para ({lat}, {lon}) con {steps} saltos.")
+        print(f"[ROUTE GENERATOR]Ejecutando consulta Cypher para ({lat}, {lon}) con {steps} saltos.")
 
         query = f"""
         //
@@ -69,7 +69,7 @@ class RouteGenerator:
             first_record = results.peek()
             
             if not first_record:
-                print("No se encontraron rutas.")
+                print("[ROUTE GENERATOR] No se encontraron rutas.")
                 return None
 
             
@@ -111,7 +111,7 @@ class RouteGenerator:
         for node in path_nodes[1:]: # Empezamos en 1 para saltarnos la raíz
             poi_id = node.data['poi_data']['fsq_id']
             if poi_id in history_set:
-                print(f"Descartando por historial: POI {poi_id} ya visitado.")
+                print(f"[ROUTE GENERATOR] Descartando por historial: POI {poi_id} ya visitado.")
                 return False # ¡Este POI ya ha sido visitado! Ruta inválida.
         return True # Ruta válida
 
@@ -132,37 +132,37 @@ class RouteGenerator:
             if 'preciptype' in context:
                 key = f"{retrieve_prefix}_preciptype"
                 if edge_data.get(key, "") != context['preciptype']:
-                    print(f"Descartando por preciptype: {edge_data.get(key)} != {context['preciptype']}")
+                    print(f"[ROUTE GENERATOR] Descartando por preciptype: {edge_data.get(key)} != {context['preciptype']}")
                     return False
             
             if 'temp' in context:
                 key = f"{retrieve_prefix}_temp"
                 if edge_data.get(key) != context['temp']:
-                    print(f"Descartando por temp: {edge_data.get(key)} != {context['temp']}")
+                    print(f"[ROUTE GENERATOR] Descartando por temp: {edge_data.get(key)} != {context['temp']}")
                     return False
                 
             if 'windspeed' in context:
                 key = f"{retrieve_prefix}_windspeed"
                 if edge_data.get(key) != context['windspeed']:
-                    print(f"Descartando por windspeed: {edge_data.get(key)} != {context['windspeed']}")
+                    print(f"[ROUTE GENERATOR] Descartando por windspeed: {edge_data.get(key)} != {context['windspeed']}")
                     return False
             
             if 'precip' in context:
                 key = f"{retrieve_prefix}_precip"
                 if edge_data.get(key) != context['precip']:
-                    print(f"Descartando por precip: {edge_data.get(key)} != {context['precip']}")
+                    print(f"[ROUTE GENERATOR] Descartando por precip: {edge_data.get(key)} != {context['precip']}")
                     return False
             
             if 'conditions' in context:
                 key = f"{retrieve_prefix}_conditions"
                 if edge_data.get(key) != context['conditions']:
-                    print(f"Descartando por conditions: {edge_data.get(key)} != {context['conditions']}")
+                    print(f"[ROUTE GENERATOR] Descartando por conditions: {edge_data.get(key)} != {context['conditions']}")
                     return False
             
 
         return True # Si ha pasado todos los filtros, la ruta es válida
     
-    def update(self, candidate_tree, history, context):
+    def update(self, candidate_tree: TreeRoute, history, context):
         """
         Toma un árbol de candidatas y lo filtra según el historial y el contexto.
         Devuelve un NUEVO TreeRoute solo con las rutas válidas.
@@ -173,7 +173,7 @@ class RouteGenerator:
         
         # 1. Extraemos todas las rutas del árbol candidato
         all_candidate_paths = candidate_tree.get_all_paths()
-        print(f"[RouteGenerator.update] Filtrando {len(all_candidate_paths)} rutas candidatas...")
+        print(f"[ROUTE GENERATOR] UPDATE Filtrando {len(all_candidate_paths)} rutas candidatas...")
 
         # 2. Creamos el nuevo árbol final
         root_data = candidate_tree.tree.get_node(candidate_tree.tree.root).data
@@ -201,11 +201,11 @@ class RouteGenerator:
                         datos_relacion=child_node.data['edge_data']
                     )
         
+        
         if not has_valid_routes:
-            print("[RouteGenerator.update] Ninguna ruta candidata superó los filtros.")
+            print("[ROUTE GENERATOR] UPDATE Ninguna ruta candidata superó los filtros.")
             return None
 
-        print("[RouteGenerator.update] Devolviendo árbol filtrado.")
         return final_tree
     
 

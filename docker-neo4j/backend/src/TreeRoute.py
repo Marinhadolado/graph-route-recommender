@@ -73,3 +73,7 @@ class TreeRoute:
             rutas.append(nodos_en_ruta)
             
         return rutas
+    
+    def get_children(self, poi_id):
+        """Devuelve el número de hijos directos de un nodo."""
+        return len(self.tree.children(poi_id))

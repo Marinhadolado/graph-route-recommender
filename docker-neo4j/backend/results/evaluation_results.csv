@@ -1,0 +1,6 @@
+user_id,num_poi_route,poi_id,k,context,category
+111111,poi_1,4abe7f9ef964a520068e20e3,21,None,Monument
+111111,poi_2,515abd65e4b08eda86b30e6e,2,None,Scenic Lookout
+111111,poi_3,4a47e9f5f964a52048aa1fe3,1,None,Park
+111111,poi_4,4aa57787f964a5207c4820e3,1,None,Park
+111111,poi_5,4a58f59ef964a5204eb81fe3,0,None,Park

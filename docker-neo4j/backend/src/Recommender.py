@@ -13,7 +13,7 @@ class Recommender:
     
     def get_user_history(self, user_id):
 
-        print(f"Obteniendo historial para user_id: {user_id}")
+        print(f"[RECOMMENDER] Obteniendo historial para user_id: {user_id}")
         # Usamos un 'set' para evitar POIs duplicados
         history_set = set() 
         
@@ -31,11 +31,11 @@ class Recommender:
             for record in results:
                 history_set.add(record['visited_poi'])
         
-        print(f"Usuario ha visitado {len(history_set)} POIs únicos.")
+        print(f"[RECOMMENDER] Usuario ha visitado {len(history_set)} POIs únicos.")
         return history_set
-     
-    def recommend(self, user_id, lat, lon, context, steps=4):
-        print(f"Nueva recomendación para user: {user_id} en ({lat}, {lon}) con contexto: {context}")
+    
+    def get_final_tree(self, user_id, lat, lon, context, steps):
+        print(f"[RECOMMENDER] Nueva recomendación para user: {user_id} en ({lat}, {lon}) con contexto: {context}")
         
         # obtenemos el historial de POIs visitados por el usuario
         history = self.get_user_history(user_id)
@@ -49,7 +49,7 @@ class Recommender:
         )
         
         if not candidate_tree:
-            print(" No se encontraron rutas que cumplan los criterios.")
+            print(f"[RECOMMENDER] No se encontraron rutas que cumplan los criterios de user_id: {user_id}, lat: {lat}, lon: {lon}, context: {context} y steps: {steps}.")
             return None
         
         final_tree = self.route_generator.update(
@@ -59,43 +59,61 @@ class Recommender:
         )
 
         if not final_tree:
-            print("Ninguna ruta superó los filtros.")
+            print("[RECOMMENDER] Ninguna ruta superó los filtros.")
             return None
         
-        #---------------------
-        #RUTA FINAL
+        return final_tree
+     
+    def recommend(self, user_id, lat, lon, context, steps):
+        final_tree=self.get_final_tree(
+            user_id=user_id,
+            lat=lat,
+            lon=lon,
+            context=context,
+            steps=steps
+        )
+        
+        # MODO SELECCION RUTAL FINAL CON STEPS EXACTOS
+        # UNA VEZ TENEMOS EL ARBOL FINAL FILTRADO, SELECCIONAMOS LA RUTA CON LOS STEPS SOLICITADOS
+        
+        if not final_tree:
+            return None
+        
+        all_paths = final_tree.get_all_paths()
+        num_pois = steps + 1
+        selected_path_nodes = None
+        
+        for path in all_paths:
+            if len(path) == num_pois:
+                selected_path_nodes = path
+                break
 
-        #obtenemos la ruta final seleccionando la que tenga los 'steps' solicitados
-        #all_valid_paths = final_tree.get_all_paths()
-        #
-        #target_length = steps + 1 # +1 porque si son 3 saltos son 4 nodos
-        #selected_path_nodes = None
-        #for path in all_valid_paths:
-        #    #encontramos la primera ruta que tenga los 'steps' exactos
-        #    if len(path) == target_length:
-        #        selected_path_nodes = path
-        #        break
-        #
-        ## Si no encontramos ninguna con los 'steps' exactos cogemos la primera ruta válida que haya.
-        #if not selected_path_nodes and all_valid_paths:
-        #    print(f"No se encontró ruta con {steps} pasos, se seleccionará la primera disponible.")
-        #    selected_path_nodes = all_valid_paths[0]
-#
-        #print(f"Ruta seleccionada con {len(selected_path_nodes) - 1} pasos. Creando árbol final...")
-#
-        ##creamos el nuevo arbol con los nodos seleccionados
-        #root_data = selected_path_nodes[0].data
-        #final_route = TreeRoute(root_data)
-        #
-        #for i in range(len(selected_path_nodes) - 1):
-        #    parent_node = selected_path_nodes[i]
-        #    child_node = selected_path_nodes[i+1]
-        #    
-        #    final_route.agregarPoi(
-        #        poi_padre_id=parent_node.identifier,
-        #        nuevo_poi=child_node.data['poi_data'],
-        #        datos_relacion=child_node.data['edge_data']
-        #    )
+        if not selected_path_nodes and all_paths:
+            print(f"[RECOMMENDER] No se encontró ruta de {steps} pasos exactos. Usando la mejor disponible.")
+            selected_path_nodes = all_paths[0]
 
-        print("Devolviendo el árbol de rutas filtrado.")
-        return  final_tree
+        if not selected_path_nodes:
+            print("[RECOMMENDER] El árbol filtrado estaba vacío (caso raro).")
+            return None
+
+        #creamos un nuevo TreeRoute solo con la ruta seleccionada
+        if selected_path_nodes:
+            start_poi = selected_path_nodes[0].data
+            final_route = TreeRoute(start_poi)
+            
+            for i in range(1, len(selected_path_nodes)):
+                parent_node = selected_path_nodes[i-1]
+                current_node = selected_path_nodes[i]
+                
+                parent_id = parent_node.identifier
+                current_poi = current_node.data.get('poi_data', {})
+                edge_data = current_node.data.get('edge_data', {})
+                
+                final_route.agregarPoi(
+                    poi_padre_id=parent_id,
+                    nuevo_poi=current_poi,
+                    datos_relacion=edge_data
+                )
+        
+
+        return final_route
