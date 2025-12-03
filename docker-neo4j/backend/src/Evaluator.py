@@ -26,11 +26,11 @@ class Evaluator:
         with open(csv_filepath, mode='w', newline='') as csv_file:
             fieldnames = [
                 'user_id',
-                'num_poi_route',  # Ej: poi_1, poi_2, ... 
+                'num_poi_route',  # ej: poi_1, poi_2, ... 
                 'poi_id', 
-                'k',     # El límite k que se pidió (steps)
-                'context',     # El contexto usado
-                'category'     # Añadimos categoría para que sea más útil leerlo
+                'k',              # num de posibles pois para siguiente paso
+                'context',
+                'category'        # se añade la categoría para que sea más útil leerlo
             ]
 
             # creamos el escritor del CSV
@@ -46,12 +46,12 @@ class Evaluator:
 
                 print(f"\n[EVALUATOR] Evaluando caso {i+1}/{len(test_cases)}: user_id={user_id}, location=({lat},{lon}), steps={steps}, context={context}")
 
-                recommended_tree = self.recommender.recommend(
+                recommended_tree = self.recommender.recommend_simple(
                     user_id=user_id,
                     lat=lat,
                     lon=lon,
                     context=context,
-                    steps=4
+                    steps=steps
                 )
 
                 if not recommended_tree:
@@ -62,12 +62,13 @@ class Evaluator:
                 # path_nodes = poi1, poi2, poi3, poi4
                 path_nodes = recommended_tree.get_all_paths()[0]
 
+                # obtenemos el arbol con todas las posibles opciones para los valores de k
                 final_tree = self.recommender.get_final_tree(
                     user_id=user_id,
                     lat=lat,
                     lon=lon,
                     context=context,
-                    steps=4
+                    steps=steps
                 )
 
                 # Guardamos cada nodo de la ruta como una línea en el CSV
@@ -78,10 +79,10 @@ class Evaluator:
                         poi_data = node.data
                         current_id = node.identifier
                         # Para la raíz, k es el número de hijos que tiene la raíz
-                        #imprimimos los hijos del nodo actual
-                        for i, child in enumerate(final_tree.tree.children(current_id)):
-                            print(f"[EVALUATOR] Hijo {i} de la raíz: {child}")
-                            pass
+                        ##imprimimos los hijos del nodo actual
+                        #for i, child in enumerate(final_tree.tree.children(current_id)):
+                        #    print(f"[EVALUATOR] Hijo {i} de la raíz: {child}")
+                        #    pass
                         k_value = len(final_tree.tree.children(current_id))
                     else:
                         poi_data = node.data.get('poi_data', {})

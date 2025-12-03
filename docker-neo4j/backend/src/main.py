@@ -45,12 +45,12 @@ def test():
 
         recommender = Recommender(route_generator=generador)
 
+        # --- Filtrado por historial ---
 
-        #USAR ESTE USER_ID PARA TESTEAR EL HISTORIAL
         # trail_id= "2657913"
-        user_id_historial="172831" # se debería eliminar la rama de Scenic Lookout
+        user_id_historial="172831" # se debería eliminar la rama de Scenic Lookout (la del trail_id de arriba)
 
-        print(f"\n[MAIN] TESTEANDO EL CASO DE FILTRADO DE HISTORIAL DE USER_ID: {user_id_historial} ...")
+        print(f"\n[MAIN] TESTEANDO EL CASO DE FILTRADO DE HISTORIAL")
         print(f"\n[MAIN] Generando recomendación para user_id: {user_id_historial} en ({lat_ejemplo}, {lon_ejemplo}) sin contexto: ...")
         
         history_tree=recommender.get_final_tree(
@@ -70,9 +70,8 @@ def test():
 
         print("\n----------------------------------")
 
-        # --- PRUEBA 3: Filtrado por contexto ---
+        # --- Filtrado por contexto ---
 
-        #datos para recomendación
         user_id_contexto="26182"
         p1_temp = 22.0 # solo se obtiene una sola ruta de 2 pois
         context= {
@@ -80,7 +79,7 @@ def test():
             'temp': p1_temp,
         }
 
-        print("\n[MAIN] TESTEANDO FILTRADO POR CONTEXTO CON TEMPERATURA...")
+        print("\n[MAIN] TESTEANDO FILTRADO POR CONTEXTO CON TEMPERATURA")
         print(f"\n[MAIN] Generando recomendación para user_id: {user_id_contexto} en ({lat_ejemplo}, {lon_ejemplo}) con contexto: {context}...")
 
         context_tree=recommender.get_final_tree(
@@ -99,33 +98,54 @@ def test():
 
 
         #-----------------------------------------------------------------
-        # --- PRUEBA 2: Pruebas de recommender ----------
+        # --- PRUEBA 2: Prueba de recommender ----------
         #-----------------------------------------------------------------
 
         print("\n--- RECOMMENDER ---")
         print("----------------------------------")
 
-        #datos para recomendación
+        # --- Recomendación simple ---
         user_id_ok="11111"
-        context= None
-
+        
+        print(f"\n[MAIN] TESTEANDO EL CASO DE RECOMENDACIÓN SIMPLE CON USUARIO RANDOM")
         print(f"\n[MAIN] Generando recomendación para user_id: {user_id_ok} en ({lat_ejemplo}, {lon_ejemplo}) con contexto: {context}...")
-        recommended_tree_context = recommender.recommend(
+        recommended_tree_simple = recommender.recommend_simple(
             user_id=user_id_ok,
             lat=lat_ejemplo,
             lon=lon_ejemplo,
-            context=context,
+            context=None,
             steps=pasos_ejemplo
         )
 
-        if recommended_tree_context:
+        if recommended_tree_simple:
             print("\n[MAIN] ¡ÉXITO! Se encontró una ruta recomendada con contexto.")
             print("[MAIN] Árbol de rutas recomendado con contexto:")
-            print(recommended_tree_context)
+            print(recommended_tree_simple)
         else:
             print("\n[MAIN] No se encontraron rutas recomendadas que cumplan los criterios de contexto.")     
-  
+         
+        # --- Recomendación por score ---
+        
+        print(f"\n[MAIN] TESTEANDO EL CASO DE RECOMENDACIÓN POR SCORE CON USUARIO RANDOM")
+        print(f"\n[MAIN] Generando recomendación para user_id: {user_id_ok} en ({lat_ejemplo}, {lon_ejemplo}) con contexto: {context}...")
+        recommended_tree_score = recommender.recommend_by_score(
+            user_id=user_id_ok,
+            lat=lat_ejemplo,
+            lon=lon_ejemplo,
+            context=None,
+            steps=pasos_ejemplo
+        )
 
+        if recommended_tree_score:
+            print("\n[MAIN] ¡ÉXITO! Se encontró una ruta recomendada con contexto.")
+            print("[MAIN] Árbol de rutas recomendado con contexto:")
+            print(recommended_tree_score)
+        else:
+            print("\n[MAIN] No se encontraron rutas recomendadas que cumplan los criterios de contexto.")
+
+        #-----------------------------------------------------------------
+        # --- PRUEBA 3: Pruebas de evaluator(csv) ----------
+        #-----------------------------------------------------------------
         print("\n--- TESTEANDO EVALUATOR ---\n")  
         evaluator = Evaluator(route_generator=generador)
         test_cases = [
