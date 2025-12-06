@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+600213,poi_1,29694,584067e6b50d521817d726a1,2018-04-21 19:48:00-04:00,15.1,0.0,15.2,,Partially cloudy
+600213,poi_2,29694,591a10bb0313205133bb1bc6,2018-04-21 20:03:00-04:00,15.1,0.0,15.2,,Partially cloudy
+600213,poi_3,29694,55103583498eed2d409b549a,2018-04-21 20:15:00-04:00,15.1,0.0,15.2,,Partially cloudy

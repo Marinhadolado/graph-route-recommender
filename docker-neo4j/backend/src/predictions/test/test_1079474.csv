@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+1079474,poi_1,53969,50c28307e4b0c5b6f33ec0e1,2017-11-11 00:26:00-05:00,-3.6,0.0,15.4,,Clear
+1079474,poi_2,53969,52375dee11d23f06740c8f3e,2017-11-11 01:27:00-05:00,-3.5,0.0,13.5,,Clear
+1079474,poi_3,53969,3fd66200f964a52021ea1ee3,2017-11-11 04:34:00-05:00,-3.9,0.0,11.4,,Clear

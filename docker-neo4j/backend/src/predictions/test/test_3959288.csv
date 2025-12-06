@@ -1,0 +1,5 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+3959288,poi_1,376465,4d0a945ef2c1236a74ccfc56,2018-06-29 13:33:00-04:00,31.0,0.0,12.8,,Clear
+3959288,poi_2,376465,4e0f2be5c65ba20da2275120,2018-06-29 19:21:00-04:00,30.6,0.0,13.4,,Partially cloudy
+3959288,poi_3,376465,56d1c7e2cd105fe2c5c705b6,2018-06-29 20:01:00-04:00,30.3,0.0,6.2,,Clear
+3959288,poi_4,376465,596e8fbd6f706a4c51646b72,2018-06-29 21:36:00-04:00,28.2,0.0,8.8,,Partially cloudy

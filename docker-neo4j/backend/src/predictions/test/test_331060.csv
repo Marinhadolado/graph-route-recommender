@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+331060,poi_1,16065,4a411ea5f964a520cba41fe3,2018-03-23 22:46:00-04:00,5.8,0.0,17.2,,Overcast
+331060,poi_2,16065,4ddef29818388714bb5ce52d,2018-03-23 23:38:00-04:00,5.1,0.0,14.7,,Overcast
+331060,poi_3,16065,59cede02b23dfa246fee7545,2018-03-24 01:37:00-04:00,3.6,0.0,17.6,,Partially cloudy

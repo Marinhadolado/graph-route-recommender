@@ -1,0 +1,3 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+2730353,poi_1,181752,58d2a850debdf60c50251727,2018-04-24 14:41:00-04:00,17.3,0.0,14.2,,Partially cloudy
+2730353,poi_2,181752,57f57f1b498e00421b141830,2018-04-24 22:13:00-04:00,13.4,0.0,12.8,,Overcast

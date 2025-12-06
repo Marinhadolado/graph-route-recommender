@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+1342966,poi_1,71282,45be8decf964a5201a421fe3,2017-11-17 02:40:00-05:00,6.0,0.0,20.9,,Partially cloudy
+1342966,poi_2,71282,40b52f80f964a5205a001fe3,2017-11-17 02:54:00-05:00,6.0,0.0,20.9,,Partially cloudy
+1342966,poi_3,71282,54f27deb498e47a670f5e399,2017-11-17 03:21:00-05:00,6.0,0.0,20.9,,Partially cloudy

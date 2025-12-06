@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+1159120,poi_1,58533,584067e6b50d521817d726a1,2017-11-05 18:28:00-05:00,15.8,0.0,9.8,,Overcast
+1159120,poi_2,58533,590b631df62e092facdf7b2a,2017-11-05 18:32:00-05:00,15.8,0.0,3.6,,Overcast
+1159120,poi_3,58533,591a10bb0313205133bb1bc6,2017-11-05 18:35:00-05:00,15.8,0.0,3.6,,Overcast

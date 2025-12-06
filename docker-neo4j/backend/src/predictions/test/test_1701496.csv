@@ -1,0 +1,3 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+1701496,poi_1,95265,45697387f964a520e53d1fe3,2018-07-15 18:12:00-04:00,28.7,0.0,11.0,,Partially cloudy
+1701496,poi_2,95265,48d395f7f964a520f7511fe3,2018-07-15 22:58:00-04:00,26.2,0.0,6.8,,Clear

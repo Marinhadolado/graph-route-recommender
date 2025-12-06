@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+3058004,poi_1,225663,5953e0555c683860ffa4e0cd,2017-10-29 01:11:00-04:00,18.3,0.0,8.8,,Overcast
+3058004,poi_2,225663,4c9d482e46978cfa8247967f,2017-10-29 02:17:00-04:00,18.3,0.0,14.0,,Overcast
+3058004,poi_3,225663,503fffabe4b05e5c0eace385,2017-10-29 03:17:00-04:00,17.6,0.0,19.6,,Partially cloudy

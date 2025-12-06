@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+3201122,poi_1,247896,4ae8906ef964a52071b021e3,2018-01-25 21:42:00-05:00,-1.4,0.0,12.6,,Partially cloudy
+3201122,poi_2,247896,515abd65e4b08eda86b30e6e,2018-01-25 23:49:00-05:00,-1.5,0.0,3.6,,Overcast
+3201122,poi_3,247896,4b6b5abff964a520fb022ce3,2018-01-26 00:51:00-05:00,-1.9,0.0,7.6,,Overcast

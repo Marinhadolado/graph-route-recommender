@@ -1,0 +1,3 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+510937,poi_1,25124,4cd1ae08bcab95217f073a15,2018-05-16 15:45:00-04:00,15.6,0.832,11.4,rain,"Rain, Overcast"
+510937,poi_2,25124,4555bea7f964a520253d1fe3,2018-05-16 16:12:00-04:00,15.6,0.832,11.4,rain,"Rain, Overcast"

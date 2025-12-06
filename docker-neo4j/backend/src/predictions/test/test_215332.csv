@@ -1,0 +1,6 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+215332,poi_1,10258,56e46150498ec3afc0d567a8,2017-10-07 18:36:00-04:00,23.1,0.0,13.0,,Partially cloudy
+215332,poi_2,10258,549481f3498e855d5f51cb66,2017-10-07 21:52:00-04:00,22.4,0.0,11.3,,Partially cloudy
+215332,poi_3,10258,57fe5fb9498e0dfb586bfe58,2017-10-07 22:28:00-04:00,22.4,0.0,11.3,,Partially cloudy
+215332,poi_4,10258,59822ae4e97dfb6a1519825b,2017-10-08 00:56:00-04:00,22.7,0.0,11.1,,Partially cloudy
+215332,poi_5,10258,59287ec99cadd905284e4052,2017-10-08 03:03:00-04:00,22.7,0.0,6.2,,Overcast

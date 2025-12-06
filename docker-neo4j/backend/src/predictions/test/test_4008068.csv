@@ -1,0 +1,3 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+4008068,poi_1,388511,57224166498e768a5d14d00e,2018-09-18 15:23:00-04:00,22.0,8.523,8.8,rain,"Rain, Overcast"
+4008068,poi_2,388511,5453da03498eb158b5bbb37d,2018-09-18 18:01:00-04:00,22.2,0.0,8.1,,Partially cloudy

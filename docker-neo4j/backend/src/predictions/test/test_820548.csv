@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+820548,poi_1,40537,593ff60bdd12f81d39923b41,2018-09-08 15:30:00-04:00,20.6,0.0,17.4,,Overcast
+820548,poi_2,40537,4bc24023461576b056237d32,2018-09-08 16:03:00-04:00,19.3,0.0,20.7,,Partially cloudy
+820548,poi_3,40537,4b6b5abff964a520fb022ce3,2018-09-08 17:08:00-04:00,19.2,0.0,17.4,,Overcast

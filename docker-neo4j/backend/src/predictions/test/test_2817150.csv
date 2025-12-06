@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+2817150,poi_1,192787,42893400f964a52054231fe3,2018-01-19 18:43:00-05:00,3.1,0.0,11.7,,Partially cloudy
+2817150,poi_2,192787,4b6b5abff964a520fb022ce3,2018-01-19 19:43:00-05:00,3.4,0.0,12.3,,Clear
+2817150,poi_3,192787,4aa44464f964a520234620e3,2018-01-19 22:01:00-05:00,3.7,0.0,12.7,,Clear

@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+130450,poi_1,6101,56253720498eafa9acbe4f14,2017-10-04 17:34:00-04:00,22.8,0.0,19.3,,Clear
+130450,poi_2,6101,4edec6e40e01ed773a8ddf4e,2017-10-04 23:05:00-04:00,20.0,0.0,14.8,,Clear
+130450,poi_3,6101,4cc60b7a82388cfad0727935,2017-10-05 03:06:00-04:00,18.9,0.0,13.9,,Overcast

@@ -13,5 +13,8 @@ RUN pip install -r requirements.txt
 # Copia el contenido del directorio actual al directorio de trabajo en el contenedor
 COPY . .
 
+# para que los logs del main se muestren
+ENV PYTHONUNBUFFERED=1
+
 # para ejecutar el main creado donde se usan todos los archivos del src
 CMD ["python3", "src/main.py"]

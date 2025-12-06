@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+1905449,poi_1,109353,4abe7f9ef964a520068e20e3,2018-06-24 18:19:00-04:00,27.4,0.0,10.4,,Partially cloudy
+1905449,poi_2,109353,4a8d57e7f964a5207c0f20e3,2018-06-24 19:28:00-04:00,29.1,0.0,11.6,,Partially cloudy
+1905449,poi_3,109353,4bd2612a77b29c74b7c08e82,2018-06-24 19:47:00-04:00,29.0,0.0,12.0,,Partially cloudy

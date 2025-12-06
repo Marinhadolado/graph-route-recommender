@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+384740,poi_1,18871,545d602b498e50ade1906a6e,2018-09-19 18:09:00-04:00,25.8,0.0,7.4,,Clear
+384740,poi_2,18871,5b2819b1c876c8002cabbadc,2018-09-19 19:21:00-04:00,23.9,0.0,5.2,,Partially cloudy
+384740,poi_3,18871,5b15aeda916bc10039b21f08,2018-09-19 19:46:00-04:00,22.4,0.0,8.2,,Partially cloudy

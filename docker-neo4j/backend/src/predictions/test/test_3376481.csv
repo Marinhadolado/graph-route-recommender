@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+3376481,poi_1,276674,4eb13d68e5e8c0f5bd2fd983,2018-08-29 17:39:00-04:00,33.3,0.0,17.4,,Clear
+3376481,poi_2,276674,49e24ccbf964a52007621fe3,2018-08-29 20:41:00-04:00,32.2,0.0,11.8,,Clear
+3376481,poi_3,276674,55103583498eed2d409b549a,2018-08-29 20:54:00-04:00,32.2,0.0,11.8,,Clear

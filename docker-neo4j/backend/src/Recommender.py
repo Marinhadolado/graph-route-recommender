@@ -196,7 +196,6 @@ class Recommender:
                 # con la funcion calculamos el score
                 current_score = self.calculate_route_score(path)
 
-                
                 #si es mejor que las anteriores se guarda
                 if current_score > best_score:
                     print(f"[RECOMMENDER] Nueva mejor ruta encontrada con score: {current_score}")

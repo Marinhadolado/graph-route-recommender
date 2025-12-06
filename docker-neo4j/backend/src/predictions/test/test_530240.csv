@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+530240,poi_1,26104,54f9d808498eaa73550d399c,2018-08-12 19:59:00-04:00,25.7,0.0,8.8,,Partially cloudy
+530240,poi_2,26104,52eddc12498e40bb655e0d7a,2018-08-12 20:08:00-04:00,25.7,0.0,8.8,,Partially cloudy
+530240,poi_3,26104,5717e052498ea14d53b097f0,2018-08-12 20:21:00-04:00,25.7,0.0,8.8,,Partially cloudy

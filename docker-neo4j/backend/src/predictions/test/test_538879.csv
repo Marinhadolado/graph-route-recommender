@@ -1,0 +1,5 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+538879,poi_1,26559,57a4a79c498e4a512547ef7e,2017-12-15 16:51:00-05:00,-4.3,1.134,7.1,snow,"Snow, Overcast"
+538879,poi_2,26559,5171b5cc011cef9833bbb787,2017-12-15 16:56:00-05:00,-4.3,1.134,7.1,snow,"Snow, Overcast"
+538879,poi_3,26559,5696a83d498e36e88b989783,2017-12-16 00:29:00-05:00,-4.9,0.0,13.3,snow,Clear
+538879,poi_4,26559,5a0f6c9fb04056129d570bce,2017-12-16 01:11:00-05:00,-4.8,0.0,10.4,snow,Clear

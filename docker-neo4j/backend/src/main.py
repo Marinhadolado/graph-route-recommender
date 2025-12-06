@@ -1,172 +1,74 @@
+import time
 from RouteGenerator import RouteGenerator
-from TreeRoute import TreeRoute
-from Recommender import Recommender 
-from Evaluator import Evaluator
+from Predictor import Predictor
 
-def test():
-    print("PRUEBA MAIN DE GENERADOR DE RUTAS\n")
+#FUNCIONES AUXILIARES
+def generate_csv_files(driver, predictor):
+    """
+    Busca todas las rutas en la BD y generamos los CSV de predictions
+    """
+    query_trails = """
+    MATCH ()-[r:VISITED]->()
+    WHERE r.trail_id IS NOT NULL AND r.user_id IS NOT NULL
+    RETURN DISTINCT r.user_id as user_id, r.trail_id as trail_id
+    """
     
-    generador = None # Para el 'finally'
+    trails_to_process = []
+    with driver.session() as session:
+
+        results = session.run(query_trails)
+
+        for record in results:
+
+            trails_to_process.append({
+                'user': record['user_id'],
+                'trail': record['trail_id']
+            })
+    
+    print(f"[Main] Se encontraron {len(trails_to_process)} rutas para procesar.")
+
+    for i, item in enumerate(trails_to_process):
+
+        if i % 10 == 0:
+            print(f"  -> Procesando {i+1}/{len(trails_to_process)}...")
+            
+        predictor.process_trail(
+            user_id=item['user'],
+            trail_id=item['trail']
+        )
+
+#MAIN
+def main():
+    print("=== INICIANDO SERVICIO BACKEND ===\n")
+    
+    # esperamos a Neo4j y conectamos el RouteGenerator.
+    generador = None
     try:
-        #-----------------------------------
-        # --- PRUEBA 1: Route Generator ----
-        #-----------------------------------
-
-        print("\n--- GENERATOR DE RUTAS ---")
-        print("----------------------------------")
-
-
-        # datos para generar la ruta
-        lat_ejemplo = 40.71149
-        lon_ejemplo = -74.01321
-        pasos_ejemplo = 4
-
-        print("[MAIN] Creando GeneradorRutas...")
+        print("[Main] Conectando a Neo4j...")
         generador = RouteGenerator()
-
-        print(f"\n[MAIN] Buscando rutas para ({lat_ejemplo}, {lon_ejemplo}) con {pasos_ejemplo} pasos...")
-        treeRoute = generador.get_routes(lat_ejemplo, lon_ejemplo, steps=pasos_ejemplo)
-
-        if treeRoute:
-            print("\n[MAIN] ¡ÉXITO! Se encontró una ruta.")
-            print("[MAIN] Árbol de rutas generado:")
-            print(treeRoute)
-        elif not treeRoute:
-             print("\n[MAIN] No se encontraron rutas en la primera búsqueda.")
-
-
-
-        #-----------------------------------------------------------------
-        # --- PRUEBA 2: Pruebas de filtrado para el recommender ----------
-        #-----------------------------------------------------------------
-
-        print("\n--- FILTRADO DE RUTAS ---")
-        print("----------------------------------")
-
-        recommender = Recommender(route_generator=generador)
-
-        # --- Filtrado por historial ---
-
-        # trail_id= "2657913"
-        user_id_historial="172831" # se debería eliminar la rama de Scenic Lookout (la del trail_id de arriba)
-
-        print(f"\n[MAIN] TESTEANDO EL CASO DE FILTRADO DE HISTORIAL")
-        print(f"\n[MAIN] Generando recomendación para user_id: {user_id_historial} en ({lat_ejemplo}, {lon_ejemplo}) sin contexto: ...")
+        print("[Main] Conexión establecida.")
         
-        history_tree=recommender.get_final_tree(
-            user_id=user_id_historial,
-            lat=lat_ejemplo,
-            lon=lon_ejemplo,
-            context=None,
-            steps=pasos_ejemplo
-        )
-
-        if history_tree:
-            print("\n[MAIN] Árbol de rutas recomendado tras filtrar por historial:")
-            print(history_tree)
-        else:
-            print("[MAIN] No se encontraron rutas recomendadas que cumplan los criterios de historial.")   
-
-
-        print("\n----------------------------------")
-
-        # --- Filtrado por contexto ---
-
-        user_id_contexto="26182"
-        p1_temp = 22.0 # solo se obtiene una sola ruta de 2 pois
-        context= {
-            'context_retrieve': 'p1',
-            'temp': p1_temp,
-        }
-
-        print("\n[MAIN] TESTEANDO FILTRADO POR CONTEXTO CON TEMPERATURA")
-        print(f"\n[MAIN] Generando recomendación para user_id: {user_id_contexto} en ({lat_ejemplo}, {lon_ejemplo}) con contexto: {context}...")
-
-        context_tree=recommender.get_final_tree(
-            user_id=user_id_contexto,
-            lat=lat_ejemplo,
-            lon=lon_ejemplo,
-            context=context,
-            steps=pasos_ejemplo
-        )
-
-        if context_tree:
-            print("\n[MAIN] Árbol de rutas recomendado tras filtrar por contexto:")
-            print(context_tree)
-        else:
-            print("[MAIN] No se encontraron rutas recomendadas que cumplan los criterios de contexto.")   
-
-
-        #-----------------------------------------------------------------
-        # --- PRUEBA 2: Prueba de recommender ----------
-        #-----------------------------------------------------------------
-
-        print("\n--- RECOMMENDER ---")
-        print("----------------------------------")
-
-        # --- Recomendación simple ---
-        user_id_ok="11111"
+        # inicializamos componentes
+        predictor = Predictor(generador.driver)
         
-        print(f"\n[MAIN] TESTEANDO EL CASO DE RECOMENDACIÓN SIMPLE CON USUARIO RANDOM")
-        print(f"\n[MAIN] Generando recomendación para user_id: {user_id_ok} en ({lat_ejemplo}, {lon_ejemplo}) con contexto: {context}...")
-        recommended_tree_simple = recommender.recommend_simple(
-            user_id=user_id_ok,
-            lat=lat_ejemplo,
-            lon=lon_ejemplo,
-            context=None,
-            steps=pasos_ejemplo
-        )
-
-        if recommended_tree_simple:
-            print("\n[MAIN] ¡ÉXITO! Se encontró una ruta recomendada con contexto.")
-            print("[MAIN] Árbol de rutas recomendado con contexto:")
-            print(recommended_tree_simple)
-        else:
-            print("\n[MAIN] No se encontraron rutas recomendadas que cumplan los criterios de contexto.")     
-         
-        # --- Recomendación por score ---
+        # creamos los archivos para el predictor
+        print("\n[Main] Iniciando generación de archivos csv...")
+        generate_csv_files(generador.driver, predictor)
         
-        print(f"\n[MAIN] TESTEANDO EL CASO DE RECOMENDACIÓN POR SCORE CON USUARIO RANDOM")
-        print(f"\n[MAIN] Generando recomendación para user_id: {user_id_ok} en ({lat_ejemplo}, {lon_ejemplo}) con contexto: {context}...")
-        recommended_tree_score = recommender.recommend_by_score(
-            user_id=user_id_ok,
-            lat=lat_ejemplo,
-            lon=lon_ejemplo,
-            context=None,
-            steps=pasos_ejemplo
-        )
+        print("\n[Main] Tarea completada con éxito.")
 
-        if recommended_tree_score:
-            print("\n[MAIN] ¡ÉXITO! Se encontró una ruta recomendada con contexto.")
-            print("[MAIN] Árbol de rutas recomendado con contexto:")
-            print(recommended_tree_score)
-        else:
-            print("\n[MAIN] No se encontraron rutas recomendadas que cumplan los criterios de contexto.")
-
-        #-----------------------------------------------------------------
-        # --- PRUEBA 3: Pruebas de evaluator(csv) ----------
-        #-----------------------------------------------------------------
-        print("\n--- TESTEANDO EVALUATOR ---\n")  
-        evaluator = Evaluator(route_generator=generador)
-        test_cases = [
-            {
-                'user_id': '111111',
-                'lat': 40.71149,
-                'lon': -74.01321,
-                'steps': 4,
-                'context': None
-            }
-        ] 
-
-        evaluator.evaluate(test_cases=test_cases)
+        #para poder ejecutar pruebas manuales con docker exec
+        print("\n[Main] El servicio se mantendrá activo para pruebas (docker exec).")
+        print("[Main] Pulsa Ctrl+C para detenerlo.")
+        while True:
+            time.sleep(3600)
 
     except Exception as e:
-        print(f"\n¡HA OCURRIDO UN ERROR FATAL!")
-        print(f"Error: {e}")
+        print(f"\n¡ERROR FATAL EN MAIN!: {e}")
     finally:
         if generador:
-            #generador.cerrar_conexion()
+            generador.cerrar_conexion()
             print("\n Al finalizar, cerrando conexión del generador de rutas...")
 
 if __name__ == "__main__":
-    test()
+    main()

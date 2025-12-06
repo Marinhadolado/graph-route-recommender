@@ -1,0 +1,5 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+1083395,poi_1,54145,5ab51b6aa4b51b3dc096ed68,2018-05-05 16:40:00-04:00,21.9,0.0,14.5,,Partially cloudy
+1083395,poi_2,54145,4eb90d85722e09311d356915,2018-05-05 17:29:00-04:00,21.9,0.0,14.5,,Partially cloudy
+1083395,poi_3,54145,4b4a5eb9f964a5209a8526e3,2018-05-05 18:43:00-04:00,21.1,0.0,9.9,,Partially cloudy
+1083395,poi_4,54145,4e3c89c8aeb73139a16d84ee,2018-05-05 20:03:00-04:00,20.4,0.0,5.8,,Partially cloudy

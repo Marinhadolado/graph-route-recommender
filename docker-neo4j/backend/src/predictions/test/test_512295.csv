@@ -1,0 +1,4 @@
+trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
+512295,poi_1,25235,42daf100f964a52035261fe3,2018-02-08 14:32:00-05:00,-0.3,0.0,9.1,,Partially cloudy
+512295,poi_2,25235,42893400f964a52054231fe3,2018-02-08 15:30:00-05:00,-0.3,0.0,9.1,,Partially cloudy
+512295,poi_3,25235,515abd65e4b08eda86b30e6e,2018-02-08 18:25:00-05:00,-0.6,0.0,10.1,,Overcast
