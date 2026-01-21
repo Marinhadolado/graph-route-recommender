@@ -26,7 +26,7 @@ class RouteGenerator:
     def cerrar_conexion(self):  
         self.driver.close()
 
-    def get_routes(self, lat, lon, steps=4):
+    def get_routes(self, lat, lon, steps):
 
         cache_key = (lat, lon, steps)
 

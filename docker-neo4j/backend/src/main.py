@@ -52,14 +52,14 @@ def main():
         predictor = Predictor(generador.driver)
         
         # creamos los archivos para el predictor
-        print("\n[Main] Iniciando generación de archivos csv...")
-        generate_csv_files(generador.driver, predictor)
-        
-        print("\n[Main] Tarea completada con éxito.")
-
-        #para poder ejecutar pruebas manuales con docker exec
-        print("\n[Main] El servicio se mantendrá activo para pruebas (docker exec).")
-        print("[Main] Pulsa Ctrl+C para detenerlo.")
+        #print("\n[Main] Iniciando generación de archivos csv...")
+        #generate_csv_files(generador.driver, predictor)
+        #
+        #print("\n[Main] Tarea completada con éxito.")
+#
+        ##para poder ejecutar pruebas manuales con docker exec
+        #print("\n[Main] El servicio se mantendrá activo para pruebas (docker exec).")
+        #print("[Main] Pulsa Ctrl+C para detenerlo.")
         while True:
             time.sleep(3600)
 

@@ -140,7 +140,11 @@ class Predictor:
         filepath = os.path.join(self.predictions_folder, filename)
         
         with open(filepath, mode='w', newline='', encoding='utf-8') as csv_file:
-            fieldnames = ['trail_id', 'num_poi', 'user_id', 'poi_id', 'prediction']
+            fieldnames = [
+                'trail_id', 'num_poi', 'user_id', 
+                'poi_id', 'prediction'
+            ]
+            
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             writer.writeheader()
 
