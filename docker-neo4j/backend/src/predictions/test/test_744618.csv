@@ -1,7 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-744618,poi_1,36622,4b6b5abff964a520fb022ce3,2017-10-07 13:29:00-04:00,25.9,0.0,11.2,,Partially cloudy
-744618,poi_2,36622,4abe7f9ef964a520068e20e3,2017-10-07 15:11:00-04:00,25.7,0.0,15.4,,Partially cloudy
-744618,poi_3,36622,515abd65e4b08eda86b30e6e,2017-10-07 15:14:00-04:00,25.7,0.0,15.4,,Partially cloudy
-744618,poi_4,36622,4a663f7cf964a52046c81fe3,2017-10-07 15:28:00-04:00,25.7,0.0,15.4,,Partially cloudy
-744618,poi_5,36622,4ab7a271f964a520477a20e3,2017-10-07 15:36:00-04:00,24.6,0.0,12.0,,Partially cloudy
-744618,poi_6,36622,431f7f00f964a52085271fe3,2017-10-07 15:39:00-04:00,24.6,0.0,12.0,,Partially cloudy

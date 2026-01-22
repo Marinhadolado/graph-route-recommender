@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-2066605,poi_1,122876,52ac8847498e1390ec3ab77e,2017-12-30 15:50:00-05:00,-5.0,0.0,14.5,snow,Partially cloudy
-2066605,poi_2,122876,57583641498e90001a32e13e,2017-12-30 16:04:00-05:00,-5.0,0.0,14.5,snow,Partially cloudy

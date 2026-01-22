@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-288865,poi_1,13986,49c7e0b7f964a520cc571fe3,2018-05-10 20:23:00-04:00,17.3,0.0,10.7,,Partially cloudy
-288865,poi_2,13986,52681085498e16a8ac061157,2018-05-10 20:55:00-04:00,16.9,0.203,9.1,rain,"Rain, Partially cloudy"

@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-113724,poi_1,5235,49e7ce15f964a5201d651fe3,2018-05-14 23:03:00-04:00,15.2,0.0,7.4,,Partially cloudy
-113724,poi_2,5235,49bc3b0af964a52020541fe3,2018-05-15 01:32:00-04:00,16.2,0.0,2.1,,Overcast

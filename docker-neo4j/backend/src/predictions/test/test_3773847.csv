@@ -1,4 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-3773847,poi_1,342273,431f7f00f964a52085271fe3,2018-09-27 13:33:00-04:00,21.2,0.0,5.3,,Partially cloudy
-3773847,poi_2,342273,4ab7a271f964a520477a20e3,2018-09-27 13:57:00-04:00,21.2,0.0,5.3,,Partially cloudy
-3773847,poi_3,342273,49c02175f964a5204b551fe3,2018-09-27 14:07:00-04:00,21.2,0.0,5.3,,Partially cloudy

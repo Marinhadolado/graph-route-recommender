@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-3660779,poi_1,323304,4abe7f9ef964a520068e20e3,2018-07-06 12:46:00-04:00,25.2,0.867,10.2,rain,"Rain, Overcast"
-3660779,poi_2,323304,576c2212498e72c8c38f1ddd,2018-07-06 17:59:00-04:00,26.9,0.0,18.9,,Partially cloudy

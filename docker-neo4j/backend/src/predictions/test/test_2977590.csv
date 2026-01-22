@@ -1,4 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-2977590,poi_1,214352,4b466b09f964a520452026e3,2018-04-07 15:48:00-04:00,7.9,0.0,13.3,,Partially cloudy
-2977590,poi_2,214352,42893400f964a52054231fe3,2018-04-07 18:50:00-04:00,8.0,0.0,9.7,,Overcast
-2977590,poi_3,214352,42daf100f964a52035261fe3,2018-04-07 21:03:00-04:00,6.3,0.0,12.6,,Overcast

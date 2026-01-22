@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-3291340,poi_1,262493,57c86b6a498e43a03acd849f,2017-12-17 19:26:00-05:00,2.4,0.0,2.5,,Partially cloudy
-3291340,poi_2,262493,49e7ce15f964a5201d651fe3,2017-12-17 21:31:00-05:00,2.2,0.0,9.5,,Overcast

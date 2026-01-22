@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-175490,poi_1,8266,53ecff6c498e4189764e35ec,2018-01-06 18:14:00-05:00,-11.5,0.0,20.5,,Clear
-175490,poi_2,8266,4a149749f964a52055781fe3,2018-01-06 22:27:00-05:00,-13.2,0.0,23.8,,Clear

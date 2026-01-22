@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-1310116,poi_1,68997,5898b973fc73d40bed68acb6,2018-04-29 17:20:00-04:00,12.4,0.0,18.4,,Overcast
-1310116,poi_2,68997,4a436c34f964a52085a61fe3,2018-04-29 19:02:00-04:00,10.8,0.0,19.2,,Overcast

@@ -1,4 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-461276,poi_1,22641,4e7a3d3f775b9ed4d3854ca6,2018-01-17 17:08:00-05:00,-1.4,0.0,18.0,"rain,snow",Overcast
-461276,poi_2,22641,4a04ba93f964a52023721fe3,2018-01-17 22:49:00-05:00,-5.0,0.0,11.8,snow,Partially cloudy
-461276,poi_3,22641,4bcc638d68f976b06d7a6283,2018-01-17 23:29:00-05:00,-5.0,0.0,11.8,snow,Partially cloudy

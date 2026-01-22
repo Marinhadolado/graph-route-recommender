@@ -1,3 +1,0 @@
-trail_id,num_poi,user_id,poi_id,timestamp,temp,precip,windspeed,preciptype,conditions
-269711,poi_1,13028,4b6b5abff964a520fb022ce3,2018-02-06 15:07:00-05:00,2.9,0.0,9.9,,Overcast
-269711,poi_2,13028,4b6ece0bf964a52051cb2ce3,2018-02-07 01:16:00-05:00,-0.4,0.0,12.8,,Partially cloudy
