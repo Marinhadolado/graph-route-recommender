@@ -65,52 +65,7 @@ class Recommender:
             return None
         
         return final_tree
-
-    def calculate_route_score(self, path_nodes):
-        """
-        Calcula una puntuación para la ruta basada en el Rating y la Popularidad.
-        Score = Suma de (Rating * Popularidad_Log) de cada POI.
-        """
-        total_score = 0
-        
-        for node in path_nodes:
-
-            # obtenemos datos del POI
-            if node.is_root():
-                poi = node.data
-            else:
-                poi = node.data.get('poi_data', {})
-
-            # obtenemos el rating del poi
-            rating = poi.get('rating', -1)
-            if rating == -1: 
-                rating = 0.0
-            
-            # obtenemos el total_ratings del poi
-            total_ratings = poi.get('total_ratings', 0)
-            if total_ratings == -1:
-                total_ratings = 0
-            
-            # calculamos el factor de popularidad del total ratings
-            # si total_ratings es 0 -> log10(1) = 0 -> Multiplicador es 0.
-            # si total_ratings es 10 -> log10(11) = 1.04
-            # si total_ratings es 100 -> log10(101) = 2.0
-            # si total_ratings es 1000 -> log10(1001) = 3.0
-            popularity_factor = math.log10(1 + total_ratings)
-            
-            # finalmente calculamos el score del poi
-            # ejemplo: si Rating 9.0 y hay 100 votos -> 9.0 * 2.0 = 18 puntos
-            # ejemplo: si Rating 9.0 y hay 0 votos   -> 9.0 * 0.0 = 0 puntos
-            poi_score = rating * popularity_factor
-            
-            total_score += poi_score
-
-        print(f"[RECOMMENDER] Puntuación total de la ruta: {total_score}")
-        print(f"[RECOMMENDER] Ruta: {[node.tag for node in path_nodes]}")
-
-
-        return total_score
-        
+ 
     def recommend_simple(self, user_id, lat, lon, context, steps):
         final_tree=self.get_final_tree(
             user_id=user_id,
@@ -165,6 +120,51 @@ class Recommender:
 
         return final_route
     
+    def calculate_route_score(self, path_nodes):
+        """
+        Calcula una puntuación para la ruta basada en el Rating y la Popularidad.
+        Score = Suma de (Rating * Popularidad_Log) de cada POI.
+        """
+        total_score = 0
+        
+        for node in path_nodes:
+
+            # obtenemos datos del POI
+            if node.is_root():
+                poi = node.data
+            else:
+                poi = node.data.get('poi_data', {})
+
+            # obtenemos el rating del poi
+            rating = poi.get('rating', -1)
+            if rating == -1: 
+                rating = 0.0
+            
+            # obtenemos el total_ratings del poi
+            total_ratings = poi.get('total_ratings', 0)
+            if total_ratings == -1:
+                total_ratings = 0
+            
+            # calculamos el factor de popularidad del total ratings
+            # si total_ratings es 0 -> log10(1) = 0 -> Multiplicador es 0.
+            # si total_ratings es 10 -> log10(11) = 1.04
+            # si total_ratings es 100 -> log10(101) = 2.0
+            # si total_ratings es 1000 -> log10(1001) = 3.0
+            popularity_factor = math.log10(1 + total_ratings)
+            
+            # finalmente calculamos el score del poi
+            # ejemplo: si Rating 9.0 y hay 100 votos -> 9.0 * 2.0 = 18 puntos
+            # ejemplo: si Rating 9.0 y hay 0 votos   -> 9.0 * 0.0 = 0 puntos
+            poi_score = rating * popularity_factor
+            
+            total_score += poi_score
+
+        print(f"[RECOMMENDER] Puntuación total de la ruta: {total_score}")
+        print(f"[RECOMMENDER] Ruta: {[node.tag for node in path_nodes]}")
+
+
+        return total_score
+        
     def recommend_by_score(self, user_id, lat, lon, context, steps):
         # Método alternativo de recomendación basado en puntuaciones
         final_tree=self.get_final_tree(

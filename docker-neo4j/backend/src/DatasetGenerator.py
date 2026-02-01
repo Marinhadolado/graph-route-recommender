@@ -3,6 +3,7 @@
 
 import os
 import csv
+import sys
 import random
 from neo4j import GraphDatabase
 
@@ -32,13 +33,17 @@ class DatasetGenerator:
     def cerrar_conexion(self):  
         self.driver.close()
 
-    def generate_dataset(self):
+    def generate_dataset(self, num_trails, min_steps):
         print("[DATASET GENERATOR] Generando dataset...")
 
         print("[DATASET GENERATOR] PASO1: Consultando Neo4j para obtener las rutas válidas.")
+        print("[DATASET GENERATOR] Criterios de selección:")
+        print(f"   -> Usuarios con al menos {num_trails} rutas distintas.")
+        print(f"   -> Cada ruta debe tener al menos {min_steps + 1} POIs ({min_steps} saltos).")
+
         # consultamos las rutas que hayan sido realizadas por usuarios con al menos 2 rutas
         # y que cada ruta tenga al menos 4 POIs(3 saltos)
-        data = self._fetch_valid_trails(num_trails=2, min_steps=3)
+        data = self._fetch_valid_trails(num_trails=num_trails, min_steps=min_steps)
 
         if not data:
             print("[DATASET GENERATOR] No se encontraron rutas válidas en la base de datos.")
@@ -74,43 +79,106 @@ class DatasetGenerator:
         RETURN 
             r.trail_id AS trail_id,
             r.user_id AS user_id,
-            startNode(r).fsq_id AS poi_id,
+            
+            startNode(r).fsq_id AS poi1_id,     
+            endNode(r).fsq_id AS poi2_id,      
+            
             startNode(r).rating AS poi1_rating,
             endNode(r).rating AS poi2_rating,
-            r.p2_timestamp AS timestamp,
-            r.p1_temp AS temp,
-            r.p1_precip AS precip,
-            r.p1_windspeed AS windspeed,
-            r.p1_preciptype AS preciptype,
-            r.p1_conditions AS conditions
-        ORDER BY user_id, trail_id, timestamp ASC
+            
+            r.p1_timestamp AS poi1_timestamp,
+            r.p2_timestamp AS poi2_timestamp,
+            
+            r.p1_temp AS poi1_temp,
+            r.p2_temp AS poi2_temp,
+            
+            r.p1_precip AS poi1_precip,
+            r.p2_precip AS poi2_precip,
+            
+            r.p1_windspeed AS poi1_windspeed,
+            r.p2_windspeed AS poi2_windspeed,
+            
+            r.p1_preciptype AS poi1_preciptype,
+            r.p2_preciptype AS poi2_preciptype,
+            
+            r.p1_conditions AS poi1_conditions,
+            r.p2_conditions AS poi2_conditions
+        ORDER BY user_id, trail_id, poi1_timestamp ASC
         """
         
         data = []
         with self.driver.session() as session:
             result = session.run(query, num_trails=num_trails, min_steps=min_steps)
             
-            current_trail = None
-            step_counter = 1
+            #convertimos el resultado a lista para poder mirar alante y atras
+            result_list = list(result)
 
-            for record in result:
-                row = dict(record) # Convertir registro a dict
-                
-                # contador de pasos
-                if row['trail_id'] != current_trail:
-                    current_trail = row['trail_id']
-                    step_counter = 1
-                
-                row['num_poi'] = f"step{step_counter}"
-                data.append(row)
-                step_counter += 1
+            if not result_list:
+                return []
+
+            counter=1
+
+            for i, record in enumerate(result_list):
+                row= dict(record)
+
+                current_row= {
+                    'trail_id': row['trail_id'],
+                    'user_id': row['user_id'],
+                    'num_poi': f"poi_{counter}",
+                    'poi_id': row['poi1_id'],
+                    'rating': row['poi1_rating'],
+                    'timestamp': row['poi1_timestamp'],
+                    'temp': row['poi1_temp'],
+                    'precip': row['poi1_precip'],
+                    'windspeed': row['poi1_windspeed'],
+                    'preciptype': row['poi1_preciptype'],
+                    'conditions': row['poi1_conditions']
+                }
+
+                data.append(current_row)
+
+                counter += 1
+
+                if i == (len(result_list)-1):
+                    last_record= True
+                else:
+                    last_record= False
+
+                last_poi_route= False
+
+
+                if not last_record:
+                    # si no es el ultimo poi, comprobamos si el siguiente es de otra ruta
+                    next_trail_id = result_list[i+1]['trail_id']
+                    if next_trail_id != row['trail_id']:
+                        last_poi_route= True
+
+                if last_poi_route or last_record:
+                    # añadimos el ultimo poi de la ruta
+                    last_row= {
+                        'trail_id': row['trail_id'],
+                        'user_id': row['user_id'],
+                        'num_poi': f"poi_{counter}",
+                        'poi_id': row['poi2_id'],
+                        'rating': row['poi2_rating'],
+                        'timestamp': row['poi2_timestamp'],
+                        'temp': row['poi2_temp'],
+                        'precip': row['poi2_precip'],
+                        'windspeed': row['poi2_windspeed'],
+                        'preciptype': row['poi2_preciptype'],
+                        'conditions': row['poi2_conditions']
+                    }
+
+                    data.append(last_row)
+
+                    counter=1  # reiniciamos el contador para la siguiente ruta            
             
         return data
     
     def _write_to_csv(self, output_file, data):
         fieldnames = [
             'trail_id', 'user_id', 'num_poi', 'poi_id',
-            'poi1_rating', 'poi2_rating', 'timestamp',
+             'timestamp','rating',
             'temp', 'precip', 'windspeed', 'preciptype', 'conditions'
         ]
         
@@ -188,8 +256,20 @@ class DatasetGenerator:
 
 if __name__ == "__main__":
     generate_dataset = DatasetGenerator()
+    generate_dataset.delete_existing_files()
+
     try:
-        generate_dataset.delete_existing_files()
-        generate_dataset.generate_dataset()
+
+        if len(sys.argv) > 2:
+            min_steps = int(sys.argv[1])
+            num_trails = int(sys.argv[2])
+            generate_dataset.generate_dataset(num_trails=num_trails, min_steps=min_steps)
+        else:
+            print("[DATASET GENERATOR] Proporciona el número mínimo de pasos y el número mínimo de rutas por usuario como argumentos.")
+            print("     -> Uso: python src/DatasetGenerator.py <min_steps> <num_trails>")
+            print("     -> Ejemplo: python src/DatasetGenerator.py 3 2")
+    except Exception as e:
+        print(f"[DATASET GENERATOR] Error durante la generación del dataset: {e}")
+
     finally:
         generate_dataset.cerrar_conexion()

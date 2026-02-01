@@ -30,7 +30,7 @@ class RouteGenerator:
 
         cache_key = (lat, lon, steps)
 
-        print(f"[ROUTE GENERATOR]Ejecutando consulta Cypher para ({lat}, {lon}) con {steps} saltos.")
+        print(f"[ROUTE GENERATOR]Ejecutando consulta Cypher para ({lat}, {lon}) con máximo {steps} saltos.")
 
         query = f"""
         //
@@ -123,7 +123,7 @@ class RouteGenerator:
         if not context:
             return True # No hay contexto, la ruta es válida
 
-        # Lógica de 'context_retrieve': usamos 'p1' (partida) por defecto
+        # 'context_retrieve' establece que usamos 'p1' (partida) por defecto
         retrieve_prefix = context.get('context_retrieve', 'p1') 
 
         for node in path_nodes[1:]: # Saltamos la raíz
@@ -190,7 +190,7 @@ class RouteGenerator:
             # 4. Si la ruta es válida, la reconstruimos en el árbol final
             if is_valid_history and is_valid_context:
                 has_valid_routes = True
-                # Re-añadimos la ruta válida al nuevo árbol
+                # Reañadimos la ruta válida al nuevo árbol
                 for i in range(len(path) - 1):
                     parent_node = path[i]
                     child_node = path[i+1]
