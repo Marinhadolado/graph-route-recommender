@@ -8,3 +8,7 @@
 /docker-neo4j/import/Tokyo/
 
 /extra/cities/
+
+/docker-neo4j/backend/__pycache__/
+
+/docker-neo4j/backend/src/__pycache__/
