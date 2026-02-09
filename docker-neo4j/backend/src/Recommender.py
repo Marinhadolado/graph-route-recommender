@@ -36,7 +36,7 @@ class Recommender:
         print(f"[RECOMMENDER] Usuario ha visitado {len(history_set)} POIs únicos.")
         return history_set
     
-    def get_final_tree(self, user_id, lat, lon, context, steps):
+    def get_final_tree(self, user_id, lat, lon, context, steps, filter_by_history):
         print(f"[RECOMMENDER] Nueva recomendación para user: {user_id} en ({lat}, {lon}) con contexto: {context}")
         
         # obtenemos el historial de POIs visitados por el usuario
@@ -57,7 +57,8 @@ class Recommender:
         final_tree = self.route_generator.update(
             candidate_tree=candidate_tree,
             history=history,
-            context=context
+            context=context,
+            filter_by_history=filter_by_history,
         )
 
         if not final_tree:
@@ -66,6 +67,7 @@ class Recommender:
         
         return final_tree
  
+    #recomiendan solamente una ruta
     def recommend_simple(self, user_id, lat, lon, context, steps):
         final_tree=self.get_final_tree(
             user_id=user_id,
@@ -120,7 +122,21 @@ class Recommender:
 
         return final_route
     
-    def calculate_route_score(self, path_nodes):
+    #funciones auxiliares para el recommend by score
+    def _calculate_poi_score(self, poi):
+        """
+        Aplica la fórmula: Score = Rating * Log10(1 + Popularidad)
+        """
+        rating = float(poi.get('rating', 0))
+        if rating < 0: rating = 0.0
+        
+        total_ratings = int(poi.get('total_ratings', 0))
+        if total_ratings < 0: total_ratings = 0
+        
+        popularity_factor = math.log10(1 + total_ratings)
+        return rating * popularity_factor
+
+    def _calculate_route_score(self, path_nodes):
         """
         Calcula una puntuación para la ruta basada en el Rating y la Popularidad.
         Score = Suma de (Rating * Popularidad_Log) de cada POI.
@@ -135,36 +151,16 @@ class Recommender:
             else:
                 poi = node.data.get('poi_data', {})
 
-            # obtenemos el rating del poi
-            rating = poi.get('rating', -1)
-            if rating == -1: 
-                rating = 0.0
-            
-            # obtenemos el total_ratings del poi
-            total_ratings = poi.get('total_ratings', 0)
-            if total_ratings == -1:
-                total_ratings = 0
-            
-            # calculamos el factor de popularidad del total ratings
-            # si total_ratings es 0 -> log10(1) = 0 -> Multiplicador es 0.
-            # si total_ratings es 10 -> log10(11) = 1.04
-            # si total_ratings es 100 -> log10(101) = 2.0
-            # si total_ratings es 1000 -> log10(1001) = 3.0
-            popularity_factor = math.log10(1 + total_ratings)
-            
-            # finalmente calculamos el score del poi
-            # ejemplo: si Rating 9.0 y hay 100 votos -> 9.0 * 2.0 = 18 puntos
-            # ejemplo: si Rating 9.0 y hay 0 votos   -> 9.0 * 0.0 = 0 puntos
-            poi_score = rating * popularity_factor
-            
-            total_score += poi_score
+                       
+            total_score += self._calculate_poi_score(poi)
 
         print(f"[RECOMMENDER] Puntuación total de la ruta: {total_score}")
         print(f"[RECOMMENDER] Ruta: {[node.tag for node in path_nodes]}")
 
 
         return total_score
-        
+    
+    #recomiendan únicamente una ruta
     def recommend_by_score(self, user_id, lat, lon, context, steps):
         # Método alternativo de recomendación basado en puntuaciones
         final_tree=self.get_final_tree(
@@ -194,7 +190,7 @@ class Recommender:
         for path in all_paths:
             if len(path) == target_len:          
                 # con la funcion calculamos el score
-                current_score = self.calculate_route_score(path)
+                current_score = self._calculate_route_score(path)
 
                 #si es mejor que las anteriores se guarda
                 if current_score > best_score:
@@ -206,7 +202,7 @@ class Recommender:
         if not best_path and all_paths:
             print("[RECOMMENDER] No se encontró ruta de longitud exacta. Buscando la mejor ruta corta...")
             for path in all_paths:
-                current_score = self.calculate_route_score(path)
+                current_score = self._calculate_route_score(path)
                 if current_score > best_score:
                     best_score = current_score
                     best_path = path
@@ -235,4 +231,36 @@ class Recommender:
             )
         
         return final_route
+
+    # obtiene candidatos puntuados para el siguiente paso
+    def get_candidates_by_score(self, user_id, lat, lon, context,steps):
+        """
+        Devuelve una lista de diccionarios con los candidatos para el siguiente paso (steps=1),
+        ordenados por su score calculado.
+        """
+        tree_route = self.get_final_tree(user_id, lat, lon, context, steps=steps, filter_by_history=False)
         
+        if not tree_route:
+            return []
+
+        tree = tree_route.get_tree()
+        root_id = tree.root
+        children = tree.children(root_id)
+        
+        candidates = []
+        for child in children:
+            poi_data = child.data.get('poi_data', {})
+            poi_id = child.identifier
+            
+            # Calculamos el score usando la lógica oficial del Recommender
+            score = self._calculate_poi_score(poi_data)
+            
+            candidates.append({
+                'poi_id': poi_id,
+                'score': score,
+            })
+            
+        # Ordenar de mayor a menor score
+        candidates.sort(key=lambda x: x['score'], reverse=True)
+        
+        return candidates    

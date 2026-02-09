@@ -2,3 +2,9 @@
 
 # Archivos de log
 *.log
+
+/docker-neo4j/backend/venv/
+
+/docker-neo4j/import/Tokyo/
+
+/extra/cities/

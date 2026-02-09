@@ -1,104 +1,208 @@
+# Este archivo parte del fichero test.csv y crea otro csv filtrandolo con una funcion concreta del recommender
+
+import sys
 import os
 import csv
-import sys # para leer argumentos de la terminal
 from neo4j import GraphDatabase
+from RouteGenerator import RouteGenerator
+from Recommender import Recommender
 
 class Predictor:
+
     def __init__(self):
-        uri= os.getenv("NEO4J_URI", "bolt://localhost:7999")
-        user= os.getenv("NEO4J_USER", "neo4j")
-        password = os.getenv("NEO4J_PASSWORD", "password")
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
-        # creamos las carpetas para guardar los csv
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.dataset_dir = os.path.join(base_dir, "..", "dataset")
-        self.output_dir = os.path.join(base_dir, "predictions")
-        os.makedirs(self.output_dir, exist_ok=True)
+        self.base_dir=os.path.dirname(os.path.abspath(__file__))
+        self.dataset_dir=os.path.join(self.base_dir,'..','dataset')
 
-    def cerrar_conexion(self):
-        self.driver.close()
+        #creamos la carptea donde se guardara el nuevo csv
+        self.output_dir=os.path.join(self.base_dir,'..','predictions')
+        os.makedirs(self.output_dir, exist_ok=True) 
 
-    #METODO PRINCIPAL
-    def generate_predictions(self, algorithm):
-        print(f"[PREDICTION] Generando predicciones usando el algoritmo: {algorithm}")
+        try:
+            
+            self.route_generator = RouteGenerator()
+            self.recommender = Recommender(self.route_generator)
 
-        input_file = os.path.join(self.dataset_dir, "test.csv")
-        if os.path.exists(input_file) is False:
-            print(f"[PREDICTION] El archivo de entrada {input_file} no existe. Asegúrate de haberlo generado antes con DatasetGenerator.")
+            self.driver = self.route_generator.driver
+            
+           
+            print("[PREDICTOR] Conexión exitosa a la base de datos Neo4j")
+
+        except Exception as e:
+            print(f"[PREDICTOR]Error al conectar a la base de datos Neo4j: {e}")
+            raise
+    
+    def __str__(self):
+        return "Predictor conectado a Neo4j"
+    
+    def cerrar_conexion(self):  
+        if self.route_generator:
+            self.route_generator.cerrar_conexion()
+
+    def generate_predictions(self, user_id, context, steps, algorithm):
+        print("[PREDICTOR] Generando predicciones con algoritmo:", algorithm)
+
+        #Paso1: leemos el fichero test.csv        
+    
+        test_file=os.path.join(self.dataset_dir,'test.csv')
+
+        #leemos el csv y agrupamos por trail_id
+        print(f"[PREDICTOR] Leyendo rutas desde {test_file}...")
+        routes = self._load_routes_from_csv(test_file)
+
+        if not routes:
+            print(f"[PREDICTOR] No se encontraron rutas en el archivo {test_file}.")
             return
         
-        routes= self._load_test_routes(input_file)
-        print(f"[PREDICTION] Cargando rutas de prueba desde {input_file}. Total rutas: {len(routes)}")
+        print(f"[PREDICTOR] Procesando {len(routes)} rutas para predicción...")
+        print(f"[PREDICTOR] RUTAS: {list(routes.keys())}...")
 
-        output_file = os.path.join(self.output_dir, f"predictor_{algorithm}.csv")
-
+        # Paso2: vamos ruta por ruta y aplicamos la función de predicción
+        output_file = os.path.join(self.output_dir, f'prediction_{algorithm}.csv')
+        
         with open(output_file, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
 
-            writer.writerow(["trail_id", "poi_step", "poi_id","predicted_score", "algorithm"])
+            writer.writerow(["trail_id", "step", "candidate_rank", "poi_id", "prediction"])
 
-            #vamos ruta por ruta analizando sus opciones
-            for trail_id, steps in routes.items():
-                # Ordenamos los steps (poi_1, poi_2, poi_3...)
-                # Extraemos el número del string "poi_X" para ordenar correctamente
-                try:
-                    sorted_steps = sorted(steps, key=lambda x: int(x['num_poi'].split('_')[1]))
-                except:
-                    # Si el formato no es poi_X, ordenamos por defecto
-                    sorted_steps = steps
+            #vamos ruta por ruta añadiendo info a prediction.csv
+            for trail_id, trail_steps in routes.items():
+                print("----------------------------------------------")
+                print("------------RUTA:", trail_id, "----------------")
+                print("----------------------------------------------")
 
-                for i in range(len(sorted_steps)-1):
-                    # para cada paso, predecimos el siguiente POI
-                    current_step = sorted_steps[i]
-                    current_poi = current_step['poi_id']
-                    candidates= self._get_recommendatios(current_poi, algorithm)
+                if not trail_steps:
+                    continue
                 
-                    step_origin = current_step['num_poi']
-                    step_destination = f"poi_{i+2}"
+                # vamos poi a poi haciendo predicciones para el siguiente poi
+                for i in range(len(trail_steps)-1):
+                    print("----ANALIZANDO PASO:", i+1, "----")
+                    current_step = trail_steps[i]
+                    poi_id= current_step['poi_id']
 
-                    # escribimos el supuesto siguiente poi en el csv
-                    for step, rank in enumerate(candidates, 1):
-                        poi_candidate = step['poi_id']
-                        predicted_score = step['predicted_score']
+                    route_user= trail_steps[0]['user_id']
 
-                        writer.writerow([trail_id, f"poi_{step_origin}{step_destination}", poi_candidate, predicted_score, algorithm])
+                    #Paso2.1: obtenemos las coordenadas del poi actual
+                    coordenadas= self._get_poi_coordinates(poi_id)
+                    if not coordenadas:
+                        print(f"[PREDICTOR] No se pudieron obtener coordenadas para el POI {poi_id}. Saltando paso.")
+                        continue
+                    print(f"[PREDICTOR] Coordenadas del POI {poi_id}: {coordenadas}")
+                    lat, lon = coordenadas
+
+                    #Paso2.2: obtenemos los candidatos para la siguiente posicion según el algortimo
+                    candidates = []
+
+                    if algorithm == 'score':
+                        candidates = self.recommender.get_candidates_by_score(
+                            user_id=route_user,
+                            lat=lat,
+                            lon=lon,
+                            context=context,
+                            steps=steps
+                        )
                     
-        print(f"[PREDICTION] Predicciones guardadas en {output_file}")
+                    if not candidates:
+                        print(f"[PREDICTOR] No se encontraron candidatos para la ruta {trail_id} en el paso {i+1}.")
+                        continue
 
-    def _load_test_routes(self, input_file):
-        """Carga las rutas de prueba desde el archivo CSV de test.
-        Devuelve un de diccionario con 'trail_id' y 'route con todos los datos del csv'.
+
+                    print(f"[PREDICTOR] CANDIDATOS ENCONTRADOS PARA RUTA {trail_id} PASO {i+1}: {[c['poi_id'] for c in candidates]}")
+                    
+                    #Paso2.3: escribimos los candidatos en el csv de salida
+
+                    step_num = i+2
+                    
+                    for rank, candidate in enumerate(candidates, start=1):
+                        rank_etiqueta= f"poi_{step_num}_{rank}"
+
+                        writer.writerow([
+                            trail_id,
+                            step_num,
+                            rank_etiqueta,
+                            candidate['poi_id'],
+                            f"{candidate['score']:.4f}"
+                        ])
+
+        print(f"[PREDICTOR] Predicciones guardadas en {output_file}.")                  
+
+    def _load_routes_from_csv(self, filepath):
         """
+        Lee el csv linea por linea y agrupa las filas por trail_id.
+        Devuelve un diccionario: { trail_id: [fila1, fila2, ...] }
+        """
+        if not os.path.exists(filepath):
+            print(f"[PREDICTOR] El archivo {filepath} no existe.")
+            return None
+        
         routes = {}
 
-        with open(input_file, mode='r', newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
+        with open(filepath, mode='r', newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+
             for row in reader:
-                t_id = row['trail_id']
-                if t_id not in routes:
-                    routes[t_id] = []
-                routes[t_id].append(row)
+                
+                trail_id = row['trail_id']
+
+                # si es la primera vez que vemos este trail_id, inicializamos la lista
+                if trail_id not in routes:
+                    routes[trail_id] = []
+                    
+                routes[trail_id].append(row)
 
         return routes
-        
-    def _get_recommendatios(self, current_poi, algorithm):
-        return
 
+    def _get_poi_coordinates(self, poi_id):
+        """
+        Consulta Neo4j para obtener las coordenadas (lat, lon) del POI dado su fsq_id.
+        Devuelve una tupla (lat, lon) o None si no se encuentra.
+        """
+        query = """
+        MATCH (p:POI {fsq_id: $poi_id})
+        RETURN p.latitude AS lat, p.longitude AS lon
+        """
+        with self.driver.session() as session:
+            result = session.run(query, poi_id=poi_id).single()
+            if result:
+                return (result['lat'], result['lon'])
+            else:
+                print(f"[PREDICTOR] No se encontraron coordenadas para el POI {poi_id}.")
+                return None
+
+    def delete_existing_files(self, algorithm):
+        """
+        Elimina el archivo de predicciones existente para el algoritmo dado.
+        """
+        output_file = os.path.join(self.output_dir, f'prediction_{algorithm}.csv')
+        if os.path.exists(output_file):
+            os.remove(output_file)
+            print(f"[PREDICTOR] Archivo de predicciones {output_file} eliminado.")
+        else:
+            print(f"[PREDICTOR] No existe archivo de predicciones {output_file} para eliminar.")
 
 if __name__ == "__main__":
-    predictor = Predictor()
+
+    predictor= Predictor()
 
     try:
-        if len(sys.argv) > 1:
-            algorithm = sys.argv[1]
-            predictor.generate_predictions(algorithm)
-        else:
-            print("[PREDICTION] Proporciona el nombre del algoritmo como argumento.")
-            print("     -> Uso: python src/Predictor.py <nombre_algoritmo>")
-            print("     -> Opciones de algoritmo: 'basico', 'score'")
-    except Exception as e:
-        print(f"[PREDICTION] Error durante la generación de predicciones: {e}")
+        if len(sys.argv) != 5:
+            print("Uso: python Predictor.py <user_id> <context> <steps> <algorithm>")
+            print("Si no se proporciona el contexto y los pasos, se usarán valores por defecto.")
+            sys.exit(1)
+        user_id = sys.argv[1]
+        context_arg = sys.argv[2] 
+        steps = int(sys.argv[3])
+        algorithm = sys.argv[4]
 
+        predictor.delete_existing_files(algorithm=algorithm)
+
+        if context_arg=="None":
+            context=None
+
+        print(f"[PREDICTOR] Iniciando predicciones para el usuario: {user_id}")
+        predictor.generate_predictions(user_id, context, steps, algorithm)
+    except Exception as e:
+        print(f"[PREDICTOR] ¡ERROR FATAL!: {e}")
     finally:
-        predictor.cerrar_conexion()
+        if predictor:
+            predictor.cerrar_conexion()

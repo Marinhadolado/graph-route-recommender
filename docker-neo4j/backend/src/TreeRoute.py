@@ -11,6 +11,7 @@ class TreeRoute:
         # luego inicializamos el historial de nodos visitados como un conjunto vacío
         # history se crea para evitar bucles en la ruta
         self.history = set()
+        self.root = poi_inicial['fsq_id']
         
         # establecemos el nodo raíz del árbol con el POI inicial
         self.tree.create_node(

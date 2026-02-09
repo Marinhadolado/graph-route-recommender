@@ -259,7 +259,6 @@ if __name__ == "__main__":
     generate_dataset.delete_existing_files()
 
     try:
-
         if len(sys.argv) > 2:
             min_steps = int(sys.argv[1])
             num_trails = int(sys.argv[2])
@@ -268,6 +267,7 @@ if __name__ == "__main__":
             print("[DATASET GENERATOR] Proporciona el número mínimo de pasos y el número mínimo de rutas por usuario como argumentos.")
             print("     -> Uso: python src/DatasetGenerator.py <min_steps> <num_trails>")
             print("     -> Ejemplo: python src/DatasetGenerator.py 3 2")
+    
     except Exception as e:
         print(f"[DATASET GENERATOR] Error durante la generación del dataset: {e}")
 

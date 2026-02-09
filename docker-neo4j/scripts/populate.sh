@@ -3,7 +3,7 @@
 # esto hace que el script falle si cualquier comando falla
 set -e
 
-CSV_nodes="/POIS_INFO_Q60_NewYorkCity_lvl1_categories.csv"
+CSV_nodes="/NYC/POIS_INFO_Q60_NewYorkCity_lvl1_categories.csv"
 
 echo "Eliminando nodos y relaciones existentes antes de cargar nuevos datos..."
 cypher-shell -u neo4j -p password -a bolt://neo4j:7687 "MATCH (n) DETACH DELETE n;"
@@ -41,7 +41,7 @@ CYPHER
 
 echo "Nodos POI creados correctamente."
 
-CSV_edges="/Q60_NewYorkCity_trails_weather_2_minroutes_4_minPOIs_TestRouteTraining.csv"
+CSV_edges="/NYC/Q60_NewYorkCity_trails_weather_2_minroutes_4_minPOIs_TestRouteTraining.csv"
 
 echo "Poblando relaciones VISITED desde $CSV_edges..."
 

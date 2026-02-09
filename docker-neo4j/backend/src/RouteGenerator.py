@@ -162,7 +162,7 @@ class RouteGenerator:
 
         return True # Si ha pasado todos los filtros, la ruta es válida
     
-    def update(self, candidate_tree: TreeRoute, history, context):
+    def update(self, candidate_tree: TreeRoute, history, context, filter_by_history):
         """
         Toma un árbol de candidatas y lo filtra según el historial y el contexto.
         Devuelve un NUEVO TreeRoute solo con las rutas válidas.
@@ -184,7 +184,11 @@ class RouteGenerator:
         for path in all_candidate_paths:
             
             # 3. Aplicamos los filtros
-            is_valid_history = self.filter_path_by_history(path, history)
+            if filter_by_history:
+                is_valid_history = self.filter_path_by_history(path, history)
+            else:
+                is_valid_history = True
+                
             is_valid_context = self.filter_path_by_context(path, context)
             
             # 4. Si la ruta es válida, la reconstruimos en el árbol final

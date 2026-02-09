@@ -51,7 +51,8 @@ def test_route_filtering():
             user_id=user_con_historial,
             lat=lat, lon=lon,
             context=None,
-            steps=steps
+            steps=steps,
+            filter_history=True
         )
         if tree_history:
             print("[TFHISTORIAL] Árbol generado tras filtrar historial:")
@@ -69,7 +70,8 @@ def test_route_filtering():
             user_id=user_frio,
             lat=lat, lon=lon,
             context=contexto_frio,
-            steps=steps
+            steps=steps,
+            filter_history=True
         )
 
         if tree_context:    
