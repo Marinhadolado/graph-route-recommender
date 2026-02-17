@@ -5,7 +5,7 @@ import os
 import csv
 from neo4j import GraphDatabase
 from RouteGenerator import RouteGenerator
-from Recommender import Recommender
+from RecommendationService import RecommendationService
 
 class Predictor:
 
@@ -21,7 +21,7 @@ class Predictor:
         try:
             
             self.route_generator = RouteGenerator()
-            self.recommender = Recommender(self.route_generator)
+            self.recommender = RecommendationService(self.route_generator)
 
             self.driver = self.route_generator.driver
             
@@ -37,7 +37,7 @@ class Predictor:
     
     def cerrar_conexion(self):  
         if self.route_generator:
-            self.route_generator.cerrar_conexion()
+            self.route_generator.close()
 
     def generate_predictions(self, user_id, context, steps, algorithm):
         print("[PREDICTOR] Generando predicciones con algoritmo:", algorithm)
@@ -93,13 +93,14 @@ class Predictor:
                     #Paso2.2: obtenemos los candidatos para la siguiente posicion según el algortimo
                     candidates = []
 
-                    if algorithm == 'score':
-                        candidates = self.recommender.get_candidates_by_score(
+                    if algorithm == 'ratings':
+                        candidates = self.recommender.getCandidates(
                             user_id=route_user,
                             lat=lat,
                             lon=lon,
                             context=context,
-                            steps=steps
+                            steps=steps,
+                            algorithm_name=algorithm
                         )
                     
                     if not candidates:

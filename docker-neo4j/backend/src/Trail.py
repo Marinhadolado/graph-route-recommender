@@ -31,8 +31,8 @@ class Context:
         return f"Context: {self.temp}°C, {self.conditions}"
 
 class Step:
-    def __init__(self, poi_id,timestamp, c: Context):
-        self.venue_id= str(poi_id)
+    def __init__(self, poi_origen,timestamp, c: Context):
+        self.venue_id= str(poi_origen)
 
         #para guardar timestamp que es de tipo datetime debemos hacer lo siguiente
         if isinstance(timestamp, str):
@@ -67,7 +67,7 @@ class Trail:
     def __len__(self):
             return len(self.steps)
 
-    def add_step(self, step: Step):
+    def addStep(self, step: Step):
         """
         Añade un punto más a la ruta
         
@@ -80,7 +80,7 @@ class Trail:
         self.steps.append(step)
         self.steps.sort(key=lambda x: x.timestamp)
     
-    def get_duration(self):
+    def getDuration(self):
         """
         Obtiene la duración de la ruta y la devuelte en minutos
         
@@ -100,7 +100,7 @@ class Trail:
         
         return 0.0
     
-    def get_start(self):
+    def getStart(self):
         """
         Obtiene el primer punto de la ruta
         
@@ -108,7 +108,7 @@ class Trail:
         """
         return self.steps[0].poi_id
     
-    def get_poi_sequence(self):
+    def getPoiSequence(self):
         """
         Devuelve la lista de ids de los POIs en orden.
 
@@ -120,7 +120,3 @@ class Trail:
             pois.append(step.poi_id)
 
         return pois
-
-    
-
-

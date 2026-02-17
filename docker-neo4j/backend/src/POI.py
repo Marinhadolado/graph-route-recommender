@@ -104,24 +104,43 @@ class POI:
     def __str__(self):
         return f"POI: {self.category} ({self.id})"
 
+    def getId(self):
+        return self.id
+    
+    def getCategory(self):
+        return self.category
+    
+    def getRating(self):
+        return self.rating
+    
     @staticmethod
     def nodeToPOI(node):
         """
-        Método de fábrica para crear un POI directamente desde un nodo de Neo4j.
+        Crea un POI desde un nodo de Neo4j.
         """
         props = dict(node)
-        
+
+        fsq_id = props.pop('fsq_id', None)
+        latitude = props.pop('latitude', None)
+        longitude = props.pop('longitude', None)
+        category = props.pop('category', None)
+        category_lvlFs = props.pop('category_lvlFs', None)
+        price = props.pop('price', None)
+        rating = props.pop('rating', None)
+        total_ratings = props.pop('total_ratings', None)
+        total_tips = props.pop('total_tips', None)
+
         return POI(
-            fsq_id=props.get('fsq_id'),
-            latitude=props.get('latitude'),
-            longitude=props.get('longitude'),
-            category=props.get('category'),
-            category_lvlFs=props.get('category_lvlFs'),
-            price=props.get('price'),
-            rating=props.get('rating'),
-            total_ratings=props.get('total_ratings'),
-            total_tips=props.get('total_tips'),
-            **props 
+            fsq_id=fsq_id,
+            latitude=latitude,
+            longitude=longitude,
+            category=category,
+            category_lvlFs=category_lvlFs,
+            price=price,
+            rating=rating,
+            total_ratings=total_ratings,
+            total_tips=total_tips,
+            **props
         )  
     
     def getLocation(self):
