@@ -1,6 +1,5 @@
 import time
-from RouteGenerator import RouteGenerator
-
+from gestion_datos.Neo4jConnection import Neo4jConnection
 #MAIN
 def main():
     print("=== INICIANDO SERVICIO BACKEND ===\n")
@@ -9,7 +8,7 @@ def main():
     generador = None
     try:
         print("[Main] Conectando a Neo4j...")
-        generador = RouteGenerator()
+        generador = Neo4jConnection()
         print("[Main] Conexión establecida.")
         
         while True:

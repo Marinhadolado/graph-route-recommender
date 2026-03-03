@@ -12,3 +12,7 @@
 /docker-neo4j/backend/__pycache__/
 
 /docker-neo4j/backend/src/__pycache__/
+
+/tfg_graphtool.zip
+
+/tfg_neo4j.zip

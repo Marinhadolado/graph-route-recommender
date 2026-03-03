@@ -3,6 +3,7 @@
 import sys
 import os
 import csv
+from datetime import datetime
 from neo4j import GraphDatabase
 from RouteGenerator import RouteGenerator
 from RecommendationService import RecommendationService
@@ -21,10 +22,7 @@ class Predictor:
         try:
             
             self.route_generator = RouteGenerator()
-            self.recommender = RecommendationService(self.route_generator)
-
-            self.driver = self.route_generator.driver
-            
+            self.recommender = RecommendationService(self.route_generator)            
            
             print("[PREDICTOR] Conexión exitosa a la base de datos Neo4j")
 
@@ -39,6 +37,32 @@ class Predictor:
         if self.route_generator:
             self.route_generator.close()
 
+    def _load_routes_from_csv(self, filepath):
+        """
+        Lee el csv linea por linea y agrupa las filas por trail_id.
+        Devuelve un diccionario: { trail_id: [fila1, fila2, ...] }
+        """
+        if not os.path.exists(filepath):
+            print(f"[PREDICTOR] El archivo {filepath} no existe.")
+            return None
+        
+        routes = {}
+
+        with open(filepath, mode='r', newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+
+            for row in reader:
+                
+                trail_id = row['trail_id']
+
+                # si es la primera vez que vemos este trail_id, inicializamos la lista
+                if trail_id not in routes:
+                    routes[trail_id] = []
+                    
+                routes[trail_id].append(row)
+
+        return routes
+            
     def generate_predictions(self, user_id, context, steps, algorithm):
         print("[PREDICTOR] Generando predicciones con algoritmo:", algorithm)
 
@@ -58,8 +82,20 @@ class Predictor:
         print(f"[PREDICTOR] RUTAS: {list(routes.keys())}...")
 
         # Paso2: vamos ruta por ruta y aplicamos la función de predicción
-        output_file = os.path.join(self.output_dir, f'prediction_{algorithm}.csv')
         
+        #antes de ir ruta por ruta creamos el nombre del csv
+        city_name = self.route_generator.get_city()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        filename = f"{city_name}_{algorithm}_{timestamp}.csv"
+        output_file = os.path.join(self.output_dir, filename)
+        print(f"[PREDICTOR] El resultado se guardará en: {filename}")
+        
+        # Definimos el nuevo nombre dinámico
+        filename = f"{city_name}_{algorithm}_{timestamp}.csv"
+        output_file = os.path.join(self.output_dir, filename)
+        print(f"[PREDICTOR] El resultado se guardará en: {filename}")
+
         with open(output_file, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
 
@@ -83,7 +119,7 @@ class Predictor:
                     route_user= trail_steps[0]['user_id']
 
                     #Paso2.1: obtenemos las coordenadas del poi actual
-                    coordenadas= self._get_poi_coordinates(poi_id)
+                    coordenadas= self.route_generator._get_poi_coordinates(poi_id)
                     if not coordenadas:
                         print(f"[PREDICTOR] No se pudieron obtener coordenadas para el POI {poi_id}. Saltando paso.")
                         continue
@@ -126,61 +162,7 @@ class Predictor:
                         ])
 
         print(f"[PREDICTOR] Predicciones guardadas en {output_file}.")                  
-
-    def _load_routes_from_csv(self, filepath):
-        """
-        Lee el csv linea por linea y agrupa las filas por trail_id.
-        Devuelve un diccionario: { trail_id: [fila1, fila2, ...] }
-        """
-        if not os.path.exists(filepath):
-            print(f"[PREDICTOR] El archivo {filepath} no existe.")
-            return None
-        
-        routes = {}
-
-        with open(filepath, mode='r', newline='', encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile)
-
-            for row in reader:
-                
-                trail_id = row['trail_id']
-
-                # si es la primera vez que vemos este trail_id, inicializamos la lista
-                if trail_id not in routes:
-                    routes[trail_id] = []
-                    
-                routes[trail_id].append(row)
-
-        return routes
-
-    def _get_poi_coordinates(self, poi_id):
-        """
-        Consulta Neo4j para obtener las coordenadas (lat, lon) del POI dado su fsq_id.
-        Devuelve una tupla (lat, lon) o None si no se encuentra.
-        """
-        query = """
-        MATCH (p:POI {fsq_id: $poi_id})
-        RETURN p.latitude AS lat, p.longitude AS lon
-        """
-        with self.driver.session() as session:
-            result = session.run(query, poi_id=poi_id).single()
-            if result:
-                return (result['lat'], result['lon'])
-            else:
-                print(f"[PREDICTOR] No se encontraron coordenadas para el POI {poi_id}.")
-                return None
-
-    def delete_existing_files(self, algorithm):
-        """
-        Elimina el archivo de predicciones existente para el algoritmo dado.
-        """
-        output_file = os.path.join(self.output_dir, f'prediction_{algorithm}.csv')
-        if os.path.exists(output_file):
-            os.remove(output_file)
-            print(f"[PREDICTOR] Archivo de predicciones {output_file} eliminado.")
-        else:
-            print(f"[PREDICTOR] No existe archivo de predicciones {output_file} para eliminar.")
-
+            
 if __name__ == "__main__":
 
     predictor= Predictor()
@@ -194,8 +176,6 @@ if __name__ == "__main__":
         context_arg = sys.argv[2] 
         steps = int(sys.argv[3])
         algorithm = sys.argv[4]
-
-        predictor.delete_existing_files(algorithm=algorithm)
 
         if context_arg=="None":
             context=None

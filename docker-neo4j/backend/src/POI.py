@@ -1,6 +1,6 @@
 class POI:
 
-    def __init__(self,fsq_id, latitude, longitude, category=None, 
+    def __init__(self,fsq_id, city, latitude, longitude, category=None, 
                  category_lvlFs=None, price=None, rating=None, 
                  total_ratings=None, total_tips=None, **kwargs):
         self.id= str(fsq_id)
@@ -9,6 +9,11 @@ class POI:
             self.latitude = float(latitude)
         else:
             self.latitude = 0.0
+        
+        if city is not None:
+            self.city = str(city)
+        else:
+            self.city = "Unknown"
 
         if longitude is not None and str(longitude) != "":
             self.longitude = float(longitude)
@@ -113,6 +118,12 @@ class POI:
     def getRating(self):
         return self.rating
     
+    def getTotalRatings(self):
+        return self.total_ratings
+    
+    def getTotalTips(self):
+        return self.total_tips
+    
     @staticmethod
     def nodeToPOI(node):
         """
@@ -121,6 +132,7 @@ class POI:
         props = dict(node)
 
         fsq_id = props.pop('fsq_id', None)
+        city = props.pop('city', None)
         latitude = props.pop('latitude', None)
         longitude = props.pop('longitude', None)
         category = props.pop('category', None)
@@ -132,8 +144,9 @@ class POI:
 
         return POI(
             fsq_id=fsq_id,
+            city=city,
             latitude=latitude,
-            longitude=longitude,
+            longitude=longitude,    
             category=category,
             category_lvlFs=category_lvlFs,
             price=price,

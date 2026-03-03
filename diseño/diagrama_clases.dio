@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="p2P8KTvNZPxiA_buQbga" name="Página-1">
-        <mxGraphModel dx="812" dy="2104" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="611" dy="1964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -18,20 +18,20 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="34" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.981;entryY=0.46;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="32" target="2" edge="1">
-                    <mxGeometry x="-0.5885" y="-1" relative="1" as="geometry">
+                <mxCell id="34" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.981;entryY=0.46;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="32" target="2" edge="1">
+                    <mxGeometry x="-0.2035" y="-81" relative="1" as="geometry">
                         <mxPoint x="802.8870967741937" y="491" as="sourcePoint"/>
                         <mxPoint x="650" y="430" as="targetPoint"/>
-                        <mxPoint as="offset"/>
+                        <mxPoint x="2" y="3" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="57" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="56" target="31" edge="1">
+                <mxCell id="57" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="56" target="31" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1690" y="320" as="sourcePoint"/>
                         <mxPoint x="1490" y="130" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="59" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="58" target="42" edge="1">
+                <mxCell id="59" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="58" target="42" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1766" y="145" as="sourcePoint"/>
                         <mxPoint x="1312" y="145" as="targetPoint"/>
@@ -51,8 +51,8 @@
                 <mxCell id="5" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Step&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ venue_id: String&lt;br&gt;+ timestamp: DateTime&lt;br&gt;+ context: Context&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ __init__(p: POI, t: time, c: Context )&lt;br&gt;+__str__()&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" parent="1" vertex="1">
                     <mxGeometry x="290" y="292" width="210" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" target="6" edge="1">
-                    <mxGeometry x="-0.6" y="15" relative="1" as="geometry">
+                <mxCell id="14" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" target="6" edge="1">
+                    <mxGeometry x="0.28" y="15" relative="1" as="geometry">
                         <mxPoint x="610" y="372" as="sourcePoint"/>
                         <mxPoint x="770" y="372" as="targetPoint"/>
                         <mxPoint as="offset"/>
@@ -64,8 +64,8 @@
                 <mxCell id="2" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;POI&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ fsq_id: String&lt;br&gt;+ latitude: Float&lt;br&gt;+ longitude: Float&amp;nbsp;&lt;br&gt;+ category: String&lt;br&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ category_lvlFs: String&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;+ price: Integer&lt;br&gt;+ ratings: Float&lt;br&gt;+ total_ratings: Integer&lt;br&gt;+ total_tips: Integer&lt;br&gt;+ schedule: Map&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ __init__()&lt;br&gt;+ __str__()&lt;br&gt;+ nodeToPOI((node): POI&lt;br&gt;+ getLocation() -&amp;gt; (lat, lon)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" parent="1" vertex="1">
                     <mxGeometry x="560" y="304" width="216" height="255" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.014;entryY=0.117;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5" target="2" edge="1">
-                    <mxGeometry x="-0.5124" y="20" relative="1" as="geometry">
+                <mxCell id="13" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.014;entryY=0.117;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5" target="2" edge="1">
+                    <mxGeometry x="-0.0365" y="54" relative="1" as="geometry">
                         <mxPoint x="560" y="312" as="sourcePoint"/>
                         <mxPoint x="626.85" y="391.94000000000005" as="targetPoint"/>
                         <Array as="points"/>
@@ -83,7 +83,7 @@
                 <mxCell id="32" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center;&quot;&gt;TreeRoute&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ tree: Tree&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;+ root: String(fsq_id)&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ getRoot() -&amp;gt; root&lt;br&gt;+ getTree() -&amp;gt; Tree&lt;br&gt;+ agregarPoi(poi_padre_id: String, nuevo_poi: POI, datos_relacion: String) -&amp;gt; Boolean&lt;br&gt;+ getAllPaths() -&amp;gt; List&amp;lt;Trail&amp;gt;&lt;br&gt;+ getNumChildren( p: POI) -&amp;gt; Integer&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;align=left;" parent="1" vertex="1">
                     <mxGeometry x="901.89" y="331" width="257.11" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="" style="endArrow=classic;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;dashed=1;" parent="1" source="31" target="32" edge="1">
+                <mxCell id="40" value="" style="endArrow=classic;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="31" target="32" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="569.9193548387098" y="420" as="sourcePoint"/>
                         <mxPoint x="625.8064516129032" y="370" as="targetPoint"/>
@@ -93,8 +93,8 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="41" value="&amp;lt;&amp;lt;create&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="40" vertex="1" connectable="0">
-                    <mxGeometry x="-0.155" y="-2" relative="1" as="geometry">
+                <mxCell id="66" value="crea" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="40">
+                    <mxGeometry x="0.0518" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
@@ -163,7 +163,7 @@
                 <mxCell id="56" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DatasetGenerator&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ output_dir: Directory&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+ __init__()&lt;br&gt;+ __str__()&lt;br&gt;+ closeConnection()&lt;br&gt;+ deleteExistingFiles()&lt;br&gt;+ generateDataset()&lt;br&gt;- fetch_valid_trails()&lt;br&gt;- write_to_csv()&lt;br&gt;- split_dataset()&lt;br&gt;- write_split_file()&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" parent="1" vertex="1">
                     <mxGeometry x="1560.28" y="55" width="139.44" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="32" target="4">
+                <mxCell id="64" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="32" target="4" edge="1">
                     <mxGeometry x="-0.6" y="15" relative="1" as="geometry">
                         <mxPoint x="569.79" y="202" as="sourcePoint"/>
                         <mxPoint x="410" y="302" as="targetPoint"/>

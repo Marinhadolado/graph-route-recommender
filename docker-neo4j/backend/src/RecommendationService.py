@@ -1,5 +1,7 @@
 from RouteGenerator import RouteGenerator
-from RatingAlgorithm import RatingAlgorithm
+from RandomAlgorithm import RandomAlgorithm
+from PopularityAlgorithm import PopularityAlgorithm
+from RecommendationAlgorithm import RecommendationAlgorithm 
 
 class RecommendationService:
 
@@ -9,12 +11,11 @@ class RecommendationService:
 
         self.generator= generator
 
-        self.algorithms= {  
-            "ratings": RatingAlgorithm()
+        self.algorithms= {
+            'random': RandomAlgorithm(),
+            'popularity': PopularityAlgorithm()            
         }
 
-        self.algorithms
-    
     def getCandidates(self, user_id, lat, lon, context, steps, algorithm_name):
         """
         Crea una lista de diccionarios con los candidatos pois inmediatos para que el predictor los evalue
@@ -32,6 +33,10 @@ class RecommendationService:
         algorithm = self.algorithms.get(algorithm_name.lower())
         if not algorithm:
             print(f"[SERVICE] Error: Estrategia '{algorithm_name}' no encontrada.")
+            return []
+        
+        if not isinstance(algorithm, RecommendationAlgorithm):
+            print(f"[SERVICE] Error: El algoritmo '{algorithm_name}' no es una instancia válida.")
             return []
             
         #primero generamos el arbol de posibles rutas partiendo del punto solicitado
