@@ -1,0 +1,46 @@
+from servicios.RecommendationAlgorithm import RecommendationAlgorithm
+from grafo.GTGraph import GTGraph
+from modelos.POI import POI
+
+class PopularityAlgorithm(RecommendationAlgorithm):
+    
+    def rankCandidates(self, current_poi_id, graph: GTGraph, pois_evitar, context=None):
+        """
+        Para escoger al siguiente POI, se tiene en cuenta el campo rating,
+        total_ratings y total_tips. Ya que solamente con rating no 
+        estaríamos teniendo un razonamiento completo.
+        
+        :param self: Descripción
+        :param current_poi_id: ID del POI actual
+        :param graph: Grafo completo
+        :param context: info de los filtros
+        """
+        neighbors = graph.getNeighbors(current_poi_id)
+        candidates = []
+        
+        for n_id in neighbors:
+            #obtenemos el nodo contiguo al dado
+            v = graph.id_map[n_id]
+
+            # obtenemos los datos de la relacion nodo contiguo- nodo dado
+            rating = graph.vp_rating[v]
+            total_ratings = graph.vp_total_ratings[v]
+            total_tips = graph.vp_total_tips[v]
+
+            # ponermos el rating en rango [0,1]
+            if rating:
+                rating_rango = rating / 5.0
+            else:
+                rating_rango = 0.0 
+            
+            # calculamos el prediction (50% rating, 40% total_ratings, 10% tips)
+            score = (rating_rango * 0.5) + (total_ratings * 0.4) + (total_tips * 0.1)
+            final_score = score * 100
+
+            candidates.append({
+                'poi_id': n_id,
+                'prediction': final_score
+            })
+            
+        candidates.sort(key=lambda x: x['prediction'], reverse=True)
+        return candidates

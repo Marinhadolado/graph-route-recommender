@@ -1,18 +1,20 @@
-/docker-neo4j/db/
+/proyecto/db/
 
 # Archivos de log
 *.log
 
-/docker-neo4j/backend/venv/
+/proyeceto/backend/venv/
 
-/docker-neo4j/import/Tokyo/
+/proyecto/import/Tokyo/
 
 /extra/cities/
 
-/docker-neo4j/backend/__pycache__/
+/proyecto/backend/__pycache__/
 
-/docker-neo4j/backend/src/__pycache__/
+/proyecto/backend/src/__pycache__/
 
 /tfg_graphtool.zip
 
 /tfg_neo4j.zip
+
+/proyecto/backend/predictions/
