@@ -1,7 +1,7 @@
 import os
 import sys
 import pandas as pd
-from Neo4jConnection import Neo4jConnection
+from .Neo4jConnection import Neo4jConnection
 
 
 class LoadDB:
@@ -285,6 +285,8 @@ if __name__ == "__main__":
     connection = Neo4jConnection()
     ld= LoadDB(connection)
     cities= ld.listCities()
+
+    print("=== CARGA DE DATOS EN NEO4J ===")
 
     if not cities:
         print(f"No se encontraron archivos para la carga de datos en {ld.import_path}")

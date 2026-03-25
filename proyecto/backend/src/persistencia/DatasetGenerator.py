@@ -30,7 +30,7 @@ class DatasetGenerator:
     def cerrar_conexion(self):  
         self.driver.close()
 
-    def generateDataset(self, num_trails, min_steps):
+    def generateDataset(self, num_trails, min_steps, city_name):
         print("[DATASET GENERATOR] Generando dataset...")
 
         print("[DATASET GENERATOR] PASO1: Consultando Neo4j para obtener las rutas válidas.")
@@ -40,7 +40,7 @@ class DatasetGenerator:
 
         # consultamos las rutas que hayan sido realizadas por usuarios con al menos 2 rutas
         # y que cada ruta tenga al menos 4 POIs(3 saltos)
-        data = self._fetch_valid_trails(num_trails=num_trails, min_steps=min_steps)
+        data = self._fetch_valid_trails(num_trails=num_trails, min_steps=min_steps, city_name=city_name)
 
         if not data:
             print("[DATASET GENERATOR] No se encontraron rutas válidas en la base de datos.")
@@ -55,14 +55,15 @@ class DatasetGenerator:
         self._split_dataset(output_file)
 
     #FUNCIONES AUXILIARES PARA GENERAR EL DATASET
-    def _fetch_valid_trails(self, num_trails, min_steps):
+    def _fetch_valid_trails(self, num_trails, min_steps, city_name):
         # QUERY EXPLICADA:
         # Filtramos usuarios que tengan al menos {num_trails} rutas distintas (trail_id).
         # Filtramos rutas que tengan al menos {min_steps} POIs
         # Ordenamos cronológicamente.
         print(f"[DATASET GENERATOR] ANTES DE LA QUERY")
         query = """
-        MATCH ()-[r:VISITED]->()
+        MATCH (p1:POI)-[r:VISITED]->()
+        WHERE p1.city = $city_name
         WITH r.user_id AS user_id, r.trail_id AS trail_id, collect(r) AS rels
         WHERE size(rels) >= $min_steps
         
@@ -105,7 +106,7 @@ class DatasetGenerator:
         
         data = []
         with self.driver.session() as session:
-            result = session.run(query, num_trails=num_trails, min_steps=min_steps)
+            result = session.run(query, num_trails=num_trails, min_steps=min_steps, city_name=city_name)
             #convertimos el resultado a lista para poder mirar alante y atras
             result_list = list(result)
 
@@ -128,7 +129,8 @@ class DatasetGenerator:
                     'precip': row['poi1_precip'],
                     'windspeed': row['poi1_windspeed'],
                     'preciptype': row['poi1_preciptype'],
-                    'conditions': row['poi1_conditions']
+                    'conditions': row['poi1_conditions'],
+                    'city': city_name
                 }
 
                 data.append(current_row)
@@ -162,7 +164,8 @@ class DatasetGenerator:
                         'precip': row['poi2_precip'],
                         'windspeed': row['poi2_windspeed'],
                         'preciptype': row['poi2_preciptype'],
-                        'conditions': row['poi2_conditions']
+                        'conditions': row['poi2_conditions'],
+                        'city': city_name
                     }
 
                     data.append(last_row)
@@ -175,7 +178,7 @@ class DatasetGenerator:
         fieldnames = [
             'trail_id', 'user_id', 'num_poi', 'poi_id',
              'timestamp','rating',
-            'temp', 'precip', 'windspeed', 'preciptype', 'conditions'
+            'temp', 'precip', 'windspeed', 'preciptype', 'conditions', 'city'
         ]
         
         with open(output_file, mode='w', newline='', encoding='utf-8') as csvfile:
@@ -256,14 +259,15 @@ if __name__ == "__main__":
     generate_dataset.delete_existing_files()
 
     try:
-        if len(sys.argv) > 2:
+        if len(sys.argv) > 3:
             min_steps = int(sys.argv[1])
             num_trails = int(sys.argv[2])
-            generate_dataset.generateDataset(num_trails=num_trails, min_steps=min_steps)
+            city_name = sys.argv[3]
+            generate_dataset.generateDataset(num_trails=num_trails, min_steps=min_steps, city_name=city_name)
         else:
             print("[DATASET GENERATOR] Proporciona el número mínimo de pasos y el número mínimo de rutas por usuario como argumentos.")
-            print("     -> Uso: python src/DatasetGenerator.py <min_steps> <num_trails>")
-            print("     -> Ejemplo: python src/DatasetGenerator.py 3 2")
+            print("     -> Uso: python src/DatasetGenerator.py <min_steps> <num_trails> <city_name>")
+            print("     -> Ejemplo: python src/DatasetGenerator.py 3 2 NYC")
     
     except Exception as e:
         print(f"[DATASET GENERATOR] Error durante la generación del dataset: {e}")

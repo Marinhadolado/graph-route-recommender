@@ -1,22 +1,19 @@
-from grafo.GraphGenerator import GraphGenerator
+from grafo.GraphRepository import GraphRepository
 from servicios.agoritmos.RandomAlgorithm import RandomAlgorithm
 from servicios.agoritmos.PopularityAlgorithm import PopularityAlgorithm
+from servicios.agoritmos.MarkovAlgorithm import MarkovAlgorithm
 from servicios.RecommendationAlgorithm import RecommendationAlgorithm 
 
 class RecommendationService:
 
-    def __init__(self, generator):
-        if not isinstance(generator, GraphGenerator):
-            raise TypeError("[RECOMMENDATION SERVICE] Generator debe de ser de tipo GraphGenerator")
-
-        self.generator= generator
-
+    def __init__(self):
         self.algorithms= {
             'random': RandomAlgorithm(),
-            'popularity': PopularityAlgorithm()            
+            'popularity': PopularityAlgorithm(),
+            'markov': MarkovAlgorithm()
         }
 
-    def getCandidates(self, current_poi_id, context, steps, algorithm_name, pois_evitar):
+    def getCandidates(self, current_poi_id, context, steps, algorithm_name, pois_evitar, graph):
         """
         Crea una lista de diccionarios con los candidatos pois inmediatos para que el predictor los evalue
         
@@ -38,8 +35,6 @@ class RecommendationService:
             print(f"[SERVICE] Error: El algoritmo '{algorithm_name}' no es una instancia válida.")
             return []
         
-        graph = self.generator.getGraph()
-
         candidates = algorithm.rankCandidates(current_poi_id, graph, pois_evitar, context)
             
         return candidates

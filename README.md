@@ -7,7 +7,15 @@ Paso2: activar conda
 Paso 3: Acceder a la raiz del proyecto y poblar la base de datos ejecutando lo siguiente:
     python3 backend/src/LoadData.py
 
-Paso 4: Para generar los directorios del Dataset y de Predictions(con datos de ejemplo):
-    docker exec -it docker-neo4j-backend python src/DatasetGenerator.py 3 2
-    docker exec -it docker-neo4j-backend python src/Predictor.py 11111 None 3 score
+Paso 4:Construir el grafo en memoria(.gt), si aún no estan cargados:
+    (desde src proyecto/backend/src$) python3 -m grafo.BuildGraph
+
+Paso 5: Crear el Dataset con los filtros de minimo de saltos y minimo de rutas hechas por usuarios(ponemos muchos porque en tokyo hay muchos datos)
+
+    python3 -m persistencia.DatasetGenerator 10 5 Tokyo
+
+Paso 4: Creamos el archivo de predicciones para el algoritmo que se quiera con :
+
+
+    
 

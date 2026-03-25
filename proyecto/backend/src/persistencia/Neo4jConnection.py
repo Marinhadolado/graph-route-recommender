@@ -17,7 +17,7 @@ class Neo4jConnection:
             print(f"[NEO4J CONNECTION]Error al conectar a la base de datos Neo4j: {e}")
             raise
 
-    def run_read(self, query, parameters=None):
+    def run_read(self, query, parameters):
         """Ejecuta una consulta de lectura y retorna los resultados."""
         with self.driver.session() as session:
 
