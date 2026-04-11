@@ -38,21 +38,10 @@ class MarkovAlgorithm(RecommendationAlgorithm):
             # primero obtenemos el markov_chain
             prob_markov= num_visitas / total_relaciones
 
-            # ahora obtenemos el matrix_factorization, que se basa en datos del siguiente poi
-            v_dest = graph.id_map[poi_dest_id]
-            rating = graph.vp_rating[v_dest]
-            total_ratings = graph.vp_total_ratings[v_dest]
-            total_tips = graph.vp_total_tips[v_dest]
-
-            if rating:
-                rating_rango = rating / 5.0
-            else:
-                rating_rango = 0.0
-
-            matrix_factorization = (rating_rango * 0.5) + (total_ratings * 0.4) + (total_tips * 0.1)
+            # AÑADIR CONTRASTE CON GRAFO ORIGINAL
 
             # factorized personalized Markov chain
-            fpmk = prob_markov * matrix_factorization
+            fpmk = prob_markov
 
             candidates.append({
                 'poi_id': poi_dest_id,
