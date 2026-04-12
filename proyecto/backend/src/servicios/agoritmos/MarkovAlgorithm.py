@@ -2,6 +2,7 @@ from servicios.RecommendationAlgorithm import RecommendationAlgorithm
 from grafo.GTGraph import GTGraph
 #importamos la librería Counter para contar las repeticiones de cada vecino de forma rápida
 from collections import Counter
+import random
 
 class MarkovAlgorithm(RecommendationAlgorithm):
 
@@ -29,25 +30,47 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         #guardamos todas las relaciones del current poi con sus duplicaciones tb
         # se hace para calcular la probabilidad que hubo para ir del current poi a cada next poi
         total_relaciones = len(neighbors)
-
-        # del paper: unified model = matrix_factorization + markov_chain(first order)
         
+        porcentaje_vecinos = {}
+        for poi_dest_id, num_visitas in neighbors_freq.items():
+            porcentaje_vecinos[poi_dest_id] = num_visitas / total_relaciones
+
         candidates = []
 
-        for poi_dest_id, num_visitas in neighbors_freq.items():
-            # primero obtenemos el markov_chain
-            prob_markov= num_visitas / total_relaciones
 
-            # AÑADIR CONTRASTE CON GRAFO ORIGINAL
+        while len(candidates) < k and len(porcentaje_vecinos) > 0:
+            #nmero random para escoger un poi
+            random_num = random.random()
 
-            # factorized personalized Markov chain
-            fpmk = prob_markov
+            poi_elegido = None
+            acumulado = 0.0
 
+            #vamos sumando las probabilidades acumuladas hasta que el número random 
+            # sea menor o igual a la acumulada, entonces ese será el poi elegido
+            for poi_id, porcentaje in porcentaje_vecinos.items():
+                acumulado += porcentaje
+                if random_num <= acumulado:
+                    poi_elegido = poi_id
+                    break
+
+            if poi_elegido is None:
+                poi_elegido = random.choice(list(porcentaje_vecinos.keys()))
+
+            prediction_orden = k - len(candidates)
             candidates.append({
-                'poi_id': poi_dest_id,
-                'prediction': fpmk
+                'poi_id': poi_elegido, 
+                'prediction': prediction_orden
             })
 
-        
-        candidates.sort(key=lambda x: x['prediction'], reverse=True)
-        return candidates[:k]
+            #eliminamos el candidato de la lista
+            del porcentaje_vecinos[poi_elegido]
+
+            #tenemos que reajustar las probabilidades ahora que hemos perdido un poi
+            if len(porcentaje_vecinos) > 0:
+                total_porcentaje_restante = sum(porcentaje_vecinos.values())
+
+                for poi_id in porcentaje_vecinos:
+                    porcentaje_vecinos[poi_id] = porcentaje_vecinos[poi_id] / total_porcentaje_restante
+
+    
+        return candidates

@@ -89,12 +89,26 @@ class Evaluator:
     def evaluate(self):
 
         qrels_dict= self._load_Qrel()
+        print(f"[Evaluator] Qrels cargados: {len(qrels_dict)} consultas")
+        print("[Evaluator] 5 primeros elementos del qrels dict:")
+        for i, (query_id, prediction) in enumerate(qrels_dict.items()):
+            print(f"Query ID: {query_id} | Prediction: {prediction}")
+            if i >= 5: 
+                break
+
         run_dict = self._load_run()
+        print(f"\n[Evaluator] Run cargado: {len(run_dict)} consultas")
+        print("[Evaluator] 5 primeros elementos del run dict:")
+        for i, (query_id, prediction) in enumerate(run_dict.items()):
+            print(f"Query ID: {query_id} | Prediction: {prediction}")
+            if i >= 5: 
+                break
 
         qrels = Qrels(qrels_dict)
         run = Run(run_dict, name=f"{self.city_name}_{self.algorithm_name}")
         
-        metricas = ["hit_rate@1", "hit_rate@5", "hit_rate@10", "mrr"]
+        #hit rate es la métrica para saber si el poi del qrels aparece entre las k primeras poisibilidades del run
+        metricas = ["hit_rate@1", "hit_rate@5", "hit_rate@10"]
 
         evaluacion = evaluate(qrels, run, metricas, make_comparable=True)
 
@@ -124,7 +138,7 @@ if __name__ == "__main__":
     recommender = RecommendationService()
     algoritmos = list(recommender.algorithms.keys())
 
-    print("\n=== EVALUACIÓN DE SISTEMAS DE RECOMENDACIÓN ===")
+    print("\n=== EVALUACIÓN ===")
 
     # selector de ciudades
     print("\n[ Seleccione la Ciudad ]")
@@ -150,7 +164,7 @@ if __name__ == "__main__":
         print("Opción inválida. Saliendo...")
         exit()
 
-    # --- EJECUTAR EVALUADOR ---
+    #ahora sí vamos a ejecutar la evaluación
     print("\n" + "="*50)
     try:
         evaluador = Evaluator(ciudad_elegida, algo_elegido)
