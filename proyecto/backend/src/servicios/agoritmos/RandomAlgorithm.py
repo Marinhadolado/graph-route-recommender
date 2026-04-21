@@ -4,17 +4,19 @@ import random
 
 class RandomAlgorithm(RecommendationAlgorithm):
     
-    def rankCandidates(self, current_poi_id, graph: GTGraph, pois_evitar, context, k=50):
+    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_evitar, context, k=50):
         """
         Para escoger el siguiente POI, se asigna un predictions aleatorio 
         y único a cada hijo del nodo del 0-num_opciones
         
         :param self: Descripción
         :param current_poi_id: ID del POI actual
+        :param user_id: ID del usuario
         :param graph: Grafo completo
         :param context: info de los filtros
         :param pois_evitar: conjunto de POIs a evitar
         """
+        #dentro de esta funcion filtramos y obtenemos el subgrafo
         neighbors = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context)
 
         candidates = []

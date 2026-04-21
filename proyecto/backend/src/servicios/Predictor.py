@@ -105,7 +105,7 @@ class Predictor:
 
         print(f"[PREDICTOR] El resultado se guardará en: {filename}")
         
-        # Definimos el nuevo nombre dinámico
+        # Definimos el nuevo nombre
         filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
         output_file = os.path.join(self.output_dir, filename)
         print(f"[PREDICTOR] El resultado se guardará en: {filename}")
@@ -139,6 +139,7 @@ class Predictor:
                     # Obtenemos candidatos
                     candidates = self.recommender.getCandidates(
                         current_poi_id=poi_id,
+                        user_id=user_id,
                         context=context,
                         steps=steps,
                         algorithm_name=algorithm,

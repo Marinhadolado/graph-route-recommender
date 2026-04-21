@@ -1,0 +1,29 @@
+experiment:
+  dataset: tfg
+  data_config:
+    strategy: fixed
+    train_path: ../../dataset/dataset_elliot.tsv
+    test_path: ../../dataset/dataset_elliot.tsv
+
+  top_k: 10
+
+  #guardamos los resultados en el entrenamiento
+  path_output_rec_result: entrenamiento/results/
+  path_output_rec_weight: entrenamiento/results/
+
+  #splitting:
+  #  test_splitting:
+  #    strategy: random_subsampling
+  #    test_ratio: 0.2
+
+  evaluation:
+    cutoffs: [ 10 ]
+    simple_metrics: [ HR ]
+
+  models:
+    NonNegMF:
+      meta:
+        save_weights: True
+      epochs: 50
+      factors: [ 10, 50, 100 ]
+      lr: [ 0.001, 0.005 ]

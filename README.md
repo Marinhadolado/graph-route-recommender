@@ -5,7 +5,7 @@ Paso2: activar conda
     conda activate tfg_graph
 
 Paso 3: Acceder a la raiz del proyecto y poblar la base de datos ejecutando lo siguiente:
-    python3 backend/src/LoadData.py
+    python3 -m persistencia.LoadDB
 
 Paso 4:Construir el grafo en memoria(.gt), si aún no estan cargados:
 
@@ -18,6 +18,9 @@ Paso 5: Crear el Dataset con los filtros de minimo de saltos y minimo de rutas h
 Paso 4: Creamos el archivo de predicciones para el algoritmo que se quiera con:
 
     python3 -m servicios.Predictor 102030 '{"conditions": "Clear"}' 5 markov Tokyo
+
+Paso 5: Evaluamos los ficheros recomendadores comparándolos con los datos reales del test.csv:
+
 
     
 

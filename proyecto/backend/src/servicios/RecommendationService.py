@@ -10,15 +10,16 @@ class RecommendationService:
         self.algorithms= {
             'random': RandomAlgorithm(),
             'popularity': PopularityAlgorithm(),
-            'markov': MarkovAlgorithm()
+            'markov': MarkovAlgorithm(alpha=0.5)
         }
 
-    def getCandidates(self, current_poi_id, context, steps, algorithm_name, pois_evitar, graph):
+    def getCandidates(self, current_poi_id, user_id, context, steps, algorithm_name, pois_evitar, graph):
         """
         Crea una lista de diccionarios con los candidatos pois inmediatos para que el predictor los evalue
         
         :param self: Descripción
         :param current_poi_id: ID del POI actual
+        :param user_id: ID del usuario
         :param context: Descripción
         :param steps: Descripción
         :param algorithm_name: Descripción
@@ -35,6 +36,6 @@ class RecommendationService:
             print(f"[SERVICE] Error: El algoritmo '{algorithm_name}' no es una instancia válida.")
             return []
         
-        candidates = algorithm.rankCandidates(current_poi_id, graph, pois_evitar, context)
+        candidates = algorithm.rankCandidates(current_poi_id, user_id, graph, pois_evitar, context)
             
         return candidates
