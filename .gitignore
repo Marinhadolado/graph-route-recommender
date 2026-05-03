@@ -21,3 +21,6 @@
 
 *.zip
 
+dataset/
+*.csv
+
