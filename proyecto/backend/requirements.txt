@@ -4,4 +4,3 @@ neo4j
 pandas
 numpy
 ranx
-elliot

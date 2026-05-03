@@ -3,32 +3,8 @@ from grafo.GTGraph import GTGraph
 #importamos la librería Counter para contar las repeticiones de cada vecino de forma rápida
 from collections import Counter
 import random
-import os
-import pickle
-import numpy as np
 
 class MarkovAlgorithm(RecommendationAlgorithm):
-
-    def __init__(self, alpha=0.5):
-        super().__init__()
-        self.alpha = alpha
-        self.matrices_cargadas = False
-        
-        # Cargamos el archivo unificado que creamos con el FLExtractor
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.pkl_path = os.path.join(base_dir, "..", "..", "entrenamiento", "factores_latentes.pkl")
-        
-        try:
-            with open(self.pkl_path, 'rb') as f:
-                datos = pickle.load(f)
-                self.u_mat = datos["usuarios_matriz"]
-                self.i_mat = datos["pois_matriz"]
-                self.u_map = datos["user_to_idx"]
-                self.i_map = datos["poi_to_idx"]
-                self.matrices_cargadas = True
-                print("[FPMC] Matrices y diccionarios cargados para personalización.")
-        except Exception as e:
-            print(f"[FPMC] Aviso: No se pudieron cargar los factores latentes: {e}")
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_evitar, context, k=50):
         """
@@ -38,62 +14,76 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         
         :param self: Descripción
         :param current_poi_id: ID del POI actual
-        :param user_id: ID del usuario
         :param graph: Grafo completo
         :param context: info de los filtros
         """
-        #con graphtool tenemos la parte de que si el siguiente poi se visitó más de ua vez, aparece duplicado en los neighbours, por lo que el algoritmo de Markov se implementa contando las repeticiones de cada vecino y no solamente con la puntuación del vecino
-        neighbors = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context)
-        if not neighbors:
+        #-------------- MARKOV CON SUAVIZADO --------------------
+        # P final= alpha * P(a|b)(con contexto) + ((1-alpha)*P(a)(sin contexto))
+        # ---------------------------------------------------------------------
+        # 1. P(a): PROBABILIDAD A SIN Contexto
+        # Obtenemos TODOS los vecinos posibles filtrando solo por pois_evitar poniendo context none para evitar filtrar por contexto tb
+        # ---------------------------------------------------------------------
+        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context=None)
+        if not neighbors_no_context:
             return []
         
-        print(f"[MarkovAlgorithm] Vecinos encontrados para el POI {current_poi_id}: {len(neighbors)}")
-        
+        print(f"[MarkovAlgorithm] Vecinos totales (ignorando contexto) para {current_poi_id}: {len(neighbors_no_context)}")   
+
+        # ---------------------------------------------------------------------
+        # 2. P(a|b): PROBABILIDAD CON Contexto
+        # ---------------------------------------------------------------------
+        if context:
+            neighbors_with_context = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context=context)
+            print(f"[MarkovAlgorithm] Vecinos que SÍ cumplen el contexto: {len(neighbors_with_context)}")
+        else:
+            neighbors_with_context = neighbors_no_context
+
+        # ---------------------------------------------------------------------
+        # 3. FRECUENCIAS Y PARÁMETRO ALFA
+        # Contamos las repeticiones de cada vecino para calcular las probabilidades
+        # ---------------------------------------------------------------------
         #contamos las repeticiones de cada vecino y las transformamos en un diccionario con las frecuencias
-        neighbors_freq=Counter(neighbors)
+        neighbors_freq_no_context=Counter(neighbors_no_context)
+        neighbors_freq_with_context=Counter(neighbors_with_context)
 
         #guardamos todas las relaciones del current poi con sus duplicaciones tb
         # se hace para calcular la probabilidad que hubo para ir del current poi a cada next poi
-        total_relaciones = len(neighbors)
-
-        if self.matrices_cargadas and user_id not in self.u_map:
-            print(f"\n[FPMC AVISO] El usuario {user_id} NO ESTÁ en la IA. (Se usará solo Markov)")
-
-        mf_scores = {}
-        for poi_id in neighbors_freq.keys():
-            score = 0.0
-            if self.matrices_cargadas and user_id in self.u_map and poi_id in self.i_map:
-                fila_u = self.u_map[user_id]
-                fila_i = self.i_map[poi_id]
-                
-                # PARCHE DE SEGURIDAD: Comprobamos que Elliot no haya borrado este índice
-                if fila_u < self.u_mat.shape[0] and fila_i < self.i_mat.shape[0]:
-                    u_vec = self.u_mat[fila_u]
-                    i_vec = self.i_mat[fila_i]
-                    score = np.dot(u_vec, i_vec)
-            mf_scores[poi_id] = max(0, score) # Evitamos negativos para la probabilidad
-
-        # Normalizamos los scores de MF para que sumen 1 (como probabilidades)
-        total_mf = sum(mf_scores.values()) if sum(mf_scores.values()) > 0 else 1
+        total_no_context = len(neighbors_no_context)
+        total_with_context = len(neighbors_with_context)
         
-        porcentaje_vecinos = {}
-        for poi_dest_id, num_visitas in neighbors_freq.items():
-            p_markov = num_visitas / total_relaciones
-            p_mf = mf_scores.get(poi_dest_id, 0) / total_mf
-            # Mezclamos usando la variable self.alpha (que por defecto es 0.5)
-            score_mezclado = (self.alpha * p_markov) + ((1 - self.alpha) * p_mf)
-            porcentaje_vecinos[poi_dest_id] = score_mezclado
-            
-            # --- AÑADIMOS EL PRINT CHIVATO AQUÍ ---
-            print(f" -> POI: {poi_dest_id} | Prob Markov: {p_markov:.4f} | Prob MF (Gustos): {p_mf:.4f} | SCORE FINAL: {score_mezclado:.4f}")
+        # DEFINIMOS ALFA 
+        # Le damos un 80% de peso al contexto y un 20% al historial general.
+        if context and total_with_context > 0:
+            alpha = 0.8        
+        else:
+            # si no hay contexto se elimina la parte de suavizado y alpha 0
+            alpha = 0.0
 
-        suma_porcentajes = sum(porcentaje_vecinos.values())
-        for p in porcentaje_vecinos:
-            porcentaje_vecinos[p] /= suma_porcentajes
+        porcentaje_vecinos = {}
+        # ---------------------------------------------------------------------
+        # 4. APLICACIÓN DE LA FÓRMULA Jelinek-Mercer (Bellogín)
+        # ---------------------------------------------------------------------
+        for poi_dest_id in neighbors_freq_no_context.keys():
+            
+            # P(a): Probabilidad de ir a este POI ignorando el contexto
+            p_prior = neighbors_freq_no_context[poi_dest_id] / total_no_context
+            
+            # P_ml(a|b): Probabilidad de ir a este POI cumpliendo el contexto
+            if total_with_context > 0:
+                p_condicional = neighbors_freq_with_context.get(poi_dest_id, 0) / total_with_context
+            else:
+                p_condicional = 0.0
+                
+            # FÓRMULA: P final= alpha * P(a|b)(con contexto) + ((1-alpha)*P(a)(sin contexto))
+            p_final = (alpha * p_condicional) + ((1.0 - alpha) * p_prior)
+            
+            # Solo consideramos POIs con alguna probabilidad mayor a 0
+            if p_final > 0:
+                porcentaje_vecinos[poi_dest_id] = p_final
 
         candidates = []
 
-
+        #hacemos ranking de los top 50 con lo de la moneda
         while len(candidates) < k and len(porcentaje_vecinos) > 0:
             #nmero random para escoger un poi
             random_num = random.random()

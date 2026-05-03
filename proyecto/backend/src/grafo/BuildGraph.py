@@ -1,5 +1,6 @@
 import graph_tool.all as gt
 import os
+import csv
 from .GTGraph import GTGraph
 from persistencia.Neo4jConnection import Neo4jConnection
 from persistencia.LoadDB import LoadDB
@@ -13,13 +14,36 @@ class BuildGraph:
         self.graph = GTGraph()
 
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.import_path= os.path.join(base_dir, "../../../import")
+        self.train_file = os.path.join(base_dir, "..", "..", "dataset", "train.csv")
+        self.import_path = os.path.join(base_dir, "..", "..", "..","import")
         os.makedirs(self.import_path, exist_ok=True)
 
     def build(self):
         """Trae los datos de Neo4j y guarda en una carpeta el grafo."""
         
-        print("[BuildGraph] Cargando grafo...")
+        print(f"\n[BuildGraph] Construyendo subgrafo para {self.city_name} basado en train.csv...")
+
+        if not os.path.exists(self.train_file):
+            raise FileNotFoundError(f"[BuildGraph] ERROR: No se encontró el archivo de entrenamiento en {self.train_file}. ¡Asegúrate de que el dataset esté en la carpeta correcta!")
+        
+        
+        print(f"[BuildGraph] Leyendo train.csv...")
+
+        #como estamos leyendo de un train.csv no vamos a tener todos los datos de los pois de rating, price...
+        # lo qe vamos a hacer escargar las rutas del train.csv en un set para tener los pois que sí aparecen en el train.csv 
+        # y luego cargar solo esos pois de la base de datos
+
+        print("[BuildGraph] Extrayendo rutas y pois válidos del train.csv...")
+        rutas_del_train = set()
+        pois_validos_train = set()
+        with open(self.train_file, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                rutas_del_train.add(row['trail_id'])
+                pois_validos_train.add(row['poi_id'])
+
+        print(f"[BuildGraph] Rutas válidas encontradas: {len(rutas_del_train)}")
+        print(f"[BuildGraph] POIs válidos encontrados: {len(pois_validos_train)}")
 
         print(f"[BuildGraph] Cargando POIs")
 
@@ -37,13 +61,17 @@ class BuildGraph:
                p.Weekend_EarlyMorning as Weekend_EarlyMorning, p.Weekend_Morning as Weekend_Morning, 
                p.Weekend_Afternoon as Weekend_Afternoon, p.Weekend_Night as Weekend_Night
         """
+        nodos_totales = 0
         pois = self.db.run_read(query_pois, {"city_name": self.city_name})
         for p in pois:
-            self.graph.addNode(p)
+            if p['fsq_id'] in pois_validos_train:
+                self.graph.addNode(p)
+                nodos_totales += 1
+
+        print(f"[BuildGraph] {nodos_totales} POIs válidos agregados al grafo (se han descartado los que no aparecen en train).")
 
         print(f"[BuildGraph] Cargando Relaciones")
-            
-        # cargamos las relaciones
+
         query_rels = """
         MATCH (p1:POI)-[r:VISITED]->(p2:POI) 
         WHERE p1.city = $city_name AND p2.city = $city_name
@@ -58,13 +86,21 @@ class BuildGraph:
                r.time_diff_min as time_diff
         """
         rels = self.db.run_read(query_rels, {"city_name": self.city_name})
+        
+        aristas_añadidas = 0
         for r in rels:
-            # Pasamos p1_id y p2_id para la conexión y el resto en el dict rel_data
-            self.graph.addEdge(r['p1_id'], r['p2_id'], r)
-            
+            if str(r['trail_id']) in rutas_del_train:
+                exito =self.graph.addEdge(r['p1_id'], r['p2_id'], r)
+                if exito:
+                    aristas_añadidas += 1
+
+        print(f"[BuildGraph] {aristas_añadidas} relaciones válidas agregadas (se han descartado las que no cumplen con los criterios).")
+
         output_dir = os.path.join(self.import_path, self.city_name)
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, f"{self.city_name}.gt")
+        if os.path.exists(output_file):
+            print(f"[BuildGraph] Advertencia: El archivo {output_file} ya existe y será sobrescrito.")
 
         #graphtool tiene una función para guardar rápido en un archivo
         self.graph.g.save(output_file)

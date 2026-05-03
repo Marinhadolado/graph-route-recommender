@@ -86,4 +86,21 @@ class GraphRepository:
         print("[GraphRepository] ¡Grafo listo!")
         return GraphRepository._loaded_graph
     
+    def showGraph(self):
+        """
+        Función para mostrar el grafo.
+        """
 
+
+        graph = self.getGraph()
+        num_nodos = graph.g.num_vertices()
+        num_aristas = graph.g.num_edges()
+        print(f"Grafo cargado con {num_nodos} nodos y {num_aristas} aristas.")
+
+        if num_nodos == 0:
+            print("El grafo está vacío. No hay nada que dibujar.")
+            return
+
+        print("Preparando visualización... (esto puede tardar si el grafo es muy grande)")
+
+        gt.interactive_window(graph.g)

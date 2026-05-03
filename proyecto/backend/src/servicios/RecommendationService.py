@@ -10,7 +10,7 @@ class RecommendationService:
         self.algorithms= {
             'random': RandomAlgorithm(),
             'popularity': PopularityAlgorithm(),
-            'markov': MarkovAlgorithm(alpha=0.5)
+            'markov': MarkovAlgorithm()
         }
 
     def getCandidates(self, current_poi_id, user_id, context, steps, algorithm_name, pois_evitar, graph):

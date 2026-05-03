@@ -143,7 +143,7 @@ class GTGraph:
 
     def addEdge(self, from_id, to_id, rel_data):
         """Crea una conexión entre dos POIs."""
-        if from_id in self.id_map and to_id in self.id_map:
+        if from_id in self.id_map and to_id in self.id_map: # Solo añadimos la arista si ambos nodos existen en el grafo
             e = self.g.add_edge(self.id_map[from_id], self.id_map[to_id])
             
             self.ep_user_id[e] = str(rel_data.get('user_id', ''))
@@ -165,19 +165,15 @@ class GTGraph:
             self.ep_p2_preciptype[e] = str(rel_data.get('p2_preciptype', ''))
 
             self.ep_time_diff[e] = float(rel_data.get('time_diff', 0.0))
-    
-    #def getNeighbors(self, fsq_id):
-    #    """Devuelve una lista de fsq_id de los vecinos del nodo dado por fsq_id."""
-    #    if fsq_id not in self.id_map: 
-    #        return []
-    #    v = self.id_map[fsq_id]
-#
-    #    neighbors=[]
-#
-    #    for n in v.out_neighbors():
-    #        neighbors.append(self.vp_fsq_id[n])
-#
-    #    return neighbors
+
+            return True
+        print(f"[GTGraph] Advertencia: No se pudo agregar la arista de {from_id} a {to_id} porque uno de los nodos no existe en el grafo.")
+        if from_id not in self.id_map:
+            print(f" - Nodo de origen no encontrado: {from_id}")
+        if to_id not in self.id_map:
+            print(f" - Nodo de destino no encontrado: {to_id}")
+        return False
+
     
     def getFilteredNeighbors(self, fsq_id, pois_evitar, context):
         """

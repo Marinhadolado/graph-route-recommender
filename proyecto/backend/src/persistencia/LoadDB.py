@@ -145,6 +145,8 @@ class LoadDB:
 
                     print(f"   -> Procesados {processed} POIs...", end='\r')
 
+        return processed
+
     def loadTrails(self, filepath, city_name):
         """
         Carga las relaciones a la base de datos
@@ -239,6 +241,7 @@ class LoadDB:
                 print(f"      Progreso: {end}/{total}", end='\r')
 
         print("")
+        return total
 
     def loadCity(self, city_name):
         print(f"[LoadData] --------- Loading data from city {city_name}---------")
@@ -273,13 +276,14 @@ class LoadDB:
 
         # ahora cargamos los POIS
         print("[LoadData] Cargando nodos...")
-        self.loadPOIs(os.path.join(city_dir, pois_file), city_name)
+        num_pois=self.loadPOIs(os.path.join(city_dir, pois_file), city_name)
 
         # ahora cargamos las relaciones
         print("[LoadData] Cargando relaciones...")
-        self.loadTrails(os.path.join(city_dir, trail_file), city_name)
+        num_rels=self.loadTrails(os.path.join(city_dir, trail_file), city_name)
 
         print("[LoadData] DB POBLADA")
+        print(f"[LoadData] Con {num_pois} pois y {num_rels} relaciones")
 
 if __name__ == "__main__":
     connection = Neo4jConnection()

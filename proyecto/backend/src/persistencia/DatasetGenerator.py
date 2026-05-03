@@ -116,61 +116,57 @@ class DatasetGenerator:
             counter=1
 
             for i, record in enumerate(result_list):
-                row= dict(record)
+                if not result_list:
+                    return []
 
-                current_row= {
-                    'trail_id': row['trail_id'],
-                    'user_id': row['user_id'],
-                    'num_poi': f"poi_{counter}",
-                    'poi_id': row['poi1_id'],
-                    'rating': row['poi1_rating'],
-                    'timestamp': row['poi1_timestamp'],
-                    'temp': row['poi1_temp'],
-                    'precip': row['poi1_precip'],
-                    'windspeed': row['poi1_windspeed'],
-                    'preciptype': row['poi1_preciptype'],
-                    'conditions': row['poi1_conditions'],
-                    'city': city_name
-                }
+            current_trail = None
+            last_added_poi = None
+            counter = 1
 
-                data.append(current_row)
+            for record in result_list:
+                row = dict(record)
+                
+                # Si cambiamos de ruta, reseteamos el seguimiento
+                if row['trail_id'] != current_trail:
+                    current_trail = row['trail_id']
+                    last_added_poi = None
+                    counter = 1
 
-                counter += 1
-
-                if i == (len(result_list)-1):
-                    last_record= True
-                else:
-                    last_record= False
-
-                last_poi_route= False
-
-
-                if not last_record:
-                    # si no es el ultimo poi, comprobamos si el siguiente es de otra ruta
-                    next_trail_id = result_list[i+1]['trail_id']
-                    if next_trail_id != row['trail_id']:
-                        last_poi_route= True
-
-                if last_poi_route or last_record:
-                    # añadimos el ultimo poi de la ruta
-                    last_row= {
+                # Si hay un salto (agujero) o es el primer paso, añadimos el nodo de origen (poi1)
+                if last_added_poi != row['poi1_id']:
+                    data.append({
                         'trail_id': row['trail_id'],
                         'user_id': row['user_id'],
                         'num_poi': f"poi_{counter}",
-                        'poi_id': row['poi2_id'],
-                        'rating': row['poi2_rating'],
-                        'timestamp': row['poi2_timestamp'],
-                        'temp': row['poi2_temp'],
-                        'precip': row['poi2_precip'],
-                        'windspeed': row['poi2_windspeed'],
-                        'preciptype': row['poi2_preciptype'],
-                        'conditions': row['poi2_conditions'],
+                        'poi_id': row['poi1_id'],
+                        'rating': row['poi1_rating'],
+                        'timestamp': row['poi1_timestamp'],
+                        'temp': row['poi1_temp'],
+                        'precip': row['poi1_precip'],
+                        'windspeed': row['poi1_windspeed'],
+                        'preciptype': row['poi1_preciptype'],
+                        'conditions': row['poi1_conditions'],
                         'city': city_name
-                    }
+                    })
+                    counter += 1
 
-                    data.append(last_row)
-
-                    counter=1  # reiniciamos el contador para la siguiente ruta            
+                # SIEMPRE añadimos el nodo de destino (poi2) para no perderlo jamás
+                data.append({
+                    'trail_id': row['trail_id'],
+                    'user_id': row['user_id'],
+                    'num_poi': f"poi_{counter}",
+                    'poi_id': row['poi2_id'],
+                    'rating': row['poi2_rating'],
+                    'timestamp': row['poi2_timestamp'],
+                    'temp': row['poi2_temp'],
+                    'precip': row['poi2_precip'],
+                    'windspeed': row['poi2_windspeed'],
+                    'preciptype': row['poi2_preciptype'],
+                    'conditions': row['poi2_conditions'],
+                    'city': city_name
+                })
+                counter += 1
+                last_added_poi = row['poi2_id']           
             
         return data
     
