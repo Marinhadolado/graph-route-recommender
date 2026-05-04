@@ -126,9 +126,6 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         # y normalizando después para que sumen 1.0
         porcentaje_vecinos = {}
         
-        base_dir_log = os.path.dirname(os.path.abspath(__file__))
-        log_path = os.path.join(base_dir_log, '..', '..', 'modelos', 'markov.txt')
-        archivo_log = open(log_path, "a", encoding="utf-8")
         for poi_dest_id, scores in porcentaje_vecinos_temp.items():
             p_markov = scores['markov']
             
@@ -142,12 +139,11 @@ class MarkovAlgorithm(RecommendationAlgorithm):
             p_final = (peso_markov * p_markov) + (peso_nmf * p_nmf_norm)
             
             # Print de comprobación solicitado
-            print(f"   -> [Fusión FM] POI: {poi_dest_id} | Markov: {p_markov:.4f} | NMF Norm: {p_nmf_norm:.4f} | Final: {p_final:.4f}", file=archivo_log)            
+            print(f"   -> [Fusión FM] POI: {poi_dest_id} | Markov: {p_markov:.4f} | NMF Norm: {p_nmf_norm:.4f} | Final: {p_final:.4f}")            
             # Solo consideramos POIs con alguna probabilidad mayor a 0
             if p_final > 0:
                 porcentaje_vecinos[poi_dest_id] = p_final
             
-        archivo_log.close()
         #una vez calculados los porcentajes, vamos a hacer el ranking de candidatos
         candidates = []
 
