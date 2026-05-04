@@ -8,9 +8,9 @@ class RecommendationService:
 
     def __init__(self):
         self.algorithms= {
-            'random': RandomAlgorithm(),
-            'popularity': PopularityAlgorithm(),
-            'markov': MarkovAlgorithm()
+            'random': RandomAlgorithm,
+            'popularity': PopularityAlgorithm,
+            'markov': MarkovAlgorithm
         }
 
     def getCandidates(self, current_poi_id, user_id, context, steps, algorithm_name, pois_evitar, graph):
@@ -27,15 +27,21 @@ class RecommendationService:
         """
 
         #buscamos el algoritmo entre los disponibles del sistema
-        algorithm = self.algorithms.get(algorithm_name.lower())
-        if not algorithm:
+        algorithmClass = self.algorithms.get(algorithm_name.lower())
+        if not algorithmClass:
             print(f"[SERVICE] Error: Estrategia '{algorithm_name}' no encontrada.")
             return []
         
-        if not isinstance(algorithm, RecommendationAlgorithm):
+        if algorithm_name.lower() == 'markov':
+            ciudad_actual = graph.city_name 
+            algorithm_instance = algorithmClass(city_name=ciudad_actual)
+        else:
+            algorithm_instance = algorithmClass()
+        
+        if not isinstance(algorithm_instance, RecommendationAlgorithm):
             print(f"[SERVICE] Error: El algoritmo '{algorithm_name}' no es una instancia válida.")
             return []
         
-        candidates = algorithm.rankCandidates(current_poi_id, user_id, graph, pois_evitar, context)
+        candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_evitar, context)
             
         return candidates
