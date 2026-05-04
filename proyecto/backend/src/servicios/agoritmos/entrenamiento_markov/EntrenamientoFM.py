@@ -30,7 +30,7 @@ def entrenar_nmf(city_name):
 
     # una vez cargados los datos, entrenamos el algoritmo NMF (Non-negative Matrix Factorization)
     print("[EntrenamientoFM] Entrenando modelo NMF (Esto puede tardar unos segundos/minutos)...")
-    # n_factors = tamaño de los vectores ocultos (gustos)
+    # suponemos un n 15
     nmf = NMF(n_factors=15, random_state=42) 
     nmf.fit(trainset)
 

@@ -41,14 +41,14 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         if not neighbors_no_context:
             return []
         
-        print(f"[MarkovAlgorithm] Vecinos totales (ignorando contexto) para {current_poi_id}: {len(neighbors_no_context)}")   
+        #print(f"[MarkovAlgorithm] Vecinos totales (ignorando contexto) para {current_poi_id}: {len(neighbors_no_context)}")   
 
         # ---------------------------------------------------------------------
         # 2. P(a|b): PROBABILIDAD CON Contexto
         # ---------------------------------------------------------------------
         if context:
             neighbors_with_context = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context=context)
-            print(f"[MarkovAlgorithm] Vecinos que SÍ cumplen el contexto: {len(neighbors_with_context)}")
+            #print(f"[MarkovAlgorithm] Vecinos que SÍ cumplen el contexto: {len(neighbors_with_context)}")
         else:
             neighbors_with_context = neighbors_no_context
 
@@ -84,6 +84,17 @@ class MarkovAlgorithm(RecommendationAlgorithm):
 
         porcentaje_vecinos_temp = {}
         suma_nmf = 0.0
+
+        #para tener mayor rendimiento declaramos las variables antes del bucle 
+        item_map_local = None
+        item_factors_local = None
+        vector_usuario = None
+        
+        if self.modelo_nmf and user_matrix_idx is not None:
+            item_map_local = self.modelo_nmf['item_map']
+            item_factors_local = self.modelo_nmf['item_factors']
+            vector_usuario = self.modelo_nmf['user_factors'][user_matrix_idx]
+
         # ---------------------------------------------------------------------
         # 4. APLICACIÓN DE LA FÓRMULA Jelinek-Mercer (Bellogín)
         # ---------------------------------------------------------------------
@@ -104,15 +115,10 @@ class MarkovAlgorithm(RecommendationAlgorithm):
             p_nmf = 0.0
 
             # Si tenemos el modelo cargado y el usuario existe en nuestra matriz
-            if self.modelo_nmf and user_matrix_idx is not None:
-                item_map = self.modelo_nmf['item_map']
-                item_factors = self.modelo_nmf['item_factors']
-                user_factors = self.modelo_nmf['user_factors']
-                
-                item_matrix_idx = item_map.get(str(poi_dest_id))
+            if item_map_local is not None:
+                item_matrix_idx = item_map_local.get(str(poi_dest_id))
                 if item_matrix_idx is not None: # Si el POI también existe en la matriz
-                    vector_usuario = user_factors[user_matrix_idx]
-                    vector_poi = item_factors[item_matrix_idx]
+                    vector_poi = item_factors_local[item_matrix_idx]
                     # Producto escalar para obtener afinidad
                     p_nmf = np.dot(vector_usuario, vector_poi)
                     
@@ -125,6 +131,9 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         # bucle para recalcular el porcentaje de cada vecino teniendo en cuenta la parte de NMF 
         # y normalizando después para que sumen 1.0
         porcentaje_vecinos = {}
+
+        # creamos una lista para ir guardando todos los mensajes de texto en la memoria
+        log_messages = []
         
         for poi_dest_id, scores in porcentaje_vecinos_temp.items():
             p_markov = scores['markov']
@@ -139,10 +148,19 @@ class MarkovAlgorithm(RecommendationAlgorithm):
             p_final = (peso_markov * p_markov) + (peso_nmf * p_nmf_norm)
             
             # Print de comprobación solicitado
-            print(f"   -> [Fusión FM] POI: {poi_dest_id} | Markov: {p_markov:.4f} | NMF Norm: {p_nmf_norm:.4f} | Final: {p_final:.4f}")            
-            # Solo consideramos POIs con alguna probabilidad mayor a 0
+            log_messages.append(f"   -> [Fusión FM] POI: {poi_dest_id} | Markov: {p_markov:.4f} | NMF Norm: {p_nmf_norm:.4f} | Final: {p_final:.4f}\n")            # Solo consideramos POIs con alguna probabilidad mayor a 0
+            
             if p_final > 0:
                 porcentaje_vecinos[poi_dest_id] = p_final
+
+        if log_messages:
+            base_dir_log = os.path.dirname(os.path.abspath(__file__))
+            log_dir = os.path.join(base_dir_log, '..', '..', 'predictions')
+            os.makedirs(log_dir, exist_ok=True)
+            log_path = os.path.join(log_dir, 'fusion_log.txt')
+            
+            with open(log_path, "a", encoding="utf-8") as archivo_log:
+                archivo_log.writelines(log_messages)
             
         #una vez calculados los porcentajes, vamos a hacer el ranking de candidatos
         candidates = []
