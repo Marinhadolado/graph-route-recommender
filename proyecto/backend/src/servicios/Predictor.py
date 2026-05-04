@@ -128,14 +128,14 @@ class Predictor:
                     poi_id= current_step['poi_id']
 
                     if poi_id not in grafo.id_map:
-                        print(f"[PREDICTOR] El POI {poi_id} no se encuentra en el grafo. Saltando este paso.")
+                        #print(f"[PREDICTOR] El POI {poi_id} no se encuentra en el grafo. Saltando este paso.")
                         continue
 
                     #entre los candidatos no puede haber pois que haya visitado en
                     #su historial ni que hayan sido recomendados en pasos anteriores de la misma ruta
                     pois_evitar= set(history).union(recomendados_en_ruta)
 
-                    print(f"[PREDICTOR] Generando candidatos para el POI {poi_id} en la ruta {trail_id} (Paso {i+1}/{len(trail_steps)-1})...")
+                    #print(f"[PREDICTOR] Generando candidatos para el POI {poi_id} en la ruta {trail_id} (Paso {i+1}/{len(trail_steps)-1})...")
                     # Obtenemos candidatos
                     candidates = self.recommender.getCandidates(
                         current_poi_id=poi_id,

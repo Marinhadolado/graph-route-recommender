@@ -82,18 +82,24 @@ class MarkovAlgorithm(RecommendationAlgorithm):
             user_map = self.modelo_nmf['user_map']
             user_matrix_idx = user_map.get(int(user_id))
 
+            if user_matrix_idx is not None:
+                print(f"[DEBUG NMF] ¡Usuario {user_id} ENCONTRADO en la matriz NMF! Fila: {user_matrix_idx}")
+            else:
+                print(f"[DEBUG NMF] ¡ATENCIÓN! Usuario {user_id} NO EXISTE en NMF (Cold Start).")
+
         porcentaje_vecinos_temp = {}
         suma_nmf = 0.0
 
         #para tener mayor rendimiento declaramos las variables antes del bucle 
         item_map_local = None
         item_factors_local = None
-        vector_usuario = None
+        user_factors = None
         
         if self.modelo_nmf and user_matrix_idx is not None:
             item_map_local = self.modelo_nmf['item_map']
             item_factors_local = self.modelo_nmf['item_factors']
-            vector_usuario = self.modelo_nmf['user_factors'][user_matrix_idx]
+            user_factors = self.modelo_nmf['user_factors']
+            
 
         # ---------------------------------------------------------------------
         # 4. APLICACIÓN DE LA FÓRMULA Jelinek-Mercer (Bellogín)
@@ -119,6 +125,7 @@ class MarkovAlgorithm(RecommendationAlgorithm):
                 item_matrix_idx = item_map_local.get(str(poi_dest_id))
                 if item_matrix_idx is not None: # Si el POI también existe en la matriz
                     vector_poi = item_factors_local[item_matrix_idx]
+                    vector_usuario = user_factors[user_matrix_idx]
                     # Producto escalar para obtener afinidad
                     p_nmf = np.dot(vector_usuario, vector_poi)
                     
