@@ -33,7 +33,7 @@ class RecommendationService:
             return []
         
         if algorithm_name.lower() == 'markov':
-            ciudad_actual = graph.city_name 
+            ciudad_actual = graph.getCityName()
             algorithm_instance = algorithmClass(city_name=ciudad_actual)
         else:
             algorithm_instance = algorithmClass()
