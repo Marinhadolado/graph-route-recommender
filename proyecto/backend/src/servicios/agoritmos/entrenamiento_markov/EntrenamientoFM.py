@@ -8,15 +8,15 @@ def entrenar_nmf(city_name):
     
     # Rutas
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    train_file = os.path.join(base_dir, '..', 'dataset', 'train.csv')
-    output_file = os.path.join(base_dir, '..', 'modelos', f'nmf_model_{city_name}.pkl')
+    train_file = os.path.join(base_dir, '..', '..', '..', '..', 'dataset', 'train.csv')
+    output_file = os.path.join(base_dir, '..', '..', '..', '..', 'modelos', f'fm_{city_name}.pkl')
     
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
     print("[EntrenamientoFM] Leyendo train.csv...")
 
     # leemos el train.csv con pandas
-    df = pd.read_csv(train_file)
+    df = pd.read_csv(train_file, dtype=str)
     # si el usuario visitó el poi, le damos un suponemos que le gusta y le damos un rating de 1.0
     df['rating'] = 1.0 
     

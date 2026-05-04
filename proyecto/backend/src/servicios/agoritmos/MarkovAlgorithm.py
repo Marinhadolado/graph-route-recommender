@@ -1,10 +1,24 @@
 from servicios.RecommendationAlgorithm import RecommendationAlgorithm
 from grafo.GTGraph import GTGraph
+import os
+import pickle
 #importamos la librería Counter para contar las repeticiones de cada vecino de forma rápida
 from collections import Counter
 import random
+import numpy as np #para leer el archivo .pkl
 
 class MarkovAlgorithm(RecommendationAlgorithm):
+    def __init__(self, city_name="Tokyo"):
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        model_path = os.path.join(base_dir, '..', 'modelos', f'nmf_model_{city_name}.pkl')
+        
+        try:
+            with open(model_path, 'rb') as f:
+                self.modelo_nmf = pickle.load(f)
+            print(f"[MarkovAlgorithm] Modelo NMF cargado correctamente.")
+        except FileNotFoundError:
+            print(f"[MarkovAlgorithm] ERROR: No se encontró el modelo en {model_path}. Ejecuta EntrenarNMF.py primero.")
+            self.modelo_nmf = None
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_evitar, context, k=50):
         """
@@ -59,7 +73,17 @@ class MarkovAlgorithm(RecommendationAlgorithm):
             # si no hay contexto se elimina la parte de suavizado y alpha 0
             alpha = 0.0
 
-        porcentaje_vecinos = {}
+        #DEFINIMOS PESO DE CADA MODELO
+        peso_markov = 0.6  # 60% importancia a la ruta Markov
+        peso_nmf = 0.4     # 40% importancia a los gustos del usuario NMF
+        user_matrix_idx = None
+        
+        if self.modelo_nmf:
+            user_map = self.modelo_nmf['user_map']
+            user_matrix_idx = user_map.get(str(user_id))
+
+        porcentaje_vecinos_temp = {}
+        suma_nmf = 0.0
         # ---------------------------------------------------------------------
         # 4. APLICACIÓN DE LA FÓRMULA Jelinek-Mercer (Bellogín)
         # ---------------------------------------------------------------------
@@ -76,12 +100,63 @@ class MarkovAlgorithm(RecommendationAlgorithm):
                 
             # FÓRMULA: P final= alpha * P(a|b)(con contexto) + ((1-alpha)*P(a)(sin contexto))
             p_final = (alpha * p_condicional) + ((1.0 - alpha) * p_prior)
+            p_markov = p_final
+            p_nmf = 0.0
+
+            # Si tenemos el modelo cargado y el usuario existe en nuestra matriz
+            if self.modelo_nmf and user_matrix_idx is not None:
+                item_map = self.modelo_nmf['item_map']
+                item_factors = self.modelo_nmf['item_factors']
+                user_factors = self.modelo_nmf['user_factors']
+                
+                item_matrix_idx = item_map.get(str(poi_dest_id))
+                if item_matrix_idx is not None: # Si el POI también existe en la matriz
+                    vector_usuario = user_factors[user_matrix_idx]
+                    vector_poi = item_factors[item_matrix_idx]
+                    # Producto escalar para obtener afinidad
+                    p_nmf = np.dot(vector_usuario, vector_poi)
+                    
+                    if p_nmf < 0:
+                        p_nmf = 0.0
+
+            suma_nmf += p_nmf
+            porcentaje_vecinos_temp[poi_dest_id] = {'markov': p_markov, 'nmf': p_nmf}
             
+        # bucle para recalcular el porcentaje de cada vecino teniendo en cuenta la parte de NMF 
+        # y normalizando después para que sumen 1.0
+        porcentaje_vecinos = {}
+        
+        base_dir_log = os.path.dirname(os.path.abspath(__file__))
+        log_path = os.path.join(base_dir_log, '..', '..', 'modelos', 'markov.txt')
+        archivo_log = open(log_path, "a", encoding="utf-8")
+        for poi_dest_id, scores in porcentaje_vecinos_temp.items():
+            p_markov = scores['markov']
+            
+            # Normalizamos NMF a porcentaje (0.0 a 1.0)
+            if suma_nmf > 0:
+                p_nmf_norm = scores['nmf'] / suma_nmf
+            else:
+                p_nmf_norm = 0.0
+                
+            # Recalculamos p_final combinando Markov y NMF Normalizado
+            p_final = (peso_markov * p_markov) + (peso_nmf * p_nmf_norm)
+            
+            # Print de comprobación solicitado
+            print(f"   -> [Fusión FM] POI: {poi_dest_id} | Markov: {p_markov:.4f} | NMF Norm: {p_nmf_norm:.4f} | Final: {p_final:.4f}", file=archivo_log)            
             # Solo consideramos POIs con alguna probabilidad mayor a 0
             if p_final > 0:
                 porcentaje_vecinos[poi_dest_id] = p_final
-
+            
+        archivo_log.close()
+        #una vez calculados los porcentajes, vamos a hacer el ranking de candidatos
         candidates = []
+
+        # Como NMF altera la suma total de las probabilidades (ya no suman 1.0),
+        # reajustamos al 100% antes de entrar al bucle para que el random_num funcione bien.
+        if len(porcentaje_vecinos) > 0:
+            total_inicial = sum(porcentaje_vecinos.values())
+            for poi_id in porcentaje_vecinos:
+                porcentaje_vecinos[poi_id] = porcentaje_vecinos[poi_id] / total_inicial
 
         #hacemos ranking de los top 50 con lo de la moneda
         while len(candidates) < k and len(porcentaje_vecinos) > 0:
