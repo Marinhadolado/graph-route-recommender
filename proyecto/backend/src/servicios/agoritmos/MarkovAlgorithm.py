@@ -80,7 +80,7 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         
         if self.modelo_nmf:
             user_map = self.modelo_nmf['user_map']
-            user_matrix_idx = user_map.get(str(user_id))
+            user_matrix_idx = user_map.get(int(user_id))
 
         porcentaje_vecinos_temp = {}
         suma_nmf = 0.0
