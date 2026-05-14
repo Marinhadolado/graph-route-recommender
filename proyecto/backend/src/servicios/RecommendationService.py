@@ -3,6 +3,7 @@ from servicios.agoritmos.RandomAlgorithm import RandomAlgorithm
 from servicios.agoritmos.PopularityAlgorithm import PopularityAlgorithm
 from servicios.agoritmos.MarkovAlgorithm import MarkovAlgorithm
 from servicios.RecommendationAlgorithm import RecommendationAlgorithm 
+from servicios.agoritmos.MarkovPreferencesAlgorithm import MarkovPreferencesAlgorithm
 
 class RecommendationService:
 
@@ -10,7 +11,8 @@ class RecommendationService:
         self.algorithms= {
             'random': RandomAlgorithm,
             'popularity': PopularityAlgorithm,
-            'markov': MarkovAlgorithm
+            'markov': MarkovAlgorithm,
+            'markov_preferences': MarkovPreferencesAlgorithm
         }
 
     def getCandidates(self, current_poi_id, user_id, context, steps, algorithm_name, pois_evitar, graph):
