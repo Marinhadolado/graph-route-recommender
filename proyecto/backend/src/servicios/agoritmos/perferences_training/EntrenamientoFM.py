@@ -9,7 +9,7 @@ def entrenar_nmf(city_name):
     # Rutas
     base_dir = os.path.dirname(os.path.abspath(__file__))
     train_file = os.path.join(base_dir, '..', '..', '..', '..', 'dataset', 'train.csv')
-    output_file = os.path.join(base_dir, '..', '..', '..', '..', 'modelos', f'fm_{city_name}.pkl')
+    output_file = os.path.join(base_dir, '..', '..', '..', '..', 'dataset', f'fm_{city_name}.pkl')
     
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
@@ -31,6 +31,7 @@ def entrenar_nmf(city_name):
     # una vez cargados los datos, entrenamos el algoritmo NMF (Non-negative Matrix Factorization)
     print("[EntrenamientoFM] Entrenando modelo NMF (Esto puede tardar unos segundos/minutos)...")
     # suponemos un n 15
+    # 10 50 100
     nmf = NMF(n_factors=15, random_state=42) 
     nmf.fit(trainset)
 
