@@ -8,9 +8,12 @@ import random
 import numpy as np #para leer el archivo .pkl
 
 class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
-    def __init__(self, city_name="Tokyo"):
+    def __init__(self, city_name="Tokyo", peso_markov=0.6, peso_nmf=0.4):
         base_dir = os.path.dirname(os.path.abspath(__file__))
         model_path = os.path.abspath(os.path.join(base_dir, '..', '..', '..', 'modelos', f'fm_{city_name}.pkl'))
+
+        self.peso_markov = peso_markov
+        self.peso_nmf = peso_nmf
         
         try:
             with open(model_path, 'rb') as f:
@@ -73,9 +76,7 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
             # si no hay contexto se elimina la parte de suavizado y alpha 0
             alpha = 0.0
 
-        #DEFINIMOS PESO DE CADA MODELO
-        peso_markov = 0.6  # 60% importancia a la ruta Markov
-        peso_nmf = 0.4     # 40% importancia a los gustos del usuario NMF
+        
         user_matrix_idx = None
         
         if self.modelo_nmf:
@@ -140,7 +141,6 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         porcentaje_vecinos = {}
 
         # creamos una lista para ir guardando todos los mensajes de texto en la memoria
-        log_messages = []
         
         for poi_dest_id, scores in porcentaje_vecinos_temp.items():
             p_markov = scores['markov']
@@ -152,22 +152,11 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
                 p_nmf_norm = 0.0
                 
             # Recalculamos p_final combinando Markov y NMF Normalizado
-            p_final = (peso_markov * p_markov) + (peso_nmf * p_nmf_norm)
-            
-            # Print de comprobación solicitado
-            log_messages.append(f"   -> [Fusión FM] POI: {poi_dest_id} | Markov: {p_markov:.4f} | NMF Norm: {p_nmf_norm:.4f} | Final: {p_final:.4f}\n")            # Solo consideramos POIs con alguna probabilidad mayor a 0
+            p_final = (self.peso_markov * p_markov) + (self.peso_nmf * p_nmf_norm)
             
             if p_final > 0:
                 porcentaje_vecinos[poi_dest_id] = p_final
 
-        if log_messages:
-            base_dir_log = os.path.dirname(os.path.abspath(__file__))
-            log_dir = os.path.join(base_dir_log, '..', '..', 'predictions')
-            os.makedirs(log_dir, exist_ok=True)
-            log_path = os.path.join(log_dir, 'fusion_log.txt')
-            
-            with open(log_path, "a", encoding="utf-8") as archivo_log:
-                archivo_log.writelines(log_messages)
             
         #una vez calculados los porcentajes, vamos a hacer el ranking de candidatos
         candidates = []

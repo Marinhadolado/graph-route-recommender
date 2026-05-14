@@ -63,7 +63,7 @@ class Predictor:
 
         return routes
             
-    def generate_predictions(self, user_id, context, steps, algorithm):
+    def generate_predictions(self, user_id, context, steps, algorithm, suffix=""):
         print("[PREDICTOR] Generando predicciones con algoritmo:", algorithm)
 
         grafo = self.graph_repository.getGraph()
@@ -100,16 +100,14 @@ class Predictor:
         # Paso2: vamos ruta por ruta y aplicamos la función de predicción
         #antes de ir ruta por ruta creamos el nombre del csv
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
+        if suffix:
+            filename= f"{self.city_name}_{algorithm}_{suffix}_{timestamp}.csv"
+        else:
+            filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
         output_file = os.path.join(self.output_dir, filename)
 
         print(f"[PREDICTOR] El resultado se guardará en: {filename}")
         
-        # Definimos el nuevo nombre
-        filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
-        output_file = os.path.join(self.output_dir, filename)
-        print(f"[PREDICTOR] El resultado se guardará en: {filename}")
-
         with open(output_file, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
 

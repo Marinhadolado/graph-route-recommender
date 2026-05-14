@@ -15,6 +15,15 @@ class RecommendationService:
             'markov_preferences': MarkovPreferencesAlgorithm
         }
 
+        self.current_peso_markov = 0.5
+        self.current_peso_nmf = 0.5
+    
+    def set_weights(self, peso_markov, peso_nmf):
+        
+        self.current_peso_markov = peso_markov
+        self.current_peso_nmf = peso_nmf
+        print(f"[SERVICE] Pesos actualizados: Markov {peso_markov} - NMF {peso_nmf}")
+
     def getCandidates(self, current_poi_id, user_id, context, steps, algorithm_name, pois_evitar, graph):
         """
         Crea una lista de diccionarios con los candidatos pois inmediatos para que el predictor los evalue
@@ -34,8 +43,15 @@ class RecommendationService:
             print(f"[SERVICE] Error: Estrategia '{algorithm_name}' no encontrada.")
             return []
         
-        if algorithm_name.lower() == 'markov':
-            ciudad_actual = graph.getCityName()
+        ciudad_actual = graph.getCityName()
+
+        if algorithm_name.lower() == 'markov_preferences':
+            algorithm_instance = algorithmClass(
+                city_name=ciudad_actual, 
+                peso_markov=self.current_peso_markov, 
+                peso_nmf=self.current_peso_nmf
+            )
+        elif algorithm_name.lower() == 'markov':
             algorithm_instance = algorithmClass(city_name=ciudad_actual)
         else:
             algorithm_instance = algorithmClass()
