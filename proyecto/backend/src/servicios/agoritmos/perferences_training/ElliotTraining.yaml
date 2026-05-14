@@ -3,7 +3,7 @@ experiment:
 
   data_config:
     strategy: dataset
-    dataset_path: ../dataset/elliot_train_Tokyo.tsv
+    dataset_path: ../../../../dataset/elliot_train_Tokyo.tsv
 
   prefiltering:
     strategy: iterative_k_core
@@ -16,24 +16,19 @@ experiment:
       strategy: temporal_hold_out
       test_ratio: 0.2
 
-  path_output_rec_result: ../predictions/elliot_output/tokyo/result
-  path_output_rec_weight: ../predictions/elliot_output/tokyo/weight
-  path_output_rec_performance: ../predictions/elliot_output/tokyo/performance
-  path_log_folder: ../predictions/elliot_output/tokyo/log
+  path_output_rec_result: ../../../../predictions/elliot_output/tokyo/result
+  path_output_rec_weight: ../../../../predictions/elliot_output/tokyo/weight
+  path_output_rec_performance: ../../../../predictions/elliot_output/tokyo/performance
+  path_log_folder: ../../../../predictions/elliot_output/tokyo/log
 
   top_k: 50
 
   evaluation:
     cutoffs: 10
     simple_metrics: [nDCG]
-    relevance_threshold: 3
+    relevance_threshold: 1
 
   models:
-    Random:
-      meta:
-        save_recs: True
-      random_seed: 42
-
     MostPop:
       meta:
         save_recs: True
@@ -401,8 +396,8 @@ experiment:
           349,
           350,
         ]
-      lr: [0.1, 0.01, 0.001, 0.0001, 0.00001]
-      reg: [0.01, 0.001, 0.0001, 0.00001, 0.000001]
+      lr: [0.1, 0.01, 0.001, 0.0001]
+      reg: [0.01, 0.001, 0.0001, 0.00001]
       early_stopping:
         patience: 10
         monitor: nDCG@10
@@ -775,8 +770,8 @@ experiment:
           349,
           350,
         ]
-      lr: [0.1, 0.01, 0.001, 0.0001, 0.00001]
-      reg: [0.01, 0.001, 0.0001, 0.00001, 0.000001]
+      lr: [0.1, 0.01, 0.001, 0.0001]
+      reg: [0.01, 0.001, 0.0001, 0.00001]
       early_stopping:
         patience: 10
         monitor: nDCG@10
@@ -785,27 +780,3 @@ experiment:
         min_delta: 0.001
         rel_delta: 0.1
         baseline: 0.1
-
-    ItemKNN:
-      meta:
-        save_recs: True
-        save_weights: True
-        verbose: True
-        hyper_max_evals: 20
-        hyper_opt_alg: tpe
-        validation_metric: nDCG@10
-      neighbors: [uniform, 5, 500]
-      similarity: [cosine, euclidean, dice, jaccard]
-      implementation: classical
-
-    UserKNN:
-      meta:
-        save_recs: True
-        save_weights: True
-        verbose: True
-        hyper_max_evals: 20
-        hyper_opt_alg: tpe
-        validation_metric: nDCG@10
-      neighbors: [uniform, 5, 500]
-      similarity: [cosine, euclidean, dice, jaccard]
-      implementation: classical
