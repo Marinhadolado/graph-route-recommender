@@ -11,7 +11,8 @@ class LoadDB:
         if not isinstance(db_connection, Neo4jConnection):
             raise TypeError("The provided db_connection must be an instance of Neo4jConnection.")
             
-        self.driver = self.db.driver
+        self.db= db_connection
+        self.driver = db_connection.driver
         base_dir = os.path.dirname(os.path.abspath(__file__))
         self.import_path= os.path.join(base_dir, "../../../import")
 
