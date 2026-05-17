@@ -49,7 +49,7 @@ def ejecutar_experimentos_tfg(user_id, city_name):
     print("\n=== PROCESO FINALIZADO. Revisa la carpeta /predictions ===")
 
 if __name__ == "__main__":
-    USER_TEST = "155648" 
+    USER_TEST = "22094" 
     CITY = "Tokyo"
     
     ejecutar_experimentos_tfg(USER_TEST, CITY)
