@@ -8,17 +8,6 @@ import random
 import numpy as np #para leer el archivo .pkl
 
 class MarkovAlgorithm(RecommendationAlgorithm):
-    def __init__(self, city_name="Tokyo"):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        model_path = os.path.abspath(os.path.join(base_dir, '..', '..', '..', 'modelos', f'fm_{city_name}.pkl'))
-        
-        try:
-            with open(model_path, 'rb') as f:
-                self.modelo_nmf = pickle.load(f)
-            print(f"[MarkovAlgorithm] Modelo NMF cargado correctamente.")
-        except FileNotFoundError:
-            print(f"[MarkovAlgorithm] ERROR: No se encontró el modelo en {model_path}. Ejecuta EntrenarNMF.py primero.")
-            self.modelo_nmf = None
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_evitar, context, k=50):
         """

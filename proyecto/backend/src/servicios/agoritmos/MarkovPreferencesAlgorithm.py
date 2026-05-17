@@ -81,16 +81,13 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         
         if self.modelo_nmf:
             user_map = self.modelo_nmf['user_map']
-            user_matrix_idx = user_map.get(int(user_id))
+            user_matrix_idx = user_map.get(str(user_id))
 
             if user_matrix_idx is not None:
                 print(f"[DEBUG NMF] ¡Usuario {user_id} ENCONTRADO en la matriz NMF! Fila: {user_matrix_idx}")
             else:
                 print(f"[DEBUG NMF] ¡ATENCIÓN! Usuario {user_id} NO EXISTE en NMF (Cold Start).")
         
-        for user_id, idx in self.modelo_nmf['user_map'].items():
-            print("AAAAAAA USUARIOS EN MATRIZ NMF:")
-            print(f"User ID: {user_id} -> Matrix Index: {idx}")
 
         porcentaje_vecinos_temp = {}
         suma_nmf = 0.0
