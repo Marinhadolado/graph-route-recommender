@@ -32,7 +32,7 @@ def entrenar_nmf(city_name):
     print("[EntrenamientoFM] Entrenando modelo NMF (Esto puede tardar unos segundos/minutos)...")
     # suponemos un n 15
     # 10 50 100
-    nmf = NMF(n_factors=15, random_state=42) 
+    nmf = NMF(n_factors=192, random_state=42) 
     nmf.fit(trainset)
 
     # extraemos las matrices y los diccionarios traductores
