@@ -19,7 +19,7 @@ class RecommendationService:
         self.current_peso_nmf = 0.5
     
     def set_weights(self, peso_markov, peso_nmf):
-        
+
         self.current_peso_markov = peso_markov
         self.current_peso_nmf = peso_nmf
         print(f"[SERVICE] Pesos actualizados: Markov {peso_markov} - NMF {peso_nmf}")
@@ -51,8 +51,6 @@ class RecommendationService:
                 peso_markov=self.current_peso_markov, 
                 peso_nmf=self.current_peso_nmf
             )
-        elif algorithm_name.lower() == 'markov':
-            algorithm_instance = algorithmClass(city_name=ciudad_actual)
         else:
             algorithm_instance = algorithmClass()
         
