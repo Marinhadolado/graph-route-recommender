@@ -108,7 +108,7 @@ class Evaluator:
         run = Run(run_dict, name=f"{self.city_name}_{self.algorithm_name}")
         
         #hit rate es la métrica para saber si el poi del qrels aparece entre las k primeras poisibilidades del run
-        metricas = ["hit_rate@1", "hit_rate@5", "hit_rate@10"]
+        metricas = ["hit_rate@1", "hit_rate@5", "hit_rate@10", "ndcg@1", "ndcg@5", "ndcg@10","map@5", "map@10","mrr@10","precision@5", "recall@5"]
 
         evaluacion = evaluate(qrels, run, metricas, make_comparable=True)
 
