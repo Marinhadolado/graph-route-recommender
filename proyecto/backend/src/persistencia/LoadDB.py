@@ -260,10 +260,10 @@ class LoadDB:
             return
         
         # antes de nada limpiar la base de datos
-        self.clearDB()
+        self.clear_database()
 
         # antes de cargar nada creamos los índices necesarios 
-        self.createIndex()
+        self.create_indexes()
 
         # ahora cargamos los POIS
         print("[LoadData] Cargando nodos...")
@@ -299,7 +299,7 @@ if __name__ == "__main__":
         if 0 <= seleccion < len(cities):
             ld.loadCity(cities[seleccion])
         elif seleccion == limpiar - 1:
-            ld.clearDB()
+            ld.clear_database()
         else:
             print(" Opción no válida.")
     except ValueError:
