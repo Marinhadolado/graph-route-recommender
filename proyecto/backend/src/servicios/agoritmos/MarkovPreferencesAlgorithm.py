@@ -10,7 +10,7 @@ import numpy as np #para leer el archivo .pkl
 class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
     def __init__(self, city_name="Tokyo", peso_markov=0.6, peso_nmf=0.4):
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        model_path = os.path.abspath(os.path.join(base_dir, '..', '..', '..', 'modelos', f'fm_{city_name}.pkl'))
+        model_path = os.path.abspath(os.path.join(base_dir, '..', '..', '..', 'dataset', f'fm_{city_name}.pkl'))
 
         self.peso_markov = peso_markov
         self.peso_nmf = peso_nmf
