@@ -5,28 +5,24 @@ from .Neo4jConnection import Neo4jConnection
 
 
 class LoadDB:
+    """Handles database purging, indexing, and transactional batch data loading into Neo4j."""
 
     def __init__(self, db_connection):
         if not isinstance(db_connection, Neo4jConnection):
-            raise TypeError("El argumento db_connection debe ser una instancia de Neo4jConnection")
+            raise TypeError("The provided db_connection must be an instance of Neo4jConnection.")
             
-        self.db = db_connection
-        self.driver = db_connection.driver
+        self.driver = self.db.driver
         base_dir = os.path.dirname(os.path.abspath(__file__))
         self.import_path= os.path.join(base_dir, "../../../import")
 
-    def clearDB(self):
-        """
-        Vacia la base de datos
-        
-        :param self
-        """
-        confirm = input("\n  ¿Estás seguro de que quieres BORRAR TODA la base de datos? (s/N): ").lower()
-        if confirm != 's':
-            print(" Operación cancelada.")
+    def clear_database(self):
+        """Completely purges all nodes and relationships using controlled transactional batches."""
+        confirm = input("\n  Are you sure you want to PURGE the entire database? (y/N): ").lower()
+        if confirm != 'y':
+            print(" Operation cancelled.")
             return
         
-        print("[LoadData] Limpiando la base de datos...")
+        print("[LoadDB] Purging the database...")
         
         query = "MATCH (n) WITH n LIMIT 1000 DETACH DELETE n RETURN count(n) AS deleted"
         
@@ -41,30 +37,24 @@ class LoadDB:
                         break
                     
                     total_deleted += deleted_count
-                    print(f"   -> Borrados {total_deleted} nodos...", end='\r')
+                    print(f"   -> Deleted {total_deleted} nodes...", end='\r')
             
-            print(f"\n[LoadData] Limpieza finalizada. Se eliminaron {total_deleted} elementos.")
+            print(f"\n[LoadDB] Purging finished. {total_deleted} elements were deleted.")
             
         except Exception as e:
-            print(f"\n[LoadData] Error al limpiar la base de datos: {e}")
+            print(f"\n[LoadDB] Error while purging the database: {e}")
 
-    def createIndex(self):
-        """
-        Crea índices para mejorar el rendimiento de las consultas en Neo4j
-        
-        :param self: Descripción
-        """
-        print("[LoadData] Creando índices de Neo4j...")
+    def create_indexes(self):
+        """ Creates necessary indexes for efficient querying of POIs and Users."""
+        print("[LoadDB] Creating Neo4j indexes...")
         with self.driver.session() as session:
             session.run("CREATE INDEX IF NOT EXISTS FOR (p:POI) ON (p.fsq_id);")
             session.run("CREATE INDEX IF NOT EXISTS FOR (u:User) ON (u.user_id);")
 
-    def listCities(self):
-        """
-        Lista las carpetas disponibles
-        """
+    def list_cities(self):
+        """ Lists available cities based on the directory structure in the import path."""
         if not os.path.exists(self.import_path):
-            os.makedirs(self.import_path)
+            os.makedirs(self.import_path, exist_ok=True)
             return []
         
         cities= []

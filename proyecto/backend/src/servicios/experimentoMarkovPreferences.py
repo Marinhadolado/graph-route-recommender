@@ -1,6 +1,6 @@
 import json
 import os
-from Predictor import Predictor
+from servicios.Predictor import Predictor
 
 def ejecutar_experimentos_tfg(user_id, city_name):
     # Definimos las combinaciones de pesos (Markov, NMF)

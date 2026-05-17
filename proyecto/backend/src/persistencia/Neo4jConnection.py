@@ -2,9 +2,9 @@ import os
 from neo4j import GraphDatabase
 
 class Neo4jConnection:
+    """Manages the connection with the Neo4j database."""
     
     def __init__(self):
-        # Configuración de la conexión a Neo4j
         uri = os.getenv("NEO4J_URI", "bolt://localhost:7999")
         user= os.getenv("NEO4J_USER", "neo4j")
         password = os.getenv("NEO4J_PASSWORD", "password")
@@ -12,28 +12,31 @@ class Neo4jConnection:
         try:
             self.driver = GraphDatabase.driver(uri, auth=(user, password))
             self.driver.verify_connectivity()
-            print("[NEO4J CONNECTION] Conexión exitosa a la base de datos Neo4j")
+            print("[Neo4jConnection] Successfully connected to the Neo4j database.")
         except Exception as e:
-            print(f"[NEO4J CONNECTION]Error al conectar a la base de datos Neo4j: {e}")
+            print(f"[Neo4jConnection] Error connecting to Neo4j: {e}")
             raise
 
     def run_read(self, query, parameters):
-        """Ejecuta una consulta de lectura y retorna los resultados."""
+        """Executes a read-only query and transforms records into a list of dictionaries."""        
         with self.driver.session() as session:
 
             result = session.run(query, parameters)
-
             data =[]
+
             for record in result:
                 data.append(record.data())
 
             return data
+        
     def __str__(self):
         if self.driver:
-            estado = "Conectado" 
+            estado = "Connected" 
         else: 
-            estado ="Desconectado"
+            estado ="Disconnected"
         return f"Neo4jConnection {estado}" 
 
-    def close(self):  
-        self.driver.close()
+    def close(self):
+        """ Closes the connection to the database.""" 
+        if self.driver:
+            self.driver.close()
