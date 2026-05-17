@@ -279,7 +279,7 @@ class LoadDB:
 if __name__ == "__main__":
     connection = Neo4jConnection()
     ld= LoadDB(connection)
-    cities= ld.listCities()
+    cities= ld.list_cities()
 
     print("=== CARGA DE DATOS EN NEO4J ===")
 
