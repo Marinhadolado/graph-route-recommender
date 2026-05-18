@@ -1,4 +1,4 @@
-from grafo.GraphRepository import GraphRepository
+from graph.GraphRepository import GraphRepository
 from servicios.agoritmos.RandomAlgorithm import RandomAlgorithm
 from servicios.agoritmos.PopularityAlgorithm import PopularityAlgorithm
 from servicios.agoritmos.MarkovAlgorithm import MarkovAlgorithm

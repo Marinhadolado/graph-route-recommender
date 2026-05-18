@@ -6,7 +6,6 @@ from persistencia.Neo4jConnection import Neo4jConnection
 class GraphRepository:
     """Clase que coge el grafo de memoria ya cargado y lo devuelve"""
     
-    #variables de clase para mantener el grafo cargado en memoria
     _loaded_graph=None
     _is_loaded = False
 
@@ -16,25 +15,22 @@ class GraphRepository:
         self.graph_path = os.path.join(base_dir, "..","..", "..", "import", self.city_name, f"{self.city_name}.gt")
 
 
-    def getGraph(self):
-        """Trae los datos de Neo4j y construye el grafo en memoria."""
+    def get_graph(self):
+        """ Gets the graph from memory or loads it from file."""
         
         if GraphRepository._is_loaded:
             return GraphRepository._loaded_graph
         
         if not os.path.exists(self.graph_path):
-            raise FileNotFoundError(f"[GraphRepository] ERROR: No se encontró el grafo en {self.graph_path}. ¡Ejecuta GraphBuilder.py primero!")
+            raise FileNotFoundError(f"[Graph Repository] ERROR: The graph was not found in {self.graph_path}. Please run GraphBuilder.py first!")
         
-        print(f"[GraphRepository] Cargando grafo desde {self.graph_path}...")
+        print(f"[Graph Repository] Loading graph from {self.graph_path}...")
         
-        # función de graphtool para cargar rápido el grafo de carpeta
         graph_lg = gt.load_graph(self.graph_path)
         
-        # hacemos que sea de tipo GTGraph para ejecutar los algoritmos
         mi_gt_graph = GTGraph()
         mi_gt_graph.g = graph_lg
         
-        # cargamos las variables del grafo de graphtool al de GTGraph
         mi_gt_graph.vp_fsq_id = graph_lg.vp["fsq_id"]
         mi_gt_graph.vp_lat = graph_lg.vp["latitude"]
         mi_gt_graph.vp_lon = graph_lg.vp["longitude"]
@@ -74,33 +70,12 @@ class GraphRepository:
 
         mi_gt_graph.ep_time_diff = graph_lg.ep["time_diff"]
         
-        # reconstruimos el diccionario id_map para getNeighbors más eficiente
         for v in mi_gt_graph.g.vertices():
             fsq_id = mi_gt_graph.vp_fsq_id[v]
             mi_gt_graph.id_map[fsq_id] = v
 
-        # guardamos todo lo recuperado de la carpeta en una "caché"
         GraphRepository._loaded_graph = mi_gt_graph
         GraphRepository._is_loaded = True
         
-        print("[GraphRepository] ¡Grafo listo!")
+        print("[Graph Repository] Graph is ready!")
         return GraphRepository._loaded_graph
-    
-    def showGraph(self):
-        """
-        Función para mostrar el grafo.
-        """
-
-
-        graph = self.getGraph()
-        num_nodos = graph.g.num_vertices()
-        num_aristas = graph.g.num_edges()
-        print(f"Grafo cargado con {num_nodos} nodos y {num_aristas} aristas.")
-
-        if num_nodos == 0:
-            print("El grafo está vacío. No hay nada que dibujar.")
-            return
-
-        print("Preparando visualización... (esto puede tardar si el grafo es muy grande)")
-
-        gt.interactive_window(graph.g)

@@ -8,7 +8,7 @@ from persistencia.LoadDB import LoadDB
 class BuildGraph:
     def __init__(self, neo4j_client, city_name):
         if not isinstance(neo4j_client, Neo4jConnection):
-            raise ValueError("El cliente de base de datos debe ser una instancia de Neo4jConnection.")
+            raise ValueError("The client must be an instance of Neo4jConnection.")
         self.db = neo4j_client
         self.city_name = city_name
         self.graph = GTGraph()
@@ -19,37 +19,29 @@ class BuildGraph:
         os.makedirs(self.import_path, exist_ok=True)
 
     def build(self):
-        """Trae los datos de Neo4j y guarda en una carpeta el grafo."""
+        """Gets the data from Neo4j and builds the graph in memory, then saves it to a file."""
         
-        print(f"\n[BuildGraph] Construyendo subgrafo para {self.city_name} basado en train.csv...")
+        print(f"\n[Build Graph] Building subgraph for {self.city_name} based on train.csv...")
 
         if not os.path.exists(self.train_file):
-            raise FileNotFoundError(f"[BuildGraph] ERROR: No se encontró el archivo de entrenamiento en {self.train_file}. ¡Asegúrate de que el dataset esté en la carpeta correcta!")
+            raise FileNotFoundError(f"[Build Graph] ERROR: The training file was not found in {self.train_file}. Make sure the dataset is in the correct folder!")
         
-        
-        print(f"[BuildGraph] Leyendo train.csv...")
-
-        #como estamos leyendo de un train.csv no vamos a tener todos los datos de los pois de rating, price...
-        # lo qe vamos a hacer escargar las rutas del train.csv en un set para tener los pois que sí aparecen en el train.csv 
-        # y luego cargar solo esos pois de la base de datos
-
-        print("[BuildGraph] Extrayendo rutas y pois válidos del train.csv...")
-        rutas_del_train = set()
-        pois_validos_train = set()
+        print("[Build Graph] Extracting valid routes and POIs from train.csv...")
+        train_routes = set()
+        valid_pois = set()
         with open(self.train_file, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                rutas_del_train.add(row['trail_id'])
-                pois_validos_train.add(row['poi_id'])
+                train_routes.add(row['trail_id'])
+                valid_pois.add(row['poi_id'])
 
-        print(f"[BuildGraph] Rutas válidas encontradas: {len(rutas_del_train)}")
-        print(f"[BuildGraph] POIs válidos encontrados: {len(pois_validos_train)}")
+        print(f"[Build Graph] Routes found: {len(train_routes)}")
+        print(f"[Build Graph] Valid POIs found: {len(valid_pois)}")
 
-        print(f"[BuildGraph] Cargando POIs")
+        print(f"[Build Graph] Loading POIs")
 
         self.graph = GTGraph()
 
-        # cargamos los pois
         query_pois = """
         MATCH (p:POI) 
         WHERE p.city = $city_name
@@ -61,16 +53,16 @@ class BuildGraph:
                p.Weekend_EarlyMorning as Weekend_EarlyMorning, p.Weekend_Morning as Weekend_Morning, 
                p.Weekend_Afternoon as Weekend_Afternoon, p.Weekend_Night as Weekend_Night
         """
-        nodos_totales = 0
+        total_nodes = 0
         pois = self.db.run_read(query_pois, {"city_name": self.city_name})
         for p in pois:
-            if p['fsq_id'] in pois_validos_train:
+            if p['fsq_id'] in valid_pois:
                 self.graph.addNode(p)
-                nodos_totales += 1
+                total_nodes += 1
 
-        print(f"[BuildGraph] {nodos_totales} POIs válidos agregados al grafo (se han descartado los que no aparecen en train).")
+        print(f"[Build Graph] {total_nodes} valid POIs added to the graph (the ones that don't appear in train were discarded).")
 
-        print(f"[BuildGraph] Cargando Relaciones")
+        print(f"[Build Graph] Loading Relationships")
 
         query_rels = """
         MATCH (p1:POI)-[r:VISITED]->(p2:POI) 
@@ -87,48 +79,47 @@ class BuildGraph:
         """
         rels = self.db.run_read(query_rels, {"city_name": self.city_name})
         
-        aristas_añadidas = 0
+        loaded_rels = 0
         for r in rels:
-            if str(r['trail_id']) in rutas_del_train:
+            if str(r['trail_id']) in train_routes:
                 exito =self.graph.addEdge(r['p1_id'], r['p2_id'], r)
                 if exito:
-                    aristas_añadidas += 1
+                    loaded_rels += 1
 
-        print(f"[BuildGraph] {aristas_añadidas} relaciones válidas agregadas (se han descartado las que no cumplen con los criterios).")
+        print(f"[Build Graph] {loaded_rels} valid relationships added (the ones that don't meet the criteria were discarded).")
 
         output_dir = os.path.join(self.import_path, self.city_name)
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, f"{self.city_name}.gt")
         if os.path.exists(output_file):
-            print(f"[BuildGraph] Advertencia: El archivo {output_file} ya existe y será sobrescrito.")
+            print(f"[BuildGraph] The file {output_file} already exists and will be overwritten.")
 
-        #graphtool tiene una función para guardar rápido en un archivo
         self.graph.g.save(output_file)
-        print(f"[BuildGraph] Grafo guardado en {output_file}")
+        print(f"[BuildGraph] Graph saved to {output_file}")
 
 if __name__ == "__main__":
     connection = Neo4jConnection()
     ld = LoadDB(connection)
-    cities = ld.listCities()
+    cities = ld.list_cities()
 
-    print("=== CARGA DE GRAFOS GT ===")
+    print("=== Loading GT Graphs ===")
 
     if not cities:
-        print("No se encontraron ciudades en la base de datos.")
+        print("No cities found in the database. Please run LoadDB.py first to populate the database with data.")
     
-    print("\n=== OPCIONES ===")
+    print("\n=== OPTIONS ===")
     for i, city in enumerate(cities):
         print(f"{i + 1}. {city}")
 
     try:
-        seleccion = int(input("\nElija una opción: "))
+        seleccion = int(input("\nChoose an option: "))
         if 1 <= seleccion <= len(cities):
             city_name = cities[seleccion - 1]
-            print(f"\nConstruyendo grafo para {city_name}...")
+            print(f"\nBuilding graph for {city_name}...")
             builder = BuildGraph(connection, city_name)
             builder.build()
         else:
-            print("Selección no válida.")
+            print("Invalid selection.")
     except ValueError:
-        print("Entrada no válida. Por favor, ingrese un número.")
+        print("Invalid input. Please enter a number.")
 

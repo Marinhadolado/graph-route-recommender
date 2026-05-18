@@ -71,22 +71,10 @@ class LoadDB:
         return cities
 
     def loadPOIs(self, filepath, city_name):
-        """
-        Carga los POIs a la base de datos.
-        Usamos el método de batch para cargar los datos para que se más eficiente
-        y menos rígido que la instruccion LOAD CSV. De esta forma procesamos los 
-        datos por lotes de 2000 filas
-        
-        :param self
-        :param filepath: archivo csv donde se encuentra toda la información 
-        de los pois
-        :param city_name: nombre de la ciudad cuyos pois se quieren poblar
-        """
+        """ Charges POI nodes into Neo4j from a CSV file using batch transactions. The CSV is read in chunks and data is cleaned and transformed before insertion."""
 
-        # usamos la librería pandas para leer el csv más fácilmente como strings
         f = pd.read_csv(filepath, dtype=str)
 
-        #antes de nada reemplazamos vacios por None
         data = f.fillna("").to_dict('records')
 
         query = """
@@ -117,8 +105,6 @@ class LoadDB:
         """
 
         print(f"    Procesando {len(data)} POIs...")
-        # al ser archivos grandes con millones de datos vamos a ir leyendo por
-        # filas de 10.000 en 10.000
         chunck_size= 10000 
         processed= 0
 
@@ -126,42 +112,30 @@ class LoadDB:
             with self.driver.session() as session:
 
                 for chunck in reader:
-                    chunck = chunck.fillna("") #convierte huecos vacíos el ""
+                    chunck = chunck.fillna("")
 
-                    batch_data = chunck.to_dict('records')#convierte la tabla de chuncksize lineas en una lista de ids 0...chuncksize
+                    batch_data = chunck.to_dict('records')
 
                     session.run(query, batch=batch_data, cityName=city_name)
 
                     processed+= len(batch_data)
 
-                    print(f"   -> Procesados {processed} POIs...", end='\r')
+                    print(f"   -> Processed {processed} POIs...", end='\r')
 
         return processed
 
     def loadTrails(self, filepath, city_name):
-        """
-        Carga las relaciones a la base de datos
-
-        :param self: Descripción
-        :param filepath: archivo csv donde se encuentra toda la información 
-        de las rutas y relaciones
-        :param city_name: nombre de la ciudad cuyos pois se quieren poblar
-        """  
+        """ Charges trail relationships into Neo4j from a CSV file. The CSV is read in chunks, cleaned, and transformed to create VISITED relationships between POIs with properties derived from the original data.   """  
         
-        # 1. Leemos todo como String inicialmente para seguridad
         df = pd.read_csv(filepath, sep=';', dtype=str)
         
         print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
 
-        # 2. Convertimos Fechas a UTC (Vital para evitar el error de Mixed Timezones)
         df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce', utc=True)
-        # Convertimos números
         numeric_cols = ['temp', 'precip', 'windspeed']
         for col in numeric_cols:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)
 
-        # 3. Lógica de 'Siguiente Paso' (Python hace el trabajo duro)
-        # Esto pone el destino en la misma fila que el origen.
         df['next_venue_id'] = df['venue_id'].shift(-1)
         df['next_timestamp'] = df['timestamp'].shift(-1)
         df['next_user_id'] = df['user_id'].shift(-1)
@@ -172,24 +146,19 @@ class LoadDB:
             if col in df.columns:
                 df[f'next_{col}'] = df[col].shift(-1)
 
-        # 4. Filtrado: Solo mantenemos filas donde el "siguiente" pertenece al mismo user/trail
         valid_rows = (df['user_id'] == df['next_user_id']) & \
                      (df['trail_id'] == df['next_trail_id']) & \
                      (df['venue_id'] != df['next_venue_id']) 
 
         df = df[valid_rows].copy()
 
-        # 5. Calculamos duración en minutos
         df['time_diff_min'] = (df['next_timestamp'] - df['timestamp']).dt.total_seconds() / 60.0
 
-        # Formato de Fechas para Neo4j (ISO String)
         df['timestamp'] = df['timestamp'].dt.strftime('%Y-%m-%dT%H:%M:%S')
         df['next_timestamp'] = df['next_timestamp'].dt.strftime('%Y-%m-%dT%H:%M:%S')
 
-        # Limpieza de nulos (Pandas NaN -> Python None)
         df = df.where(pd.notnull(df), None)
 
-       # la query no necesita hacer ordenaciones ni collect complejos.
         query = """
         UNWIND $batch AS row
         
@@ -222,27 +191,26 @@ class LoadDB:
 
         batch_size = 5000
         total = len(df)
-        print(f"    Procesando {total} relaciones...")
+        print(f"    Processing {total} relationships...")
 
         with self.driver.session() as session:
             for start in range(0, total, batch_size):
                 end = start + batch_size
                 batch = df.iloc[start:end].to_dict('records')
                 session.run(query, batch=batch)
-                print(f"      Progreso: {end}/{total}", end='\r')
+                print(f"      Progress: {end}/{total}", end='\r')
 
         print("")
         return total
 
-    def loadCity(self, city_name):
+    def load_city(self, city_name):
         print(f"[LoadData] --------- Loading data from city {city_name}---------")
 
         city_dir = os.path.join(self.import_path, city_name)
         if not os.path.exists(city_dir):
-            print(f"[LoadData] ERROR no existe directorio: {city_dir}")
+            print(f"[LoadData] ERROR the directory does not exist: {city_dir}")
             return
 
-        # una vez dentro de la carpeta de la ciudad obtenemos los csv
         city_files= os.listdir(city_dir)
         pois_file=None
         trail_file=None
@@ -255,53 +223,49 @@ class LoadDB:
                 trail_file= file
             
         if pois_file is None or trail_file is None:
-            print(f"[LoadData] ERROR: faltan archivos de la ciudad {city_name}")
-            print("       Se requiere: 'pois.csv' y 'trail_train.csv'")
+            print(f"[LoadDB] ERROR: Missing files for city {city_name}")
+            print("       Required files: 'pois.csv' and 'trail_train.csv'")
             return
         
-        # antes de nada limpiar la base de datos
         self.clear_database()
 
-        # antes de cargar nada creamos los índices necesarios 
         self.create_indexes()
 
-        # ahora cargamos los POIS
-        print("[LoadData] Cargando nodos...")
+        print("[LoadDB] Loading nodes...")
         num_pois=self.loadPOIs(os.path.join(city_dir, pois_file), city_name)
 
-        # ahora cargamos las relaciones
-        print("[LoadData] Cargando relaciones...")
+        print("[LoadDB] Loading relationships...")
         num_rels=self.loadTrails(os.path.join(city_dir, trail_file), city_name)
 
-        print("[LoadData] DB POBLADA")
-        print(f"[LoadData] Con {num_pois} pois y {num_rels} relaciones")
+        print("[LoadDB] Data loading completed.")
+        print(f"[LoadDB] With {num_pois} pois and {num_rels} relationships")
 
 if __name__ == "__main__":
     connection = Neo4jConnection()
     ld= LoadDB(connection)
     cities= ld.list_cities()
 
-    print("=== CARGA DE DATOS EN NEO4J ===")
+    print("=== Data Loading in Neo4j ===")
 
     if not cities:
-        print(f"No se encontraron archivos para la carga de datos en {ld.import_path}")
+        print(f"The directory {ld.import_path} does not contain any city data.")
         exit()
 
-    print("\n=== OPCIONES ===")
+    print("\n=== OPTIONS ===")
     for i, city in enumerate(cities):
         print(f"{i + 1}. {city}")
 
     limpiar = len(cities) + 1
-    print(f"{limpiar}. SOLO Limpiar la Base de Datos")
+    print(f"{limpiar}. ONLY Clear the Database (no loading)")
 
     try:
-        seleccion = int(input("\n> Elige una opción: ")) - 1
+        seleccion = int(input("\n> Choose an option: ")) - 1
         if 0 <= seleccion < len(cities):
-            ld.loadCity(cities[seleccion])
+            ld.load_city(cities[seleccion])
         elif seleccion == limpiar - 1:
             ld.clear_database()
         else:
-            print(" Opción no válida.")
+            print(" No valid option.")
     except ValueError:
-        print("Por favor, introduce un número.")
+        print("Please enter a number.")
 

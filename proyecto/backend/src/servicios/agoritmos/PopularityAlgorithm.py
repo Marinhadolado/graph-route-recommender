@@ -1,5 +1,5 @@
 from servicios.RecommendationAlgorithm import RecommendationAlgorithm
-from grafo.GTGraph import GTGraph
+from graph.GTGraph import GTGraph
 
 class PopularityAlgorithm(RecommendationAlgorithm):
     

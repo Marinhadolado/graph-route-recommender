@@ -5,9 +5,7 @@ from graph_tool.util import find_edge
 class GTGraph:
     def __init__(self):
         self.g = Graph(directed=True)
-        
 
-        # vertice poi
         self.vp_fsq_id = self.g.new_vertex_property("string")
         self.g.vp["fsq_id"] = self.vp_fsq_id
 
@@ -38,32 +36,31 @@ class GTGraph:
         self.vp_city = self.g.new_vertex_property("string")
         self.g.vp["city"] = self.vp_city
 
-        # (horario datos)
-        self.vp_wk_em = self.g.new_vertex_property("int") # Weekday EarlyMorning
+        # scheduling
+        self.vp_wk_em = self.g.new_vertex_property("int")
         self.g.vp["Weekday_EarlyMorning"] = self.vp_wk_em
 
-        self.vp_wk_m = self.g.new_vertex_property("int")  # Weekday Morning
+        self.vp_wk_m = self.g.new_vertex_property("int")
         self.g.vp["Weekday_Morning"] = self.vp_wk_m
 
-        self.vp_wk_a = self.g.new_vertex_property("int")  # Weekday Afternoon
+        self.vp_wk_a = self.g.new_vertex_property("int")
         self.g.vp["Weekday_Afternoon"] = self.vp_wk_a
 
-        self.vp_wk_n = self.g.new_vertex_property("int")  # Weekday Night
+        self.vp_wk_n = self.g.new_vertex_property("int")
         self.g.vp["Weekday_Night"] = self.vp_wk_n
 
-        self.vp_we_em = self.g.new_vertex_property("int") # Weekend EarlyMorning
+        self.vp_we_em = self.g.new_vertex_property("int")
         self.g.vp["Weekend_EarlyMorning"] = self.vp_we_em
 
-        self.vp_we_m = self.g.new_vertex_property("int")  # Weekend Morning
+        self.vp_we_m = self.g.new_vertex_property("int")
         self.g.vp["Weekend_Morning"] = self.vp_we_m
 
-        self.vp_we_a = self.g.new_vertex_property("int")  # Weekend Afternoon
+        self.vp_we_a = self.g.new_vertex_property("int")
         self.g.vp["Weekend_Afternoon"] = self.vp_we_a
 
-        self.vp_we_n = self.g.new_vertex_property("int")  # Weekend Night
+        self.vp_we_n = self.g.new_vertex_property("int")
         self.g.vp["Weekend_Night"] = self.vp_we_n
         
-        # aristas datos
         self.ep_user_id = self.g.new_edge_property("string")
         self.g.ep["user_id"] = self.ep_user_id
         self.ep_trail_id = self.g.new_edge_property("string")
@@ -98,21 +95,20 @@ class GTGraph:
         self.ep_time_diff = self.g.new_edge_property("double")
         self.g.ep["time_diff"] = self.ep_time_diff
 
-        # Mapas para traducción rápida (O(1)) entre fsq_id y vértices
         self.id_map = {} 
         
     def _parse_date(self, date_str):
+        """ Converts an ISO date string to a timestamp. """
         if not date_str or date_str == 'None' or date_str == '':
             return 0.0
         try:
-            # Convierte '2018-07-30T20:03:00' a objeto datetime y luego a timestamp
             dt = datetime.fromisoformat(str(date_str).replace('Z', ''))
             return float(dt.timestamp())
         except ValueError:
             return 0.0
         
     def addNode(self, poi_data):
-        """Añade un nodo al grafo si no existe."""
+        """Add a node in the graph."""
         fsq_id = poi_data.get('fsq_id')
         if fsq_id not in self.id_map:
             v = self.g.add_vertex()
@@ -142,8 +138,8 @@ class GTGraph:
         return self.id_map[fsq_id]
 
     def addEdge(self, from_id, to_id, rel_data):
-        """Crea una conexión entre dos POIs."""
-        if from_id in self.id_map and to_id in self.id_map: # Solo añadimos la arista si ambos nodos existen en el grafo
+        """Creates a connection between two POIs."""
+        if from_id in self.id_map and to_id in self.id_map:
             e = self.g.add_edge(self.id_map[from_id], self.id_map[to_id])
             
             self.ep_user_id[e] = str(rel_data.get('user_id', ''))
@@ -167,63 +163,55 @@ class GTGraph:
             self.ep_time_diff[e] = float(rel_data.get('time_diff', 0.0))
 
             return True
-        print(f"[GTGraph] Advertencia: No se pudo agregar la arista de {from_id} a {to_id} porque uno de los nodos no existe en el grafo.")
+        print(f"[GTGraph] The relationship from {from_id} to {to_id} could not be added because one of the nodes does not exist in the graph.")
         if from_id not in self.id_map:
-            print(f" - Nodo de origen no encontrado: {from_id}")
+            print(f" - Source node not found: {from_id}")
         if to_id not in self.id_map:
-            print(f" - Nodo de destino no encontrado: {to_id}")
+            print(f" - Destination node not found: {to_id}")
         return False
 
     
-    def getFilteredNeighbors(self, fsq_id, pois_evitar, context):
-        """
-        Devuelve vecinos filtrados por historial y contexto usando GraphView en O(1).
-        """
+    def getFilteredNeighbors(self, fsq_id, pois_avoid, context):
+        """ Returns a list of neighboring POIs (fsq_id) for a given POI, applying filters to exclude certain POIs and/or relationships based on the provided context. """
         if fsq_id not in self.id_map:
             return []
 
-        v_actual = self.id_map[fsq_id]
+        current_v = self.id_map[fsq_id]
 
-        # primero los pois que querramos evitar los ocultamos con un filtro bool
         v_filter = self.g.new_vertex_property("bool", val=True)
-        if pois_evitar:
-            for poi_id in pois_evitar:
+        if pois_avoid:
+            for poi_id in pois_avoid:
                 if poi_id in self.id_map:
                     v_filter[self.id_map[poi_id]] = False
 
-        v_filter[v_actual] = True
+        v_filter[current_v] = True
 
-        # ahora si tenemos contexto de condiciones meteorológicas, ocultamos también las aristas que no cumplan la condición
         e_filter = self.g.new_edge_property("bool", val=True)
         if context:
-            for e in v_actual.out_edges():
-                es_arista_valida = True
+            for e in current_v.out_edges():
+                is_valid_rel = True
                 
-                # Comprobamos todos los posibles filtros dinámicamente
                 if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
-                    es_arista_valida = False
+                    is_valid_rel = False
                     
                 if 'preciptype' in context and self.ep_p1_preciptype[e] != str(context['preciptype']):
-                    es_arista_valida = False
+                    is_valid_rel = False
                     
                 if 'temp' in context and self.ep_p1_temp[e] != float(context['temp']):
-                    es_arista_valida = False
+                    is_valid_rel = False
                     
                 if 'precip' in context and self.ep_p1_precip[e] != float(context['precip']):
-                    es_arista_valida = False
+                    is_valid_rel = False
                     
                 if 'windspeed' in context and self.ep_p1_windspeed[e] != float(context['windspeed']):
-                    es_arista_valida = False
+                    is_valid_rel = False
 
-                # Si falla cualquiera de las condiciones, ocultamos la ruta
-                e_filter[e] = es_arista_valida
+                e_filter[e] = is_valid_rel
 
-        # hacemos la vista del grafo con los filtros aplicados(elimina los vertices sin afectar a los índices originales)
         subgrafo = GraphView(self.g, vfilt=v_filter, efilt=e_filter)
 
-        # obtenemos los vecinos del nodo actual en el subgrafo
         neighbors = []
-        v_subgrafo = subgrafo.vertex(v_actual)
+        v_subgrafo = subgrafo.vertex(current_v)
         
         for n in v_subgrafo.out_neighbors():
             neighbors.append(self.vp_fsq_id[n])
@@ -231,21 +219,19 @@ class GTGraph:
         return neighbors
     
     def getCityName(self):
-        """Devuelve el nombre de la ciudad leyendo el primer nodo del grafo"""
+        """ Returns the name of the city by reading the first node of the graph """
         if self.g.num_vertices() > 0:
-            primer_vertice = self.g.vertex(0)
-            return self.vp_city[primer_vertice]
+            first_vertex = self.g.vertex(0)
+            return self.vp_city[first_vertex]
         return "NOCITY"
     
     def getUserHistory(self, user_id):
-        """Devuelve una lista de fsq_id que el usuario ya ha visitado históricamente."""
+        """ Returns a list of fsq_id that the user has already visited historically. """
+        routes_user_id = find_edge(self.g, self.ep_user_id, str(user_id))
         
-        # Busca todas las relaciones que pertenecen a este usuario
-        rutas_user_id = find_edge(self.g, self.ep_user_id, str(user_id))
-        
-        historial = set()
-        for ruta in rutas_user_id:
-            historial.add(self.vp_fsq_id[ruta.source()])
-            historial.add(self.vp_fsq_id[ruta.target()])
+        history = set()
+        for route in routes_user_id:
+            history.add(self.vp_fsq_id[route.source()])
+            history.add(self.vp_fsq_id[route.target()])
             
-        return list(historial)
+        return list(history)

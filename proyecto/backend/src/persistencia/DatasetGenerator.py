@@ -1,6 +1,3 @@
-# Este archivo genera los .csv necesarios para entrenar el modelo de predicción
-# Este archivo es un scrit que deberá ser ejecutado manualemente 
-
 import os
 import csv
 import sys
@@ -10,7 +7,7 @@ from .Neo4jConnection import Neo4jConnection
 class DatasetGenerator:
     def __init__(self, db_connection):
         if not isinstance(db_connection, Neo4jConnection):
-            raise TypeError("El argumento db_connection debe ser una instancia de Neo4jConnection")
+            raise TypeError("The argument db_connection must be an instance of Neo4jConnection")
 
         self.driver = db_connection.driver
         try:
@@ -18,49 +15,39 @@ class DatasetGenerator:
             base_dir= os.path.dirname(os.path.abspath(__file__))
             self.output_dir= os.path.join(base_dir, "../..", "dataset")
             os.makedirs(self.output_dir, exist_ok=True)
-            print("[DATASET GENERATOR] Conexión exitosa a la base de datos Neo4j")
+            print("[Dataset Generator] Connection successful to the Neo4j database")
 
         except Exception as e:
-            print(f"[DATASET GENERATOR] Error al conectar a la base de datos Neo4j: {e}")
+            print(f"[Dataset Generator] Error connecting to the Neo4j database: {e}")
             raise
 
     def __str__(self):
-        return "DatasetGenerator conectado a Neo4j"
+        return "DatasetGenerator connected to Neo4j"
 
-    def cerrar_conexion(self):  
+    def close_connection(self):  
         self.driver.close()
 
-    def generateDataset(self, num_trails, min_steps, city_name):
-        print("[DATASET GENERATOR] Generando dataset...")
+    def generate_dataset(self, num_trails, min_steps, city_name):
+        print("[Dataset Generator] Generating dataset...")
 
-        print("[DATASET GENERATOR] PASO1: Consultando Neo4j para obtener las rutas válidas.")
-        print("[DATASET GENERATOR] Criterios de selección:")
-        print(f"   -> Usuarios con al menos {num_trails} rutas distintas.")
-        print(f"   -> Cada ruta debe tener al menos {min_steps + 1} POIs ({min_steps} saltos).")
+        print("[Dataset Generator] Selection criteria:")
+        print(f"   -> Users with at least {num_trails} distinct routes.")
+        print(f"   -> Each route must have at least {min_steps + 1} POIs ({min_steps} jumps).")
 
-        # consultamos las rutas que hayan sido realizadas por usuarios con al menos 2 rutas
-        # y que cada ruta tenga al menos 4 POIs(3 saltos)
         data = self._fetch_valid_trails(num_trails=num_trails, min_steps=min_steps, city_name=city_name)
 
         if not data:
-            print("[DATASET GENERATOR] No se encontraron rutas válidas en la base de datos.")
+            print("[Dataset Generator] No valid routes found in the database.")
             return
         
-        print(f"[DATASET GENERATOR] PASO2: Escribiendo dataset en {self.output_dir}/dataset.csv")
-        # Escribimos los datos en un archivo CSV
+        print(f"[Dataset Generator] Writing dataset to {self.output_dir}/dataset.csv")
         output_file = os.path.join(self.output_dir, "dataset.csv")
         self._write_to_csv(output_file, data)
 
-        print("[DATASET GENERATOR] PASO3: Split del dataset en train y test (80%-20%)")
+        print("[Dataset Generator] Split the dataset in train and test (80%-20%)")
         self._split_dataset(output_file)
 
-    #FUNCIONES AUXILIARES PARA GENERAR EL DATASET
     def _fetch_valid_trails(self, num_trails, min_steps, city_name):
-        # QUERY EXPLICADA:
-        # Filtramos usuarios que tengan al menos {num_trails} rutas distintas (trail_id).
-        # Filtramos rutas que tengan al menos {min_steps} POIs
-        # Ordenamos cronológicamente.
-        print(f"[DATASET GENERATOR] ANTES DE LA QUERY")
         query = """
         MATCH (p1:POI)-[r:VISITED]->()
         WHERE p1.city = $city_name
@@ -107,7 +94,6 @@ class DatasetGenerator:
         data = []
         with self.driver.session() as session:
             result = session.run(query, num_trails=num_trails, min_steps=min_steps, city_name=city_name)
-            #convertimos el resultado a lista para poder mirar alante y atras
             result_list = list(result)
 
             if not result_list:
@@ -126,13 +112,11 @@ class DatasetGenerator:
             for record in result_list:
                 row = dict(record)
                 
-                # Si cambiamos de ruta, reseteamos el seguimiento
                 if row['trail_id'] != current_trail:
                     current_trail = row['trail_id']
                     last_added_poi = None
                     counter = 1
 
-                # Si hay un salto (agujero) o es el primer paso, añadimos el nodo de origen (poi1)
                 if last_added_poi != row['poi1_id']:
                     data.append({
                         'trail_id': row['trail_id'],
@@ -150,7 +134,6 @@ class DatasetGenerator:
                     })
                     counter += 1
 
-                # SIEMPRE añadimos el nodo de destino (poi2) para no perderlo jamás
                 data.append({
                     'trail_id': row['trail_id'],
                     'user_id': row['user_id'],
@@ -189,15 +172,13 @@ class DatasetGenerator:
         train_file = os.path.join(self.output_dir, "train.csv")
         test_file = os.path.join(self.output_dir, "test.csv")
         
-        routes_dict = {} # ejemplo { trail_id1: [row1, row2,...], trail_id2: [...] }
+        routes_dict = {}
         routes_timestamps = {}
         header = []
 
-        # Leer el archivo y agrupar por 'trail_id' en un diccionario routes_dict
         with open(input_file, mode='r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             
-            # Guardamos la cabecera
             header = reader.fieldnames
             
             for row in reader:
@@ -210,10 +191,8 @@ class DatasetGenerator:
                 
                 routes_dict[t_id].append(row)
         
-        # Obtener lista de rutas
         sorted_trail_ids = sorted(routes_timestamps, key=routes_timestamps.get, reverse=True)        
         
-        # Calcular el punto de corte
         total_routes = len(sorted_trail_ids)
         split_idx = int(0.2 * total_routes)
         
@@ -224,11 +203,10 @@ class DatasetGenerator:
         print(f"   -> Train Rutas: {len(train_ids)}")
         print(f"   -> Test Rutas:  {len(test_ids)}")
         
-        # 4. Escribir archivos
         self._write_split_file(train_file, header, train_ids, routes_dict)
         self._write_split_file(test_file, header, test_ids, routes_dict)
 
-        print(f"[DATASET GENERATOR] Archivos generados en {self.output_dir}")
+        print(f"[Dataset Generator] Files generated in {self.output_dir}")
 
     def _write_split_file(self, filepath, header, trail_ids, routes_dict):
         with open(filepath, mode='w', newline='', encoding='utf-8') as f:
@@ -238,16 +216,16 @@ class DatasetGenerator:
                 writer.writerows(routes_dict[t_id])
 
     def delete_existing_files(self):
-        print("[DATASET GENERATOR] Eliminando archivos existentes en el directorio de dataset...")
+        print("[Dataset Generator] Deleting existing files in the dataset directory...")
 
         for filename in os.listdir(self.output_dir):
             file_path = os.path.join(self.output_dir, filename)
             try:
                 if os.path.isfile(file_path):
                     os.unlink(file_path)
-                    print(f"   -> Archivo eliminado: {file_path}")
+                    print(f"   -> File deleted: {file_path}")
             except Exception as e:
-                print(f"[DATASET GENERATOR] Error al eliminar el archivo {file_path}: {e}")
+                print(f"[Dataset Generator] Error deleting the file {file_path}: {e}")
 
 if __name__ == "__main__":
     connection = Neo4jConnection()
@@ -259,14 +237,14 @@ if __name__ == "__main__":
             min_steps = int(sys.argv[1])
             num_trails = int(sys.argv[2])
             city_name = sys.argv[3]
-            generate_dataset.generateDataset(num_trails=num_trails, min_steps=min_steps, city_name=city_name)
+            generate_dataset.generate_dataset(num_trails=num_trails, min_steps=min_steps, city_name=city_name)
         else:
-            print("[DATASET GENERATOR] Proporciona el número mínimo de pasos y el número mínimo de rutas por usuario como argumentos.")
-            print("     -> Uso: python src/DatasetGenerator.py <min_steps> <num_trails> <city_name>")
-            print("     -> Ejemplo: python src/DatasetGenerator.py 3 2 NYC")
+            print("[Dataset Generator] Provide the minimum number of steps and the minimum number of routes per user as arguments.")
+            print("     -> Usage: python src/DatasetGenerator.py <min_steps> <num_trails> <city_name>")
+            print("     -> Example: python src/DatasetGenerator.py 3 2 NYC")
     
     except Exception as e:
-        print(f"[DATASET GENERATOR] Error durante la generación del dataset: {e}")
+        print(f"[Dataset Generator] Error during dataset generation: {e}")
 
     finally:
-        generate_dataset.cerrar_conexion()
+        generate_dataset.close_connection()

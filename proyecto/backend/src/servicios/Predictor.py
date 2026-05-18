@@ -3,7 +3,7 @@ import os
 import csv
 import json
 from datetime import datetime
-from grafo.GraphRepository import GraphRepository
+from graph.GraphRepository import GraphRepository
 from servicios.RecommendationService import RecommendationService
 from persistencia.Neo4jConnection import Neo4jConnection
 

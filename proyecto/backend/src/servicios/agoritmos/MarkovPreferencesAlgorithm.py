@@ -1,5 +1,5 @@
 from servicios.RecommendationAlgorithm import RecommendationAlgorithm
-from grafo.GTGraph import GTGraph
+from graph.GTGraph import GTGraph
 import os
 import pickle
 #importamos la librería Counter para contar las repeticiones de cada vecino de forma rápida
