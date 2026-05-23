@@ -66,7 +66,7 @@ class Predictor:
     def generate_predictions(self, user_id, context, steps, algorithm, suffix=""):
         print("[PREDICTOR] Generando predicciones con algoritmo:", algorithm)
 
-        grafo = self.graph_repository.getGraph()
+        grafo = self.graph_repository.get_graph()
 
         #Paso1: leemos el fichero test.csv        
         test_file=os.path.join(self.dataset_dir,'test.csv')
