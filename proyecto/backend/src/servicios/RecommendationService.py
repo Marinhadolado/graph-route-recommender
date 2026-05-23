@@ -4,6 +4,7 @@ from servicios.agoritmos.PopularityAlgorithm import PopularityAlgorithm
 from servicios.agoritmos.MarkovAlgorithm import MarkovAlgorithm
 from servicios.RecommendationAlgorithm import RecommendationAlgorithm 
 from servicios.agoritmos.MarkovPreferencesAlgorithm import MarkovPreferencesAlgorithm
+from servicios.agoritmos.PreferencesAlgorithm import PreferencesAlgorithm
 
 class RecommendationService:
 
@@ -12,7 +13,8 @@ class RecommendationService:
             'random': RandomAlgorithm,
             'popularity': PopularityAlgorithm,
             'markov': MarkovAlgorithm,
-            'markov_preferences': MarkovPreferencesAlgorithm
+            'markov_preferences': MarkovPreferencesAlgorithm,
+            'preferences': PreferencesAlgorithm
         }
 
         self.current_peso_markov = 0.5
@@ -51,6 +53,8 @@ class RecommendationService:
                 peso_markov=self.current_peso_markov, 
                 peso_nmf=self.current_peso_nmf
             )
+        elif algorithm_name.lower() == 'preferences':
+            algorithm_instance = algorithmClass(city_name=ciudad_actual)
         else:
             algorithm_instance = algorithmClass()
         
