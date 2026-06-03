@@ -1,18 +1,21 @@
 import json
 import os
 from servicios.Predictor import Predictor
+import random
 
 def ejecutar_experimentos_tfg(user_id, city_name):
     # Definimos las combinaciones de pesos (Markov, NMF)
     # 20_80 significa 20% importancia a la ruta y 80% a los gustos personales
     pruebas = [
+        (0.0, 1.0),
         (0.2, 0.8),
         (0.3, 0.7),
         (0.4, 0.6),
         (0.5, 0.5),
         (0.6, 0.4),
         (0.7, 0.3),
-        (0.8, 0.2)
+        (0.8, 0.2),
+        (1.0, 0.0)
     ]
     
     # Instanciamos el predictor una sola vez para ahorrar recursos
@@ -27,6 +30,8 @@ def ejecutar_experimentos_tfg(user_id, city_name):
 
     for p_markov, p_nmf in pruebas:
         # crear el sufijo identificador
+        random.seed(42)
+
         m_int = int(p_markov * 100)
         n_int = int(p_nmf * 100)
         sufijo = f"{m_int}_{n_int}"

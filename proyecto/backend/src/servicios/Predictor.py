@@ -3,6 +3,7 @@ import os
 import csv
 import json
 from datetime import datetime
+import random
 from graph.GraphRepository import GraphRepository
 from servicios.RecommendationService import RecommendationService
 from persistencia.Neo4jConnection import Neo4jConnection
@@ -186,7 +187,7 @@ if __name__ == "__main__":
                 print(f"Ejemplo: '{{\"conditions\": \"Clear\", \"rating\": 8.0}}'\n")
                 sys.exit(1)
 
-
+        random.seed(42)
         predictor= Predictor(city_name)
         print(f"[PREDICTOR] Iniciando predicciones para el usuario: {user_id}")
 
