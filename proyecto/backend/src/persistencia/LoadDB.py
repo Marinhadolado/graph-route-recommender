@@ -1,12 +1,17 @@
 import os
 import sys
 import pandas as pd
+from zoneinfo import ZoneInfo
 from datetime import datetime
 from .Neo4jConnection import Neo4jConnection
 
 
 class LoadDB:
     """Handles database purging, indexing, and transactional batch data loading into Neo4j."""
+    CITY_TZ = {
+        "Tokyo": "Asia/Tokyo",
+        "NYC":   "America/New_York",
+    }
 
     def __init__(self, db_connection):
         if not isinstance(db_connection, Neo4jConnection):
@@ -149,8 +154,10 @@ class LoadDB:
         
         print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
 
+        tz = self.CITY_TZ.get(city_name, "UTC")
         df['p1_time_segment'] = df['timestamp'].apply(LoadDB.time_segment)
-        df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+        df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce', utc=True).dt.tz_convert(tz)
+        
         numeric_cols = ['temp', 'precip', 'windspeed']
         for col in numeric_cols:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)                                                                                               
