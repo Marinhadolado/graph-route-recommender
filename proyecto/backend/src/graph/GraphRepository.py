@@ -62,8 +62,10 @@ class GraphRepository:
         mi_gt_graph.ep_p1_preciptype = graph_lg.ep["p1_preciptype"]
         mi_gt_graph.ep_p1_time_segment = graph_lg.ep["p1_time_segment"]
 
-        print(f"[Graph Repository] se ha cargado la arista con p1_time_segment de ejemplo: {mi_gt_graph.ep_p1_time_segment[mi_gt_graph.g.edge(0)]}")
-
+        primera = next(iter(mi_gt_graph.g.edges()), None)
+        if primera is not None:
+            print(f"[Graph Repository] ejemplo p1_time_segment: {mi_gt_graph.ep_p1_time_segment[primera]!r}")
+        
         mi_gt_graph.ep_p2_timestamp = graph_lg.ep["p2_timestamp"]
         mi_gt_graph.ep_p2_temp = graph_lg.ep["p2_temp"]
         mi_gt_graph.ep_p2_precip = graph_lg.ep["p2_precip"]
