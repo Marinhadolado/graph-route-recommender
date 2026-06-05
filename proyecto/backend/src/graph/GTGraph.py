@@ -187,6 +187,7 @@ class GTGraph:
                     v_filter[self.id_map[poi_id]] = False
 
         v_filter[current_v] = True
+        print(f"[GTGraph] aristas del nodo {fsq_id}: {[self.vp_fsq_id[n] for n in current_v.out_neighbors()]}")
     
         e_filter = self.g.new_edge_property("bool", val=True)
         if context:
@@ -194,6 +195,7 @@ class GTGraph:
                 is_valid_rel = True
 
                 if 'time_segment' in context and self.ep_p1_time_segment[e] != str(context['time_segment']):
+                    print(f"[GTGraph] Se queda fuera {e} por time_segment: {self.ep_p1_time_segment[e]} != {context['time_segment']}")
                     is_valid_rel = False
 
                 if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
