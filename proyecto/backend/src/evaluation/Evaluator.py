@@ -90,7 +90,7 @@ class Evaluator:
         
         metricas = ["hit_rate@1", "hit_rate@5", "hit_rate@10", "ndcg@1", "ndcg@5", "ndcg@10","mrr@1","mrr@5","mrr@10"]
 
-        evaluacion = evaluate(qrels, run, metricas, make_comparable=True)
+        evaluacion = evaluate(qrels, run, metricas, make_comparable=False)
 
         titulo = f"{self.algorithm_name.upper()}"
         if self.suffix:
