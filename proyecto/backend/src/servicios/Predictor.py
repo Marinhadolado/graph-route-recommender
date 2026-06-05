@@ -114,6 +114,9 @@ class Predictor:
 
             writer.writerow(["trail_id", "step", "candidate_rank", "poi_id", "prediction"])
 
+            n_con_candidatos = 0
+            n_vacios = 0
+
             #vamos ruta por ruta añadiendo info a prediction.csv
             for trail_id, trail_steps in routes.items():
                 if not trail_steps:
@@ -145,9 +148,12 @@ class Predictor:
                         pois_evitar=pois_evitar,
                         graph=grafo
                     )
-                    
+
                     if not candidates:
+                        n_vacios += 1
                         continue
+
+                    n_con_candidatos += 1
 
                     for c in candidates:
                         recomendados_en_ruta.add(c['poi_id'])
@@ -163,6 +169,12 @@ class Predictor:
                             f"{candidate['prediction']:.4f}"
                         ])
         print(f"[PREDICTOR] Predicciones guardadas en {output_file}.")
+
+        total_pasos = n_con_candidatos + n_vacios
+        if total_pasos > 0:
+            cobertura = 100.0 * n_con_candidatos / total_pasos
+            print(f"[PREDICTOR] Cobertura: {n_con_candidatos}/{total_pasos} pasos con candidatos "
+                  f"({cobertura:.1f}%) | vacíos: {n_vacios}")
 
         stats = self.recommender.get_timing_stats()
         if stats['n_ranking'] > 0:

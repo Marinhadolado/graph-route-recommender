@@ -22,7 +22,7 @@ def ejecutar_experimentos_tfg(user_id, city_name):
     predictor = Predictor(city_name)
     
     # Parámetros por defecto para tu evaluación
-    context = None  # Cambiar por un dict si quieres probar con clima/hora
+    context = None
     steps = 1
     algorithm = "markov_preferences"
 
