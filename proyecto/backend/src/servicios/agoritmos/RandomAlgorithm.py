@@ -19,18 +19,20 @@ class RandomAlgorithm(RecommendationAlgorithm):
         #dentro de esta funcion filtramos y obtenemos el subgrafo
         neighbors = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context)
 
+        unique_neighbors = set(neighbors)
+
         candidates = []
 
-        if len(neighbors) == 0:
+        if len(unique_neighbors) == 0:
             return []
         
-        puntuaciones_azar = list(range(len(neighbors)))
+        puntuaciones_azar = list(range(len(unique_neighbors)))
         random.shuffle(puntuaciones_azar)
         
         candidates = []
         # vamos elemento a elemento de neighbors y le asignamos un número 
         # aleatorio de los creados
-        for i, n_id in enumerate(neighbors):
+        for i, n_id in enumerate(unique_neighbors):
             candidates.append({
                 'poi_id': n_id,
                 'prediction': float(puntuaciones_azar[i])
