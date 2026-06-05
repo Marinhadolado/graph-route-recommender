@@ -85,6 +85,18 @@ class Evaluator:
         qrels_dict= self._load_Qrel()
         run_dict = self._load_run()
 
+        consultas_sin_candidatos = 0
+        for query_id in qrels_dict:
+            if query_id not in run_dict:
+                run_dict[query_id] = {"__NO_REC__": 0.0}
+                consultas_sin_candidatos += 1
+
+        total = len(qrels_dict)
+        cobertura = 100.0 * (total - consultas_sin_candidatos) / total if total else 0.0
+        print(f"[Evaluator] Cobertura: {total - consultas_sin_candidatos}/{total} "
+              f"consultas con recomendación ({cobertura:.1f}%) | "
+              f"sin candidatos: {consultas_sin_candidatos}")
+
         qrels = Qrels(qrels_dict)
         run = Run(run_dict, name=f"{self.city_name}_{self.algorithm_name}")
         
@@ -93,7 +105,7 @@ class Evaluator:
         evaluacion = evaluate(qrels, run, metricas, make_comparable=False)
 
         titulo = f"{self.algorithm_name.upper()}"
-        if self.suffix:
+        if self.suffix:                                         
             titulo += f" (Weights: {self.suffix})"
 
         print(f"\n RESULTS FOR: {titulo}")
