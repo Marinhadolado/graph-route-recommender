@@ -78,6 +78,8 @@ class GTGraph:
         self.g.ep["p1_conditions"] = self.ep_p1_conditions
         self.ep_p1_preciptype = self.g.new_edge_property("string")
         self.g.ep["p1_preciptype"] = self.ep_p1_preciptype
+        self.ep_p1_time_segment = self.g.new_edge_property("string")
+        self.g.ep["p1_time_segment"] = self.ep_p1_time_segment
 
         self.ep_p2_timestamp = self.g.new_edge_property("double")
         self.g.ep["p2_timestamp"] = self.ep_p2_timestamp
@@ -91,6 +93,8 @@ class GTGraph:
         self.g.ep["p2_conditions"] = self.ep_p2_conditions
         self.ep_p2_preciptype = self.g.new_edge_property("string")
         self.g.ep["p2_preciptype"] = self.ep_p2_preciptype
+        self.ep_p2_time_segment = self.g.new_edge_property("string")
+        self.g.ep["p2_time_segment"] = self.ep_p2_time_segment
 
         self.ep_time_diff = self.g.new_edge_property("double")
         self.g.ep["time_diff"] = self.ep_time_diff
@@ -159,7 +163,7 @@ class GTGraph:
             self.ep_p2_windspeed[e] = float(rel_data.get('p2_windspeed', 0.0))
             self.ep_p2_conditions[e] = str(rel_data.get('p2_conditions', ''))
             self.ep_p2_preciptype[e] = str(rel_data.get('p2_preciptype', ''))
-
+            self.ep_p2_time_segment[e] = str(rel_data.get('p2_time_segment', ''))
             self.ep_time_diff[e] = float(rel_data.get('time_diff', 0.0))
 
             return True
@@ -185,12 +189,15 @@ class GTGraph:
                     v_filter[self.id_map[poi_id]] = False
 
         v_filter[current_v] = True
-
+    
         e_filter = self.g.new_edge_property("bool", val=True)
         if context:
             for e in current_v.out_edges():
                 is_valid_rel = True
-                
+
+                if 'time_segment' in context and self.ep_p1_time_segment[e] != str(context['time_segment']):
+                    is_valid_rel = False
+
                 if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
                     is_valid_rel = False
                     

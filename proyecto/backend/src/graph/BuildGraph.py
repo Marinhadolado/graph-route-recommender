@@ -75,6 +75,7 @@ class BuildGraph:
                r.p2_timestamp as p2_timestamp, r.p2_temp as p2_temp, 
                r.p2_precip as p2_precip, r.p2_windspeed as p2_windspeed, 
                r.p2_conditions as p2_conditions, r.p2_preciptype as p2_preciptype,
+               r.p1_time_segment as p1_time_segment, r.p2_time_segment as p2_time_segment,
                r.time_diff_min as time_diff
         """
         rels = self.db.run_read(query_rels, {"city_name": self.city_name})

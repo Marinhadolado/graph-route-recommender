@@ -1,6 +1,7 @@
 import os
 import sys
 import pandas as pd
+from datetime import datetime
 from .Neo4jConnection import Neo4jConnection
 
 
@@ -69,6 +70,24 @@ class LoadDB:
                 cities.append(city)
 
         return cities
+    
+    @staticmethod
+    def time_segment(iso_str):
+        """ Derives the time segment (Weekday/Weekend + part of day) from an ISO timestamp
+        that still carries its local UTC offset (e.g. '2017-10-14 08:58:00+09:00'). """
+        if not iso_str:
+            return ''
+        try:
+            dt = datetime.fromisoformat(str(iso_str))
+        except ValueError:
+            return ''
+        part = ("EarlyMorning" if dt.hour < 6 else
+                "Morning"      if dt.hour < 12 else
+                "Afternoon"    if dt.hour < 18 else
+                "Night")
+        day = "Weekend" if dt.weekday() >= 5 else "Weekday"
+
+        return f"{day}_{part}"
 
     def loadPOIs(self, filepath, city_name):
         """ Charges POI nodes into Neo4j from a CSV file using batch transactions. The CSV is read in chunks and data is cleaned and transformed before insertion."""
@@ -131,10 +150,12 @@ class LoadDB:
         
         print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
 
+        df['p1_time_segment'] = df['timestamp'].apply(LoadDB.time_segment)
+
         df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce', utc=True)
         numeric_cols = ['temp', 'precip', 'windspeed']
         for col in numeric_cols:
-            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)                                                                                               
 
         df['next_venue_id'] = df['venue_id'].shift(-1)
         df['next_timestamp'] = df['timestamp'].shift(-1)
@@ -177,6 +198,7 @@ class LoadDB:
             p1_windspeed: toFloat(row.windspeed),
             p1_conditions: row.conditions,
             p1_preciptype: CASE WHEN row.preciptype IS NULL THEN '' ELSE toString(row.preciptype) END,
+            p1_time_segment: CASE WHEN row.p1_time_segment IS NULL THEN '' ELSE toString(row.p1_time_segment) END,
 
             p2_timestamp: row.next_timestamp,
             p2_temp: toFloat(row.next_temp),
@@ -184,6 +206,7 @@ class LoadDB:
             p2_windspeed: toFloat(row.next_windspeed),
             p2_conditions: row.next_conditions,
             p2_preciptype: CASE WHEN row.next_preciptype IS NULL THEN '' ELSE toString(row.next_preciptype) END,
+            p2_time_segment: CASE WHEN row.next_p1_time_segment IS NULL THEN '' ELSE toString(row.next_p1_time_segment) END,
             
             time_diff_min: toFloat(row.time_diff_min)
         }]->(p2)
