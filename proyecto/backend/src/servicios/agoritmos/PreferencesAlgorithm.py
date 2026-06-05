@@ -13,9 +13,7 @@ class PreferencesAlgorithm(RecommendationAlgorithm):
         try:
             with open(model_path, 'rb') as f:
                 self.modelo_nmf = pickle.load(f)
-            print(f"[PreferencesAlgorithm] Modelo NMF cargado correctamente.")
         except FileNotFoundError:
-            print(f"[PreferencesAlgorithm] ERROR: No se encontró el modelo en {model_path}.")
             self.modelo_nmf = None
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_evitar, context, k=50):

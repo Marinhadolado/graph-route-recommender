@@ -206,7 +206,6 @@ class LoadDB:
             p2_windspeed: toFloat(row.next_windspeed),
             p2_conditions: row.next_conditions,
             p2_preciptype: CASE WHEN row.next_preciptype IS NULL THEN '' ELSE toString(row.next_preciptype) END,
-            p2_time_segment: CASE WHEN row.next_p1_time_segment IS NULL THEN '' ELSE toString(row.next_p1_time_segment) END,
             
             time_diff_min: toFloat(row.time_diff_min)
         }]->(p2)
@@ -214,7 +213,7 @@ class LoadDB:
 
         batch_size = 5000
         total = len(df)
-        print(f"    Processing {total} relationships...")
+        print(f"    Processing {total} relationships(pre-filtered)...")
 
         with self.driver.session() as session:
             for start in range(0, total, batch_size):
@@ -261,7 +260,7 @@ class LoadDB:
         num_rels=self.loadTrails(os.path.join(city_dir, trail_file), city_name)
 
         print("[LoadDB] Data loading completed.")
-        print(f"[LoadDB] With {num_pois} pois and {num_rels} relationships")
+        print(f"[LoadDB] With {num_pois} pois and {num_rels} previousrelationships")
 
 if __name__ == "__main__":
     connection = Neo4jConnection()

@@ -93,9 +93,7 @@ class GTGraph:
         self.g.ep["p2_conditions"] = self.ep_p2_conditions
         self.ep_p2_preciptype = self.g.new_edge_property("string")
         self.g.ep["p2_preciptype"] = self.ep_p2_preciptype
-        self.ep_p2_time_segment = self.g.new_edge_property("string")
-        self.g.ep["p2_time_segment"] = self.ep_p2_time_segment
-
+        
         self.ep_time_diff = self.g.new_edge_property("double")
         self.g.ep["time_diff"] = self.ep_time_diff
 
@@ -163,7 +161,6 @@ class GTGraph:
             self.ep_p2_windspeed[e] = float(rel_data.get('p2_windspeed', 0.0))
             self.ep_p2_conditions[e] = str(rel_data.get('p2_conditions', ''))
             self.ep_p2_preciptype[e] = str(rel_data.get('p2_preciptype', ''))
-            self.ep_p2_time_segment[e] = str(rel_data.get('p2_time_segment', ''))
             self.ep_time_diff[e] = float(rel_data.get('time_diff', 0.0))
 
             return True

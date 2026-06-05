@@ -18,9 +18,7 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         try:
             with open(model_path, 'rb') as f:
                 self.modelo_nmf = pickle.load(f)
-            print(f"[MarkovPreferencesAlgorithm] Modelo NMF cargado correctamente.")
         except FileNotFoundError:
-            print(f"[MarkovPreferencesAlgorithm] ERROR: No se encontró el modelo en {model_path}. Ejecuta EntrenarNMF.py primero.")
             self.modelo_nmf = None
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_evitar, context, k=50):
@@ -82,12 +80,6 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         if self.modelo_nmf:
             user_map = self.modelo_nmf['user_map']
             user_matrix_idx = user_map.get(str(user_id))
-
-            if user_matrix_idx is not None:
-                print(f"[DEBUG NMF] ¡Usuario {user_id} ENCONTRADO en la matriz NMF! Fila: {user_matrix_idx}")
-            else:
-                print(f"[DEBUG NMF] ¡ATENCIÓN! Usuario {user_id} NO EXISTE en NMF (Cold Start).")
-        
 
         porcentaje_vecinos_temp = {}
         suma_nmf = 0.0

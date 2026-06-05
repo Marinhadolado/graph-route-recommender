@@ -68,7 +68,6 @@ class GraphRepository:
         mi_gt_graph.ep_p2_windspeed = graph_lg.ep["p2_windspeed"]
         mi_gt_graph.ep_p2_conditions = graph_lg.ep["p2_conditions"]
         mi_gt_graph.ep_p2_preciptype = graph_lg.ep["p2_preciptype"]
-        mi_gt_graph.ep_p2_time_segment = graph_lg.ep["p2_time_segment"]
 
         mi_gt_graph.ep_time_diff = graph_lg.ep["time_diff"]
         

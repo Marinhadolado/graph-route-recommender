@@ -68,6 +68,7 @@ class Predictor:
         print("[PREDICTOR] Generando predicciones con algoritmo:", algorithm)
 
         grafo = self.graph_repository.get_graph()
+        self.recommender.reset_timers()
 
         #Paso1: leemos el fichero test.csv        
         test_file=os.path.join(self.dataset_dir,'test.csv')
@@ -96,7 +97,6 @@ class Predictor:
             return
         
         print(f"[PREDICTOR] Procesando {len(routes)} rutas para predicción...")
-        print(f"[PREDICTOR] RUTAS: {list(routes.keys())}...")
 
         # Paso2: vamos ruta por ruta y aplicamos la función de predicción
         #antes de ir ruta por ruta creamos el nombre del csv
@@ -162,7 +162,15 @@ class Predictor:
                             candidate['poi_id'],
                             f"{candidate['prediction']:.4f}"
                         ])
-        print(f"[PREDICTOR] Predicciones guardadas en {output_file}.")                  
+        print(f"[PREDICTOR] Predicciones guardadas en {output_file}.")
+
+        stats = self.recommender.get_timing_stats()
+        if stats['n_ranking'] > 0:
+            print(f"[PREDICTOR] Tiempo medio de ranking por consulta: {stats['tiempo_medio_ms']:.3f} ms "
+                  f"(sobre {stats['n_ranking']} consultas)")
+            print(f"[PREDICTOR] Tiempo total de ranking: {stats['tiempo_ranking_total_s']:.2f} s")
+        else:
+            print("[PREDICTOR] Sin medición de tiempo (algoritmo excluido de la comparativa de eficiencia).")                 
             
 if __name__ == "__main__":
 
