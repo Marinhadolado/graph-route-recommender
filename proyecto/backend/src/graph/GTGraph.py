@@ -155,6 +155,7 @@ class GTGraph:
             self.ep_p1_windspeed[e] = float(rel_data.get('p1_windspeed', 0.0))
             self.ep_p1_conditions[e] = str(rel_data.get('p1_conditions', ''))
             self.ep_p1_preciptype[e] = str(rel_data.get('p1_preciptype', ''))
+            self.ep_p1_time_segment[e] = str(rel_data.get('p1_time_segment', ''))
 
             self.ep_p2_temp[e] = float(rel_data.get('p2_temp', 0.0))
             self.ep_p2_precip[e] = float(rel_data.get('p2_precip', 0.0))
