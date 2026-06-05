@@ -86,7 +86,6 @@ class LoadDB:
                 "Afternoon"    if dt.hour < 18 else
                 "Night")
         day = "Weekend" if dt.weekday() >= 5 else "Weekday"
-
         return f"{day}_{part}"
 
     def loadPOIs(self, filepath, city_name):
@@ -151,8 +150,7 @@ class LoadDB:
         print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
 
         df['p1_time_segment'] = df['timestamp'].apply(LoadDB.time_segment)
-
-        df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce', utc=True)
+        df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
         numeric_cols = ['temp', 'precip', 'windspeed']
         for col in numeric_cols:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)                                                                                               
