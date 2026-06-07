@@ -132,8 +132,6 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         # bucle para recalcular el porcentaje de cada vecino teniendo en cuenta la parte de NMF 
         # y normalizando después para que sumen 1.0
         porcentaje_vecinos = {}
-
-        # creamos una lista para ir guardando todos los mensajes de texto en la memoria
         
         for poi_dest_id, scores in porcentaje_vecinos_temp.items():
             p_markov = scores['markov']

@@ -22,7 +22,7 @@ class PreferencesAlgorithm(RecommendationAlgorithm):
         """
         # 1. Obtenemos los vecinos accesibles desde el POI actual
         # Usamos set() para eliminar duplicados, ya que aquí NO nos importan las frecuencias de paso
-        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context=None)
+        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_evitar, context)
         if not neighbors_no_context:
             return []
             

@@ -186,15 +186,25 @@ class GTGraph:
                 if poi_id in self.id_map:
                     v_filter[self.id_map[poi_id]] = False
 
+        if context and 'time_segment' in context:
+            franja_a_vp = {
+                "Weekday_EarlyMorning": self.vp_wk_em, "Weekday_Morning": self.vp_wk_m,
+                "Weekday_Afternoon":    self.vp_wk_a,  "Weekday_Night":   self.vp_wk_n,
+                "Weekend_EarlyMorning": self.vp_we_em, "Weekend_Morning": self.vp_we_m,
+                "Weekend_Afternoon":    self.vp_we_a,  "Weekend_Night":   self.vp_we_n,
+            }
+            vp_franja = franja_a_vp.get(str(context['time_segment']))
+            if vp_franja is not None:
+                for n in current_v.out_neighbors():
+                    if vp_franja[n] == 0:
+                        v_filter[n] = False
+
         v_filter[current_v] = True
     
         e_filter = self.g.new_edge_property("bool", val=True)
         if context:
             for e in current_v.out_edges():
                 is_valid_rel = True
-
-                if 'time_segment' in context and self.ep_p1_time_segment[e] != str(context['time_segment']):
-                    is_valid_rel = False
 
                 if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
                     is_valid_rel = False
