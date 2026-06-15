@@ -1,5 +1,6 @@
 import time
 from graph.GraphRepository import GraphRepository
+from graph.GTGraph import GTGraph
 from servicios.agoritmos.RandomAlgorithm import RandomAlgorithm
 from servicios.agoritmos.PopularityAlgorithm import PopularityAlgorithm
 from servicios.agoritmos.MarkovAlgorithm import MarkovAlgorithm
@@ -24,6 +25,7 @@ class RecommendationService:
         self._instances = {}
 
         self.tiempo_ranking = 0.0
+        self.tiempo_ranking_puro = 0.0
         self.n_ranking = 0
     
     def set_weights(self, peso_markov, peso_nmf):
@@ -35,13 +37,17 @@ class RecommendationService:
     def reset_timers(self):
         self.tiempo_ranking = 0.0
         self.n_ranking = 0
+        self.tiempo_ranking_puro = 0.0
 
     def get_timing_stats(self):
         media_ms = (1000.0 * self.tiempo_ranking / self.n_ranking) if self.n_ranking > 0 else 0.0
+        media_ms_puro = (1000.0 * self.tiempo_ranking_puro / self.n_ranking) if self.n_ranking > 0 else 0.0
         return {
             'n_ranking': self.n_ranking,
             'tiempo_ranking_total_s': self.tiempo_ranking,
             'tiempo_medio_ms': media_ms,
+            'tiempo_ranking_puro_total_s': self.tiempo_ranking_puro,
+            'tiempo_medio_puro_ms': media_ms_puro,
         }
 
     def _get_instance(self, algorithm_name, ciudad_actual):
@@ -98,13 +104,20 @@ class RecommendationService:
             print(f"[SERVICE] ERROR: La clase del algoritmo '{algorithm_name}' no implementa RecommendationAlgorithm.")
             return []
         
+        if not isinstance(graph, GTGraph):
+            print(f"[SERVICE] ERROR: El grafo proporcionado no es una instancia de GTGraph.")
+            return []
+        
         if algorithm_name.lower() == 'markov_preferences':
             candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_evitar, context)
         else:
+            graph.reset_prefilter_timer()
             t0 = time.perf_counter()
             candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_evitar, context)
             t1 = time.perf_counter()
-            self.tiempo_ranking += (t1 - t0)
+            tiempo_total = t1 - t0
+            self.tiempo_ranking += tiempo_total
+            self.tiempo_ranking_puro += (tiempo_total - graph.tiempo_prefiltrado)
             self.n_ranking += 1
             
         return candidates

@@ -1,6 +1,7 @@
 from graph_tool.all import Graph, GraphView
 from datetime import datetime
 from graph_tool.util import find_edge
+import time
 
 class GTGraph:
     def __init__(self):
@@ -98,6 +99,12 @@ class GTGraph:
         self.g.ep["time_diff"] = self.ep_time_diff
 
         self.id_map = {} 
+        self.tiempo_prefiltrado = 0.0
+        self.n_prefiltrado = 0
+
+    def reset_prefilter_timer(self):
+        self.tiempo_prefiltrado = 0.0
+        self.n_prefiltrado = 0
         
     def _parse_date(self, date_str):
         """ Converts an ISO date string to a timestamp. """
@@ -171,67 +178,71 @@ class GTGraph:
         if to_id not in self.id_map:
             print(f" - Destination node not found: {to_id}")
         return False
-
     
     def getFilteredNeighbors(self, fsq_id, pois_avoid, context):
         """ Returns a list of neighboring POIs (fsq_id) for a given POI, applying filters to exclude certain POIs and/or relationships based on the provided context. """
-        if fsq_id not in self.id_map:
-            return []
+        t0 = time.perf_counter()
+        try:
+            if fsq_id not in self.id_map:
+                return []
 
-        current_v = self.id_map[fsq_id]
+            current_v = self.id_map[fsq_id]
 
-        v_filter = self.g.new_vertex_property("bool", val=True)
-        if pois_avoid:
-            for poi_id in pois_avoid:
-                if poi_id in self.id_map:
-                    v_filter[self.id_map[poi_id]] = False
+            v_filter = self.g.new_vertex_property("bool", val=True)
+            if pois_avoid:
+                for poi_id in pois_avoid:
+                    if poi_id in self.id_map:
+                        v_filter[self.id_map[poi_id]] = False
 
-        if context and 'time_segment' in context:
-            franja_a_vp = {
-                "Weekday_EarlyMorning": self.vp_wk_em, "Weekday_Morning": self.vp_wk_m,
-                "Weekday_Afternoon":    self.vp_wk_a,  "Weekday_Night":   self.vp_wk_n,
-                "Weekend_EarlyMorning": self.vp_we_em, "Weekend_Morning": self.vp_we_m,
-                "Weekend_Afternoon":    self.vp_we_a,  "Weekend_Night":   self.vp_we_n,
-            }
-            vp_franja = franja_a_vp.get(str(context['time_segment']))
-            if vp_franja is not None:
-                for n in current_v.out_neighbors():
-                    if vp_franja[n] == 0:
-                        v_filter[n] = False
+            if context and 'time_segment' in context:
+                franja_a_vp = {
+                    "Weekday_EarlyMorning": self.vp_wk_em, "Weekday_Morning": self.vp_wk_m,
+                    "Weekday_Afternoon":    self.vp_wk_a,  "Weekday_Night":   self.vp_wk_n,
+                    "Weekend_EarlyMorning": self.vp_we_em, "Weekend_Morning": self.vp_we_m,
+                    "Weekend_Afternoon":    self.vp_we_a,  "Weekend_Night":   self.vp_we_n,
+                }
+                vp_franja = franja_a_vp.get(str(context['time_segment']))
+                if vp_franja is not None:
+                    for n in current_v.out_neighbors():
+                        if vp_franja[n] == 0:
+                            v_filter[n] = False
 
-        v_filter[current_v] = True
-    
-        e_filter = self.g.new_edge_property("bool", val=True)
-        if context:
-            for e in current_v.out_edges():
-                is_valid_rel = True
-
-                if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
-                    is_valid_rel = False
-                    
-                if 'preciptype' in context and self.ep_p1_preciptype[e] != str(context['preciptype']):
-                    is_valid_rel = False
-                    
-                if 'temp' in context and self.ep_p1_temp[e] != float(context['temp']):
-                    is_valid_rel = False
-                    
-                if 'precip' in context and self.ep_p1_precip[e] != float(context['precip']):
-                    is_valid_rel = False
-                    
-                if 'windspeed' in context and self.ep_p1_windspeed[e] != float(context['windspeed']):
-                    is_valid_rel = False
-
-                e_filter[e] = is_valid_rel
-
-        subgrafo = GraphView(self.g, vfilt=v_filter, efilt=e_filter)
-
-        neighbors = []
-        v_subgrafo = subgrafo.vertex(current_v)
+            v_filter[current_v] = True
         
-        for n in v_subgrafo.out_neighbors():
-            neighbors.append(self.vp_fsq_id[n])
+            e_filter = self.g.new_edge_property("bool", val=True)
+            if context:
+                for e in current_v.out_edges():
+                    is_valid_rel = True
 
-        return neighbors
+                    if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
+                        is_valid_rel = False
+                        
+                    if 'preciptype' in context and self.ep_p1_preciptype[e] != str(context['preciptype']):
+                        is_valid_rel = False
+                        
+                    if 'temp' in context and self.ep_p1_temp[e] != float(context['temp']):
+                        is_valid_rel = False
+                        
+                    if 'precip' in context and self.ep_p1_precip[e] != float(context['precip']):
+                        is_valid_rel = False
+                        
+                    if 'windspeed' in context and self.ep_p1_windspeed[e] != float(context['windspeed']):
+                        is_valid_rel = False
+
+                    e_filter[e] = is_valid_rel
+
+            subgrafo = GraphView(self.g, vfilt=v_filter, efilt=e_filter)
+
+            neighbors = []
+            v_subgrafo = subgrafo.vertex(current_v)
+            
+            for n in v_subgrafo.out_neighbors():
+                neighbors.append(self.vp_fsq_id[n])
+
+            return neighbors
+        finally:
+            self.tiempo_prefiltrado += (time.perf_counter() - t0)
+            self.n_prefiltrado += 1
     
     def getCityName(self):
         """ Returns the name of the city by reading the first node of the graph """
