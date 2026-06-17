@@ -1,34 +1,149 @@
-Paso 1: Levantar el contenedor
-    docker-compose up ó docker compose up
+# Context-Aware POI Route Recommender
 
-Paso2: activar conda
-    conda activate tfg_graph
+Graph-based, context-aware system for next-POI prediction and tourist route
+recommendation, evaluated on cities data from the Context Trails dataset.
 
-Paso 3: Acceder a la raiz del proyecto y poblar la base de datos ejecutando lo siguiente:
-    python3 -m persistencia.LoadDB  
+It implements and compares five recommendation algorithms (Random, Popularity,
+Markov, NMF Preferences and a Markov+NMF hybrid) using Next-POI ranking metrics
+(HR@K, MRR@K, nDCG@K).
 
-Paso 4: Crear el Dataset con los filtros de minimo de saltos y minimo de rutas hechas por usuarios(ponemos muchos porque en tokyo hay muchos datos)
+The backend uses **Neo4j** for persistence and **graph-tool** for in-memory
+graph operations, with **Ranx** for evaluation.
 
-    python3 -m persistencia.DatasetGenerator 1 2 Tokyo
+---
 
-Paso 5:Construir el grafo en memoria(.gt), si aún no estan cargados:
+## Requirements
 
-    (desde src proyecto/backend/src$) python3 -m grafo.BuildGraph
+- Docker + Docker Compose (for Neo4j)
+- Python 3.x with the dependencies in `backend/requirements.txt`
+- A separate environment for NMF training that includes `scikit-surprise`
 
-paso intermedio si markov:
+```bash
+pip install -r backend/requirements.txt
+```
 
-    python3 -m servicios.algoritmos.EntrenamientoFM
+---
 
-Paso 6: Creamos el archivo de predicciones para el algoritmo que se quiera con:
+## Project layout
 
-    python3 -m servicios.Predictor 155648 '{"conditions": "Clear"}' 2 markov Tokyo
+```
+project/
+├── docker-compose.yml
+├── import/
+└── backend/
+    ├── dataset/
+    ├── predictions/
+    └── src/
+        ├── persistence/
+        ├── graph/
+        ├── services/
+            └── algorithms/
+        └── evaluation/
+```
+---
 
-Paso 7: Evaluamos los ficheros recomendadores:
+## Setup
 
-    python3 -m evaluacion.Evaluator
+1. Start Neo4j:
 
+   ```bash
+   docker-compose up -d
+   ```
 
+2. Run everything below from `backend/src/` using `python3 -m`.
 
+---
 
-    
+## Pipeline
 
+Run the steps in order. Steps 1–4 are the one-time data preparation; steps 5–6
+are the experiment loop you repeat per algorithm.
+
+### 1. Load data into Neo4j
+Interactive — pick the city. Purges and reloads the database.
+
+```bash
+python3 -m persistence.LoadDB
+```
+
+### 2. Generate the dataset (train/test split)
+Arguments: `<min_steps> <num_trails> <city>`
+
+```bash
+python3 -m persistence.DatasetGenerator 3 2 Tokyo
+```
+
+### 3. Build the in-memory graph (.gt)
+Interactive — pick the city. Produces `import/<City>/<City>.gt`.
+
+```bash
+python3 -m graph.BuildGraph
+```
+
+### 4. Train the NMF model (only for `preferences` and `markov_preferences`)
+Requires the environment with `scikit-surprise`. Produces
+`dataset/fm_<City>.pkl`.
+
+```bash
+python3 -m services.algorithms.FMTraining
+```
+
+### 5. Generate predictions
+Arguments: `<user_id> <context> <algorithm> <city>`
+`context` is `None` or a JSON string. Algorithms: `random`, `popularity`,
+`markov`, `preferences`, `markov_preferences`.
+
+```bash
+# No context
+python3 -m services.Predictor 155648 None popularity Tokyo
+
+# With context
+python3 -m services.Predictor 155648 '{"conditions": "Partially cloudy", "time_segment": "Weekend_EarlyMorning"}' popularity Tokyo
+```
+
+### 6. Evaluate
+Interactive — pick the city and algorithm. For `markov_preferences` it also
+asks for a weight suffix (e.g. `50_50`). Reads the most recent prediction file.
+
+```bash
+python3 -m evaluation.Evaluator
+```
+
+---
+
+## Hybrid weight sweep
+
+To generate predictions for every Markov/NMF weight combination at once:
+
+```bash
+python3 -m services.MarkovPreferencesExperiment
+```
+
+Then evaluate each combination via `Evaluator`, choosing `markov_preferences`
+and the suffix you want (e.g. `20_80`, `50_50`, `70_30`).
+
+---
+
+## Quick smoke test
+
+Verifies the full pipeline runs without errors after a code change:
+
+```bash
+python3 -m services.Predictor 155648 None random Tokyo      && python3 -m evaluation.Evaluator
+python3 -m services.Predictor 155648 None popularity Tokyo  && python3 -m evaluation.Evaluator
+python3 -m services.Predictor 155648 None markov Tokyo      && python3 -m evaluation.Evaluator
+python3 -m services.Predictor 155648 None preferences Tokyo && python3 -m evaluation.Evaluator
+```
+
+---
+
+## Notes
+
+- Always run modules with `python3 -m` from `backend/src/` so package imports
+  resolve correctly.
+- If you regenerate the dataset (step 2), rebuild the graph (step 3) and
+  retrain NMF (step 4) so all artifacts stay consistent.
+- `preferences` and `markov_preferences` need `fm_<City>.pkl`; if it is missing
+  the model is skipped and predictions fall back to the available signal.
+- Neo4j connection defaults can be overridden with the `NEO4J_URI`,
+  `NEO4J_USER` and `NEO4J_PASSWORD` environment variables.

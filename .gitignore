@@ -1,26 +1,23 @@
-/proyecto/db/
+# Python
+__pycache__/
+*.pyc
 
-# Archivos de log
+# Entornos virtuales
+project/backend/venv/
+
+# Logs
 *.log
 
-/proyeceto/backend/venv/
+# Artefactos generados (no versionar)
+project/db/
+project/import/
+project/backend/predictions/
 
-/proyecto/import/Tokyo/
+# Modelos entrenados
+*.pkl
 
-/extra/cities/
-
-/proyecto/backend/__pycache__/
-
-/proyecto/backend/src/__pycache__/
-
-/tfg_graphtool.zip
-
-/tfg_neo4j.zip
-
-/proyecto/backend/predictions/
-
+# Comprimidos
 *.zip
 
-dataset/
-*.csv
-
+# Datasets generados (train/test/split) — NO los datos de entrada
+project/backend/dataset/

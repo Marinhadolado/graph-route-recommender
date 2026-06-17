@@ -1,6 +1,0 @@
-networkx
-treelib
-neo4j
-pandas
-numpy
-ranx
