@@ -1,23 +1,16 @@
-# Python
 __pycache__/
 *.pyc
 
-# Entornos virtuales
 project/backend/venv/
 
-# Logs
 *.log
 
-# Artefactos generados (no versionar)
 project/db/
 project/import/
 project/backend/predictions/
 
-# Modelos entrenados
 *.pkl
 
-# Comprimidos
 *.zip
 
-# Datasets generados (train/test/split) — NO los datos de entrada
 project/backend/dataset/
