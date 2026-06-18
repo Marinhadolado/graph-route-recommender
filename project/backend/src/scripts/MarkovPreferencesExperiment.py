@@ -19,7 +19,6 @@ def experiment(user_id, city_name):
     predictor = Predictor(city_name)
     
     context = None
-    steps = 1
     algorithm = "markov_preferences"
 
     print(f"=== STARTING EXPERIMENT BATTERY FOR {city_name} ===")
@@ -38,7 +37,6 @@ def experiment(user_id, city_name):
         predictor.generate_predictions(
             user_id=user_id, 
             context=context, 
-            steps=steps, 
             algorithm=algorithm, 
             suffix=sufijo
         )

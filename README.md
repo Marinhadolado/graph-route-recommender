@@ -85,7 +85,7 @@ Requires the environment with `scikit-surprise`. Produces
 `dataset/fm_<City>.pkl`.
 
 ```bash
-python3 -m services.algorithms.FMTraining
+python3 -m scripts.FMTraining
 ```
 
 ### 5. Generate predictions
@@ -116,7 +116,7 @@ python3 -m evaluation.Evaluator
 To generate predictions for every Markov/NMF weight combination at once:
 
 ```bash
-python3 -m services.MarkovPreferencesExperiment
+python3 -m scripts.MarkovPreferencesExperiment
 ```
 
 Then evaluate each combination via `Evaluator`, choosing `markov_preferences`
