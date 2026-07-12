@@ -18,7 +18,6 @@ def experiment(user_id, city_name):
     
     predictor = Predictor(city_name)
     
-    context = None
     algorithm = "markov_preferences"
 
     print(f"=== STARTING EXPERIMENT BATTERY FOR {city_name} ===")
@@ -35,10 +34,10 @@ def experiment(user_id, city_name):
         predictor.recommender.set_weights(p_markov, p_nmf)
         
         predictor.generate_predictions(
-            user_id=user_id, 
-            context=context, 
-            algorithm=algorithm, 
-            suffix=sufijo
+            user_id=user_id,
+            algorithm=algorithm,
+            suffix=sufijo,
+            prefilter=False
         )
 
     predictor.close()

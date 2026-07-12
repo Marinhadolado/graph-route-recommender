@@ -147,7 +147,25 @@ class DatasetGenerator:
                     'city': city_name
                 })
                 counter += 1
-                last_added_poi = row['poi2_id']           
+                last_added_poi = row['poi2_id']     
+                
+        # --- Métricas del dataset depurado (FINAL) ---
+        pois_finales = {row['poi_id'] for row in data}
+        rutas_finales = {row['trail_id'] for row in data}
+        usuarios_finales = {row['user_id'] for row in data}
+        # pasos de ruta = nº de transiciones = (nº de POIs en cada ruta - 1) sumado
+        from collections import Counter
+        pasos_por_ruta = Counter(row['trail_id'] for row in data)
+        pasos_finales = sum(max(0, n - 1) for n in pasos_por_ruta.values())
+
+        print("========== DATASET FINAL (tras depuración) ==========")
+        print(f"[FINAL] POIs distintos:   {len(pois_finales)}")
+        print(f"[FINAL] Pasos de ruta:    {pasos_finales}")
+        print(f"[FINAL] Rutas válidas:    {len(rutas_finales)}")
+        print(f"[FINAL] Usuarios:         {len(usuarios_finales)}")
+        print("=====================================================")
+
+        return data      
             
         return data
     

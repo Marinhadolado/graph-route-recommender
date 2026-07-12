@@ -169,77 +169,86 @@ class GTGraph:
             self.ep_time_diff[e] = float(rel_data.get('time_diff', 0.0))
 
             return True
+        
         print(f"[GTGraph] The relationship from {from_id} to {to_id} could not be added because one of the nodes does not exist in the graph.")
+        
         if from_id not in self.id_map:
             print(f" - Source node not found: {from_id}")
+        
         if to_id not in self.id_map:
             print(f" - Destination node not found: {to_id}")
         return False
     
+    def _get_segment_vp(self, time_segment):
+        franja_a_vp = {
+            "Weekday_EarlyMorning": self.vp_wk_em, "Weekday_Morning": self.vp_wk_m,
+            "Weekday_Afternoon":    self.vp_wk_a,  "Weekday_Night":   self.vp_wk_n,
+            "Weekend_EarlyMorning": self.vp_we_em, "Weekend_Morning": self.vp_we_m,
+            "Weekend_Afternoon":    self.vp_we_a,  "Weekend_Night":   self.vp_we_n,
+        }
+        return franja_a_vp.get(str(time_segment))
+
+
     def getFilteredNeighbors(self, fsq_id, pois_avoid, context):
-        """ Returns a list of neighboring POIs (fsq_id) for a given POI, applying filters to exclude certain POIs and/or relationships based on the provided context. """
         t0 = time.perf_counter()
-        try:
-            if fsq_id not in self.id_map:
-                return []
-
-            current_v = self.id_map[fsq_id]
-
-            v_filter = self.g.new_vertex_property("bool", val=True)
-            if pois_avoid:
-                for poi_id in pois_avoid:
-                    if poi_id in self.id_map:
-                        v_filter[self.id_map[poi_id]] = False
-
-            if context and 'time_segment' in context:
-                franja_a_vp = {
-                    "Weekday_EarlyMorning": self.vp_wk_em, "Weekday_Morning": self.vp_wk_m,
-                    "Weekday_Afternoon":    self.vp_wk_a,  "Weekday_Night":   self.vp_wk_n,
-                    "Weekend_EarlyMorning": self.vp_we_em, "Weekend_Morning": self.vp_we_m,
-                    "Weekend_Afternoon":    self.vp_we_a,  "Weekend_Night":   self.vp_we_n,
-                }
-                vp_franja = franja_a_vp.get(str(context['time_segment']))
-                if vp_franja is not None:
-                    for n in current_v.out_neighbors():
-                        if vp_franja[n] == 0:
-                            v_filter[n] = False
-
-            v_filter[current_v] = True
         
-            e_filter = self.g.new_edge_property("bool", val=True)
+        try:
+            current_v = self.id_map.get(fsq_id)
+            if current_v is None:
+                return []
+ 
+            pois_avoid = pois_avoid or set()
+ 
+            #primero creamos las variables de filtrado
+            #ej: context = {"time_segment": "Weekday_Morning", "conditions": "Clear", "temp": 20.0, "precip": 0.0, "windspeed": 5.0}
+            # y hacemos que vp_franja= Weekday_Morning
+            vp_franja = None
+            f_conditions = f_preciptype = None
+            f_temp = f_precip = f_windspeed = None
             if context:
-                for e in current_v.out_edges():
-                    is_valid_rel = True
-
-                    if 'conditions' in context and self.ep_p1_conditions[e] != str(context['conditions']):
-                        is_valid_rel = False
-                        
-                    if 'preciptype' in context and self.ep_p1_preciptype[e] != str(context['preciptype']):
-                        is_valid_rel = False
-                        
-                    if 'temp' in context and self.ep_p1_temp[e] != float(context['temp']):
-                        is_valid_rel = False
-                        
-                    if 'precip' in context and self.ep_p1_precip[e] != float(context['precip']):
-                        is_valid_rel = False
-                        
-                    if 'windspeed' in context and self.ep_p1_windspeed[e] != float(context['windspeed']):
-                        is_valid_rel = False
-
-                    e_filter[e] = is_valid_rel
-
-            subgraph = GraphView(self.g, vfilt=v_filter, efilt=e_filter)
-
+                if 'time_segment' in context:
+                    vp_franja = self._get_segment_vp(context['time_segment'])
+                if 'conditions' in context:
+                    f_conditions = str(context['conditions'])
+                if 'preciptype' in context:
+                    f_preciptype = str(context['preciptype'])
+                if 'temp' in context:
+                    f_temp = float(context['temp'])
+                if 'precip' in context:
+                    f_precip = float(context['precip'])
+                if 'windspeed' in context:
+                    f_windspeed = float(context['windspeed'])
+ 
             neighbors = []
-            v_subgraph = subgraph.vertex(current_v)
-            
-            for n in v_subgraph.out_neighbors():
-                neighbors.append(self.vp_fsq_id[n])
-
+            for e in current_v.out_edges():
+                n = e.target()
+                n_id = self.vp_fsq_id[n]
+ 
+                if n_id in pois_avoid:
+                    continue
+                # si el nodo vecino no tiene visitas en la franja horaria, lo descartamos
+                if vp_franja is not None and vp_franja[n] == 0:
+                    continue
+ 
+                #si la relacion currentpoi -> n no cumple con las condiciones de filtrado, la descartamos
+                if f_conditions is not None and self.ep_p2_conditions[e] != f_conditions:
+                    continue
+                if f_preciptype is not None and self.ep_p2_preciptype[e] != f_preciptype:
+                    continue
+                if f_temp is not None and self.ep_p2_temp[e] != f_temp:
+                    continue
+                if f_precip is not None and self.ep_p2_precip[e] != f_precip:
+                    continue
+                if f_windspeed is not None and self.ep_p2_windspeed[e] != f_windspeed:
+                    continue
+ 
+                neighbors.append(n_id)
+ 
             return neighbors
         finally:
             self.prefilter_time += (time.perf_counter() - t0)
             self.n_prefilter += 1
+
     
     def getCityName(self):
         """ Returns the name of the city by reading the first node of the graph """

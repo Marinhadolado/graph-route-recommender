@@ -131,6 +131,11 @@ class LoadDB:
     def loadTrails(self, filepath, city_name):
         
         df = pd.read_csv(filepath, sep=';', dtype=str)
+        print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
+        print(f"[INICIAL] Check-ins crudos en CSV: {len(df)}")
+        print(f"[INICIAL] Rutas (trail_id) en CSV: {df['trail_id'].nunique()}")
+        print(f"[INICIAL] Usuarios en CSV: {df['user_id'].nunique()}")
+        print(f"[INICIAL] POIs distintos en CSV de trails: {df['venue_id'].nunique()}")
         
         print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
 
@@ -156,6 +161,9 @@ class LoadDB:
                      (df['venue_id'] != df['next_venue_id']) 
 
         df = df[valid_rows].copy()
+        print(f"[INICIAL] Pasos de ruta tras enlazado (aristas VISITED): {len(df)}")
+        print(f"[INICIAL] Rutas tras enlazado: {df['trail_id'].nunique()}")
+        print(f"[INICIAL] Usuarios tras enlazado: {df['user_id'].nunique()}")
 
         df['time_diff_min'] = (df['next_timestamp'] - df['timestamp']).dt.total_seconds() / 60.0
 

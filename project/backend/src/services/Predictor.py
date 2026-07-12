@@ -37,6 +37,48 @@ class Predictor:
         if self.neo4j_client:
             self.neo4j_client.close()
 
+    @staticmethod
+    def _time_segment_from_timestamp(timestamp_str):
+        
+        if not timestamp_str or str(timestamp_str) in ('', 'None'):
+            return None
+        try:
+            dt = datetime.fromisoformat(str(timestamp_str).replace('Z', ''))
+        except ValueError:
+            return None
+ 
+        day_type = "Weekend" if dt.weekday() >= 5 else "Weekday"
+ 
+        h = dt.hour
+        if h < 6:
+            segment = "EarlyMorning"
+        elif h < 12:
+            segment = "Morning"
+        elif h < 18:
+            segment = "Afternoon"
+        else:
+            segment = "Night"
+ 
+        return f"{day_type}_{segment}"
+    
+    def _build_step_context(self, row):
+        
+        context = {}
+ 
+        segment = self._time_segment_from_timestamp(row.get('timestamp'))
+        if segment:
+            context['time_segment'] = segment
+ 
+        conditions = (row.get('conditions') or '').strip()
+        if conditions and conditions.lower() != 'none':
+            context['conditions'] = conditions
+ 
+        if context:
+            return context
+        else:
+            return None 
+
+
     def _load_routes_from_csv(self, filepath):
 
         if not os.path.exists(filepath):
@@ -59,8 +101,14 @@ class Predictor:
 
         return routes
             
-    def generate_predictions(self, user_id, context, algorithm, suffix=""):
+    def generate_predictions(self, user_id, algorithm,suffix="", prefilter=True):
         print("[PREDICTOR] Generating predictions with algorithm:", algorithm)
+        if prefilter:
+            print("[PREDICTOR] Dynamic contextual prefiltering: ENABLED "
+                  "(time_segment + conditions derived per step)")
+        else:
+            print("[PREDICTOR] Contextual prefiltering: DISABLED")
+ 
 
         graph = self.graph_repository.get_graph()
         self.recommender.reset_timers()
@@ -86,12 +134,13 @@ class Predictor:
         if not history:
             print(f"[PREDICTOR] The user {user_id} has no history in the graph. No predictions can be generated.")
             return
+        history = set(history)
         
         print(f"[PREDICTOR] Processing {len(routes)} routes for prediction...")
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         if suffix:
-            filename= f"{self.city_name}_{algorithm}_{suffix}_{timestamp}.csv"
+            filename = f"{self.city_name}_{algorithm}_{suffix}_{timestamp}.csv"
         else:
             filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
         output_file = os.path.join(self.output_dir, filename)
@@ -118,13 +167,18 @@ class Predictor:
 
                     if poi_id not in graph.id_map:
                         continue
+                    
+                    if prefilter:
+                        step_context = self._build_step_context(current_step)
+                    else:
+                        step_context = None
 
                     pois_to_avoid= set(history).union(recommended_in_route)
 
                     candidates = self.recommender.getCandidates(
                         current_poi_id=poi_id,
                         user_id=user_id,
-                        context=context,
+                        context=step_context,
                         algorithm_name=algorithm,
                         pois_to_avoid=pois_to_avoid,
                         graph=graph
@@ -171,29 +225,27 @@ if __name__ == "__main__":
 
     try:
         if len(sys.argv) != 5:
-            print("Usage: python Predictor.py <user_id> <context> <algorithm> <city_name>")
+            print("Usage: python Predictor.py <user_id> <prefilter> <algorithm> <city_name>")
             print("If no context is provided, default values will be used.")
             sys.exit(1)
         user_id = sys.argv[1]
-        context_arg = sys.argv[2] 
+        prefilter_arg = sys.argv[2].strip().lower()
         algorithm = sys.argv[3]
         city_name = sys.argv[4]
 
-        if context_arg=="None":
-            context=None
+        if prefilter_arg in ("true", "1", "yes", "si", "sí"):
+            prefilter = True
+        elif prefilter_arg in ("false", "0", "no", "none"):
+            prefilter = False
         else:
-            try:
-                context = json.loads(context_arg)
-            except json.JSONDecodeError:
-                print(f"\n [PREDICTOR] ERROR: The provided context is not a valid JSON.")
-                print(f"Example: '{{\"conditions\": \"Clear\", \"rating\": 8.0}}'\n")
-                sys.exit(1)
+            print(f"[PREDICTOR] ERROR: prefilter must be 'true' or 'false' (got '{sys.argv[2]}').")                
+            sys.exit(1)
 
         random.seed(42)
         predictor= Predictor(city_name)
         print(f"[PREDICTOR] Starting predictions for user: {user_id}")
 
-        predictor.generate_predictions(user_id, context, algorithm)
+        predictor.generate_predictions(user_id, algorithm, prefilter=prefilter)
         if predictor:
             predictor.close()
     except Exception as e:
