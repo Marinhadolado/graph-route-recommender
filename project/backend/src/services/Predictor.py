@@ -169,7 +169,8 @@ class Predictor:
                         continue
                     
                     if prefilter:
-                        step_context = self._build_step_context(current_step)
+                        next_step = trail_steps[i + 1]
+                        step_context = self._build_step_context(next_step)
                     else:
                         step_context = None
 
