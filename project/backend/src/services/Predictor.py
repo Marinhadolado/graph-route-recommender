@@ -115,18 +115,13 @@ class Predictor:
         print("[PREDICTOR] Generating predictions with algorithm:", algorithm)
         if prefilter:
             if active_context:
-                label= "_".join(active_context)
+                label = "_".join(active_context)
             else:
-                label= "none"
-            if suffix:
-                full_suffix= f"{suffix}_{label}"
-            else:
-                full_suffix= label
-
-            print("[PREDICTOR] Dynamic contextual prefiltering: ENABLED "
-                  "(time_segment + conditions derived per step)")
+                label = "none"
+            full_suffix = f"{suffix}_{label}" if suffix else label
+            filename = f"{self.city_name}_{algorithm}_{full_suffix}_{timestamp}.csv"
         else:
-            print("[PREDICTOR] Contextual prefiltering: DISABLED")
+            filename = f"{self.city_name}_{algorithm}_noprefilter_{timestamp}.csv"
  
 
         graph = self.graph_repository.get_graph()
@@ -156,12 +151,7 @@ class Predictor:
         history = set(history)
         
         print(f"[PREDICTOR] Processing {len(routes)} routes for prediction...")
-
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        if suffix:
-            filename = f"{self.city_name}_{algorithm}_{full_suffix}_{timestamp}.csv"
-        else:
-            filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
+        
         output_file = os.path.join(self.output_dir, filename)
 
         print(f"[PREDICTOR] The result will be saved in: {filename}")

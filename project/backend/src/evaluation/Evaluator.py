@@ -113,13 +113,13 @@ class Evaluator:
 
     def evaluate(self, graph=None, k_coverage=5):
 
+        qrels_dict= self._load_Qrel()
+        run_dict = self._load_run()
+
         if graph is None:
             graph = GraphRepository(self.city_name).get_graph()
         coverage_diversity = self._evaluate_coverage_diversity(run_dict, graph, k_coverage=k_coverage)
-
-
-        qrels_dict= self._load_Qrel()
-        run_dict = self._load_run()
+        
 
         qrels = Qrels(qrels_dict)
         run = Run(run_dict, name=f"{self.city_name}_{self.algorithm_name}")
