@@ -61,7 +61,7 @@ class Predictor:
  
         return f"{day_type}_{segment}"
     
-    def _build_step_context(self, row):
+    def _build_step_context(self, row, active_context=None):
         
         context = {}
  
@@ -73,6 +73,16 @@ class Predictor:
         if conditions and conditions.lower() != 'none':
             context['conditions'] = conditions
  
+        if active_context is not None:
+            filtred_context = {}
+
+            for key, value in context.items():
+
+                if key in active_context:
+                    filtred_context[key] = value
+            
+            context = filtred_context
+
         if context:
             return context
         else:
@@ -101,9 +111,18 @@ class Predictor:
 
         return routes
             
-    def generate_predictions(self, user_id, algorithm,suffix="", prefilter=True):
+    def generate_predictions(self, user_id, algorithm,suffix="", prefilter=True, active_context=None):
         print("[PREDICTOR] Generating predictions with algorithm:", algorithm)
         if prefilter:
+            if active_context:
+                label= "_".join(active_context)
+            else:
+                label= "none"
+            if suffix:
+                full_suffix= f"{suffix}_{label}"
+            else:
+                full_suffix= label
+
             print("[PREDICTOR] Dynamic contextual prefiltering: ENABLED "
                   "(time_segment + conditions derived per step)")
         else:
@@ -140,7 +159,7 @@ class Predictor:
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         if suffix:
-            filename = f"{self.city_name}_{algorithm}_{suffix}_{timestamp}.csv"
+            filename = f"{self.city_name}_{algorithm}_{full_suffix}_{timestamp}.csv"
         else:
             filename = f"{self.city_name}_{algorithm}_{timestamp}.csv"
         output_file = os.path.join(self.output_dir, filename)
@@ -170,7 +189,7 @@ class Predictor:
                     
                     if prefilter:
                         next_step = trail_steps[i + 1]
-                        step_context = self._build_step_context(next_step)
+                        step_context = self._build_step_context(next_step, active_context=active_context)
                     else:
                         step_context = None
 
@@ -225,15 +244,21 @@ class Predictor:
 if __name__ == "__main__":
 
     try:
-        if len(sys.argv) != 5:
-            print("Usage: python Predictor.py <user_id> <prefilter> <algorithm> <city_name>")
+        if len(sys.argv) != 6:
+            print("Usage: python Predictor.py <user_id> <prefilter> <algorithm> <city_name> <active_context>")
             print("If no context is provided, default values will be used.")
+            print("  active_keys: coma-separado, ej. time_segment,conditions. Vacío = ninguno.")
             sys.exit(1)
         user_id = sys.argv[1]
         prefilter_arg = sys.argv[2].strip().lower()
         algorithm = sys.argv[3]
         city_name = sys.argv[4]
+        active_context = None
+        if len(sys.argv) == 6:
+            raw = sys.argv[5].strip()
+            active_context = [k for k in raw.split(",") if k] if raw else []
 
+        
         if prefilter_arg in ("true", "1", "yes", "si", "sí"):
             prefilter = True
         elif prefilter_arg in ("false", "0", "no", "none"):
@@ -246,7 +271,7 @@ if __name__ == "__main__":
         predictor= Predictor(city_name)
         print(f"[PREDICTOR] Starting predictions for user: {user_id}")
 
-        predictor.generate_predictions(user_id, algorithm, prefilter=prefilter)
+        predictor.generate_predictions(user_id, algorithm, prefilter=prefilter, active_context=active_context)
         if predictor:
             predictor.close()
     except Exception as e:

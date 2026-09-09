@@ -1,5 +1,6 @@
 from ranx import Qrels, Run, evaluate
 from services.RecommendationService import RecommendationService
+from graph.GraphRepository import GraphRepository
 from persistence.LoadDB import LoadDB
 import os
 import csv
@@ -79,8 +80,43 @@ class Evaluator:
                 run_dict[query_id][poi_id] = prediction
 
         return run_dict
-    
-    def evaluate(self):
+
+    def _evaluate_coverage_diversity(self, run_dict, graph, k_coverage=5):
+        stats = graph.get_category_stats()
+
+        recommended_pois = set()
+        recommended_categories = set()
+
+        for query_id, poi_predictions in run_dict.items():
+            sorted_pois = sorted(poi_predictions.items(), key=lambda x: x[1], reverse=True)
+            for poi_id, _ in sorted_pois[:k_coverage]:
+                recommended_pois.add(poi_id)
+                v = graph.id_map.get(poi_id)
+                if v is not None:
+                    recommended_categories.add(graph.vp_category[v])
+
+        if stats['total_pois'] > 0:
+            coverage = len(recommended_pois) / stats['total_pois']
+            diversity = len(recommended_categories) / stats['total_categorias']
+        else:
+            coverage = 0
+            diversity = 0
+
+        return {
+        "coverage": coverage,
+        "n_pois_recomendados": len(recommended_pois),
+        "n_pois_totales": stats['total_pois'],
+        "diversity": diversity,
+        "n_categorias_recomendadas": len(recommended_categories),
+        "n_categorias_totales": stats['total_categorias'],
+        }
+
+    def evaluate(self, graph=None, k_coverage=5):
+
+        if graph is None:
+            graph = GraphRepository(self.city_name).get_graph()
+        coverage_diversity = self._evaluate_coverage_diversity(run_dict, graph, k_coverage=k_coverage)
+
 
         qrels_dict= self._load_Qrel()
         run_dict = self._load_run()
@@ -88,7 +124,7 @@ class Evaluator:
         qrels = Qrels(qrels_dict)
         run = Run(run_dict, name=f"{self.city_name}_{self.algorithm_name}")
         
-        metrics = ["hit_rate@1", "hit_rate@5", "hit_rate@10", "ndcg@1", "ndcg@5", "ndcg@10","mrr@1","mrr@5","mrr@10"]
+        metrics = ["ndcg@5"]
 
         evaluation = evaluate(qrels, run, metrics, make_comparable=True)
 
@@ -101,6 +137,11 @@ class Evaluator:
         for metric, value in evaluation.items():
             print(f"| {metric.upper().ljust(15)} | {value:.4f} |")
         print("-" * 35)
+        print(f"| {'COVERAGE'.ljust(15)} | {coverage_diversity['coverage']:.4f} |  ({coverage_diversity['n_pois_recomendados']}/{coverage_diversity['n_pois_totales']} POIs)")
+        print(f"| {'DIVERSITY'.ljust(15)} | {coverage_diversity['diversity']:.4f} |  ({coverage_diversity['n_categorias_recomendadas']}/{coverage_diversity['n_categorias_totales']} categorías)")
+        print("-" * 35)
+
+        return {**evaluation, **coverage_diversity}
 
 
 if __name__ == "__main__":

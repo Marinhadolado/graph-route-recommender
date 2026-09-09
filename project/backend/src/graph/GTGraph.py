@@ -270,3 +270,14 @@ class GTGraph:
     
     def get_prefilter_time(self):
         return self.prefilter_time
+
+    def get_category_stats(self):
+        if not hasattr(self, '_category_stats'):
+            categorias = set()
+            for v in self.g.vertices():
+                categorias.add(self.vp_category[v])
+            self._category_stats = {
+                'total_pois': self.g.num_vertices(),
+                'total_categorias': len(categorias),
+            }
+        return self._category_stats
