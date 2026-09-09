@@ -113,6 +113,9 @@ class Predictor:
             
     def generate_predictions(self, user_id, algorithm,suffix="", prefilter=True, active_context=None):
         print("[PREDICTOR] Generating predictions with algorithm:", algorithm)
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
         if prefilter:
             if active_context:
                 label = "_".join(active_context)
