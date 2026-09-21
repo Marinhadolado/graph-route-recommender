@@ -249,7 +249,7 @@ class GTGraph:
             self.n_prefilter += 1
 
 
-    def getFilteredNeighbors(self, fsq_id, pois_avoid, context, hops=1):
+    def getFilteredNeighbors(self, fsq_id, pois_avoid, context_chain, hops=1):
         if hops < 1:
             return []
 
@@ -263,8 +263,7 @@ class GTGraph:
         # el contexto (time_segment/conditions) SOLO se exige en el último salto,
         # el que aterriza en el candidato final; los saltos intermedios se expanden libres.
         for level in range(1, hops + 1):
-            is_last_level = (level == hops)
-            level_context = context if is_last_level else None
+            level_context = context_chain[level - 1] if context_chain else None
 
             next_frontier = set()
             #vamos nodo a nodo de la capa de profundidad en la que estemos y obtenemos los vecinos directos
