@@ -21,7 +21,7 @@ def experiment(user_id, city_name):
 
         m_int = int(p_markov * 100)
         n_int = int(p_nmf * 100)
-        sufijo = f"{m_int}_{n_int}"
+        hybrid_percentage = f"{m_int}_{n_int}"
         
         print(f"\n[CONFIG] Testing balance: {m_int}% Markov / {n_int}% NMF")
         
@@ -30,8 +30,8 @@ def experiment(user_id, city_name):
         predictor.generate_predictions(
             user_id=user_id,
             algorithm=algorithm,
-            suffix=sufijo,
-            prefilter=False
+            hybrid_percentage=hybrid_percentage,
+            prefilter=False,
         )
 
     predictor.close()

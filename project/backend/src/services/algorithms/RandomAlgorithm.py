@@ -4,9 +4,9 @@ import random
 
 class RandomAlgorithm(RecommendationAlgorithm):
     
-    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context, k=50):
+    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context_chain, hops=1, k=50):
         
-        neighbors = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context)
+        neighbors = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context_chain, hops=hops)
 
         unique_neighbors = set(neighbors)
 

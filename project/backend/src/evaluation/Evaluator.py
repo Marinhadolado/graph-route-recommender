@@ -5,6 +5,7 @@ from persistence.LoadDB import LoadDB
 import os
 import csv
 import glob
+import re
 
 class Evaluator:
 
@@ -14,31 +15,27 @@ class Evaluator:
         self.suffix = suffix
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
         self.dataset_dir = os.path.join(self.base_dir, '..', '..', 'dataset')
-        self.predictions_dir = os.path.join(self.base_dir, '..', '..', 'predictions')   
+        self.predictions_dir = os.path.join(self.base_dir, '..', '..', 'predictions') 
+        self.detected_hops = 1  
 
-    def _load_Qrel(self):
+    def _load_Qrel(self, hops=1):
         test_file = os.path.join(self.dataset_dir, 'test.csv')
         if not os.path.exists(test_file):
             raise FileNotFoundError(f"[Evaluator] {test_file} not found")
         
-        qrel_dict = {}
-
+        routes = {}
         with open(test_file, mode='r', encoding='utf-8') as f:
-            reader= csv.DictReader(f)
-            prev_trail_id = None
-            step_counter = 1
-
+            reader = csv.DictReader(f)
             for row in reader:
-                current_trail_id = row['trail_id']
-                current_poi_id = row['poi_id']
+                routes.setdefault(row['trail_id'], []).append(row['poi_id'])
 
-                if current_trail_id == prev_trail_id:
-                    step_counter += 1
-                    query_id = f"{current_trail_id}_{step_counter}"
-                    qrel_dict[query_id] = {current_poi_id: 1} 
-                else:
-                    step_counter = 1
-                    prev_trail_id = current_trail_id
+        qrel_dict = {}
+        for trail_id, poi_list in routes.items():
+            for i in range(len(poi_list) - hops):
+                step_num = i + 1 + hops
+                target_poi = poi_list[i + hops]
+                query_id = f"{trail_id}_{step_num}"
+                qrel_dict[query_id] = {target_poi: 1}
 
         return qrel_dict
     
@@ -62,6 +59,9 @@ class Evaluator:
         
         latest_file = max(prediction_files, key=os.path.getmtime)
         print(f"[Evaluator] Prediction file found: {os.path.basename(latest_file)}")
+
+        match = re.search(r'_hops(\d+)_', os.path.basename(latest_file))
+        self.detected_hops = int(match.group(1)) if match else 1
 
         run_dict = {}
         with open(latest_file, mode='r', encoding='utf-8') as f:
@@ -111,10 +111,14 @@ class Evaluator:
         "n_categorias_totales": stats['total_categorias'],
         }
 
-    def evaluate(self, graph=None, k_coverage=5):
+    def evaluate(self, graph=None, k_coverage=5, hops=None):
 
-        qrels_dict= self._load_Qrel()
         run_dict = self._load_run()
+        if hops is None:
+            hops = self.detected_hops   
+
+        qrels_dict= self._load_Qrel(hops=hops)
+
 
         if graph is None:
             graph = GraphRepository(self.city_name).get_graph()
@@ -127,6 +131,9 @@ class Evaluator:
         metrics = ["ndcg@5"]
 
         evaluation = evaluate(qrels, run, metrics, make_comparable=True)
+
+        if not isinstance(evaluation, dict):
+            evaluation = {metrics[0]: evaluation}
 
         titulo = f"{self.algorithm_name.upper()}"
         if self.suffix:
@@ -184,10 +191,10 @@ if __name__ == "__main__":
         exit()
 
     chosen_suffix = ""
-    if chosen_algorithm == "markov_preferences":
-        print("\n[ Weight Configuration ]")
-        print("What balance do you want to evaluate? (e.g.: 20_80, 50_50, 70_30)")
-        chosen_suffix = input("> Enter the suffix: ").strip()
+    print("\n[ Suffix / etiqueta de la predicción (opcional) ]")
+    print("Debe coincidir con la parte del nombre de fichero entre el algoritmo y la fecha,")
+    print("p.ej. 'time_segment_conditions', '50_50_time_segment_hops2'. Deja vacío si no aplica.")
+    chosen_suffix = input("> Suffix (Enter = ninguno): ").strip()
 
     print("\n" + "="*50)
     try:

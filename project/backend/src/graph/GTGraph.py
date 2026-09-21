@@ -188,17 +188,16 @@ class GTGraph:
         }
         return franja_a_vp.get(str(time_segment))
 
-
-    def getFilteredNeighbors(self, fsq_id, pois_avoid, context):
+    def _getDirectFilteredNeighbors(self, fsq_id, pois_avoid, context):
         t0 = time.perf_counter()
-        
+
         try:
             current_v = self.id_map.get(fsq_id)
             if current_v is None:
                 return []
- 
+
             pois_avoid = pois_avoid or set()
- 
+
             #primero creamos las variables de filtrado
             #ej: context = {"time_segment": "Weekday_Morning", "conditions": "Clear", "temp": 20.0, "precip": 0.0, "windspeed": 5.0}
             # y hacemos que vp_franja= Weekday_Morning
@@ -218,18 +217,18 @@ class GTGraph:
                     f_precip = float(context['precip'])
                 if 'windspeed' in context:
                     f_windspeed = float(context['windspeed'])
- 
+
             neighbors = []
             for e in current_v.out_edges():
                 n = e.target()
                 n_id = self.vp_fsq_id[n]
- 
+
                 if n_id in pois_avoid:
                     continue
                 # si el nodo vecino no tiene visitas en la franja horaria, lo descartamos
                 if vp_franja is not None and vp_franja[n] == 0:
                     continue
- 
+
                 #si la relacion currentpoi -> n no cumple con las condiciones de filtrado, la descartamos
                 if f_conditions is not None and self.ep_p2_conditions[e] != f_conditions:
                     continue
@@ -241,13 +240,47 @@ class GTGraph:
                     continue
                 if f_windspeed is not None and self.ep_p2_windspeed[e] != f_windspeed:
                     continue
- 
+
                 neighbors.append(n_id)
- 
+
             return neighbors
         finally:
             self.prefilter_time += (time.perf_counter() - t0)
             self.n_prefilter += 1
+
+
+    def getFilteredNeighbors(self, fsq_id, pois_avoid, context, hops=1):
+        if hops < 1:
+            return []
+
+        pois_avoid = pois_avoid or set()
+
+        # primero creamos un conjunto de nodos visitados, que incluye los nodos a evitar y el nodo actual
+        visited = set(pois_avoid) | {fsq_id}
+        frontier = {fsq_id}
+
+        # recorremos cada nivel de profundidad de 1 a hops.
+        # el contexto (time_segment/conditions) SOLO se exige en el último salto,
+        # el que aterriza en el candidato final; los saltos intermedios se expanden libres.
+        for level in range(1, hops + 1):
+            is_last_level = (level == hops)
+            level_context = context if is_last_level else None
+
+            next_frontier = set()
+            #vamos nodo a nodo de la capa de profundidad en la que estemos y obtenemos los vecinos directos
+            for node_id in frontier:
+                vecinos = self._getDirectFilteredNeighbors(node_id, visited, level_context)
+                next_frontier |= set(vecinos)
+            #actualizamos los nodos vistos en esta capa para si hay otra iteracción
+            visited |= next_frontier
+            # guardamos ya los nuevos vecinos del fsqid(poi origen) con distancia hop
+            frontier = next_frontier
+            #si no hay profundidad suficiente no existen candidatos y salimos
+            if not frontier:
+                break
+
+        #devolvemos los candidatos obtenidos en el bucle sin los nodos a evitar que ya salieron en anteriores capas
+        return list(frontier)
 
     
     def getCityName(self):

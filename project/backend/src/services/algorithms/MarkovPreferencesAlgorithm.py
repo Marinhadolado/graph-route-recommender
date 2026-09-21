@@ -20,14 +20,14 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         except FileNotFoundError:
             self.modelo_nmf = None
 
-    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context, k=50):
+    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context_chain, hops=1, k=50):
         
-        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context=None)
+        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context=None, hops=hops)
         if not neighbors_no_context:
             return []
         
-        if context:
-            neighbors_with_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context=context)
+        if context_chain:
+            neighbors_with_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context=context_chain, hops=hops)
         else:
             neighbors_with_context = neighbors_no_context
 
@@ -37,7 +37,7 @@ class MarkovPreferencesAlgorithm(RecommendationAlgorithm):
         total_no_context = len(neighbors_no_context)
         total_with_context = len(neighbors_with_context)
         
-        if context and total_with_context > 0:
+        if context_chain and total_with_context > 0:
             alpha = 0.8        
         else:
             alpha = 0.0

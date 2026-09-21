@@ -79,7 +79,9 @@ class RecommendationService:
         return instance
 
 
-    def getCandidates(self, current_poi_id, user_id, context, algorithm_name, pois_to_avoid, graph):
+
+
+    def getCandidates(self, current_poi_id, user_id, context_chain, algorithm_name, pois_to_avoid, graph, hops):
 
         if not isinstance(graph, GTGraph):
             print(f"[SERVICE] ERROR: The provided graph is not an instance of GTGraph.")
@@ -97,11 +99,11 @@ class RecommendationService:
             return []
         
         if algorithm_name.lower() == 'markov_preferences':
-            candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_to_avoid, context)
+            candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_to_avoid, context_chain, hops)
         else:
             graph.reset_prefilter_timer()
             t0 = time.perf_counter()
-            candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_to_avoid, context)
+            candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_to_avoid, context_chain, hops)
             t1 = time.perf_counter()
             total_time = t1 - t0
             self.ranking_time += total_time

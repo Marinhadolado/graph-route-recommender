@@ -16,9 +16,9 @@ class PreferencesAlgorithm(RecommendationAlgorithm):
         except FileNotFoundError:
             self.modelo_nmf = None
 
-    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context, k=50):
+    def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context_chain, hops=1, k=50):
         
-        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context)
+        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context_chain, hops=hops)
         if not neighbors_no_context:
             return []
             

@@ -88,7 +88,6 @@ class Predictor:
         else:
             return None 
 
-
     def _load_routes_from_csv(self, filepath):
 
         if not os.path.exists(filepath):
@@ -111,25 +110,38 @@ class Predictor:
 
         return routes
             
-    def generate_predictions(self, user_id, algorithm,suffix="", prefilter=True, active_context=None):
+    def generate_predictions(self, user_id, algorithm, hybrid_percentage="", prefilter=True, active_context=None, hops=1):
         print("[PREDICTOR] Generating predictions with algorithm:", algorithm)
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+
+        # nombre del fichero
         if prefilter:
             if active_context:
                 label = "_".join(active_context)
             else:
                 label = "none"
-            full_suffix = f"{suffix}_{label}" if suffix else label
+
+            if hybrid_percentage:
+                full_suffix = f"{hybrid_percentage}_{label}"
+            else:
+                full_suffix = label
+
+            if hops > 1:
+                full_suffix += f"_hops{hops}"
+
             filename = f"{self.city_name}_{algorithm}_{full_suffix}_{timestamp}.csv"
+
         else:
             filename = f"{self.city_name}_{algorithm}_noprefilter_{timestamp}.csv"
- 
+
+        output_file = os.path.join(self.output_dir, filename)
+        print(f"[PREDICTOR] The result will be saved in: {filename}")
 
         graph = self.graph_repository.get_graph()
         self.recommender.reset_timers()
 
+        # cargamos las rutas de test
         test_file=os.path.join(self.dataset_dir,'test.csv')
 
         with open(test_file, mode='r', newline='', encoding='utf-8') as csvfile:
@@ -146,7 +158,8 @@ class Predictor:
         if not routes:
             print(f"[PREDICTOR] No routes found in the file {test_file}.")
             return
-        
+
+        # obtenemos el historial del usuario para evitar recomendar POIs ya visitados
         history = graph.getUserHistory(user_id)
         if not history:
             print(f"[PREDICTOR] The user {user_id} has no history in the graph. No predictions can be generated.")
@@ -154,11 +167,7 @@ class Predictor:
         history = set(history)
         
         print(f"[PREDICTOR] Processing {len(routes)} routes for prediction...")
-        
-        output_file = os.path.join(self.output_dir, filename)
-
-        print(f"[PREDICTOR] The result will be saved in: {filename}")
-        
+                
         with open(output_file, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
 
@@ -167,34 +176,41 @@ class Predictor:
             n_con_candidatos = 0
             n_vacios = 0
 
+            # ruta por ruta del test
             for trail_id, trail_steps in routes.items():
                 if not trail_steps:
                     continue
 
                 recommended_in_route = set()
-                
-                for i in range(len(trail_steps)-1):
+
+                # paso a paso de la ruta y en cada paso recomendar el paso+hops poi siguiente
+                for i in range(len(trail_steps)-hops):
+
+                    #obtenemos poi actual de ruta test
                     current_step = trail_steps[i]
                     poi_id= current_step['poi_id']
 
                     if poi_id not in graph.id_map:
                         continue
-                    
+
+                    #obtenemmos los datos de filtrado de cada arista hasta el poi objetivo
                     if prefilter:
-                        next_step = trail_steps[i + 1]
-                        step_context = self._build_step_context(next_step, active_context=active_context)
+                        context_chain = []
+                        for level in range(1, hops + 1):
+                            context_chain.append(self._build_step_context(trail_steps[i + level], active_context=active_context))
                     else:
-                        step_context = None
+                        context_chain = None
 
                     pois_to_avoid= set(history).union(recommended_in_route)
 
                     candidates = self.recommender.getCandidates(
                         current_poi_id=poi_id,
                         user_id=user_id,
-                        context=step_context,
+                        context_chain=context_chain,
                         algorithm_name=algorithm,
                         pois_to_avoid=pois_to_avoid,
-                        graph=graph
+                        graph=graph,
+                        hops=hops
                     )
 
                     if not candidates:
@@ -206,9 +222,9 @@ class Predictor:
                     for c in candidates:
                         recommended_in_route.add(c['poi_id'])
 
-                    step_num = i + 2
+                    step_num = i + 1 + hops
                     for rank, candidate in enumerate(candidates, start=1):
-                        rank_etiqueta = f"poi_{step_num}_{rank}"
+                        rank_etiqueta = f"poi_{step_num}_{rank}_desde_{i+1}"
                         writer.writerow([
                             trail_id,
                             step_num,
@@ -216,8 +232,10 @@ class Predictor:
                             candidate['poi_id'],
                             f"{candidate['prediction']:.4f}"
                         ])
+
         print(f"[PREDICTOR] Saved predictions to {output_file}.")
 
+        #calculamos la cobertura de candidatos y el tiempo medio de ranking
         total_steps = n_con_candidatos + n_vacios
         if total_steps > 0:
             cobertura = 100.0 * n_con_candidatos / total_steps
@@ -237,34 +255,32 @@ class Predictor:
 if __name__ == "__main__":
 
     try:
-        if len(sys.argv) != 6:
-            print("Usage: python Predictor.py <user_id> <prefilter> <algorithm> <city_name> <active_context>")
-            print("If no context is provided, default values will be used.")
-            print("  active_keys: coma-separado, ej. time_segment,conditions. Vacío = ninguno.")
+        if len(sys.argv) != 7:
+            print("Usage: python Predictor.py <user_id> <prefilter> <algorithm> <city_name> <hops> <active_context>")
+            print("  active_context: coma-separado, ej. time_segment,conditions. Vacío = ninguno.")
             sys.exit(1)
         user_id = sys.argv[1]
         prefilter_arg = sys.argv[2].strip().lower()
         algorithm = sys.argv[3]
         city_name = sys.argv[4]
-        active_context = None
-        if len(sys.argv) == 6:
-            raw = sys.argv[5].strip()
-            active_context = [k for k in raw.split(",") if k] if raw else []
+        hops = int(sys.argv[5])
 
-        
+        raw = sys.argv[6].strip()
+        active_context = [k for k in raw.split(",") if k] if raw else []
+
         if prefilter_arg in ("true", "1", "yes", "si", "sí"):
             prefilter = True
         elif prefilter_arg in ("false", "0", "no", "none"):
             prefilter = False
         else:
-            print(f"[PREDICTOR] ERROR: prefilter must be 'true' or 'false' (got '{sys.argv[2]}').")                
+            print(f"[PREDICTOR] ERROR: prefilter must be 'true' or 'false' (got '{sys.argv[2]}').")
             sys.exit(1)
 
         random.seed(42)
-        predictor= Predictor(city_name)
+        predictor = Predictor(city_name)
         print(f"[PREDICTOR] Starting predictions for user: {user_id}")
 
-        predictor.generate_predictions(user_id, algorithm, prefilter=prefilter, active_context=active_context)
+        predictor.generate_predictions(user_id, algorithm, prefilter=prefilter, active_context=active_context, hops=hops)
         if predictor:
             predictor.close()
     except Exception as e:

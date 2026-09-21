@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class RecommendationAlgorithm(ABC):
 
     @abstractmethod
-    def rankCandidates(self, currentPoiId, userId, graph, pois_to_avoid, context=None):
+    def rankCandidates(self, currentPoiId, userId, graph, pois_to_avoid, context=None, hops=1):
         """"
         Método abstracto para recomendaciones
         
