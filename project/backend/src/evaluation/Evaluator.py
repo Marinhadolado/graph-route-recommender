@@ -103,12 +103,13 @@ class Evaluator:
             diversity = 0
 
         return {
-        "coverage": coverage,
-        "n_pois_recomendados": len(recommended_pois),
-        "n_pois_totales": stats['total_pois'],
-        "diversity": diversity,
-        "n_categorias_recomendadas": len(recommended_categories),
-        "n_categorias_totales": stats['total_categorias'],
+            "coverage": coverage,
+            "n_pois_recomendados": len(recommended_pois),
+            "n_pois_totales": stats['total_pois'],
+            "diversity": diversity,
+            "n_categorias_recomendadas": len(recommended_categories),
+            "n_categorias_totales": stats['total_categorias'],
+            "n_queries_evaluadas": len(run_dict)
         }
 
     def evaluate(self, graph=None, k_coverage=5, hops=None):
@@ -146,6 +147,7 @@ class Evaluator:
         print("-" * 35)
         print(f"| {'COVERAGE'.ljust(15)} | {coverage_diversity['coverage']:.4f} |  ({coverage_diversity['n_pois_recomendados']}/{coverage_diversity['n_pois_totales']} POIs)")
         print(f"| {'DIVERSITY'.ljust(15)} | {coverage_diversity['diversity']:.4f} |  ({coverage_diversity['n_categorias_recomendadas']}/{coverage_diversity['n_categorias_totales']} categorías)")
+        print(f"| {'QUERIES EVAL.'.ljust(15)} | {coverage_diversity['n_queries_evaluadas']} |  (rutas supervivientes)")
         print("-" * 35)
 
         return {**evaluation, **coverage_diversity}
