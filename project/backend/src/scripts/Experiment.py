@@ -17,9 +17,7 @@ for suffix in context_configs:
 
 location_configs = [
     "time_segment_conditions_hops2",
-    "time_segment_hops2",
-    "conditions_hops2",
-    "none_hops2",
+    "time_segment_conditions_hops3",
 ]
 
 for suffix in location_configs:
