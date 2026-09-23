@@ -196,11 +196,24 @@ class Predictor:
                     #obtenemmos los datos de filtrado de cada arista hasta el poi objetivo
                     if prefilter:
                         context_chain = []
+                        cadena_valida = True
                         for level in range(1, hops + 1):
-                            context_chain.append(self._build_step_context(trail_steps[i + level], active_context=active_context))
+                            ctx = self._build_step_context(trail_steps[i + level], active_context=active_context)
+                            
+                            # si exigimos un contexto y el test no lo tiene, invalidamos este camino para que no haga trampa saltándose el filtro.
+                            if active_context is not None:
+                                if ctx is None or len(ctx) != len(active_context):
+                                    cadena_valida = False
+                                    break
+                                    
+                            context_chain.append(ctx)
+                            
+                        # Si a la ruta le faltaban datos exigidos, la consideramos vacía y no la evaluamos
+                        if not cadena_valida:
+                            n_vacios += 1
+                            continue
                     else:
                         context_chain = None
-
                     pois_to_avoid= set(history).union(recommended_in_route)
 
                     candidates = self.recommender.getCandidates(
@@ -222,6 +235,7 @@ class Predictor:
                     for c in candidates:
                         recommended_in_route.add(c['poi_id'])
 
+                    #añadir si afecta incluir horario, conditions... por -1 o no datos 
                     step_num = i + 1 + hops
                     for rank, candidate in enumerate(candidates, start=1):
                         rank_etiqueta = f"poi_{step_num}_{rank}_desde_{i+1}"

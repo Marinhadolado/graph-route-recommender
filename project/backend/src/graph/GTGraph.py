@@ -164,8 +164,8 @@ class GTGraph:
             self.ep_p2_temp[e] = float(rel_data.get('p2_temp', 0.0))
             self.ep_p2_precip[e] = float(rel_data.get('p2_precip', 0.0))
             self.ep_p2_windspeed[e] = float(rel_data.get('p2_windspeed', 0.0))
-            self.ep_p2_conditions[e] = str(rel_data.get('p2_conditions', ''))
-            self.ep_p2_preciptype[e] = str(rel_data.get('p2_preciptype', ''))
+            self.ep_p2_conditions[e] = str(rel_data.get('p2_conditions') or '')
+            self.ep_p2_preciptype[e] = str(rel_data.get('p2_preciptype') or '')
             self.ep_time_diff[e] = float(rel_data.get('time_diff', 0.0))
 
             return True
@@ -229,11 +229,16 @@ class GTGraph:
                 if vp_franja is not None and vp_franja[n] == 0:
                     continue
 
-                #si la relacion currentpoi -> n no cumple con las condiciones de filtrado, la descartamos
-                if f_conditions is not None and self.ep_p2_conditions[e] != f_conditions:
-                    continue
-                if f_preciptype is not None and self.ep_p2_preciptype[e] != f_preciptype:
-                    continue
+                if f_conditions is not None:
+                    # Separamos las condiciones de la arista por coma para hacer una búsqueda exacta de la palabra
+                    edge_conditions = [c.strip() for c in self.ep_p2_conditions[e].split(',')]
+                    if f_conditions not in edge_conditions:
+                        continue
+                
+                if f_preciptype is not None:
+                    edge_preciptypes = [p.strip() for p in self.ep_p2_preciptype[e].split(',')]
+                    if f_preciptype not in edge_preciptypes:
+                        continue
                 if f_temp is not None and self.ep_p2_temp[e] != f_temp:
                     continue
                 if f_precip is not None and self.ep_p2_precip[e] != f_precip:

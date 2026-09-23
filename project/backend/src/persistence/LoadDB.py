@@ -95,14 +95,14 @@ class LoadDB:
                 p.rating = CASE WHEN row.rating <> '' THEN toFloat(row.rating) END,
                 p.total_ratings = CASE WHEN row.total_ratings <> '' THEN toInteger(row.total_ratings) END,
                 p.total_tips = CASE WHEN row.total_tips <> '' THEN toInteger(row.total_tips) END,
-                p.Weekday_EarlyMorning = CASE WHEN row.Weekday_EarlyMorning <> '' THEN toInteger(row.Weekday_EarlyMorning) END,
-                p.Weekday_Morning = CASE WHEN row.Weekday_Morning <> '' THEN toInteger(row.Weekday_Morning) END,
-                p.Weekday_Afternoon = CASE WHEN row.Weekday_Afternoon <> '' THEN toInteger(row.Weekday_Afternoon) END,
-                p.Weekday_Night = CASE WHEN row.Weekday_Night <> '' THEN toInteger(row.Weekday_Night) END,
-                p.Weekend_EarlyMorning = CASE WHEN row.Weekend_EarlyMorning <> '' THEN toInteger(row.Weekend_EarlyMorning) END,
-                p.Weekend_Morning = CASE WHEN row.Weekend_Morning <> '' THEN toInteger(row.Weekend_Morning) END,
-                p.Weekend_Afternoon = CASE WHEN row.Weekend_Afternoon <> '' THEN toInteger(row.Weekend_Afternoon) END,
-                p.Weekend_Night = CASE WHEN row.Weekend_Night <> '' THEN toInteger(row.Weekend_Night) END,
+                p.Weekday_EarlyMorning = toInteger(row.Weekday_EarlyMorning),
+                p.Weekday_Morning = toInteger(row.Weekday_Morning),
+                p.Weekday_Afternoon = toInteger(row.Weekday_Afternoon),
+                p.Weekday_Night = toInteger(row.Weekday_Night),
+                p.Weekend_EarlyMorning = toInteger(row.Weekend_EarlyMorning),
+                p.Weekend_Morning = toInteger(row.Weekend_Morning),
+                p.Weekend_Afternoon = toInteger(row.Weekend_Afternoon),
+                p.Weekend_Night = toInteger(row.Weekend_Night),
                 p.category_lvlFs = row.category_lvlFs,
                 p.city = $cityName
         } IN TRANSACTIONS;
@@ -131,11 +131,11 @@ class LoadDB:
     def loadTrails(self, filepath, city_name):
         
         df = pd.read_csv(filepath, sep=';', dtype=str)
-        print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
-        print(f"[INICIAL] Check-ins crudos en CSV: {len(df)}")
-        print(f"[INICIAL] Rutas (trail_id) en CSV: {df['trail_id'].nunique()}")
-        print(f"[INICIAL] Usuarios en CSV: {df['user_id'].nunique()}")
-        print(f"[INICIAL] POIs distintos en CSV de trails: {df['venue_id'].nunique()}")
+        print(f"[LoadDB] Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
+        print(f"[LoadDB] Check-ins crudos en CSV: {len(df)}")
+        print(f"[LoadDB] Rutas (trail_id) en CSV: {df['trail_id'].nunique()}")
+        print(f"[LoadDB] Usuarios en CSV: {df['user_id'].nunique()}")
+        print(f"[LoadDB] POIs distintos en CSV de trails: {df['venue_id'].nunique()}")
         
         print(f"   -> Archivo leído ({len(df)} filas). Preparando lógica de enlaces...")
 
@@ -144,7 +144,30 @@ class LoadDB:
         
         numeric_cols = ['temp', 'precip', 'windspeed']
         for col in numeric_cols:
-            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)                                                                                               
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)   
+
+        print("   -> Aplicando cortes de rutas...")
+        
+        # nos aseguramos de que el dataframe esté ordenado de forma cronológica por usuario y ruta
+        df = df.sort_values(by=['user_id', 'trail_id', 'timestamp']).reset_index(drop=True)
+        
+        # calculamos los saltos contra la fila anterior respecto a la columna timestamp, en minutos
+        prev_timestamp = df['timestamp'].shift(1)
+        time_diff_prev_min = (df['timestamp'] - prev_timestamp).dt.total_seconds() / 60.0
+        
+        # identificamos si debe de haber un corte de ruta
+        user_changed = df['user_id'] != df['user_id'].shift(1)
+        trail_changed = df['trail_id'] != df['trail_id'].shift(1)
+        date_changed = df['timestamp'].dt.date != prev_timestamp.dt.date
+        time_gap = time_diff_prev_min > 300 # Si pasan más de 300 minutos (5 horas), cortamos
+        
+        # marcamos como True las filas donde empieza una nueva ruta real
+        new_session = user_changed | trail_changed | date_changed | time_gap
+        
+        # generar nuevos trail_id incrementales( 82711, 82712...)
+        df['trail_id'] = df['trail_id'] + new_session.cumsum().astype(str)
+        
+        print(f"[LoadDB] Rutas separadas tras aplicar cortes: {df['trail_id'].nunique()}")
 
         df['next_venue_id'] = df['venue_id'].shift(-1)
         df['next_timestamp'] = df['timestamp'].shift(-1)
@@ -161,9 +184,9 @@ class LoadDB:
                      (df['venue_id'] != df['next_venue_id']) 
 
         df = df[valid_rows].copy()
-        print(f"[INICIAL] Pasos de ruta tras enlazado (aristas VISITED): {len(df)}")
-        print(f"[INICIAL] Rutas tras enlazado: {df['trail_id'].nunique()}")
-        print(f"[INICIAL] Usuarios tras enlazado: {df['user_id'].nunique()}")
+        print(f"[LoadDB] Pasos de ruta tras enlazado (aristas VISITED): {len(df)}")
+        print(f"[LoadDB] Rutas tras enlazado: {df['trail_id'].nunique()}")
+        print(f"[LoadDB] Usuarios tras enlazado: {df['user_id'].nunique()}")
 
         df['time_diff_min'] = (df['next_timestamp'] - df['timestamp']).dt.total_seconds() / 60.0
 
@@ -217,11 +240,11 @@ class LoadDB:
         return total
 
     def load_city(self, city_name):
-        print(f"[LoadData] --------- Loading data from city {city_name}---------")
+        print(f"[LoadDB] --------- Loading data from city {city_name}---------")
 
         city_dir = os.path.join(self.import_path, city_name)
         if not os.path.exists(city_dir):
-            print(f"[LoadData] ERROR the directory does not exist: {city_dir}")
+            print(f"[LoadDB] ERROR the directory does not exist: {city_dir}")
             return
 
         city_files= os.listdir(city_dir)
