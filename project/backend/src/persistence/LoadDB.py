@@ -163,10 +163,10 @@ class LoadDB:
         
         # marcamos como True las filas donde empieza una nueva ruta real
         new_session = user_changed | trail_changed | date_changed | time_gap
+        local_counter = new_session.groupby(df['trail_id']).cumsum()
         
         # generar nuevos trail_id incrementales( 82711, 82712...)
-        df['trail_id'] = df['trail_id'] + new_session.cumsum().astype(str)
-        
+        df['trail_id'] = df['trail_id'].astype(str) + local_counter.astype(str).str.zfill(2)        
         print(f"[LoadDB] Rutas separadas tras aplicar cortes: {df['trail_id'].nunique()}")
 
         df['next_venue_id'] = df['venue_id'].shift(-1)
