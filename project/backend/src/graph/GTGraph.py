@@ -2,6 +2,7 @@ from graph_tool.all import Graph, GraphView
 from datetime import datetime
 from graph_tool.util import find_edge
 import time
+from collections import Counter
 
 class GTGraph:
     def __init__(self):
@@ -187,6 +188,91 @@ class GTGraph:
             "Weekend_Afternoon":    self.vp_we_a,  "Weekend_Night":   self.vp_we_n,
         }
         return franja_a_vp.get(str(time_segment))
+
+    def _get_direct_transition_probs(self, fsq_id, pois_avoid, context):
+        """
+        Probabilidad empírica de transición desde fsq_id a cada vecino directo.
+        """
+        vecinos = self._getDirectFilteredNeighbors(fsq_id, pois_avoid, context)
+        if not vecinos:
+            return {}
+
+        total = len(vecinos)
+        freq = Counter(vecinos)
+
+        return {poi: count / total for poi, count in freq.items()}
+
+    def getNStepTransitionProbabilities(self, fsq_id, pois_to_avoid, context_chain, hops=1):
+        """
+        Calcula las probabilidades de transición a N saltos (Markov) sumando
+        los diferentes caminos posibles, evitando ciclos.
+        Devuelve un diccionario {poi_id: probabilidad}.
+        """
+        if hops < 1:
+            return {}
+
+        if pois_to_avoid:
+            pois_to_avoid = set(pois_to_avoid)
+        else:
+            pois_to_avoid = set()
+
+        # Usamos una lista para explorar caminos. 
+        # (nodo_actual, probabilidad_acumulada_del_camino, set_nodos_visitados_en_este_camino)
+        active_paths = [(fsq_id, 1.0, {fsq_id} | pois_to_avoid)]
+        final_probs = {}
+
+        #vamos nivel a nivel de profundidad mirando los vecinos directos y acumulando las probabilidades
+        for level in range(1, hops + 1):
+            if context_chain:
+                level_context = context_chain[level - 1] 
+            else:
+                level_context = None
+            
+            next_paths = []
+            transition_cache = {}
+
+            # en cada nivel vamos nodo a nodo de la capa de profundidad en la que estemos 
+            # y obtenemos los vecinos directos
+            for current_node, prob_acumulada, path_visited in active_paths:
+                if current_node not in transition_cache:
+                    # obtenemos las probabilidades de transición directa desde current_node a sus vecinos filtrados
+                    transition_cache[current_node] = self._get_direct_transition_probs(current_node, pois_to_avoid, level_context)
+                    #en caso de A saldrá ['B','C','C','D'] con el counter de la funcion: {B:1, C:2, D:1}
+                
+                step_probs = transition_cache[current_node]
+
+                #despues voy calculando la probabilidad acumulada de cada nodo vecino
+                #  y si no es el último nivel, lo añado a la lista de caminos activos para 
+                # el siguiente nivel
+                for dest_id, p in step_probs.items():
+                    if dest_id in path_visited:
+                        continue
+                    
+                    path_prob = prob_acumulada * p
+
+                    if level == hops:
+                        # Si es el salto final, lo guardamos como candidato.
+                        final_probs[dest_id] = final_probs.get(dest_id, 0.0) + path_prob
+
+                    else:
+                        # Si es un salto intermedio, NO lo guardamos. 
+                        # Solo le pasamos la probabilidad a la mochila para el siguiente salto.
+                        #en la primera iteracion de nivel 1, path_visited = {A} y se añade (B, p(B|A), {A,B}) y (C, p(C|A), {A,C})
+                        next_paths.append((dest_id, path_prob, path_visited | {dest_id}))
+
+            #active_paths = [('B',0.25,{A,B}), ('C',0.5,{A,C}), ('D',0.25,{A,D})]
+            active_paths = next_paths
+            if not active_paths:
+                        break
+
+        # Control de seguridad (Probabilidad máxima = 1)
+        for poi_id in final_probs:
+            if final_probs[poi_id] > 1.0:
+                if final_probs[poi_id] > 1.000001:
+                    raise ValueError(f"[GTGraph] Probabilidad inválida para {poi_id}: {final_probs[poi_id]:.4f} > 1")
+                final_probs[poi_id] = 1.0
+
+        return final_probs
 
     def _getDirectFilteredNeighbors(self, fsq_id, pois_avoid, context):
         t0 = time.perf_counter()

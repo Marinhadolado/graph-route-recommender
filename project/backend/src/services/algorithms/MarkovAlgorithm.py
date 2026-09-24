@@ -10,36 +10,25 @@ class MarkovAlgorithm(RecommendationAlgorithm):
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context_chain, hops=1, k=50):
         
-        neighbors_no_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context_chain=None, hops=hops)
-        if not neighbors_no_context:
+        probs_no_context = graph.getNStepTransitionProbabilities(fsq_id=current_poi_id, pois_to_avoid=pois_to_avoid, context_chain=None, hops=hops)
+        if not probs_no_context:
             return []
         
         if context_chain:
-            neighbors_with_context = graph.getFilteredNeighbors(current_poi_id, pois_to_avoid, context_chain=context_chain, hops=hops)
+            probs_with_context = graph.getNStepTransitionProbabilities(fsq_id=current_poi_id, pois_to_avoid=pois_to_avoid, context_chain=context_chain, hops=hops)
+            if probs_with_context:
+                alpha = 0.8 
+            else:
+                alpha = 0.0
         else:
-            neighbors_with_context = neighbors_no_context
-
-        neighbors_freq_no_context=Counter(neighbors_no_context)
-        neighbors_freq_with_context=Counter(neighbors_with_context)
-
-        total_no_context = len(neighbors_no_context)
-        total_with_context = len(neighbors_with_context)
-        
-        if context_chain and total_with_context > 0:
-            alpha = 0.8        
-        else:
+            probs_with_context = probs_no_context
             alpha = 0.0
     
         porcentaje_vecinos = {}            
 
-        for poi_dest_id in neighbors_freq_no_context.keys():
-            
-            p_prior = neighbors_freq_no_context[poi_dest_id] / total_no_context
-            
-            if total_with_context > 0:
-                p_condicional = neighbors_freq_with_context.get(poi_dest_id, 0) / total_with_context
-            else:
-                p_condicional = 0.0
+        for poi_dest_id, p_prior in probs_no_context.items():   
+
+            p_condicional = probs_with_context.get(poi_dest_id, 0.0)
                 
             p_final = (alpha * p_condicional) + ((1.0 - alpha) * p_prior)
             if p_final > 0:
