@@ -232,8 +232,7 @@ class Predictor:
 
                     n_con_candidatos += 1
 
-                    for c in candidates:
-                        recommended_in_route.add(c['poi_id'])
+                    recommended_in_route.update(poi_id)
 
                     #añadir si afecta incluir horario, conditions... por -1 o no datos 
                     step_num = i + 1 + hops
@@ -280,7 +279,7 @@ if __name__ == "__main__":
         hops = int(sys.argv[5])
 
         raw = sys.argv[6].strip()
-        active_context = [k for k in raw.split(",") if k] if raw else []
+        active_context = [k for k in raw.split(",") if k] if raw else None
 
         if prefilter_arg in ("true", "1", "yes", "si", "sí"):
             prefilter = True
