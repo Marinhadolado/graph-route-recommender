@@ -193,18 +193,18 @@ class Predictor:
                     if poi_id not in graph.id_map:
                         continue
 
-                    #obtenemmos los datos de filtrado de cada arista hasta el poi objetivo
-                    if prefilter:
+                    # obtenemos los datos de filtrado de cada arista hasta el poi objetivo
+                    # Solo aplicamos el filtro si hay algún contexto activo exigido
+                    if prefilter and active_context: 
                         context_chain = []
                         cadena_valida = True
                         for level in range(1, hops + 1):
                             ctx = self._build_step_context(trail_steps[i + level], active_context=active_context)
                             
-                            # si exigimos un contexto y el test no lo tiene, invalidamos este camino para que no haga trampa saltándose el filtro.
-                            if active_context is not None:
-                                if ctx is None or len(ctx) != len(active_context):
-                                    cadena_valida = False
-                                    break
+                            # Si exigimos un contexto y el test no lo tiene, invalidamos este camino
+                            if ctx is None or len(ctx) != len(active_context):
+                                cadena_valida = False
+                                break
                                     
                             context_chain.append(ctx)
                             
@@ -213,6 +213,7 @@ class Predictor:
                             n_vacios += 1
                             continue
                     else:
+                        # Si active_context está vacío (""), NO mandamos contexto al grafo. Filtro apagado.
                         context_chain = None
                     pois_to_avoid= set(history).union(recommended_in_route)
 
@@ -232,7 +233,7 @@ class Predictor:
 
                     n_con_candidatos += 1
 
-                    recommended_in_route.update(poi_id)
+                    recommended_in_route.add(poi_id)
 
                     #añadir si afecta incluir horario, conditions... por -1 o no datos 
                     step_num = i + 1 + hops
@@ -279,7 +280,7 @@ if __name__ == "__main__":
         hops = int(sys.argv[5])
 
         raw = sys.argv[6].strip()
-        active_context = [k for k in raw.split(",") if k] if raw else None
+        active_context = [k for k in raw.split(",") if k] if raw else []
 
         if prefilter_arg in ("true", "1", "yes", "si", "sí"):
             prefilter = True
