@@ -129,7 +129,7 @@ class Evaluator:
         qrels = Qrels(qrels_dict)
         run = Run(run_dict, name=f"{self.city_name}_{self.algorithm_name}")
         
-        metrics = ["ndcg@5"]
+        metrics = ["ndcg@1", "ndcg@5", "ndcg@10"]
 
         evaluation = evaluate(qrels, run, metrics, make_comparable=True)
 
