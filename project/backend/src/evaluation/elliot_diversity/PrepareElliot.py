@@ -34,6 +34,23 @@ def prepare(predictions_file, city, hops):
     graph = GraphRepository(city).get_graph()
 
     # Se mapean de todos los POIs del grafo para que puedan ser ints en tsv
+    
+    # POIs del grafo
+    graph_pois = set(graph.id_map.keys())
+
+    # POIs del dataset de test
+    test_file = BACKEND / "dataset" / "test.csv"
+
+    test_df = pd.read_csv(
+        test_file,
+        dtype={"poi_id": str}
+    )
+
+    test_pois = set(test_df["poi_id"])
+
+    # Catálogo completo para la evaluación
+    all_pois = sorted(graph_pois | test_pois)
+
     poi_map_file = DATA_DIR / "poi_map.csv"
 
     if poi_map_file.exists():
@@ -50,15 +67,10 @@ def prepare(predictions_file, city, hops):
         print("[ELLIOT] Reutilizando poi_map.csv")
 
     else:
-        poi_ids = []
-        for poi in graph.id_map:
-            if not isinstance(poi, str):
-                raise ValueError(f"POI ID '{poi}' is not a string. All POI IDs must be strings for Elliot.")
-            poi_ids.append(str(poi))
-        poi_ids_sorted = sorted(set(poi_ids))
+        poi_ids = all_pois
 
         poi_map = {}
-        for idx, poi in enumerate(poi_ids_sorted):
+        for idx, poi in enumerate(poi_ids):
             poi_map[poi] = idx + 1
 
         pd.DataFrame(
@@ -91,6 +103,10 @@ def prepare(predictions_file, city, hops):
         poi_categories = {}
 
         for poi in poi_ids:
+            #evitamos buscar nuevas categorias en 
+            # pois del test porque estos pueden no estar en el grafo
+            if poi not in graph.id_map:
+                continue
             vertex = graph.id_map[poi]
             category = str(graph.vp_category_lvlFs[vertex]).strip()
 
