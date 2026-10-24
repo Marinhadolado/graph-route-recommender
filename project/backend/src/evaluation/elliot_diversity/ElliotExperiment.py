@@ -33,26 +33,42 @@ def main(experiment_name):
 
     # se cambian las rutas de los archivos del experimento 
     # para que apunten al experimento en concreto
-    exp["data_config"]["train_path"] = (
-        f"data/{experiment_name}/train.tsv"
+    # Rutas absolutas de los archivos de entrada
+    exp["data_config"]["train_path"] = str(
+        (experiment_dir / "train.tsv").resolve()
     )
 
-    exp["data_config"]["test_path"] = (
-        f"data/{experiment_name}/test.tsv"
+    exp["data_config"]["test_path"] = str(
+        (experiment_dir / "test.tsv").resolve()
     )
 
-    exp["models"]["ProxyRecommender"]["path"] = (
-        f"data/{experiment_name}/recommendations.tsv"
+    exp["models"]["ProxyRecommender"]["path"] = str(
+        (experiment_dir / "recommendations.tsv").resolve()
     )
 
+    # Ruta absoluta del archivo común de categorías
+    exp["evaluation"]["complex_metrics"][0]["feature_data"] = str(
+        (BASE_DIR / "data" / "categories.tsv").resolve()
+    )
 
-    results_dir = f"results/{experiment_name}"
+    # Cada experimento guarda sus resultados por separado
+    results_dir = BASE_DIR / "results" / experiment_name
 
-    exp["path_output_rec_result"] = f"{results_dir}/recommendations"
-    exp["path_output_rec_weight"] = f"{results_dir}/weights"
-    exp["path_output_rec_performance"] = f"{results_dir}/performance"
-    exp["path_log_folder"] = f"{results_dir}/logs"
+    exp["path_output_rec_result"] = str(
+        results_dir / "recommendations"
+    )
 
+    exp["path_output_rec_weight"] = str(
+        results_dir / "weights"
+    )
+
+    exp["path_output_rec_performance"] = str(
+        results_dir / "performance"
+    )
+
+    exp["path_log_folder"] = str(
+        results_dir / "logs"
+    )
     # Generamos una configuración independiente para esta ejecución
     generated_config = experiment_dir / "elliot_config.yml"
 
