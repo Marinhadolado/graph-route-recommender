@@ -1,0 +1,74 @@
+category,category_id
+Arts and Entertainment,1
+"Arts and Entertainment, Business and Professional Services",2
+Business and Professional Services,3
+Community and Government,4
+"Community and Government, Arts and Entertainment",5
+"Community and Government, Arts and Entertainment, Business and Professional Services",6
+"Community and Government, Business and Professional Services",7
+"Community and Government, Dining and Drinking",8
+"Community and Government, Health and Medicine",9
+"Community and Government, Landmarks and Outdoors",10
+"Community and Government, Landmarks and Outdoors, Business and Professional Services",11
+"Community and Government, Travel and Transportation",12
+Dining and Drinking,13
+"Dining and Drinking, Arts and Entertainment",14
+"Dining and Drinking, Business and Professional Services",15
+"Dining and Drinking, Health and Medicine, Business and Professional Services",16
+"Dining and Drinking, Landmarks and Outdoors",17
+"Dining and Drinking, Landmarks and Outdoors, Arts and Entertainment",18
+"Dining and Drinking, Landmarks and Outdoors, Business and Professional Services",19
+"Dining and Drinking, Landmarks and Outdoors, Travel and Transportation, Business and Professional Services",20
+"Dining and Drinking, Travel and Transportation",21
+"Event, Dining and Drinking",22
+"Event, Landmarks and Outdoors",23
+Health and Medicine,24
+"Health and Medicine, Business and Professional Services",25
+"Health and Medicine, Landmarks and Outdoors",26
+Landmarks and Outdoors,27
+"Landmarks and Outdoors, Arts and Entertainment",28
+"Landmarks and Outdoors, Arts and Entertainment, Business and Professional Services",29
+"Landmarks and Outdoors, Business and Professional Services",30
+Retail,31
+"Retail, Arts and Entertainment",32
+"Retail, Business and Professional Services",33
+"Retail, Community and Government",34
+"Retail, Community and Government, Arts and Entertainment, Business and Professional Services",35
+"Retail, Community and Government, Business and Professional Services",36
+"Retail, Community and Government, Sports and Recreation",37
+"Retail, Dining and Drinking",38
+"Retail, Dining and Drinking, Arts and Entertainment",39
+"Retail, Dining and Drinking, Arts and Entertainment, Business and Professional Services",40
+"Retail, Dining and Drinking, Business and Professional Services",41
+"Retail, Dining and Drinking, Landmarks and Outdoors",42
+"Retail, Dining and Drinking, Travel and Transportation",43
+"Retail, Health and Medicine, Business and Professional Services",44
+"Retail, Landmarks and Outdoors",45
+"Retail, Landmarks and Outdoors, Arts and Entertainment",46
+"Retail, Landmarks and Outdoors, Business and Professional Services",47
+"Retail, Landmarks and Outdoors, Sports and Recreation, Business and Professional Services",48
+"Retail, Travel and Transportation",49
+"Retail, Travel and Transportation, Business and Professional Services",50
+"Retail, Travel and Transportation, Health and Medicine",51
+"Retail, Travel and Transportation, Landmarks and Outdoors",52
+Sports and Recreation,53
+"Sports and Recreation, Arts and Entertainment",54
+"Sports and Recreation, Arts and Entertainment, Business and Professional Services",55
+"Sports and Recreation, Business and Professional Services",56
+"Sports and Recreation, Community and Government, Landmarks and Outdoors, Arts and Entertainment",57
+"Sports and Recreation, Dining and Drinking, Arts and Entertainment",58
+"Sports and Recreation, Dining and Drinking, Landmarks and Outdoors, Arts and Entertainment",59
+"Sports and Recreation, Dining and Drinking, Travel and Transportation",60
+"Sports and Recreation, Health and Medicine",61
+"Sports and Recreation, Landmarks and Outdoors",62
+"Sports and Recreation, Landmarks and Outdoors, Arts and Entertainment",63
+"Sports and Recreation, Landmarks and Outdoors, Dining and Drinking, Retail, Arts and Entertainment",64
+"Sports and Recreation, Travel and Transportation",65
+"Sports and Recreation, Travel and Transportation, Landmarks and Outdoors",66
+Travel and Transportation,67
+"Travel and Transportation, Arts and Entertainment",68
+"Travel and Transportation, Business and Professional Services",69
+"Travel and Transportation, Health and Medicine",70
+"Travel and Transportation, Landmarks and Outdoors",71
+"Travel and Transportation, Landmarks and Outdoors, Arts and Entertainment",72
+"Travel and Transportation, Landmarks and Outdoors, Business and Professional Services",73

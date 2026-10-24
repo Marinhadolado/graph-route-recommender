@@ -122,7 +122,7 @@ def prepare(predictions_file, city, hops):
             ))
 
         save_tsv(category_rows, "categories.tsv", DATA_DIR)
-        
+    else:
         raise RuntimeError(
             "Solo existe uno de los archivos de categorías. "
             "Comprueba category_map.csv y categories.tsv."
