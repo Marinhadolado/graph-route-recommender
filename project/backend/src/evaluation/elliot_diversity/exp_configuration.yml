@@ -1,0 +1,31 @@
+experiment:
+  dataset: tokyo_next_poi
+
+  data_config:
+    strategy: fixed
+    train_path: data/train.tsv
+    test_path: data/test.tsv
+
+  top_k: 50
+
+  models:
+    ProxyRecommender:
+      path: data/recommendations.tsv
+
+  evaluation:
+    cutoffs: [5, 10]
+
+    simple_metrics:
+      - Gini
+      - SEntropy
+
+    complex_metrics:
+      - metric: SRecall
+        feature_data: data/categories.tsv
+
+    relevance_threshold: 1
+
+  path_output_rec_result: results/recommendations
+  path_output_rec_weight: results/weights
+  path_output_rec_performance: results/performance
+  path_log_folder: results/logs

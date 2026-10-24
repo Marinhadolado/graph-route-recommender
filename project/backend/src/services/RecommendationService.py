@@ -27,6 +27,8 @@ class RecommendationService:
         self.ranking_time = 0.0
         self.pure_ranking_time = 0.0
         self.n_ranking = 0
+
+        self._last_candidate_stats = None
     
     def set_weights(self, peso_markov, peso_nmf):
 
@@ -49,6 +51,12 @@ class RecommendationService:
             'tiempo_ranking_puro_total_s': self.pure_ranking_time,
             'tiempo_medio_puro_ms': avg_ms_puro,
         }
+
+    def get_last_candidate_stats(self):
+        if self._last_candidate_stats is None:
+            return None
+
+        return self._last_candidate_stats.copy()
 
     def _get_instance(self, algorithm_name, city_name):
         name = algorithm_name.lower()
@@ -78,10 +86,8 @@ class RecommendationService:
         self._instances[key] = instance
         return instance
 
-
-
-
     def getCandidates(self, current_poi_id, user_id, context_chain, algorithm_name, pois_to_avoid, graph, hops):
+        self._last_candidate_stats = None
 
         if not isinstance(graph, GTGraph):
             print(f"[SERVICE] ERROR: The provided graph is not an instance of GTGraph.")
@@ -97,7 +103,9 @@ class RecommendationService:
         if not isinstance(algorithm_instance, RecommendationAlgorithm):
             print(f"[SERVICE] ERROR: The class of the algorithm '{algorithm_name}' does not implement RecommendationAlgorithm.")
             return []
-        
+
+        algorithm_instance.reset_candidate_stats()
+
         if algorithm_name.lower() == 'markov_preferences':
             candidates = algorithm_instance.rankCandidates(current_poi_id, user_id, graph, pois_to_avoid, context_chain, hops)
         else:
@@ -110,4 +118,6 @@ class RecommendationService:
             self.pure_ranking_time += (total_time - graph.get_prefilter_time())
             self.n_ranking += 1
             
+        self._last_candidate_stats = algorithm_instance.get_candidate_stats()
+
         return candidates

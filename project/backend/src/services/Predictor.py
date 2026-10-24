@@ -109,34 +109,67 @@ class Predictor:
                 routes[trail_id].append(row)
 
         return routes
+
+    
+    @staticmethod
+    def _prediction_filename(city_name, algorithm, prefilter, active_context, hops, timestamp, hybrid_percentage=""):
+
+        if prefilter and active_context:
+                active = frozenset(active_context)
+        else:
+            active=frozenset()
+
+        context_time = frozenset({'time_segment'})
+        context_weather = frozenset({'conditions'})
+        context_both = context_time | context_weather
+
+        paper_labels = {
+            (context_both, 1): f'BASELINE_{city_name}',
+            (context_weather, 1): 'WCTX_T',
+            (context_time, 1): 'WCTX_C',
+            (context_both, 2): 'WCTX_L2',
+            (frozenset(), 1): 'WCTX_TC',
+            (frozenset(), 2): 'WCTX_TCL2',
+        }
+
+        label = paper_labels.get((active, hops)) if not hybrid_percentage else None
+        if algorithm.lower() in ('markov', 'random') and label is not None:
+            if label.startswith('BASELINE_'):
+                city_suffix = ''
+            else:
+                city_suffix = f'_{city_name}'
+            return f'{label}{city_suffix}_{algorithm}_{timestamp}.csv'
+
+    
+        context_order = {'time_segment': 0, 'conditions': 1}
+        ordered = sorted(active, key=lambda key: (context_order.get(key, 2), key))
+        if not ordered:
+            label = 'none' if prefilter else 'noprefilter'
+        else:
+            label = '_'.join(ordered)
+
+        if hybrid_percentage:
+            suffix = f'hybrid_{hybrid_percentage}_{label}'
+        else:
+            suffix = label
+        
+        if hops > 1:
+            suffix += f'_hops{hops}'
+        return f'{city_name}_{algorithm}_{suffix}_{timestamp}.csv'
             
     def generate_predictions(self, user_id, algorithm, hybrid_percentage="", prefilter=True, active_context=None, hops=1):
         print("[PREDICTOR] Generating predictions with algorithm:", algorithm)
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        # nombre del fichero
-        if prefilter:
-            if active_context:
-                label = "_".join(active_context)
-            else:
-                label = "none"
-
-            if hybrid_percentage:
-                full_suffix = f"{hybrid_percentage}_{label}"
-            else:
-                full_suffix = label
-
-            if hops > 1:
-                full_suffix += f"_hops{hops}"
-
-            filename = f"{self.city_name}_{algorithm}_{full_suffix}_{timestamp}.csv"
-
-        else:
-            filename = f"{self.city_name}_{algorithm}_noprefilter_{timestamp}.csv"
-
+        #nombre del archivo de salida
+        filename = self._prediction_filename(self.city_name, algorithm, prefilter, active_context, hops, timestamp, hybrid_percentage)
         output_file = os.path.join(self.output_dir, filename)
+        counts_dir = os.path.join(self.output_dir, 'candidate_counts')
+        os.makedirs(counts_dir, exist_ok=True)
+        counts_file = os.path.join(counts_dir, filename)
         print(f"[PREDICTOR] The result will be saved in: {filename}")
+        print(f"[PREDICTOR] Prediction data will be saved in: {counts_file}")
 
         graph = self.graph_repository.get_graph()
         self.recommender.reset_timers()
@@ -168,11 +201,12 @@ class Predictor:
         
         print(f"[PREDICTOR] Processing {len(routes)} routes for prediction...")
                 
-        with open(output_file, mode='w', newline='', encoding='utf-8') as f:
+        with open(output_file, mode='w', newline='', encoding='utf-8') as f, open(counts_file, mode='w', newline='', encoding='utf-8') as f_counts:
             writer = csv.writer(f)
+            counts_writer = csv.writer(f_counts)
 
             writer.writerow(["trail_id", "step", "candidate_rank", "poi_id", "prediction"])
-
+            counts_writer.writerow(['trail_id','step','current_poi_id','algorithm','hops','before_filter','after_filter','recommended','status'])
             n_con_candidatos = 0
             n_vacios = 0
 
@@ -189,6 +223,7 @@ class Predictor:
                     #obtenemos poi actual de ruta test
                     current_step = trail_steps[i]
                     poi_id= current_step['poi_id']
+                    step_num = i + 1 + hops 
 
                     if poi_id not in graph.id_map:
                         continue
@@ -211,6 +246,7 @@ class Predictor:
                         # Si a la ruta le faltaban datos exigidos, la consideramos vacía y no la evaluamos
                         if not cadena_valida:
                             n_vacios += 1
+                            counts_writer.writerow([trail_id, step_num, poi_id, algorithm, hops,'', '', 0, 'unknown_poi'])
                             continue
                     else:
                         # Si active_context está vacío (""), NO mandamos contexto al grafo. Filtro apagado.
@@ -227,6 +263,20 @@ class Predictor:
                         hops=hops
                     )
 
+                    # guardamos los datos de contar candidatos en el archivo creado para ello
+                    pool = self.recommender.get_last_candidate_stats()
+                    counts_writer.writerow([
+                        trail_id,
+                        step_num,
+                        poi_id,
+                        algorithm,
+                        hops,
+                        pool['before'] if pool is not None else '',
+                        pool['after'] if pool is not None else '',
+                        len(candidates),
+                        'ok' if candidates else 'no_candidates'
+                    ])
+
                     if not candidates:
                         n_vacios += 1
                         continue
@@ -236,7 +286,6 @@ class Predictor:
                     recommended_in_route.add(poi_id)
 
                     #añadir si afecta incluir horario, conditions... por -1 o no datos 
-                    step_num = i + 1 + hops
                     for rank, candidate in enumerate(candidates, start=1):
                         rank_etiqueta = f"poi_{step_num}_{rank}_desde_{i+1}"
                         writer.writerow([
@@ -288,7 +337,7 @@ if __name__ == "__main__":
             prefilter = False
         else:
             print(f"[PREDICTOR] ERROR: prefilter must be 'true' or 'false' (got '{sys.argv[2]}').")
-            sys.exit(1)
+            sys.exit(1) 
 
         random.seed(42)
         predictor = Predictor(city_name)

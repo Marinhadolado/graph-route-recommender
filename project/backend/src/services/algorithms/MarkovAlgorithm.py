@@ -1,18 +1,16 @@
 from services.RecommendationAlgorithm import RecommendationAlgorithm
 from graph.GTGraph import GTGraph
-import os
-import pickle
-from collections import Counter
 import random
-import numpy as np
 
 class MarkovAlgorithm(RecommendationAlgorithm):
 
     def rankCandidates(self, current_poi_id, user_id, graph: GTGraph, pois_to_avoid, context_chain, hops=1, k=50):
-        
+
         probs_no_context = graph.getNStepTransitionProbabilities(fsq_id=current_poi_id, pois_to_avoid=pois_to_avoid, context_chain=None, hops=hops)
         if not probs_no_context:
             return []
+
+        self.set_candidate_stats(len(probs_no_context), 0)  # Antes del filtrado, después será actualizado más adelante
         
         if context_chain:
             probs_with_context = graph.getNStepTransitionProbabilities(fsq_id=current_poi_id, pois_to_avoid=pois_to_avoid, context_chain=context_chain, hops=hops)
@@ -23,6 +21,8 @@ class MarkovAlgorithm(RecommendationAlgorithm):
         else:
             probs_with_context = probs_no_context
             alpha = 0.0
+
+        self.set_candidate_stats(len(probs_no_context), len(probs_with_context))  # Actualizamos después del filtrado
     
         porcentaje_vecinos = {}            
 
