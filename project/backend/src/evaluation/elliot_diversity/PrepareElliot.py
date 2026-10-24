@@ -68,6 +68,8 @@ def prepare(predictions_file, city, hops):
 
         print("[ELLIOT] poi_map.csv generado")
 
+    poi_ids = list(poi_map.keys())
+
     # Se mapean las categorías se guardan en categories.tsv
     category_map_file = DATA_DIR / "category_map.csv"
     categories_file = DATA_DIR / "categories.tsv"
@@ -105,12 +107,22 @@ def prepare(predictions_file, city, hops):
             columns=["category", "category_id"]
         ).to_csv(DATA_DIR / "category_map.csv", index=False)
 
+        category_rows = []
+
         for poi, category in poi_categories.items():
+
             if category not in category_map:
-                raise ValueError(f"Categoría '{category}' de POI '{poi}' no encontrada en el mapa de categorías.")
-            
-            save_tsv([(poi_map[poi], category_map[category])],"categories.tsv", DATA_DIR)
-    else:
+                raise ValueError(
+                    f"Categoría '{category}' no encontrada."
+                )
+
+            category_rows.append((
+                poi_map[poi],
+                category_map[category]
+            ))
+
+        save_tsv(category_rows, "categories.tsv", DATA_DIR)
+        
         raise RuntimeError(
             "Solo existe uno de los archivos de categorías. "
             "Comprueba category_map.csv y categories.tsv."
@@ -177,7 +189,6 @@ def prepare(predictions_file, city, hops):
     # Usuario auxiliar para incluir el catálogo en Elliot
     auxiliary_user = len(query_df) + 1
 
-    train_rows = []
     for item_id in poi_map.values():
         train_rows.append((auxiliary_user, item_id, 1))
 
