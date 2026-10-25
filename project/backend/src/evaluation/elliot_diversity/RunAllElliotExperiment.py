@@ -1,19 +1,50 @@
 import subprocess
 import sys
+import re
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
+SRC_DIR = BASE_DIR.parents[1]
+PREDICTIONS_DIR = SRC_DIR.parent / "predictions"
 
-CONFIGURATIONS = [
-    "BASELINE_Tokyo",
-    "WCTX_T",
-    "WCTX_C",
-    "WCTX_L2",
-    "WCTX_TC",
-    "WCTX_TCL2"
-]
+CONFIGURATIONS = {
+    "BASELINE_Tokyo": 1,
+    "WCTX_T": 1,
+    "WCTX_C": 1,
+    "WCTX_L2": 2,
+    "WCTX_TC": 1,
+    "WCTX_TCL2": 2
+}
 
 ALGORITHMS = ["markov", "random"]
+
+
+def get_latest_prediction(experiment_name):
+    """Busca el CSV de predicciones más reciente para el experimento."""
+
+    pattern = re.compile(
+        rf"^{re.escape(experiment_name)}_\d{{8}}_\d{{6}}(?:_\d+)?\.csv$"
+    )
+
+    files = [
+        file for file in PREDICTIONS_DIR.glob("*.csv")
+        if pattern.fullmatch(file.name)
+    ]
+
+    if not files:
+        return None
+
+    return max(files, key=lambda file: file.stat().st_mtime)
+
+
+def run_command(command):
+    """Ejecuta un módulo Python desde backend/src."""
+
+    subprocess.run(
+        [sys.executable, "-m", *command],
+        cwd=SRC_DIR,
+        check=True
+    )
 
 
 def main():
@@ -26,70 +57,78 @@ def main():
 
     for algorithm in ALGORITHMS:
 
-        for config in CONFIGURATIONS:
+        for config, hops in CONFIGURATIONS.items():
 
             if config == "BASELINE_Tokyo":
                 experiment_name = f"{config}_{algorithm}"
             else:
                 experiment_name = f"{config}_Tokyo_{algorithm}"
 
-            experiment_dir = BASE_DIR / "data" / experiment_name
-
             print(f"\n{'=' * 60}")
             print(f"[ELLIOT] Experiment: {experiment_name}")
             print(f"{'=' * 60}", flush=True)
 
-            # Comprobar que los TSV existen
-            required_files = [
-                "train.tsv",
-                "test.tsv",
-                "recommendations.tsv"
-            ]
+            # 1. Buscar el CSV correspondiente del Predictor
+            predictions_file = get_latest_prediction(experiment_name)
 
-            if not experiment_dir.is_dir() or any(
-                not (experiment_dir / file).is_file()
-                for file in required_files
-            ):
+            if predictions_file is None:
                 print(
-                    f"[SKIPPED] Faltan archivos TSV para {experiment_name}",
-                    flush=True
+                    f"[SKIPPED] No se encontraron predicciones para "
+                    f"{experiment_name}"
                 )
                 skipped.append(experiment_name)
                 continue
 
-            command = [
-                sys.executable,
-                "-m",
-                "evaluation.elliot_diversity.ElliotExperiment",
-                experiment_name
-            ]
+            print(f"[ELLIOT] Predictions: {predictions_file.name}")
+            print(f"[ELLIOT] Hops: {hops}", flush=True)
 
             try:
-                subprocess.run(
-                    command,
-                    check=True
-                )
+                # 2. Preparar los TSV
+                print("\n[ELLIOT] Preparing TSV files...", flush=True)
+
+                run_command([
+                    "evaluation.elliot_diversity.PrepareElliot",
+                    str(predictions_file),
+                    "Tokyo",
+                    str(hops)
+                ])
+
+                # 3. Comprobar que existen los TSV
+                experiment_dir = BASE_DIR / "data" / experiment_name
+
+                for filename in (
+                    "train.tsv",
+                    "test.tsv",
+                    "recommendations.tsv"
+                ):
+                    if not (experiment_dir / filename).is_file():
+                        raise FileNotFoundError(
+                            f"Falta {filename} en {experiment_dir}"
+                        )
+
+                # 4. Ejecutar Elliot
+                print("\n[ELLIOT] Running evaluation...", flush=True)
+
+                run_command([
+                    "evaluation.elliot_diversity.ElliotExperiment",
+                    experiment_name
+                ])
 
                 completed.append(experiment_name)
 
-                print(
-                    f"[OK] {experiment_name}",
-                    flush=True
-                )
+                print(f"\n[OK] {experiment_name}", flush=True)
 
-            except subprocess.CalledProcessError:
+            except (subprocess.CalledProcessError, FileNotFoundError) as e:
+
                 failed.append(experiment_name)
 
-                print(
-                    f"[ERROR] {experiment_name}",
-                    flush=True
-                )
+                print(f"\n[ERROR] {experiment_name}: {e}", flush=True)
 
     print(f"\n{'=' * 60}")
     print("ELLIOT EXPERIMENT SUMMARY")
     print(f"{'=' * 60}")
 
-    print(f"Total configurations: {total}")
+    print(f"Total: {total}")
     print(f"Completed: {len(completed)}")
     print(f"Failed: {len(failed)}")
     print(f"Skipped: {len(skipped)}")
