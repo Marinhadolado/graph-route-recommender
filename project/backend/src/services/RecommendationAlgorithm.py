@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class RecommendationAlgorithm(ABC):
     def __init__(self):
-        self.candidate_stats = None
+        self._candidate_stats = None
 
     #variable para contar candidatos antes y después del filtrado
     def set_candidate_stats(self, before, after):

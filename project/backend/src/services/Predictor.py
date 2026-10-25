@@ -215,7 +215,6 @@ class Predictor:
                 if not trail_steps:
                     continue
 
-                recommended_in_route = set()
 
                 # paso a paso de la ruta y en cada paso recomendar el paso+hops poi siguiente
                 for i in range(len(trail_steps)-hops):
@@ -246,12 +245,21 @@ class Predictor:
                         # Si a la ruta le faltaban datos exigidos, la consideramos vacía y no la evaluamos
                         if not cadena_valida:
                             n_vacios += 1
-                            counts_writer.writerow([trail_id, step_num, poi_id, algorithm, hops,'', '', 0, 'unknown_poi'])
+                            counts_writer.writerow([
+                                trail_id, step_num, poi_id, algorithm, hops,
+                                '', '', 0, 'missing_context'
+                            ])
                             continue
                     else:
                         # Si active_context está vacío (""), NO mandamos contexto al grafo. Filtro apagado.
                         context_chain = None
-                    pois_to_avoid= set(history).union(recommended_in_route)
+                    # POIs anteriores de la ruta real.
+                    previous_pois = {
+                        step["poi_id"]
+                        for step in trail_steps[:i]
+                    }
+
+                    pois_to_avoid = set(history).union(previous_pois)
 
                     candidates = self.recommender.getCandidates(
                         current_poi_id=poi_id,
@@ -282,8 +290,6 @@ class Predictor:
                         continue
 
                     n_con_candidatos += 1
-
-                    recommended_in_route.add(poi_id)
 
                     #añadir si afecta incluir horario, conditions... por -1 o no datos 
                     for rank, candidate in enumerate(candidates, start=1):

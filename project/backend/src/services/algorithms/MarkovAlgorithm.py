@@ -8,6 +8,7 @@ class MarkovAlgorithm(RecommendationAlgorithm):
 
         probs_no_context = graph.getNStepTransitionProbabilities(fsq_id=current_poi_id, pois_to_avoid=pois_to_avoid, context_chain=None, hops=hops)
         if not probs_no_context:
+            self.set_candidate_stats(0, 0)
             return []
 
         self.set_candidate_stats(len(probs_no_context), 0)  # Antes del filtrado, después será actualizado más adelante
