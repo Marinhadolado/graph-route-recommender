@@ -121,17 +121,16 @@ class Evaluator:
 
         for trail_id, pois in routes.items():
 
-            for i in range(len(pois) - hops):
+            # Siempre predecimos el siguiente POI
+            for i in range(len(pois) - 1):
 
-                target_index = i + hops
+                target_index = i + 1
 
-                step_number = target_index + 1
+                step_number = i + 2
 
                 target_poi = pois[target_index]
 
-                query_id = (
-                    f"{trail_id}_{step_number}"
-                )
+                query_id = f"{trail_id}_{step_number}"
 
                 qrels_dict[query_id] = {
                     target_poi: 1

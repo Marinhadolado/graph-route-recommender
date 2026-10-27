@@ -217,41 +217,39 @@ class Predictor:
 
 
                 # paso a paso de la ruta y en cada paso recomendar el paso+hops poi siguiente
-                for i in range(len(trail_steps)-hops):
+                for i in range(len(trail_steps) - 1):
 
-                    #obtenemos poi actual de ruta test
                     current_step = trail_steps[i]
-                    poi_id= current_step['poi_id']
-                    step_num = i + 1 + hops 
+                    poi_id = current_step['poi_id']
+
+                    step_num = i + 2
 
                     if poi_id not in graph.id_map:
                         continue
 
                     # obtenemos los datos de filtrado de cada arista hasta el poi objetivo
                     # Solo aplicamos el filtro si hay algún contexto activo exigido
-                    if prefilter and active_context: 
-                        context_chain = []
-                        cadena_valida = True
-                        for level in range(1, hops + 1):
-                            ctx = self._build_step_context(trail_steps[i + level], active_context=active_context)
-                            
-                            # Si exigimos un contexto y el test no lo tiene, invalidamos este camino
-                            if ctx is None or len(ctx) != len(active_context):
-                                cadena_valida = False
-                                break
-                                    
-                            context_chain.append(ctx)
-                            
-                        # Si a la ruta le faltaban datos exigidos, la consideramos vacía y no la evaluamos
-                        if not cadena_valida:
+                    if prefilter and active_context:
+
+                        next_step = trail_steps[i + 1]
+
+                        ctx = self._build_step_context(
+                            next_step,
+                            active_context=active_context
+                        )
+
+                        if ctx is None or len(ctx) != len(active_context):
+
                             n_vacios += 1
-                            counts_writer.writerow([
-                                trail_id, step_num, poi_id, algorithm, hops,
-                                '', '', 0, 'missing_context'
-                            ])
+
+                            counts_writer.writerow([trail_id,step_num,poi_id,algorithm,hops,'','',0,'missing_context'])
+
                             continue
+
+                        # Misma referencia contextual para la exploración.
+                        context_chain = [ctx] * hops
                     else:
-                        # Si active_context está vacío (""), NO mandamos contexto al grafo. Filtro apagado.
+                        # Si active_context está vacío (""), NO mandamos contexto al grafo
                         context_chain = None
                     # POIs anteriores de la ruta real.
                     previous_pois = {

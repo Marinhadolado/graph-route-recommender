@@ -250,15 +250,19 @@ class GTGraph:
                     
                     path_prob = prob_acumulada * p
 
-                    if level == hops:
-                        # Si es el salto final, lo guardamos como candidato.
-                        final_probs[dest_id] = final_probs.get(dest_id, 0.0) + path_prob
+                    # Peso asignado a cada longitud de camino
+                    level_weight = 1.0 / hops
 
-                    else:
-                        # Si es un salto intermedio, NO lo guardamos. 
-                        # Solo le pasamos la probabilidad a la mochila para el siguiente salto.
-                        #en la primera iteracion de nivel 1, path_visited = {A} y se añade (B, p(B|A), {A,B}) y (C, p(C|A), {A,C})
-                        next_paths.append((dest_id, path_prob, path_visited | {dest_id}))
+                    # Acumulamos candidatos alcanzados en cualquier nivel
+                    final_probs[dest_id] = (
+                        final_probs.get(dest_id, 0.0)
+                        + level_weight * path_prob
+                    )
+
+                    # Si quedan niveles, seguimos explorando.
+                    if level < hops:
+
+                        next_paths.append((dest_id,path_prob,path_visited | {dest_id}))
 
             #active_paths = [('B',0.25,{A,B}), ('C',0.5,{A,C}), ('D',0.25,{A,D})]
             active_paths = next_paths
@@ -271,6 +275,14 @@ class GTGraph:
                 if final_probs[poi_id] > 1.000001:
                     raise ValueError(f"[GTGraph] Probabilidad inválida para {poi_id}: {final_probs[poi_id]:.4f} > 1")
                 final_probs[poi_id] = 1.0
+
+        if hops > 1:
+            total_prob = sum(final_probs.values())
+
+            if total_prob > 0:
+
+                for poi_id, prob in final_probs.items():
+                    final_probs[poi_id] = prob / total_prob
 
         return final_probs
 
@@ -350,27 +362,27 @@ class GTGraph:
         visited = set(pois_avoid) | {fsq_id}
         frontier = {fsq_id}
 
-        # recorremos cada nivel de profundidad de 1 a hops.
-        # el contexto (time_segment/conditions) SOLO se exige en el último salto,
-        # el que aterriza en el candidato final; los saltos intermedios se expanden libres.
+        all_candidates = set()
         for level in range(1, hops + 1):
-            level_context = context_chain[level - 1] if context_chain else None
+            if context_chain:
+                level_context = context_chain[level - 1] 
+            else:
+                level_context = None
 
             next_frontier = set()
             #vamos nodo a nodo de la capa de profundidad en la que estemos y obtenemos los vecinos directos
             for node_id in frontier:
                 vecinos = self._getDirectFilteredNeighbors(node_id, visited, level_context)
-                next_frontier |= set(vecinos)
-            #actualizamos los nodos vistos en esta capa para si hay otra iteracción
-            visited |= next_frontier
-            # guardamos ya los nuevos vecinos del fsqid(poi origen) con distancia hop
+                next_frontier.update(vecinos)
+
+            all_candidates.update(next_frontier)
+            visited.update(next_frontier)
             frontier = next_frontier
             #si no hay profundidad suficiente no existen candidatos y salimos
             if not frontier:
                 break
 
-        #devolvemos los candidatos obtenidos en el bucle sin los nodos a evitar que ya salieron en anteriores capas
-        return list(frontier)
+        return list(all_candidates)
 
     
     def getCityName(self):
