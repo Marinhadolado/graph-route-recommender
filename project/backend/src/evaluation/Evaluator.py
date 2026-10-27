@@ -24,7 +24,7 @@ CONFIGURATIONS = {
         "label": "WCTX_TC",
         "hops": 1,
     },
-    "MaxAutonomy": {
+    "FullRelaxation": {
         "label": "WCTX_TCL2",
         "hops": 2,
     },
