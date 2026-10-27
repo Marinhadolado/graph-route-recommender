@@ -159,13 +159,19 @@ def prepare(predictions_file, city, hops):
     queries = []
 
     #vamos tras cada ruta y generamos las consultas para cada paso, teniendo en cuenta los hops
+    # Generamos las consultas para predecir siempre
+# el siguiente POI real, independientemente de hops.
+
     for trail_id, route in routes.items():
 
-        for i in range(len(route) - hops):
+        for i in range(len(route) - 1):
 
             origin = route[i]
-            target = route[i + hops]
-            step = i + 1 + hops
+
+            # El objetivo siempre es el siguiente POI
+            target = route[i + 1]
+
+            step = i + 2
 
             if origin not in poi_map or target not in poi_map:
                 raise ValueError(
@@ -182,7 +188,6 @@ def prepare(predictions_file, city, hops):
                 "current_item_id": poi_map[origin],
                 "target_item_id": poi_map[target]
             })
-
     query_df = pd.DataFrame(queries)
 
     if query_df.empty:

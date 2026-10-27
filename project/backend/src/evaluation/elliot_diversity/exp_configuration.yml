@@ -17,11 +17,6 @@ experiment:
 
     simple_metrics:
       - Gini
-      - SEntropy
-
-    complex_metrics:
-      - metric: SRecall
-        feature_data: data/categories.tsv
 
     relevance_threshold: 1
 
