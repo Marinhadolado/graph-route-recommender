@@ -46,11 +46,6 @@ def main(experiment_name):
         (experiment_dir / "recommendations.tsv").resolve()
     )
 
-    # Ruta absoluta del archivo común de categorías
-    exp["evaluation"]["complex_metrics"][0]["feature_data"] = str(
-        (BASE_DIR / "data" / "categories.tsv").resolve()
-    )
-
     # Cada experimento guarda sus resultados por separado
     results_dir = BASE_DIR / "results" / experiment_name
 
